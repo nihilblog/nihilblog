@@ -61,6 +61,7 @@ export const Message = ({ children, color, top = 40, bottom = 40, }) => {
       letter-spacing: -1px;
       text-indent: 10px;
       color: inherit;
+      line-height: 1.8;
 
       & > strong {
         color: ${colorType.color[1]};

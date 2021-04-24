@@ -33,8 +33,12 @@ notice: false
 
 이것은 <Q>인용 태그이다. 인라인 인용이다.</Q>
 
-<Char who='장만월(호텔 델루나)' file='장만월(부드러운)'>
-  그러게, <Bold>슬프게.</Bold> 난 좀.. 슬퍼졌어. 아까 보던 바다보다, 지금 보는 바다가 더.. <Bold>예뻐져서.</Bold>
+<Char who='구찬성(호텔 델루나)' file='구찬성' bottom='10'>
+  멀리 안가고 여기 있는 것도 좋네요. 쭈꾸미는 없지만.
+</Char>
+
+<Char who='장만월(호텔 델루나)' file='장만월(부드러운)' top='10'>
+  괜찮아. <Bold>네가 있으니까.</Bold>
 </Char>
 
 위의 것은 인용을 조금 응용해서 아이콘을 넣은 버전이다.
@@ -97,8 +101,8 @@ notice: false
 ```html
 <!-- This is comment. -->
 <div>
-  <p>Hello World!!</p>
-  <p>Hello World!!</p>
+  <p id='id'>Hello World!!</p>
+  <p class='class'>Hello World!!</p>
   <p>Hello World!!</p>
   <p>Hello World!!</p>
   <p>Hello World!!</p>
@@ -111,6 +115,76 @@ notice: false
 
 ```javascript
 console.log('Hello World!!');
+
+const name = 'nihil';
+let age = 29;
+const gender = 'male';
+
+if (true) {
+  age = 30;
+} else {
+  age = 28;
+}
+
+const MyComponent = () => {
+  return (
+    <>
+      <div>Hello World!!</div>
+    </>
+  );
+};
+
+false;
+true;
+
+const arr = [
+  '', 0, null, undefined, false,
+];
+
+const obj = {
+  name: 'nihil',
+  age: 29,
+};
+
+obj.name;
+
+class names {
+  constructor(name) {
+    this.name = name;
+  }
+  Hi(name) {
+    return `Hi ${name}!`;
+  };
+}
+
+function name(params) {
+  return params;
+}
+
+for (let i = 0; i < name.length; i++) {
+  name[i];
+  name['nihil'];
+}
+```
+
+```css
+* {
+  padding: 0px;
+  margin: 0px;
+}
+
+body {
+  font-size: 30pt;
+}
+
+.name {
+  letter-spacing: -1px;
+}
+
+body:nth-child() {
+  display: block;
+  transform: translateY(-50%);
+}
 ```
 
 테이블은 그냥 컴포넌트 만드는 게 낫다.
@@ -148,15 +222,16 @@ console.log('Hello World!!');
   클릭하면 이 문구가 나타나요. <A href='/2021/2021-04-13-02-the-sixth-post' type='blog'>여섯번째 포스트</A>
 </Details>
 
+<!-- 
 <Youtube src='https://www.youtube.com/watch?v=fkiTi7Fnfls'>
   아이유 - 라일락 무대 영상
 </Youtube>
 
 <Youtube src='https://www.youtube.com/watch?v=bwLNlAIDZfg'>
   아이유 - 코인 무대 영상
-</Youtube>
+</Youtube> -->
 
-<NoteBottom number='1' link='1' top='40' first={true}>각주 4형제 맏형.</NoteBottom>
+<NoteBottom number='1' link='1' top='40' first='true'>각주 4형제 맏형.</NoteBottom>
 <NoteBottom number='2' link='2'>각주 4형제 둘째.</NoteBottom>
 <NoteBottom number='3' link='3'>각주 4형제 사실상 실세.</NoteBottom>
 <NoteBottom number='4' link='4' bottom='40'>각주 4형제 막내. 찐따.</NoteBottom>

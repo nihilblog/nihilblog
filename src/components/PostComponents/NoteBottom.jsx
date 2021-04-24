@@ -2,7 +2,7 @@ import React from 'react';
 import { css, Global } from '@emotion/react';
 import size from '@/data/size';
 
-export const NoteBottom = ({ children, link, number, top = 0, bottom = 0, first = false, }) => {
+export const NoteBottom = ({ children, link, number, top = 0, bottom = 0, first = 'false', }) => {
   const anotherStyle = `
     border-top: 3px dotted #888888;
     padding-top: ${top}px;
@@ -13,7 +13,7 @@ export const NoteBottom = ({ children, link, number, top = 0, bottom = 0, first 
     color: #333333;
     letter-spacing: -1px;
     font-weight: 500;
-    ${first && anotherStyle}
+    ${first === 'true' && anotherStyle}
 
 
     & > #note${number} {

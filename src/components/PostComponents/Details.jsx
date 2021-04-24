@@ -65,6 +65,7 @@ export const Details = ({ children, close = '펼치기', open = '접기', top = 
 
         & > p {
           transition: all 0.3s;
+          line-height: 1.8;
         }
       }
     }

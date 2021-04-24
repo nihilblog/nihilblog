@@ -19,6 +19,19 @@ const BlogLayout = ({ children, pageName, pageDescription, pageKeywords, pageURL
   const globalStyle = css`
     @import url(https://fonts.googleapis.com/earlyaccess/notosanskr.css);
 
+    @font-face {
+      font-family: 'CascadiaCode';
+      src: url('https://nihilblog.github.io/fonts/CascadiaCode.eot');
+      src:
+        url('https://nihilblog.github.io/fonts/CascadiaCode.eot?#iefix') format('embedded-opentype'),
+        url('https://nihilblog.github.io/fonts/CascadiaCode.woff2') format('woff2'),
+        url('https://nihilblog.github.io/fonts/CascadiaCode.svg#CascadiaCode') format('svg'),
+        url('https://nihilblog.github.io/fonts/CascadiaCode.ttf') format('truetype'),
+        url('https://nihilblog.github.io/fonts/CascadiaCode.woff') format('woff');
+      font-weight: normal;
+      font-style: normal;
+    }
+
     * {
       padding: 0px;
       margin: 0px;
@@ -34,6 +47,16 @@ const BlogLayout = ({ children, pageName, pageDescription, pageKeywords, pageURL
 
     a {text-decoration: none;}
     ul {list-style: none;}
+
+    #disqus_thread {
+      padding: 20px;
+      border-radius: 10px;
+      background-color: #333333;
+
+      & a {
+        color: #ffffff;
+      }
+    }
 
     @media (min-width: 1px) and (max-width: 600px) {
       main {max-width: 100%;}

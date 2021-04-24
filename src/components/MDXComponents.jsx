@@ -23,6 +23,7 @@ import { Strike } from './PostComponents/Strike';
 import { Strong } from './PostComponents/Strong';
 import { Ul } from './PostComponents/Ul';
 import { Youtube } from './PostComponents/Youtube';
+import { Prism } from './PostComponents/Prism';
 
 const MDXComponents = {
   h1: props => <H type='1' {...props} />,
@@ -38,6 +39,7 @@ const MDXComponents = {
   em: props => <Em {...props} />,
   ol: props => <Ol {...props} />,
   ul: props => <Ul {...props} />,
+  pre: props => <Prism {...props} />,
   H,
   Code,
   A,

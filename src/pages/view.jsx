@@ -1,9 +1,7 @@
 import React from 'react';
-import path from 'path';
-import fs from 'fs';
-import matter from 'gray-matter';
 import { css, Global } from '@emotion/react';
 import Link from 'next/link';
+import { getAllYearPosts } from '@/lib/mdx';
 
 const BlogPostManagerPage = ({ posts, }) => {
   const style = css`
@@ -99,53 +97,10 @@ const BlogPostManagerPage = ({ posts, }) => {
 };
 
 export const getStaticProps = async () => {
-  const postPath = path.join(process.cwd(), 'posts', 'post');
-  const noticePath = path.join(process.cwd(), 'posts', 'notice');
+  const posts = getAllYearPosts('post');
+  const notices = getAllYearPosts('notice');
 
-  const getPostPaths = fs.readdirSync(postPath).filter((path) => /\.mdx?$/.test(path));
-  const getNoticePaths = fs.readdirSync(noticePath).filter((path) => /\.mdx?$/.test(path));
-
-  const AllPost = getPostPaths.map((filePath, index) => {
-    const source = fs.readFileSync(path.join(postPath, filePath));
-    const { data, } = matter(source);
-
-    const createdAt = data.createdAt.getTime();
-    const updatedAt = data.updatedAt.getTime();
-
-    const frontMatter = {
-      ...data,
-      createdAt,
-      updatedAt,
-    };
-
-    return {
-      frontMatter,
-      filePath,
-      id: index + 1,
-    };
-  });
-
-  const AllNotice = getNoticePaths.map((filePath, index) => {
-    const source = fs.readFileSync(path.join(noticePath, filePath));
-    const { data, } = matter(source);
-
-    const createdAt = data.createdAt.getTime();
-    const updatedAt = data.updatedAt.getTime();
-
-    const frontMatter = {
-      ...data,
-      createdAt,
-      updatedAt,
-    };
-
-    return {
-      frontMatter,
-      filePath,
-      id: index + 1,
-    };
-  });
-
-  const AllPosts = AllPost.concat(AllNotice);
+  const AllPosts = posts.concat(notices);
   const SortedAllPosts = AllPosts.sort((a, b) => {
     const beforeDate = a.frontMatter.createdAt;
     const afterDate = b.frontMatter.createdAt;
