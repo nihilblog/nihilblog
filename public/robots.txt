@@ -1,4 +1,3 @@
 User-agent: *
-Allow: /blog
-
-Disallow: /blog/view
+Allow: /
+Disallow:

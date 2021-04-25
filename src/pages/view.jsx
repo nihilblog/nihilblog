@@ -2,6 +2,7 @@ import React from 'react';
 import { css, Global } from '@emotion/react';
 import Link from 'next/link';
 import { getAllYearPosts } from '@/lib/mdx';
+import Head from 'next/head';
 
 const BlogPostManagerPage = ({ posts, }) => {
   const style = css`
@@ -59,6 +60,10 @@ const BlogPostManagerPage = ({ posts, }) => {
   return (
     <>
       <Global styles={globalStyle} />
+      <Head>
+        <title>포스트 관리</title>
+        <meta name='robots' content='noindex, nofollow' />
+      </Head>
       <div css={style}>
         <Link href='/blog'><a>홈</a></Link>
         <h1>총 포스트 {posts.length}건</h1>
