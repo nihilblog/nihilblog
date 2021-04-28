@@ -28,7 +28,7 @@ export const Image = ({ src, alt, top = 40, bottom = 40, }) => {
       &:before {
         content: '\\f065';
         font-weight: 900;
-        font-family: 'Font Awesome 5 Free';
+         font-family: 'Font Awesome 5 Free', sans-serif;
         margin-right: 5px;
       }
 
@@ -40,7 +40,7 @@ export const Image = ({ src, alt, top = 40, bottom = 40, }) => {
     }
 
     & > img {
-      margin: 0px auto;
+      margin: 0 auto;
       max-width: 100%;
       border-radius: 10px;
       display: block;
@@ -63,7 +63,7 @@ export const Image = ({ src, alt, top = 40, bottom = 40, }) => {
       &:before {
         content: '\\f03e';
         font-weight: 900;
-        font-family: 'Font Awesome 5 Free';
+         font-family: 'Font Awesome 5 Free', sans-serif;
         margin-right: 5px;
       }
     }

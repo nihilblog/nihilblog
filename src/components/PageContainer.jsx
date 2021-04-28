@@ -3,7 +3,7 @@ import { css } from '@emotion/react';
 
 const PageContainer = ({ children, }) => {
   const PageContainerStyle = css`
-    padding: 0px 20px;
+    padding: 0 20px;
   `;
 
   return (

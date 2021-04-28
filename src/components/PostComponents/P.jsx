@@ -6,7 +6,7 @@ export const P = ({ children, top = 20, bottom = 20, align = 'justify', }) => {
   const style = css`
     text-align: ${align};
     line-height: 1.8;
-    margin: ${top}px 0px ${bottom}px 0px;
+    margin: ${top}px 0 ${bottom}px 0;
     text-indent: 10px;
     letter-spacing: -1px;
     color: #333333;

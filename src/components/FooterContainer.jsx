@@ -23,7 +23,7 @@ const FooterContainer = () => {
         border: 2px solid #ffffff;
         border-radius: 20px;
         padding: 5px 10px;
-        box-shadow: 0px 0px 10px -4px #ffffff;
+        box-shadow: 0 0 10px -4px #ffffff;
         margin: 2px;
 
         &:hover {
@@ -35,19 +35,19 @@ const FooterContainer = () => {
         &:nth-of-type(1):before {
           content: '\\f0e0';
           font-weight: 900;
-          font-family: 'Font Awesome 5 Free';
+          font-family: 'Font Awesome 5 Free', sans-serif;
         }
 
         &:nth-of-type(2):before {
           content: '\\f16d';
           font-weight: 500;
-          font-family: 'Font Awesome 5 Brands';
+          font-family: 'Font Awesome 5 Brands', sans-serif;
         }
 
         &:nth-of-type(3):before {
           content: '\\f09b';
           font-weight: 500;
-          font-family: 'Font Awesome 5 Brands';
+          font-family: 'Font Awesome 5 Brands', sans-serif;
         }
       }
     }
@@ -61,7 +61,7 @@ const FooterContainer = () => {
         content: '\\f1f9';
         margin-right: 5px;
         font-weight: 500;
-        font-family: 'Font Awesome 5 Free';
+        font-family: 'Font Awesome 5 Free', sans-serif;
       }
     }
 
@@ -82,9 +82,9 @@ const FooterContainer = () => {
     <>
       <footer css={footerContainerStyle}>
         <p id='footer-link'>
-          <a href='mailto:nihil_ncunia@naver.com' target='_blank' rel='noreferrer noopener'></a>
-          <a href='https://www.instagram.com/nihil_illust/' target='_blank' rel='noreferrer noopener'></a>
-          <a href='https://github.com/NIHILncunia' target='_blank' rel='noreferrer noopener'></a>
+          <a href='mailto:nihil_ncunia@naver.com' target='_blank' rel='noreferrer noopener'/>
+          <a href='https://www.instagram.com/nihil_illust/' target='_blank' rel='noreferrer noopener' />
+          <a href='https://github.com/NIHILncunia' target='_blank' rel='noreferrer noopener' />
         </p>
         <p id='footer-copyright'>{BlogConfig.year}. {BlogConfig.author}.</p>
       </footer>

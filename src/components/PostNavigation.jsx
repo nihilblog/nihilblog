@@ -17,7 +17,7 @@ const PostNavigation = ({ prev, next, type = '', }) => {
     background-color: #ffffff;
     border-radius: 10px;
     width: 100%;
-    box-shadow: 0px 0px 10px -4px #333333;
+    box-shadow: 0 0 10px -4px #333333;
     box-sizing: border-box;
     letter-spacing: -1px;
     font-weight: 500;
@@ -53,13 +53,13 @@ const PostNavigation = ({ prev, next, type = '', }) => {
             color: #ffffff;
             background-color: #555555;
             border-radius: 10px;
-            padding: 0px 10px;
+            padding: 0 10px;
             margin-right: 10px;
             transition: all 0.3s;
 
             &:before {
               content: '\\f359';
-              font-family: 'Font Awesome 5 Free';
+              font-family: 'Font Awesome 5 Free', sans-serif;
               font-weight: 900;
               margin-right: 5px;
             }
@@ -81,13 +81,13 @@ const PostNavigation = ({ prev, next, type = '', }) => {
             color: #ffffffb0;
             background-color: #55555550;
             border-radius: 10px;
-            padding: 0px 10px;
+            padding: 0 10px;
             margin-right: 10px;
             transition: all 0.3s;
 
             &:before {
               content: '\\f359';
-              font-family: 'Font Awesome 5 Free';
+              font-family: 'Font Awesome 5 Free', sans-serif;
               font-weight: 900;
               margin-right: 5px;
             }
@@ -123,13 +123,13 @@ const PostNavigation = ({ prev, next, type = '', }) => {
             color: #ffffff;
             background-color: #555555;
             border-radius: 10px;
-            padding: 0px 10px;
+            padding: 0 10px;
             margin-left: 10px;
             transition: all 0.3s;
 
             &:after {
               content: '\\f35a';
-              font-family: 'Font Awesome 5 Free';
+              font-family: 'Font Awesome 5 Free', sans-serif;
               font-weight: 900;
               margin-left: 5px;
             }
@@ -151,13 +151,13 @@ const PostNavigation = ({ prev, next, type = '', }) => {
             color: #ffffffb0;
             background-color: #55555550;
             border-radius: 10px;
-            padding: 0px 10px;
+            padding: 0 10px;
             margin-left: 10px;
             transition: all 0.3s;
 
             &:after {
               content: '\\f35a';
-              font-family: 'Font Awesome 5 Free';
+              font-family: 'Font Awesome 5 Free', sans-serif;
               font-weight: 900;
               margin-left: 5px;
             }

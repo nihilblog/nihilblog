@@ -1,10 +1,7 @@
 import React from 'react';
-// import { css } from '@emotion/react';
-import hydrate from 'next-mdx-remote/hydrate';
 import getDate from '@/utils/getDate';
 import MDXComponents from '@/components/MDXComponents';
 import { getAllYearPosts, getPostBySlug } from '@/lib/mdx';
-import Head from 'next/head';
 import Box from '@/components/LayoutComponensts/Box';
 import BoxHeader from '@/components/LayoutComponensts/BoxHeader';
 import PostNavigation from '@/components/PostNavigation';
@@ -17,20 +14,22 @@ import BlogMessage from '@/components/ContentComponents/BlogMessage';
 import BlogSeriesList from '@/components/ContentComponents/BlogSeriesList';
 import { DiscussionEmbed as Disqus } from 'disqus-react';
 import BlogConfig from '@/data/blog.config';
+import { MDXRemote } from 'next-mdx-remote';
 
 const BlogNoticePage = ({ post, prev, next, }) => {
   const { frontMatter, slug, source, } = post;
-  const content = hydrate(source, {
-    components: MDXComponents,
-  });
 
   const siteData = {
     pageName: frontMatter.title,
     pageDescription: frontMatter.description,
     pageKeywords: '',
-    pageURL: `/blog/post/${slug}`,
+    pageURL: `/blog/notice/${slug}`,
     pageType: 'article',
     pageImage: frontMatter.coverImage ? frontMatter.coverImage : '',
+    pageTag: 'notice',
+    pageSection: 'notice',
+    pageCreated: new Date(frontMatter.createdAt).toISOString(),
+    pageUpdated: new Date(frontMatter.updatedAt).toISOString(),
   };
 
   const DisqusConfig = {
@@ -41,13 +40,6 @@ const BlogNoticePage = ({ post, prev, next, }) => {
 
   return (
     <>
-      <Head>
-        <meta property='article:published_time' content={new Date(frontMatter.createdAt).toISOString()} />
-        <meta property='article:modified_time' content={new Date(frontMatter.updatedAt).toISOString()} />
-        <meta property='article:author' content='NIHILncunia' />
-        <meta property='article:section' content={frontMatter.categories.join(', ')} />
-        <meta property='article:tag ' content='블로그, blog, 공지사항, notice' />
-      </Head>
       <BlogLayout {...siteData}>
         <BlogMessage />
         <BlogSeriesList />
@@ -66,9 +58,7 @@ const BlogNoticePage = ({ post, prev, next, }) => {
               {getDate(frontMatter.updatedAt)}
             </PostInfo>
             <DottedLine />
-            <div id='content-block'>
-              {content}
-            </div>
+            <MDXRemote {...source} components={{...MDXComponents}} />
             <Message color='blue' bottom='40'>
               포스트를 읽고 혹은 읽으면서 하고 싶은 말이 있다면 아래의 덧글창에 적어주시면 됩니다. 최대한 빠르게 확인하고 답변을 드리겠습니다. 이 포스트를 보신 모든 분들의 하루가 좋은 하루이길 바랍니다.
             </Message>

@@ -22,7 +22,7 @@ const NavContainer = () => {
       border: 2px solid #ffffff;
       border-radius: 20px;
       padding: 5px 10px;
-      box-shadow: 0px 0px 10px -4px #ffffff;
+      box-shadow: 0 0 10px -4px #ffffff;
       margin: 2px;
 
       &:hover {
@@ -33,7 +33,7 @@ const NavContainer = () => {
 
       &:before {
         font-weight: 900;
-        font-family: 'Font Awesome 5 Free';
+        font-family: 'Font Awesome 5 Free', sans-serif;
         margin-right: 5px;
       }
 

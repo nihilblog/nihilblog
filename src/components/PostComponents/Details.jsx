@@ -17,7 +17,7 @@ export const Details = ({ children, close = '펼치기', open = '접기', top = 
   }, [ isOpen, title, ]);
 
   const style = css`
-    margin: ${top}px 0px ${bottom}px 0px;
+    margin: ${top}px 0 ${bottom}px 0;
     
     & > details {
       transition: all 0.3s;
@@ -47,7 +47,7 @@ export const Details = ({ children, close = '펼치기', open = '접기', top = 
           content: '\\f0fe';
           margin-right: 10px;
           font-weight: 900;
-          font-family: 'Font Awesome 5 Free';
+          font-family: 'Font Awesome 5 Free', sans-serif;
         }
         
         &::-webkit-details-marker {
@@ -58,7 +58,7 @@ export const Details = ({ children, close = '펼치기', open = '접기', top = 
       & > .series-list {
         border: 2px solid #333333;
         border-top: none;
-        border-radius: 0px 0px 10px 10px;
+        border-radius: 0 0 10px 10px;
         padding: 10px;
         background-color: #eeeeee;
         transition: all 0.3s;
@@ -72,7 +72,7 @@ export const Details = ({ children, close = '펼치기', open = '접기', top = 
 
     & > details[open] {
       & > summary {
-        border-radius: 10px 10px 0px 0px;
+        border-radius: 10px 10px 0 0;
         transition: all 0.3s;
         border-color: #333333;
         background-color: #333333;
@@ -82,7 +82,7 @@ export const Details = ({ children, close = '펼치기', open = '접기', top = 
           content: '\\f146';
           margin-right: 10px;
           font-weight: 900;
-          font-family: 'Font Awesome 5 Free';
+          font-family: 'Font Awesome 5 Free', sans-serif;
         }
       }
     }

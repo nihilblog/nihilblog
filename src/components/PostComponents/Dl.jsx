@@ -4,7 +4,7 @@ import size from '@/data/size';
 
 export const Dl = ({ children, top = 40, bottom = 40, }) => {
   const style = css`
-    margin: ${top}px 0px ${bottom}px 0px;
+    margin: ${top}px 0 ${bottom}px 0;
     border: 2px solid #33333330;
     background-color: #33333310;
     border-radius: 10px;
@@ -12,12 +12,12 @@ export const Dl = ({ children, top = 40, bottom = 40, }) => {
     letter-spacing: -1px;
     font-weight: 500;
     transition: all 0.3s;
-    padding: 0px 10px;
+    padding: 0 10px;
 
     & > dt {
       margin-top: 10px;
       padding: 5px 10px;
-      border-radius: 10px 10px 0px 0px;
+      border-radius: 10px 10px 0 0;
       background-color: #555555;
       transition: all 0.3s;
       color: #ffffff;
@@ -26,7 +26,7 @@ export const Dl = ({ children, top = 40, bottom = 40, }) => {
 
       &:before {
         content: '\\f27a';
-        font-family: 'Font Awesome 5 Free';
+        font-family: 'Font Awesome 5 Free', sans-serif;
         font-weight: 900;
         margin-right: 5px;
       }
@@ -35,7 +35,7 @@ export const Dl = ({ children, top = 40, bottom = 40, }) => {
     & > dd {
       margin-bottom: 10px;
       padding: 10px;
-      border-radius: 0px 0px 10px 10px;
+      border-radius: 0 0 10px 10px;
       background-color: #ffffff;
       border: 2px solid #555555;
       border-top: none;
@@ -46,7 +46,7 @@ export const Dl = ({ children, top = 40, bottom = 40, }) => {
 
       &:before {
         content: '\\f022';
-        font-family: 'Font Awesome 5 Free';
+        font-family: 'Font Awesome 5 Free', sans-serif;
         font-weight: 900;
         margin-right: 5px;
       }

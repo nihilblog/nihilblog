@@ -8,7 +8,7 @@ const PostInfo = ({ children, name, i, w, itemType = 'p', linkIcon = '', }) => {
       & > a {
         letter-spacing: -1px;
         color: #555555;
-        padding: 0px 10px;
+        padding: 0 10px;
         border-radius: 50px;
         border: 2px solid #555555;
         margin-right: 5px;
@@ -27,7 +27,7 @@ const PostInfo = ({ children, name, i, w, itemType = 'p', linkIcon = '', }) => {
         &:before {
           content: '\\${linkIcon}';
           font-weight: 900;
-          font-family: 'Font Awesome 5 Free';
+          font-family: 'Font Awesome 5 Free', sans-serif;
           margin-right: 5px;
         }
       }
@@ -59,7 +59,7 @@ const PostInfo = ({ children, name, i, w, itemType = 'p', linkIcon = '', }) => {
       &:before {
         content: '\\${i}';
         font-weight: ${w};
-        font-family: 'Font Awesome 5 Free';
+        font-family: 'Font Awesome 5 Free', sans-serif;
         margin-right: 5px;
       }
     }

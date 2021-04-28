@@ -68,8 +68,8 @@ export const H = ({ children, top = 40, bottom = 40, type = '1', }) => {
     &:before {
       content: '\\f27a';
       font-weight: 900;
-      font-family: 'Font Awesome 5 Free';
-      margin-right: 5px;
+      font-family: 'Font Awesome 5 Free', sans-serif;
+      margin-right: 10px;
     }
 
     @media (min-width: 1px) and (max-width: 600px) {

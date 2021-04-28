@@ -4,7 +4,7 @@ import size from '@/data/size';
 
 export const Quote = ({ top = 40, bottom = 40, who, children, }) => {
   const style = css`
-    margin: ${top}px 0px ${bottom}px 0px;
+    margin: ${top}px 0 ${bottom}px 0;
     padding: 10px;
     border: 2px solid #33333350;
     transition: all 0.3s;
@@ -21,14 +21,14 @@ export const Quote = ({ top = 40, bottom = 40, who, children, }) => {
 
       &:before {
         content: '\\f10d';
-        font-family: 'Font Awesome 5 Free';
+         font-family: 'Font Awesome 5 Free', sans-serif;
         font-weight: 900;
         margin-right: 10px;
       }
 
       &:after {
         content: '\\f10e';
-        font-family: 'Font Awesome 5 Free';
+         font-family: 'Font Awesome 5 Free', sans-serif;
         font-weight: 900;
         margin-left: 10px;
       }
@@ -43,7 +43,7 @@ export const Quote = ({ top = 40, bottom = 40, who, children, }) => {
 
       &:before {
         content: '\\f007';
-        font-family: 'Font Awesome 5 Free';
+         font-family: 'Font Awesome 5 Free', sans-serif;
         font-weight: 900;
         margin-right: 5px;
       }

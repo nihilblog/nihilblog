@@ -25,7 +25,7 @@ const Pagination = ({ prev, next, current, total, type ='', }) => {
     border-radius: 10px;
     padding: 7px 10px;
     background-color: #ffffff;
-    box-shadow: 0px 0px 10px -4px #333333;
+    box-shadow: 0 0 10px -4px #333333;
     text-align: center;
     letter-spacing: -1px;
 
@@ -44,7 +44,7 @@ const Pagination = ({ prev, next, current, total, type ='', }) => {
     & > a#page-to-last {
       &:before {
         font-weight: 900;
-        font-family: 'Font Awesome 5 Free';
+        font-family: 'Font Awesome 5 Free', sans-serif;
       }
     }
 
@@ -52,7 +52,7 @@ const Pagination = ({ prev, next, current, total, type ='', }) => {
     & > span#page-to-prev,
     & > span#page-to-next,
     & > span#page-to-last {
-      padding: 0px 8px;
+      padding: 0 8px;
       margin: 3px;
       display: inline-block;
       border: 2px solid #88888890;
@@ -65,7 +65,7 @@ const Pagination = ({ prev, next, current, total, type ='', }) => {
     & > a#page-to-next,
     & > a#page-to-last {
       border: 2px solid #333333;
-      padding: 0px 8px;
+      padding: 0 8px;
       margin: 3px;
       display: inline-block;
       border-radius: 5px;
@@ -114,24 +114,24 @@ const Pagination = ({ prev, next, current, total, type ='', }) => {
       <div id='blog-post-paginator' css={paginatorStyle}>
         {
           !isFirst
-            ? <Link href={firstPath} passHref><a id='page-to-first'></a></Link>
-            : <span id='page-to-first'></span>
+            ? <Link href={firstPath} passHref><a id='page-to-first'/></Link>
+            : <span id='page-to-first'/>
         }
         {
           !isFirst
-            ? <Link href={prevPath} passHref><a id='page-to-prev'></a></Link>
-            : <span id='page-to-prev'></span>
+            ? <Link href={prevPath} passHref><a id='page-to-prev'/></Link>
+            : <span id='page-to-prev'/>
         }
         <span id='page-counter'>{current} / {total}</span>
         {
           !isLast
-            ? <Link href={nextPath} passHref><a id='page-to-next'></a></Link>
-            : <span id='page-to-next'></span>
+            ? <Link href={nextPath} passHref><a id='page-to-next'/></Link>
+            : <span id='page-to-next'/>
         }
         {
           !isLast
-            ? <Link href={lastPath} passHref><a id='page-to-last'></a></Link>
-            : <span id='page-to-last'></span>
+            ? <Link href={lastPath} passHref><a id='page-to-last'/></Link>
+            : <span id='page-to-last'/>
         }
       </div>
     </>

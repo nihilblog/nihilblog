@@ -12,7 +12,7 @@ export const Prism = ({ children, top = 40, bottom = 40, }) => {
 
   const capitalizeLang = lang.toUpperCase();
 
-  let color = [];
+  let color;
 
   switch (capitalizeLang) {
     case 'TEXT':
@@ -46,7 +46,7 @@ export const Prism = ({ children, top = 40, bottom = 40, }) => {
     tab-size: 4;
     background: #333333;
     padding: 45px 10px 15px 10px;
-    border-radius: 0px 10px 10px 10px;
+    border-radius: 0 10px 10px 10px;
     overflow-x: auto;
     position: relative;
     border: 5px solid ${color[0]};
@@ -55,12 +55,12 @@ export const Prism = ({ children, top = 40, bottom = 40, }) => {
     &:before {
       content: '\\f121  ${capitalizeLang}';
       font-weight: 900;
-      font-family: 'Font Awesome 5 Free';
+       font-family: 'Font Awesome 5 Free', sans-serif;
       padding: 5px 10px;
       background-color: ${color[0]};
       color: ${color[1]};
       text-align: center;
-      border-radius: 0px 0px 10px 0px;
+      border-radius: 0 0 10px 0;
       box-sizing: border-box;
       position: absolute;
       z-index: 2;

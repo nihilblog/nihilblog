@@ -13,10 +13,9 @@ const HeaderContainer = () => {
     & > h1 {
       & > img {
         width: 250px;
-        margin-bottom: 5px;
         display: block;
         transition: all 0.3s;
-        margin: 0px auto;
+        margin: 0 auto 5px auto;
       }
     }
 
@@ -28,15 +27,21 @@ const HeaderContainer = () => {
     }
 
     @media (min-width: 1px) and (max-width: 600px) {
-      & > p {font-size: ${size[1]};}
+      & > p {
+        font-size: ${ size[1] };
+      }
     }
 
     @media (min-width: 601px) and (max-width: 800px) {
-      & > p {font-size: ${size[2]};}
+      & > p {
+        font-size: ${ size[2] };
+      }
     }
 
     @media (min-width: 801px) {
-      & > p {font-size: ${size[3]};}
+      & > p {
+        font-size: ${ size[3] };
+      }
     }
   `;
 

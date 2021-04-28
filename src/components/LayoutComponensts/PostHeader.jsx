@@ -20,7 +20,7 @@ const PostHeader = ({ children, i, w, f, top = 0, bottom = 10, }) => {
       &:before {
         content: '\\${i}';
         font-weight: ${w};
-        font-family: 'Font Awesome 5 ${f}';
+        font-family: 'Font Awesome 5 ${f}', sans-serif;
         margin-right: 10px;
       }
 

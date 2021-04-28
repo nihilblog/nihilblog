@@ -1,13 +1,7 @@
-const fs = require('fs');
-const path = require('path');
-const matter = require('gray-matter');
-const MDXRender = require('next-mdx-remote/render-to-string');
-
-// import fs from 'fs';
-// import path from 'path';
-// import matter from 'gray-matter';
-// import MDXRender from 'next-mdx-remote/render-to-string';
-// import MDXComponents from '@/components/MDXComponents';
+import fs from 'fs';
+import path from 'path';
+import matter from 'gray-matter';
+import { serialize } from 'next-mdx-remote/serialize';
 
 const getAllPosts = (type = '', year = '') => {
   const postPath = path.join(process.cwd(), 'posts', type, year);
@@ -81,7 +75,7 @@ export const getPostBySlug = async (type = '', slug = '') => {
 
   const { frontMatter, content, } = posts[0];
 
-  const mdxSource = await MDXRender(content, {
+  const mdxSource = await serialize(content, {
     mdxOptions: {
       remarkPlugins: [
         require('remark-unwrap-images'),

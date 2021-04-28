@@ -4,7 +4,7 @@ import size from '@/data/size';
 
 export const Char = ({ children, who = '이름', top = 40, bottom = 40, file = '기본', }) => {
   const style = css`
-    margin: ${top}px 0px ${bottom}px 0px;
+    margin: ${top}px 0 ${bottom}px 0;
     padding: 10px;
     border: 2px solid #33333350;
     transition: all 0.3s;
@@ -42,7 +42,7 @@ export const Char = ({ children, who = '이름', top = 40, bottom = 40, file = '
 
         &:before {
           content: '\\f007';
-          font-family: 'Font Awesome 5 Free';
+          font-family: 'Font Awesome 5 Free', sans-serif;
           font-weight: 900;
           margin-right: 5px;
         }
@@ -53,14 +53,14 @@ export const Char = ({ children, who = '이름', top = 40, bottom = 40, file = '
 
         &:before {
           content: '\\f10d';
-          font-family: 'Font Awesome 5 Free';
+          font-family: 'Font Awesome 5 Free', sans-serif;
           font-weight: 900;
           margin-right: 10px;
         }
 
         &:after {
           content: '\\f10e';
-          font-family: 'Font Awesome 5 Free';
+          font-family: 'Font Awesome 5 Free', sans-serif;
           font-weight: 900;
           margin-left: 10px;
         }

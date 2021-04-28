@@ -56,15 +56,15 @@ export const Spoiler = ({ children, }) => {
     }
 
     & > .spo-body {
-      padding: 0px 5px;
+      padding: 0 5px;
       border-radius: 5px;
       background-color: ${click.background};
       color: ${click.color};
       ${click.userSelect}
       cursor: pointer;
-      text-indent: 0px;
+      text-indent: 0;
       transition: all 0.3s;
-      margin: 0px 2px;
+      margin: 0 2px;
 
       ${click.hover}
     }
@@ -78,7 +78,7 @@ export const Spoiler = ({ children, }) => {
       position: absolute;
       font-size: 90%;
       user-select: none;
-      text-indent: 0px;
+      text-indent: 0;
       text-align: center;
       left: 50%;
       transform: translateX(-50%);

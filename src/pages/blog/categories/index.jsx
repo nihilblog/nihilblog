@@ -32,7 +32,7 @@ const CategoriesPage = ({ categories, }) => {
       &:before {
         content: '\\f07c';
         font-weight: 900;
-        font-family: 'Font Awesome 5 Free';
+        font-family: 'Font Awesome 5 Free', sans-serif;
         margin-right: 5px;
       }
 

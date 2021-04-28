@@ -1,20 +1,28 @@
 import React, { useState } from 'react';
 import BlogConfig from '@/data/blog.config';
-import Head from 'next/head';
 import HeaderContainer from '@/components/HeaderContainer';
 import NavContainer from '@/components/NavContainer';
 import FooterContainer from '@/components/FooterContainer';
 import PageContainer from '@/components/PageContainer';
 import { css, Global } from '@emotion/react';
+import SiteHead from '@/components/SiteHead';
 
-const BlogLayout = ({ children, pageName, pageDescription, pageKeywords, pageURL, pageType, pageImage, }) => {
-  const { title, description, author, generator, siteType, siteImage, siteURL, keywords, } = BlogConfig;
+const BlogLayout = ({
+  pageName, pageDescription, pageKeywords, pageImage, pageType,
+  pageURL, pageTag, pageSection, pageCreated, pageUpdated, children
+}) => {
+  const { description, siteType, siteImage, siteURL, keywords, } = BlogConfig;
   const [ siteData, ] = useState({
     description: pageDescription ? pageDescription : description,
     keywords: pageKeywords ? pageKeywords : keywords,
     image: pageImage ? pageImage : `${siteURL}${siteImage}`,
     type: pageType ? pageType : siteType,
   });
+  
+  const pageProps = {
+    pageName, pageDescription, pageKeywords, pageImage, pageType,
+    pageURL, pageTag, pageSection, pageCreated, pageUpdated
+  };
 
   const globalStyle = css`
     @import url(https://fonts.googleapis.com/earlyaccess/notosanskr.css);
@@ -33,8 +41,8 @@ const BlogLayout = ({ children, pageName, pageDescription, pageKeywords, pageURL
     }
 
     * {
-      padding: 0px;
-      margin: 0px;
+      padding: 0;
+      margin: 0;
       font-family: 'Noto Sans CJK KR', sans-serif;
       color: #333333;
       font-weight: 500;
@@ -49,7 +57,7 @@ const BlogLayout = ({ children, pageName, pageDescription, pageKeywords, pageURL
     ul {list-style: none;}
 
     #disqus_thread {
-      padding: 20px;
+      padding: 5px 20px;
       border-radius: 10px;
       background-color: #333333;
 
@@ -69,7 +77,7 @@ const BlogLayout = ({ children, pageName, pageDescription, pageKeywords, pageURL
     @media (min-width: 801px) {
       main {
         max-width: 960px;
-        margin: 0px auto;
+        margin: 0 auto;
       }
     }
   `;
@@ -78,31 +86,7 @@ const BlogLayout = ({ children, pageName, pageDescription, pageKeywords, pageURL
     <>
       <Global styles={globalStyle} />
       {/* 메타 데이터 */}
-      <Head>
-        {/* 메타 태그 */}
-        <title>{ `${pageName}` } - { title }</title>
-        <meta name='description' content={siteData.description} />
-        <meta name='author' content={author} />
-        <meta name='generator' content={generator} />
-        <meta name='keywords' content={siteData.keywords} />
-
-        {/* 오픈그래프 */}
-        <meta property='og:site_name' content={title} />
-        <meta property='og:type' content={siteData.type} />
-        <meta property='og:title' content={pageName} />
-        <meta property='og:description' content={siteData.description} />
-        <meta property='og:image' content={siteData.image} />
-        <meta property='og:locale' content='ko_KR' />
-        <meta property='og:url' content={`${siteURL}${pageURL}`} />
-
-        {/* 트위터 카드 */}
-        <meta name='twitter:card' content='summary_large_image' />
-        <meta name='twitter:site' content={`@${author}`} />
-        <meta name='twitter:title' content={`${pageName} - ${title}`} />
-        <meta name='twitter:creator' content={`@${author}`} />
-        <meta name='twitter:description' content={siteData.description} />
-        <meta name='twitter:image' content={siteData.image} />
-      </Head>
+      <SiteHead BlogConfig={BlogConfig} siteData={siteData} pageProps={pageProps} />
       {/* 헤더와 메뉴 */}
       <HeaderContainer />
       <NavContainer />

@@ -70,7 +70,7 @@ export const Score = ({ top = 40, bottom = 40, children, score, }) => {
   }
 
   const style = css`
-    margin: ${top}px 0px ${bottom}px 0px;
+    margin: ${top}px 0 ${bottom}px 0;
     background: #333333;
     padding: 10px;
     text-align: center;
@@ -93,14 +93,14 @@ export const Score = ({ top = 40, bottom = 40, children, score, }) => {
       &:before {
         content: '${scoreStar.left}';
         font-weight: ${weight.left};
-        font-family: 'Font Awesome 5 Free';
+         font-family: 'Font Awesome 5 Free', sans-serif;
         font-size: 150%;
       }
 
       &:after {
         content: '${scoreStar.right}';
         font-weight: ${weight.right};
-        font-family: 'Font Awesome 5 Free';
+         font-family: 'Font Awesome 5 Free', sans-serif;
         font-size: 150%;
         color: #888888;
       }
@@ -132,7 +132,7 @@ export const Score = ({ top = 40, bottom = 40, children, score, }) => {
       <Global styles={fontSize} />
       <div className='post-review-score' css={style}>
         <h2>{children}: {score}점</h2>
-        <p></p>
+        <p/>
       </div>
     </>
   );

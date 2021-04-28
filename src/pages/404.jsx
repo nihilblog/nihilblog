@@ -16,7 +16,7 @@ const BlogNotPoundPage = () => {
     & img {
       max-width: 60%;
       display: block;
-      margin: 0px auto;
+      margin: 0 auto;
       border-radius: 50%;
       transition: all 0.3s;
     }

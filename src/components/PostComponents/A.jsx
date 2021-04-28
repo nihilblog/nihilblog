@@ -29,15 +29,15 @@ export const A = ({ children, href = '', type = 'blog', }) => {
   const style = css`
     border: 2px solid ${typeColor};
     color: ${typeColor};
-    padding: 0px 5px;
+    padding: 0 5px;
     border-radius: 5px;
     font-size: 90%;
     transition: all 0.3s;
-    margin: 0px 2px;
+    margin: 0 2px;
 
     &:after {
       content: '\\${icon.code}';
-      font-family: 'Font Awesome 5 ${icon.type}';
+      font-family: 'Font Awesome 5 ${icon.type}', sans-serif;
       font-weight: 900;
       margin-left: 5px;
     }

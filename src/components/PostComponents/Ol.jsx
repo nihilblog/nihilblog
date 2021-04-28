@@ -4,7 +4,7 @@ import size from '@/data/size';
 
 export const Ol = ({ children, top = 40, bottom = 40, }) => {
   const style = css`
-    margin: ${top}px 0px ${bottom}px 0px;
+    margin: ${top}px 0 ${bottom}px 0;
     transition: all 0.3s;
     padding: 7px 10px 7px 10px;
     list-style-type: none;
@@ -16,14 +16,14 @@ export const Ol = ({ children, top = 40, bottom = 40, }) => {
     color: #333333;
 
     & > li {
-      margin: 3px 0px;
+      margin: 3px 0;
       transition: all 0.3s;
 
       &:before {
         background: #333333;
         color: #ffffff;
         font-weight: 900;
-        padding: 0px 5px;
+        padding: 0 5px;
         border-radius: 5px;
         font-size: 90%;
       }
@@ -31,13 +31,13 @@ export const Ol = ({ children, top = 40, bottom = 40, }) => {
       & > ul {
         border: none;
         background-color: transparent;
-        border-radius: none;
-        padding: 0px;
+        border-radius: 0;
+        padding: 0;
 
         & > li {
           &:before {
             content: '\\f35a';
-            font-family: 'Font Awesome 5 Free';
+             font-family: 'Font Awesome 5 Free', sans-serif;
             margin-right: 5px;
             font-weight: 500;
           }
@@ -47,15 +47,15 @@ export const Ol = ({ children, top = 40, bottom = 40, }) => {
       & > ol {
         border: none;
         background-color: transparent;
-        border-radius: none;
-        padding: 0px;
+        border-radius: 0;
+        padding: 0;
         
         & > li {
           &:before {
             background: #555555;
             color: #ffffff;
             font-weight: 900;
-            padding: 0px 5px;
+            padding: 0 5px;
             border-radius: 5px;
             font-size: 90%;
           }
@@ -64,7 +64,7 @@ export const Ol = ({ children, top = 40, bottom = 40, }) => {
             & > li {
               &:before {
                 content: '\\f105';
-                font-family: 'Font Awesome 5 Free';
+                 font-family: 'Font Awesome 5 Free', sans-serif;
                 margin-right: 5px;
                 font-weight: 900;
               }
@@ -74,15 +74,15 @@ export const Ol = ({ children, top = 40, bottom = 40, }) => {
           & > ol {
             border: none;
             background-color: transparent;
-            border-radius: none;
-            padding: 0px;
+            border-radius: 0;
+            padding: 0;
             
             & > li {
               &:before {
                 background: #777777;
                 color: #ffffff;
                 font-weight: 900;
-                padding: 0px 5px;
+                padding: 0 5px;
                 border-radius: 5px;
                 font-size: 90%;
               }
@@ -99,7 +99,7 @@ export const Ol = ({ children, top = 40, bottom = 40, }) => {
 
     & ul,
     & ol {
-      margin: 0px 0px 0px 25px;
+      margin: 0 0 0 25px;
     }
 
     & li {

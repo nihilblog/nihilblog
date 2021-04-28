@@ -20,7 +20,7 @@ const PostContents = ({ children, }) => {
 
       & > .info-name:before {
         font-weight: 900;
-        font-family: 'Font Awesome 5 Free';
+        font-family: 'Font Awesome 5 Free', sans-serif;
         margin-right: 5px;
       }
 
@@ -46,7 +46,7 @@ const PostContents = ({ children, }) => {
       & > .info-category {
         letter-spacing: -1px;
         color: #555555;
-        padding: 0px 10px;
+        padding: 0 10px;
         border-radius: 50px;
         border: 2px solid #555555;
         margin-right: 5px;
@@ -62,18 +62,18 @@ const PostContents = ({ children, }) => {
           transition: all 0.3s;
         }
       }
-
+  
       & > .info-tag:before {
         content: '\\f02b';
         font-weight: 900;
-        font-family: 'Font Awesome 5 Free';
+        font-family: 'Font Awesome 5 Free', sans-serif;
         margin-right: 5px;
       }
 
       & > .info-category:before {
         content: '\\f07c';
         font-weight: 900;
-        font-family: 'Font Awesome 5 Free';
+        font-family: 'Font Awesome 5 Free', sans-serif;
         margin-right: 5px;
       }
 

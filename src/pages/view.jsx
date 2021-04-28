@@ -17,7 +17,7 @@ const BlogPostManagerPage = ({ posts, }) => {
       padding: 10px;
       border: 1px solid #333333;
       color: #333333;
-      margin: 10px 0px;
+      margin: 10px 0;
 
       & > h2 {
         & > .red {
@@ -51,8 +51,8 @@ const BlogPostManagerPage = ({ posts, }) => {
     @import url(https://fonts.googleapis.com/earlyaccess/notosanskr.css);
 
     * {
-      margin: 0px;
-      padding: 0px;
+      margin: 0;
+      padding: 0;
       font-family: 'Noto Sans CJK KR', sans-serif;
     }
   `;
@@ -72,18 +72,14 @@ const BlogPostManagerPage = ({ posts, }) => {
             <h2>
               {
                 frontMatter.notice
-                  ? (
-                    <>
-                      <span className='count red'>{index + 1}</span>
-                      <span className='red'>공지</span>
-                    </>
-                  ) 
-                  : (
-                    <>
-                      <span className='count black'>{index + 1}</span>
-                      <span className='black'>일반</span>
-                    </>
-                  )
+                  ? (<>
+                    <span className='count red'>{index + 1}</span>
+                    <span className='red'>공지</span>
+                  </>)
+                  : (<>
+                    <span className='count black'>{index + 1}</span>
+                    <span className='black'>일반</span>
+                  </>)
               }
               <span>{frontMatter.title}</span>
             </h2>

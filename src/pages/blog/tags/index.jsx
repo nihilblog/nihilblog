@@ -32,7 +32,7 @@ const TagsPage = ({ tags, }) => {
       &:before {
         content: '\\f02b';
         font-weight: 900;
-        font-family: 'Font Awesome 5 Free';
+        font-family: 'Font Awesome 5 Free', sans-serif;
         margin-right: 5px;
       }
 
@@ -40,7 +40,7 @@ const TagsPage = ({ tags, }) => {
         color: #ffffff;
         background-color: #333333;
         transition: all 0.3s;
-        border: 2px solid #33333;
+        border: 2px solid #333333;
       }
     }
 

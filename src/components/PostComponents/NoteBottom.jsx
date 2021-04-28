@@ -9,47 +9,39 @@ export const NoteBottom = ({ children, link, number, top = 0, bottom = 0, first 
   `;
 
   const style = css`
-    margin: ${top}px 0px ${bottom}px 0px;
+    margin: ${top}px 0 ${bottom}px 0;
     color: #333333;
     letter-spacing: -1px;
     font-weight: 500;
+    line-height: 1.4;
     ${first === 'true' && anotherStyle}
-
-
-    & > #note${number} {
-      margin-right: 5px;
-      font-weight: 900;
+    
+    & > a {
+      color: #218cd8;
+      margin-right: 10px;
       font-size: 90%;
       
-      &:before {
-        content: '[';
-      }
-
-      &:after {
-        content: ']';
-      }
-    }
-
-    & > .note-body {
-      font-size: 90%;
-    }
-
-    & > a {
-      margin-left: 10px;
-      font-size: 90%;
-      color: #218cd8;
-
-      &:before {
-        content: '[';
-      }
-
-      &:after {
-        content: ']';
-      }
-
       &:hover {
         font-weight: 900;
       }
+      
+      &:before {
+        content: '[';
+        margin-right: 2px;
+      }
+      
+      &:after {
+        content: ']';
+        margin-left: 2px;
+      }
+      
+      & > span {
+        color: #218cd8;
+      }
+    }
+    
+    & > span {
+      font-size: 90%;
     }
   `;
 
@@ -71,9 +63,8 @@ export const NoteBottom = ({ children, link, number, top = 0, bottom = 0, first 
     <>
       <Global styles={fontSize} />
       <p className='post-foot-note' css={style}>
-        <span id={`note${number}`}>{number}</span>
+        <a id={`note${number}`} href={`#top${link}`}><span>{number}</span></a>
         <span className='note-body'>{children}</span>
-        <a href={`#top${link}`}>위로</a>
       </p>
     </>
   );

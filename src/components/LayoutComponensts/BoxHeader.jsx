@@ -9,7 +9,6 @@ const BoxHeader = ({ children, i, w, f, top = 0, bottom = 20, }) => {
     background-color: #333333;
     padding: 10px;
     border-radius: 10px;
-    margin-bottom: 20px;
     color: #ffffff;
     font-weight: 500;
     letter-spacing: -1px;
@@ -20,7 +19,7 @@ const BoxHeader = ({ children, i, w, f, top = 0, bottom = 20, }) => {
     &:before {
       content: '\\${i}';
       font-weight: ${w};
-      font-family: 'Font Awesome 5 ${f}';
+      font-family: 'Font Awesome 5 ${f}', sans-serif;
       margin-right: 10px;
     }
 

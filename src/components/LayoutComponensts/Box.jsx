@@ -13,7 +13,7 @@ const Box = ({ children, top = 30, bottom = 30, }) => {
     text-align: justify;
     letter-spacing: -1px;
     background-color: #ffffff;
-    box-shadow: 0px 0px 10px -4px #333333;
+    box-shadow: 0 0 10px -4px #333333;
     border-radius: 10px;
 
     @media (min-width: 1px) and (max-width: 600px) {

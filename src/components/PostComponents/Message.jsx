@@ -26,7 +26,7 @@ export const Message = ({ children, color, top = 40, bottom = 40, }) => {
   const style = css`
     padding: 10px;
     border-radius: 10px;
-    margin: ${top}px 0px ${bottom}px 0px;
+    margin: ${top}px 0 ${bottom}px 0;
     font-size: 90%;
     background: ${colorType.color[0]};
     color: ${colorType.color[1]};
@@ -49,7 +49,7 @@ export const Message = ({ children, color, top = 40, bottom = 40, }) => {
           content: '\\${colorType.icon}';
           font-weight: 900;
           margin-right: 5px;
-          font-family: 'Font Awesome 5 Free';
+           font-family: 'Font Awesome 5 Free', sans-serif;
         }
       }
     }

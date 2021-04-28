@@ -19,7 +19,6 @@ export const CopyCode = ({ code, }) => {
     position: absolute;
     top: 5px;
     right: 5px;
-    border: none;
     padding: 5px 10px;
     border-radius: 10px;
     color: #ffffff80;
@@ -33,7 +32,7 @@ export const CopyCode = ({ code, }) => {
     &:before {
       content: '\\f24d' ' ${word}';
       font-weight: 900;
-      font-family: 'Font Awesome 5 Free';
+      font-family: 'Font Awesome 5 Free', sans-serif;
     }
 
     &:hover {
@@ -57,7 +56,7 @@ export const CopyCode = ({ code, }) => {
   `;
   return (
     <>
-      <button onClick={onClickCopy} onMouseLeave={onMouseLeaveCopy} css={CopyCode}></button>
+      <button onClick={ onClickCopy } onMouseLeave={ onMouseLeaveCopy } css={ CopyCode }/>
     </>
   );
 };

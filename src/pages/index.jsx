@@ -16,7 +16,7 @@ const BlogFrontPage = () => {
 
         & > img {
           width: 80%;
-          margin: 0px auto;
+          margin: 0 auto;
           transition: all 0.3s;
           display: block;
         }
@@ -37,7 +37,7 @@ const BlogFrontPage = () => {
           padding: 5px 10px;
           border: 2px solid #ffffff;
           border-radius: 40px;
-          box-shadow: 0px 0px 10px -4px #ffffff;
+          box-shadow: 0 0 10px -4px #ffffff;
           margin: 4px;
           display: inline-block;
           transition: all 0.3s;
@@ -55,14 +55,14 @@ const BlogFrontPage = () => {
             content: '\\f0a9';
             margin-right: 10px;
             font-weight: 900;
-            font-family: 'Font Awesome 5 Free';
+            font-family: 'Font Awesome 5 Free', sans-serif;
           }
 
           &#link-about:before {
             content: '\\f05a';
             margin-right: 10px;
             font-weight: 900;
-            font-family: 'Font Awesome 5 Free';
+            font-family: 'Font Awesome 5 Free', sans-serif;
           }
         }
       }

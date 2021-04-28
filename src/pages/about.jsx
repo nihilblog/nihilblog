@@ -19,7 +19,7 @@ const BlogAboutPage = () => {
         color: #ffffff;
         padding: 5px 10px;
         border-radius: 40px;
-        box-shadow: 0px 0px 10px -4px #333333;
+        box-shadow: 0 0 10px -4px #333333;
         margin: 4px;
         display: inline-block;
         transition: all 0.3s;
@@ -37,7 +37,7 @@ const BlogAboutPage = () => {
         &:before {
           margin-right: 10px;
           font-weight: 900;
-          font-family: 'Font Awesome 5 Free';
+          font-family: 'Font Awesome 5 Free', sans-serif;
         }
 
         &#link-blog:before {content: '\\f0a9';}

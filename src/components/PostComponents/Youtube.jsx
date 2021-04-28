@@ -6,7 +6,7 @@ export const Youtube = ({ children, src, top = 40, bottom = 40, }) => {
   const replaceSrc = src.replace('watch?v=', 'embed/');
 
   const style = css`
-    margin: ${top}px 0px 0px 0px;
+    margin: ${top}px 0 0 0;
     padding: 10px;
     border-radius: 10px;
     background-color: #c00c00;
@@ -23,13 +23,13 @@ export const Youtube = ({ children, src, top = 40, bottom = 40, }) => {
         content: '\\f167';
         margin-right: 5px;
         font-weight: 500;
-        font-family: 'Font Awesome 5 Brands';
+        font-family: 'Font Awesome 5 Brands', sans-serif;
       }
     }
 
     & > .video-wrapper {
       position: relative;
-      height: 0px;
+      height: 0;
       padding-bottom: 56.25%;
       box-sizing: border-box;
       border-radius: 10px;
@@ -47,10 +47,9 @@ export const Youtube = ({ children, src, top = 40, bottom = 40, }) => {
   const youtubeDesc = css`
     letter-spacing: -1px;
     color: #333333;
-    margin-top: 5px;
     text-align: center;
     font-style: italic;
-    margin: 5px 0px ${bottom}px 0px;
+    margin: 5px 0 ${bottom}px 0;
 
     & > span {
       font-size: 90%;
@@ -60,7 +59,7 @@ export const Youtube = ({ children, src, top = 40, bottom = 40, }) => {
       content: '\\f167';
       margin-right: 5px;
       font-weight: 500;
-      font-family: 'Font Awesome 5 Brands';
+      font-family: 'Font Awesome 5 Brands', sans-serif;
     }
   `;
 
@@ -89,7 +88,7 @@ export const Youtube = ({ children, src, top = 40, bottom = 40, }) => {
       <div className='post-youtube-block' css={style}>
         <p className='youtube-block-title'>YouTube 영상</p>
         <div className='video-wrapper'>
-          <iframe id='video' src={replaceSrc} frameBorder='0' allow='encrypted-media; gyroscope; picture-in-picture' allowFullScreen></iframe>
+          <iframe id='video' src={replaceSrc} frameBorder='0' allow='encrypted-media; gyroscope; picture-in-picture' allowFullScreen />
         </div>
       </div>
       <p className='post-youtube-block-desc' css={youtubeDesc}>
