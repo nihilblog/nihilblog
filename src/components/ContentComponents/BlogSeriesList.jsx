@@ -14,7 +14,7 @@ const BlogSeriesList = () => {
 
         {/* 가이드 시리즈 */}
         <Details close='가이드 시리즈 열기' open='가이드 시리즈 닫기' bottom='20' top='20'>
-          아직 시리즈가 없습니다.
+          <A type={'blog'} href={'/blog/post/2021-05-02-01-complete-html-guide'}>HTML 가이드</A>
         </Details>
 
         {/* 리뷰 시리즈 */}

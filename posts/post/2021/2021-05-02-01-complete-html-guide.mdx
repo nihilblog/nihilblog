@@ -1,0 +1,115 @@
+---
+title: 웹 개발을 위한 HTML 가이드 모음
+description: 이 포스트는 웹 개발을 위한 HTML 가이드의 모음집 입니다. 처음부터 끝까지 순서대로 보기 쉽게 목록으로 가이드를 모아두었습니다. HTML은 웹 개발에 있어서 가장 아주 매우 기초적인 기술입니다. 웹 개발을 위한 HTML 가이드는 HTML을 모르는 분들이 HTML의 기능들에 대해서 배우고 웹 페이지의 뼈대를 구성할 수 있게 도와주는 시리즈 입니다. 웹 개발을 위한 HTML 가이드에서 저와 함께 HTML을 접하고 차근 차근 익숙해지는 것이 목적입니다. 아무것도 모르는 분들도 웹 개발을 시작할 수 있습니다. 저와 함께 시작해봅시다.
+coverImage: https://i.postimg.cc/cJ2JWTm8/HTML.png
+categories: [가이드, HTML]
+tags: [가이드, HTML, 웹 개발, 프로그래밍, 코딩, 웹 코딩, 웹 프로그래밍, HTML 공부하기, HTML 초보]
+createdAt: 2021-05-02 17:04:00
+updatedAt: 2021-05-02 17:04:00
+display: true
+notice: false
+---
+
+import {
+  A, Bold, Char, Details, Dl, H, Message, NoteBottom, NoteTop, P,
+  Quote, Score, Youtube, Ul, Ol, Em, Gray, Code, Kbd, Image,
+  Q, Strong, Spoiler, Strike
+} from '@/components/PostComponents';
+
+이 포스트는 **웹 개발을 위한 HTML 가이드**의 모음집 입니다. 처음부터 끝까지 순서대로 보기 쉽게 목록으로 가이드를 모아두었습니다. HTML은 웹 개발에 있어서 가장 아주 매우 기초적인 기술입니다. 웹 개발을 위한 HTML 가이드는 HTML을 모르는 분들이 HTML의 기능들에 대해서 배우고 웹 페이지의 뼈대를 구성할 수 있게 도와주는 시리즈 입니다. 웹 개발을 위한 HTML 가이드에서 저와 함께 HTML을 접하고 차근 차근 익숙해지는 것이 목적입니다. 아무것도 모르는 분들도 웹 개발을 시작할 수 있습니다. 저와 함께 시작해봅시다.
+
+순수하게 강의 목적만 있는 것은 아니며 제가 다시 처음부터 공부한다는 생각으로 조사하고 복습하는 느낌으로 작성하고 있습니다. HTML은 웹 개발에 있어서 기초가 되는 부분인 만큼 중요하게 다루고 있습니다.
+
+# 선행 가이드
+HTML을 공부하기에 앞서 프로그래밍이란 무엇이고, 프로그래밍 언어는 무엇이며 웹과는 무슨 관련이 있는지를 다룬 포스트를 먼저 보고 오는 것이 좋습니다. <A href='/blog/post/2021-05-02-02-what-programing' type='blog'>이 링크</A>를 클릭하면 됩니다.
+
+# 목차
+<Message color={'blue'}>
+  이 아래에는 각 가이드로 연결되어있는 항목을 나열한 목록이 있습니다. 링크가 되어있지 않으면 작성 해야하는 컨텐츠이며 중간 중간에 링크는 없지만 굵은 글씨는 여러가지 파트로 구성되어 있는 가이드임을 의미합니다.
+</Message>
+
+* 개요
+* 기본적인 문법
+* 태그의 특징
+* 태그와 태그의 관계
+* 정비 - 개발환경 구축
+* HTML의 기본적인 구조
+* 시맨틱 태그
+* 주석
+* 공간 분할 태그(div, span)
+* **텍스트 관련 태그**
+  * 제목 태그(h1~h6)
+  * 문단 태그(p)
+  * 정비 - Visual Studio Code 사용하기
+  * 정비 - VSCode 추천 확장 프로그램
+  * 굵기와 기울기 태그(b, strong, i, em)
+  * 개행 태그와 가로줄 태그(br, hr)
+  * 윗첨자와 아랫첨자 태그(sup, sub)
+  * 텍스트의 추가, 제외 태그(ins, del)
+  * 취소선과 밑줄 태그(s, u)
+  * 인용 태그(q, blockquote)
+  * 하이라이트 태그(mark)
+  * small 태그
+  * code, pre 태그
+  * abbr 태그
+  * 그 외의 텍스트 태그들
+* 파일 경로
+* 링크 태그(a)
+* **이미지 관련 태그**
+  * 이미지 태그(img)
+  * 심화 - 이미지맵 태그(map, area)
+* **목록 관련 태그**
+  * 순차 목록과 비순차 목록 태그(ol, ul, li)
+  * 용어 설명 목록 태그(dl, dt, dd)
+* **테이블 관련 태그**
+  * 테이블 태그(table, tr, th, td)
+  * 테이블 태그 심화
+  * 테이블 태그 심화 1) thead, tbody, tfoot
+  * 테이블 태그 심화 2) colgroup, col, caption
+* **폼 관련 태그**
+  * form 태그
+    * form 태그 심화
+  * input 태그 1) 기본적인 속성
+  * input 태그 2) 여러가지 타입
+  * input 태그 3) 데이터 검증
+  * textarea 태그
+  * button 태그
+  * select 태그
+  * fieldset 태그
+  * datalist 태그
+* **멀티미디어 관련 태그**
+  * 멀티미디어 태그들(audio, video, source)
+  * iframe 태그
+  * figure, figcaption 태그
+* **레이아웃 태그들**
+  * 레이아웃 태그 1) header, nav, main
+  * 레이아웃 태그 2) aside, footer
+  * 레이아웃 태그 3) article, section
+* 메타데이터 태그들(meta)
+* 요약 태그(details, summary)
+* **CSS 관련**
+  * style 속성
+  * style 태그
+  * link 태그
+* **JS 관련**
+  * script 태그
+  * JS 이벤트와 관련된 속성들
+* **HTML 심화**
+  * 커스텀 속성 사용하기
+  * 섹션(Section)과 아웃라인(Outline)
+  * 웹표준에 대해
+  * 브라우저 지원 고려하기
+
+# 참고 사이트
+아래의 사이트에선 HTML 뿐만 아니라 다른 웹 기술도 함께 학습할 수 있습니다. 저 또한 아래의 사이트들에서 많은 것들을 참고합니다. 보다보면, 또 코드를 작성해보면 익숙해지고 자연스러워집니다. 그렇기 때문에 여러분들에게도 추천드립니다.
+
+* <A type='normal' href='https://www.w3schools.com/html/default.asp'>w3c schools</A> - 이 사이트의 이름은 w3c에서 비롯되었지만 큰 관련은 없습니다. 여기에서 html 뿐만이 아닌 다양한 웹 기술에 대해서 학습할 수 있습니다. 단점이라면 한글이 없습니다.
+* <A type='normal' href='https://developer.mozilla.org/ko/docs/Web/HTML'>MDN Web Docs</A> - 위와 비슷한 사이트입니다. 다양한 웹 기술에 대해서 학습할 수 있습니다. 한글 번역이 조금 이루어져 있습니다.
+
+# 다음 단계
+여러분이 HTML을 학습했다고 해서 웹 프로그래밍을 할 줄 알게 된 것은 아닙니다. 여러분은 이제 더 높은 그라운드로 향해야 합니다. 그러기 위해서는 더 많은 공부를 해야하죠. HTML은 가장 기초가 되는 부분입니다. 이 기초가 되는 HTML 조차도 더 파고들면 난이도가 높아집니다.
+
+여러분이 기본적인 웹 프로그래밍을 위해서는 HTML과 함께 기초가 되는 **CSS**와 **Javascript**를 알아야 합니다. 그럼 이제 뭘 해야 하는지 알겠죠? 맞습니다! 공부를 하면 됩니다!
+
+## CSS 가이드
+**CSS**는 마크업 언어인 HTML의 디자인을 만들어주는 **스타일 시트 언어**입니다. HTML로 마크업한 웹 페이지에 다양한 디자인을 부여할 수 있습니다. 기본적인 HTML 지식이 필요하기 때문에 어느정도는 익혀두고 CSS 가이드를 열람 하시기 바랍니다. 해당 가이드는 <A type='blog' href={'/blog/post/2021-05-02-03-complete-css-guide'}>이 링크</A>를 타고 넘어가시면 됩니다.

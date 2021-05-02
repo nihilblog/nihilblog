@@ -1,10 +1,10 @@
 import React from 'react';
 import { css } from '@emotion/react';
 
-export const NoteTop = ({ children, link, number, }) => {
+export const NoteTop = ({ children, number, }) => {
   const style = css`
     font-weight: 500;
-    margin-right: 3px;
+    margin-right: 2px;
     
     & > a {
       color: #218cd8;
@@ -12,10 +12,12 @@ export const NoteTop = ({ children, link, number, }) => {
 
       &:before {
         content: '[';
+        margin-right: 2px;
       }
 
       &:after {
         content: ']';
+        margin-left: 2px;
       }
 
       &:hover {
@@ -26,7 +28,7 @@ export const NoteTop = ({ children, link, number, }) => {
 
   return (
     <>
-      <sup id={`top${number}`} css={style}><a href={`#note${link}`}>{children}</a></sup>
+      <sup id={`top${number}`} css={style}><a href={`#note${number}`}>{children}</a></sup>
     </>
   );
 };

@@ -6,7 +6,7 @@ const ActiveNoticePageLink = ({ href, children, }) => {
   const router = useRouter();
   
   let className;
-  if (router.pathname.indexOf('notice/page') !== -1) {
+  if (router.pathname.indexOf('blog/notice') !== -1) {
     className = 'selected';
   }
   

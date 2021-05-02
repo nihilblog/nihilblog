@@ -57,7 +57,7 @@ export const getStaticPaths = async () => {
   const posts = await getAllYearPosts('notice');
 
   const PostsPages = getPages(posts, BlogConfig.postPerPage);
-
+  
   return {
     paths: PostsPages.map((page, index) => {
       return {

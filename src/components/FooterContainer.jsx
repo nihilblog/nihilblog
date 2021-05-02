@@ -14,17 +14,27 @@ const FooterContainer = () => {
     
     & > #footer-link {
       margin-bottom: 5px;
+      width: 100%;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
       
       & > a {
         transition: all 0.3s;
         box-sizing: border-box;
-        display: inline-block;
+        display: flex;
+        flex-direction: row;
         color: #ffffff;
         border: 2px solid #ffffff;
-        border-radius: 20px;
-        padding: 5px 10px;
+        border-radius: 25px;
         box-shadow: 0 0 10px -4px #ffffff;
         margin: 2px;
+        width: 50px;
+        height: 50px;
+        font-size: 150%;
+        align-items: center;
+        justify-content: center;
 
         &:hover {
           transition: all 0.3s;
@@ -66,15 +76,15 @@ const FooterContainer = () => {
     }
 
     @media (min-width: 1px) and (max-width: 600px) {
-      & > p {font-size: ${size[1]};}
+      & > #footer-copyright {font-size: ${size[1]};}
     }
 
     @media (min-width: 601px) and (max-width: 800px) {
-      & > p {font-size: ${size[2]};}
+      & > #footer-copyright {font-size: ${size[2]};}
     }
 
     @media (min-width: 801px) {
-      & > p {font-size: ${size[3]};}
+      & > #footer-copyright {font-size: ${size[3]};}
     }
   `;
 

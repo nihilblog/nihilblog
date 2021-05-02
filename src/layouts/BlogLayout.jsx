@@ -9,7 +9,7 @@ import SiteHead from '@/components/SiteHead';
 
 const BlogLayout = ({
   pageName, pageDescription, pageKeywords, pageImage, pageType,
-  pageURL, pageTag, pageSection, pageCreated, pageUpdated, children
+  pageURL, pageTag, pageSection, pageCreated, pageUpdated, children,
 }) => {
   const { description, siteType, siteImage, siteURL, keywords, } = BlogConfig;
   const [ siteData, ] = useState({
@@ -21,7 +21,7 @@ const BlogLayout = ({
   
   const pageProps = {
     pageName, pageDescription, pageKeywords, pageImage, pageType,
-    pageURL, pageTag, pageSection, pageCreated, pageUpdated
+    pageURL, pageTag, pageSection, pageCreated, pageUpdated,
   };
 
   const globalStyle = css`
@@ -57,7 +57,7 @@ const BlogLayout = ({
     ul {list-style: none;}
 
     #disqus_thread {
-      padding: 5px 20px;
+      padding: 5px 20px 0 20px;
       border-radius: 10px;
       background-color: #333333;
 

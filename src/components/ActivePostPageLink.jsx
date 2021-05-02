@@ -6,7 +6,7 @@ const ActivePostPageLink = ({ href, children, }) => {
   const router = useRouter();
   
   let className;
-  if (router.pathname.indexOf('post/page') !== -1) {
+  if (router.pathname.indexOf('blog/post') !== -1) {
     className = 'selected';
   }
   

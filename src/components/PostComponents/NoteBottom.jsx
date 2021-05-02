@@ -2,7 +2,7 @@ import React from 'react';
 import { css, Global } from '@emotion/react';
 import size from '@/data/size';
 
-export const NoteBottom = ({ children, link, number, top = 0, bottom = 0, first = 'false', }) => {
+export const NoteBottom = ({ children, number, top = 0, bottom = 0, first = 'false', }) => {
   const anotherStyle = `
     border-top: 3px dotted #888888;
     padding-top: ${top}px;
@@ -13,7 +13,7 @@ export const NoteBottom = ({ children, link, number, top = 0, bottom = 0, first 
     color: #333333;
     letter-spacing: -1px;
     font-weight: 500;
-    line-height: 1.4;
+    line-height: 1.5;
     ${first === 'true' && anotherStyle}
     
     & > a {
@@ -63,7 +63,7 @@ export const NoteBottom = ({ children, link, number, top = 0, bottom = 0, first 
     <>
       <Global styles={fontSize} />
       <p className='post-foot-note' css={style}>
-        <a id={`note${number}`} href={`#top${link}`}><span>{number}</span></a>
+        <a id={`note${number}`} href={`#top${number}`}><span>{number}</span></a>
         <span className='note-body'>{children}</span>
       </p>
     </>
