@@ -14,7 +14,7 @@ const BlogNotPoundPage = () => {
 
   const blogErrorPageStyle = css`
     & img {
-      max-width: 60%;
+      max-width: 40%;
       display: block;
       margin: 0 auto;
       border-radius: 50%;

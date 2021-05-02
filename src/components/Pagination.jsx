@@ -4,6 +4,7 @@ import { css } from '@emotion/react';
 import size from '@/data/size';
 
 const Pagination = ({ prev, next, current, total, type ='', }) => {
+  
   let Path;
 
   if (type === 'notice') {
@@ -26,32 +27,39 @@ const Pagination = ({ prev, next, current, total, type ='', }) => {
     padding: 7px 10px;
     background-color: #ffffff;
     box-shadow: 0 0 10px -4px #333333;
-    text-align: center;
     letter-spacing: -1px;
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    width: 100%;
+    box-sizing: border-box;
+    align-items: center;
+    justify-content: center;
 
     & > #page-counter {
       margin-left: 10px;
       margin-right: 10px;
+      color: #333333;
     }
 
-    & > span#page-to-first,
-    & > span#page-to-prev,
-    & > span#page-to-next,
-    & > span#page-to-last,
-    & > a#page-to-first,
-    & > a#page-to-prev,
-    & > a#page-to-next,
-    & > a#page-to-last {
+    & > span > span#page-to-first,
+    & > span > span#page-to-prev,
+    & > span > span#page-to-next,
+    & > span > span#page-to-last,
+    & > span > a#page-to-first,
+    & > span > a#page-to-prev,
+    & > span > a#page-to-next,
+    & > span > a#page-to-last {
       &:before {
         font-weight: 900;
         font-family: 'Font Awesome 5 Free', sans-serif;
       }
     }
 
-    & > span#page-to-first,
-    & > span#page-to-prev,
-    & > span#page-to-next,
-    & > span#page-to-last {
+    & > span > span#page-to-first,
+    & > span > span#page-to-prev,
+    & > span > span#page-to-next,
+    & > span > span#page-to-last {
       padding: 0 8px;
       margin: 3px;
       display: inline-block;
@@ -60,10 +68,10 @@ const Pagination = ({ prev, next, current, total, type ='', }) => {
       border-radius: 5px;
     }
 
-    & > a#page-to-first,
-    & > a#page-to-prev,
-    & > a#page-to-next,
-    & > a#page-to-last {
+    & > span > a#page-to-first,
+    & > span > a#page-to-prev,
+    & > span > a#page-to-next,
+    & > span > a#page-to-last {
       border: 2px solid #333333;
       padding: 0 8px;
       margin: 3px;
@@ -80,59 +88,62 @@ const Pagination = ({ prev, next, current, total, type ='', }) => {
       }
     }
 
-    & > span#page-to-first:before,
-    & > a#page-to-first:before {content: '\\f100';}
+    & > span > span#page-to-first:before,
+    & > span > a#page-to-first:before {content: '\\f100';}
 
-    & > span#page-to-prev:before,
-    & > a#page-to-prev:before {content: '\\f104';}
+    & > span > span#page-to-prev:before,
+    & > span > a#page-to-prev:before {content: '\\f104';}
 
-    & > span#page-to-next:before,
-    & > a#page-to-next:before {content: '\\f105';}
+    & > span > span#page-to-next:before,
+    & > span > a#page-to-next:before {content: '\\f105';}
 
-    & > span#page-to-last:before,
-    & > a#page-to-last:before {content: '\\f101';}
+    & > span > span#page-to-last:before,
+    & > span > a#page-to-last:before {content: '\\f101';}
 
     @media (min-width: 1px) and (max-width: 600px) {
-      & > a,
-      & > span {font-size: ${size[1]};}
+      & a,
+      & span {font-size: ${size[1]};}
     }
 
     @media (min-width: 601px) and (max-width: 800px) {
-      & > a,
-      & > span {font-size: ${size[2]};}
+      & a,
+      & span {font-size: ${size[2]};}
     }
 
     @media (min-width: 801px) {
-      & > a,
-      & > span {font-size: ${size[3]};}
-      }
+      & a,
+      & span {font-size: ${size[3]};}
     }
   `;
 
   return (
     <>
       <div id='blog-post-paginator' css={paginatorStyle}>
-        {
-          !isFirst
-            ? <Link href={firstPath} passHref><a id='page-to-first'/></Link>
-            : <span id='page-to-first'/>
-        }
-        {
-          !isFirst
-            ? <Link href={prevPath} passHref><a id='page-to-prev'/></Link>
-            : <span id='page-to-prev'/>
-        }
+        <span id='prev'>
+          {
+            !isFirst
+              ? <Link href={firstPath} passHref><a id='page-to-first'/></Link>
+              : <span id='page-to-first'/>
+          }
+          {
+            !isFirst
+              ? <Link href={prevPath} passHref><a id='page-to-prev'/></Link>
+              : <span id='page-to-prev'/>
+          }
+        </span>
         <span id='page-counter'>{current} / {total}</span>
-        {
-          !isLast
-            ? <Link href={nextPath} passHref><a id='page-to-next'/></Link>
-            : <span id='page-to-next'/>
-        }
-        {
-          !isLast
-            ? <Link href={lastPath} passHref><a id='page-to-last'/></Link>
-            : <span id='page-to-last'/>
-        }
+        <span id='next'>
+          {
+            !isLast
+              ? <Link href={nextPath} passHref><a id='page-to-next'/></Link>
+              : <span id='page-to-next'/>
+          }
+          {
+            !isLast
+              ? <Link href={lastPath} passHref><a id='page-to-last'/></Link>
+              : <span id='page-to-last'/>
+          }
+        </span>
       </div>
     </>
   );

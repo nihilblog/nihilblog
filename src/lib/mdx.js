@@ -102,8 +102,6 @@ export const getTagsAndCategories = (type = '') => {
     }
   });
 
-  posts;
-
   let ArraytoObject = [];
 
   for (let i = 0; i < initialBox.length; i++) {

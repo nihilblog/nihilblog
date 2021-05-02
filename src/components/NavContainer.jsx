@@ -1,7 +1,9 @@
 import React from 'react';
 import { css } from '@emotion/react';
-import Link from 'next/link';
 import size from '@/data/size';
+import ActiveLink from '@/components/ActiveLink';
+import ActivePostPageLink from '@/components/ActivePostPageLink';
+import ActiveNoticePageLink from '@/components/ActiveNoticePageLink';
 
 const NavContainer = () => {
   const navStyle = css`
@@ -25,7 +27,8 @@ const NavContainer = () => {
       box-shadow: 0 0 10px -4px #ffffff;
       margin: 2px;
 
-      &:hover {
+      &:hover,
+      &.selected {
         transition: all 0.3s;
         color: #333333;
         background-color: #ffffff;
@@ -61,15 +64,15 @@ const NavContainer = () => {
 
   return (
     <>
-      <header css={navStyle}>
-        <Link href='/'><a>프론트</a></Link>
-        <Link href='/blog'><a>홈</a></Link>
-        <Link href='/about'><a>소개</a></Link>
-        <Link href='/blog/notice/page/1'><a>공지</a></Link>
-        <Link href='/blog/post/page/1'><a>포스트</a></Link>
-        <Link href='/blog/categories/'><a>카테고리</a></Link>
-        <Link href='/blog/tags/'><a>태그</a></Link>
-      </header>
+      <nav css={navStyle}>
+        <ActiveLink href='/'><a>프론트</a></ActiveLink>
+        <ActiveLink href='/blog'><a>홈</a></ActiveLink>
+        <ActiveLink href='/about'><a>소개</a></ActiveLink>
+        <ActiveNoticePageLink href='/blog/notice/page/1'><a>공지</a></ActiveNoticePageLink>
+        <ActivePostPageLink href='/blog/post/page/1'><a>포스트</a></ActivePostPageLink>
+        <ActiveLink href='/blog/categories'><a>카테고리</a></ActiveLink>
+        <ActiveLink href='/blog/tags'><a>태그</a></ActiveLink>
+      </nav>
     </>
   );
 };

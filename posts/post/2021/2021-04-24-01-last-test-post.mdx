@@ -10,6 +10,12 @@ display: true
 notice: false
 ---
 
+import {
+  A, Bold, Char, Details, Dl, H, Message, NoteBottom, NoteTop, P,
+  Quote, Score, Youtube, Ul, Ol, Em, Gray, Code, Kbd, Image,
+  Q, Strong, Spoiler, Strike
+} from '@/components/PostComponents';
+
 <H type='1' top='0'>제목을 적어본다. h2 태그로 변환된다.</H>
 <H type='2'>두번째 사이즈 제목이다. h3 태그로 변환된다.</H>
 <H type='3'>세번째 사이즈 제목이다. h4 태그로 변환된다.</H>
@@ -33,17 +39,17 @@ notice: false
 
 이것은 <Q>인용 태그이다. 인라인 인용이다.</Q>
 
-<Char who='구찬성(호텔 델루나)' file='구찬성' bottom='10'>
+<Char who='구찬성(호텔 델루나)' image='구찬성' bottom='10'>
   멀리 안가고 여기 있는 것도 좋네요. 쭈꾸미는 없지만.
 </Char>
 
-<Char who='장만월(호텔 델루나)' file='장만월(부드러운)' top='10'>
+<Char who='장만월(호텔 델루나)' image='장만월(부드러운)' top='10'>
   괜찮아. <Bold>네가 있으니까.</Bold>
 </Char>
 
 위의 것은 인용을 조금 응용해서 아이콘을 넣은 버전이다.
 
-각주도 만들었다. 각주는 이렇게 사용한다.<NoteTop number='1' link='1'>1</NoteTop> 클릭하면 아래로 이동한다.
+각주도 만들었다. 각주는 이렇게 사용한다. <NoteTop number='1' link='1'>1</NoteTop> 클릭하면 아래로 이동한다.
 
 아래의 세가지는 목록이다.
 
@@ -116,15 +122,11 @@ notice: false
 ```javascript
 console.log('Hello World!!');
 
-const name = 'nihil';
-let age = 29;
-const gender = 'male';
+const myName = 'nihil';
+let myAge = 29;
+const myGender = 'male';
 
-if (true) {
-  age = 30;
-} else {
-  age = 28;
-}
+ myAge = 30;
 
 const MyComponent = () => {
   return (
@@ -169,8 +171,8 @@ for (let i = 0; i < name.length; i++) {
 
 ```css
 * {
-  padding: 0px;
-  margin: 0px;
+  padding: 0;
+  margin: 0;
 }
 
 body {
@@ -219,17 +221,16 @@ body:nth-child(1) {
 <Score score='5'>리뷰 점수</Score>
 
 <Details close='클릭해서 펼치기' open='클릭해서 닫기'>
-  클릭하면 이 문구가 나타나요. <A href='/2021/2021-04-13-02-the-sixth-post' type='blog'>여섯번째 포스트</A>
+  클릭하면 이 문구가 나타나요. <A href='/blog/post/2021-04-13-02-the-sixth-post' type='blog'>여섯번째 포스트</A>
 </Details>
 
-<!-- 
 <Youtube src='https://www.youtube.com/watch?v=fkiTi7Fnfls'>
   아이유 - 라일락 무대 영상
 </Youtube>
 
 <Youtube src='https://www.youtube.com/watch?v=bwLNlAIDZfg'>
   아이유 - 코인 무대 영상
-</Youtube> -->
+</Youtube>
 
 <NoteBottom number='1' link='1' top='40' first='true'>각주 4형제 맏형.</NoteBottom>
 <NoteBottom number='2' link='2'>각주 4형제 둘째.</NoteBottom>

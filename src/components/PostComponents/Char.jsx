@@ -2,7 +2,7 @@ import React from 'react';
 import { css } from '@emotion/react';
 import size from '@/data/size';
 
-export const Char = ({ children, who = '이름', top = 40, bottom = 40, file = '기본', }) => {
+export const Char = ({ children, who = '이름', top = 40, bottom = 40, image = '기본', }) => {
   const style = css`
     margin: ${top}px 0 ${bottom}px 0;
     padding: 10px;
@@ -74,13 +74,13 @@ export const Char = ({ children, who = '이름', top = 40, bottom = 40, file = '
     }
 
     @media (min-width: 601px) and (max-width: 800px) {
-      & > .script-left > img {width: 60px;}
+      & > .script-left > img {width: 50px;}
       & > .script-right > blockquote,
       & > .script-right > p {font-size: ${size[2]};}
     }
 
     @media (min-width: 801px) {
-      & > .script-left > img {width: 80px;}
+      & > .script-left > img {width: 60px;}
       & > .script-right > blockquote,
       & > .script-right > p {font-size: ${size[3]};}
     }
@@ -90,7 +90,7 @@ export const Char = ({ children, who = '이름', top = 40, bottom = 40, file = '
     <>
       <div className='post-character-script' css={style}>
         <div className='script-left'>
-          <img src={`/images/Characters/${file}.png`} alt={who} />
+          <img src={`/images/Characters/${image}.png`} alt={who} />
         </div>
         <div className='script-right'>
           <p className='who'>

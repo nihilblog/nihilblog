@@ -66,6 +66,19 @@ const BlogLayout = ({
       }
     }
 
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background-color: #bbbbbb;
+    }
+    
+    ::-webkit-scrollbar-thumb {
+      background-color: #222222;
+      border-radius: 10px;
+    }
+
     @media (min-width: 1px) and (max-width: 600px) {
       main {max-width: 100%;}
     }
