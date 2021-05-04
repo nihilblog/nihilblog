@@ -14,6 +14,13 @@ const App = ({ Component, pageProps, }) => {
         <link rel='icon' type='image/x-icon' href={`${BlogConfig.siteURL}/favicon.ico`} />
 
         <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.15.1/css/all.css' integrity='sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp' crossOrigin='anonymous' />
+  
+        <meta name='robots' content='All' />
+        <meta name='robots' content='index, follow' />
+        <meta name='NaverBot' content='All'/>
+        <meta name='NaverBot' content='index, follow'/>
+        <meta name='Yeti' content='All'/>
+        <meta name='Yeti' content='index, follow'/>
 
         <meta name='google-site-verification' content='iIK1QMzAYU9YHlIbkvglYdu5GF4WsxIBaV_geNrPVMI' />
         <meta name='naver-site-verification' content='f01c4552dd70d2dbfddcc7400b30371edf57a16d' />
