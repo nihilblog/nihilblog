@@ -40,11 +40,22 @@ const PostInfo = ({ children, name, i, w, itemType = 'p', linkIcon = '', }) => {
   };
 
   const postInfoStyle = css`
-    margin-top: 5px;
+    margin-top: 2px;
     color: #333333;
     letter-spacing: -1px;
     font-weight: 500;
     transition: all 0.3s;
+    
+    & > span {
+      &:nth-of-type(2) {
+        font-size: 90%;
+        color: #555555;
+      }
+    }
+    
+    & > a {
+      font-size: 90%;
+    }
     
     & > .name {
       display: inline-block;

@@ -5,7 +5,12 @@ import size from '@/data/size';
 const PostContents = ({ children, }) => {
   const PostContentsStyle = css`
     & > p {
-      margin-top: 5px;
+      margin-top: 2px;
+      
+      &:nth-of-type(1) {
+        line-height: 1.4;
+        margin-bottom: 10px;
+      }
 
       & > .info-name {
         display: inline-block;
@@ -36,10 +41,11 @@ const PostContents = ({ children, }) => {
 
       & > .info-description,
       & > .info-time {
-        color: #333333;
+        color: #555555;
         letter-spacing: -1px;
         font-weight: 500;
         transition: all 0.3s;
+        font-size: 90%;
       }
 
       & > .info-tag,
@@ -54,6 +60,7 @@ const PostContents = ({ children, }) => {
         transition: all 0.3s;
         font-weight: 500;
         display: inline-block;
+        font-size: 90%;
 
         &:hover {
           color: #ffffff;
