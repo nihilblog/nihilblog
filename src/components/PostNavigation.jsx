@@ -8,8 +8,10 @@ const PostNavigation = ({ prev, next, type = '', }) => {
 
   if (type === 'post') {
     path = 'post';
-  } else {
+  } else if (type === 'notice') {
     path = 'notice';
+  } else {
+    path = 'illust';
   }
 
   const postNavigationStyle = css`

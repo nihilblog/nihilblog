@@ -9,8 +9,10 @@ const Pagination = ({ prev, next, current, total, type ='', }) => {
 
   if (type === 'notice') {
     Path = 'notice';
-  } else {
+  } else if (type === 'post') {
     Path = 'post';
+  } else {
+    Path = 'illust';
   }
 
   const isFirst = current === 1;

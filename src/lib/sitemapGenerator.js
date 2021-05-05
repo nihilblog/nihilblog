@@ -50,6 +50,28 @@ const getAllYearPosts = (type = '') => {
   return AllPosts;
 };
 
+const illustsYears = [
+  '2017', '2018', '2019', '2020', '2021',
+];
+
+const getAllYearIllusts = (type = '') => {
+  const illusts2016 = getAllPosts(type, '2016');
+  
+  let illusts;
+  for (let year in illustsYears) {
+    illusts = illusts2016.concat(getAllPosts(type, illustsYears[year]));
+  }
+  
+  illusts = illusts.sort((a, b) => {
+    const beforeDate = a.frontMatter.createdAt;
+    const afterDate = b.frontMatter.createdAt;
+    
+    return afterDate - beforeDate;
+  });
+  
+  return illusts;
+};
+
 const getTagsAndCategories = (type = '') => {
 
   const initialBox = [];
@@ -136,9 +158,11 @@ const categoryArray = categories.map((category) => {
 const posts = getAllYearPosts('post');
 // const posts = getAllPosts('post', '2021');
 const notices = getAllYearPosts('notice');
+const illusts = getAllYearIllusts('illust');
 
 const postsPages = Array.from({ length: getPages(posts, 5).length, }, (_, index) => index + 1);
 const noticesPages = Array.from({ length: getPages(notices, 5).length, }, (_, index) => index + 1);
+const illustsPages = Array.from({ length: getPages(illusts, 5).length, }, (_, index) => index + 1);
 
 // 포스트 이름 배열
 const postName = {
@@ -146,6 +170,9 @@ const postName = {
     return filePath.replace('.mdx', '');
   }),
   notice: getAllYearPosts('notice').map(({ filePath, }) => {
+    return filePath.replace('.mdx', '');
+  }),
+  illust: getAllYearIllusts('illust').map(({ filePath, }) => {
     return filePath.replace('.mdx', '');
   }),
 };
@@ -165,10 +192,14 @@ const sitemapGenerator = async () => {
     return `/blog/post/page/${page}`;
   }), noticesPages.map((page) => {
     return `/blog/notice/page/${page}`;
+  }), illustsPages.map((page) => {
+    return `/blog/illust/page/${page}`;
   }), postName.post.map((post) => {
     return `/blog/post/${post}`;
   }), postName.notice.map((post) => {
     return `/blog/notice/${post}`;
+  }), postName.illust.map((post) => {
+    return `/blog/illust/${post}`;
   }), tagArray.map((tag) => {
     return `/blog/tags/${tag}`;
   }), categoryArray.map((category) => {

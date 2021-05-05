@@ -43,21 +43,21 @@ const BlogPostListNumberPage = ({ currentPage, prevPage, nextPage, posts, totalP
                   <span className='info-time'>{getDate(frontMatter.createdAt)}</span>
                 </p>
                 <p>
-                    <span className='info-name'>카테고리</span>
-                    {frontMatter.categories.map((category, index) => (
-                      <Link href={`/blog/categories/${String(category)}`} key={index + category}>
-                        <a className='info-category'>{category}</a>
-                      </Link>
-                    ))}
-                  </p>
-                  <p>
-                    <span className='info-name'>태그</span>
-                    {frontMatter.tags.map((tag, index) => (
-                      <Link href={`/blog/tags/${String(tag)}`} key={index + tag}>
-                        <a className='info-tag'>{tag}</a>
-                      </Link>
-                    ))}
-                  </p>
+                  <span className='info-name'>카테고리</span>
+                  {frontMatter.categories.map((category, index) => (
+                    <Link href={`/blog/categories/${String(category)}`} key={index + category}>
+                      <a className='info-category'>{category}</a>
+                    </Link>
+                  ))}
+                </p>
+                <p>
+                  <span className='info-name'>태그</span>
+                  {frontMatter.tags.map((tag, index) => (
+                    <Link href={`/blog/tags/${String(tag)}`} key={index + tag}>
+                      <a className='info-tag'>{tag}</a>
+                    </Link>
+                  ))}
+                </p>
               </PostContents>
             </Box>
           ))}

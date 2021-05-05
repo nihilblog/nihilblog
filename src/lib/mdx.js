@@ -13,11 +13,13 @@ const getAllPosts = (type = '', year = '') => {
 
     const createdAt = data.createdAt.getTime();
     const updatedAt = data.updatedAt.getTime();
+    const drawDate = data.drawDate ? data.drawDate.getTime() : '';
 
     const frontMatter = {
       ...data,
       createdAt,
       updatedAt,
+      drawDate,
     };
   
     return {
@@ -35,6 +37,28 @@ const getAllPosts = (type = '', year = '') => {
   });
 
   return SortedAllPosts;
+};
+
+const illustsYears = [
+  '2017', '2018', '2019', '2020', '2021',
+];
+
+export const getAllYearIllusts = (type = '') => {
+  const illusts2016 = getAllPosts(type, '2016');
+  
+  let illusts;
+  for (let year in illustsYears) {
+    illusts = illusts2016.concat(getAllPosts(type, illustsYears[year]));
+  }
+  
+  illusts = illusts.sort((a, b) => {
+    const beforeDate = a.frontMatter.createdAt;
+    const afterDate = b.frontMatter.createdAt;
+  
+    return afterDate - beforeDate;
+  });
+  
+  return illusts;
 };
 
 // const years = [
@@ -69,10 +93,18 @@ export const getAllYearPosts = (type = '') => {
 };
 
 export const getPostBySlug = async (type = '', slug = '') => {
-  const posts = getAllYearPosts(type).filter((post) => {
-    return post.filePath.replace('.mdx', '') === slug;
-  });
-
+  let posts;
+  
+  if (type !== 'illust') {
+    posts = getAllYearPosts(type).filter((post) => {
+      return post.filePath.replace('.mdx', '') === slug;
+    });
+  } else {
+    posts = getAllYearIllusts(type).filter((post) => {
+      return post.filePath.replace('.mdx', '') === slug;
+    });
+  }
+  
   const { frontMatter, content, } = posts[0];
 
   const mdxSource = await serialize(content, {

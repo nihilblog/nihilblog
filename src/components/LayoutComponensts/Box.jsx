@@ -15,6 +15,20 @@ const Box = ({ children, top = 30, bottom = 30, }) => {
     background-color: #ffffff;
     box-shadow: 0 0 10px -4px #333333;
     border-radius: 10px;
+    
+    & > div:nth-of-type(1) {
+      & > p:nth-of-type(1) {
+        & > span:nth-of-type(2) {
+          display: -webkit-box;
+          line-height: 1.55;
+          word-break: break-all;
+          -webkit-line-clamp: 3;
+          -webkit-box-orient: vertical;
+          text-overflow: ellipsis;
+          overflow: hidden;
+        }
+      }
+    }
 
     @media (min-width: 1px) and (max-width: 600px) {
       & > p {font-size: ${size[1]};}

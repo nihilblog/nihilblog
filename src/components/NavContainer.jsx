@@ -4,6 +4,7 @@ import size from '@/data/size';
 import ActiveLink from '@/components/ActiveLink';
 import ActivePostPageLink from '@/components/ActivePostPageLink';
 import ActiveNoticePageLink from '@/components/ActiveNoticePageLink';
+import ActiveIllustPageLink from '@/components/ActiveIllustPageLink';
 
 const NavContainer = () => {
   const navStyle = css`
@@ -47,6 +48,7 @@ const NavContainer = () => {
       &:nth-of-type(5):before {content: '\\f039';}
       &:nth-of-type(6):before {content: '\\f07b';}
       &:nth-of-type(7):before {content: '\\f02c';}
+      &:nth-of-type(8):before {content: '\\f53f';}
     }
 
     @media (min-width: 1px) and (max-width: 600px) {
@@ -72,6 +74,7 @@ const NavContainer = () => {
         <ActivePostPageLink href='/blog/post/page/1'><a>포스트</a></ActivePostPageLink>
         <ActiveLink href='/blog/categories'><a>카테고리</a></ActiveLink>
         <ActiveLink href='/blog/tags'><a>태그</a></ActiveLink>
+        <ActiveIllustPageLink href='/blog/illust/page/1'><a>일러스트</a></ActiveIllustPageLink>
       </nav>
     </>
   );
