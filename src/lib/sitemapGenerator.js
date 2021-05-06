@@ -69,9 +69,7 @@ const sitemapGenerator = async () => {
   const ruleSet = defaultPages.map((path) => {
     return `
       <url>
-        <loc>
-          ${basePath}${path}
-        </loc>
+        <loc>${basePath}${path}</loc>
         <lastmod>${dateTime}</lastmod>
         <changefreq>daily</changefreq>
         <priority>1</priority>
