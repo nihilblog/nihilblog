@@ -6,6 +6,8 @@ import FooterContainer from '@/components/FooterContainer';
 import PageContainer from '@/components/PageContainer';
 import { css, Global } from '@emotion/react';
 import SiteHead from '@/components/SiteHead';
+import { useRouter } from 'next/router';
+import SubNavContainer from '@/components/SubNavContainer';
 
 const BlogLayout = ({
   pageName, pageDescription, pageKeywords, pageImage, pageType,
@@ -94,6 +96,8 @@ const BlogLayout = ({
       }
     }
   `;
+  
+  const router = useRouter();
 
   return (
     <>
@@ -103,6 +107,11 @@ const BlogLayout = ({
       {/* 헤더와 메뉴 */}
       <HeaderContainer />
       <NavContainer />
+      {
+        router.pathname.indexOf('blog/illust') !== -1
+          ? <SubNavContainer />
+          : ''
+      }
 
       {/* 메인 컨텐츠 */}
       <PageContainer>

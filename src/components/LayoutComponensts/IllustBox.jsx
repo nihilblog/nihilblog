@@ -21,11 +21,11 @@ const IllustBox = ({ children, top = 30, bottom = 30, }) => {
       
       & > div:nth-of-type(1) {
         & > img {
-          width: 150px;
           border-radius: 10px;
           border: 2px solid #555555;
           margin-right: 20px;
           display: block;
+          transition: all 0.3s;
         }
       }
       
@@ -46,14 +46,17 @@ const IllustBox = ({ children, top = 30, bottom = 30, }) => {
 
     @media (min-width: 1px) and (max-width: 600px) {
       & p {font-size: ${size[1]};}
+      & > .illust-item-info > div:nth-of-type(1) > img {width: 110px;}
     }
 
     @media (min-width: 601px) and (max-width: 800px) {
       & p {font-size: ${size[2]};}
+      & > .illust-item-info > div:nth-of-type(1) > img {width: 130px;}
     }
 
     @media (min-width: 801px) {
       & p {font-size: ${size[3]};}
+      & > .illust-item-info > div:nth-of-type(1) > img {width: 150px;}
     }
   `;
   

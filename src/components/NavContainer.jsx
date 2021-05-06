@@ -8,8 +8,7 @@ import ActiveIllustPageLink from '@/components/ActiveIllustPageLink';
 
 const NavContainer = () => {
   const navStyle = css`
-    margin-bottom: 100px;
-    padding: 8px 10px;
+    padding: 13px 10px;
     background-color: #333333;
     text-align: center;
     width: 100%;
@@ -66,7 +65,7 @@ const NavContainer = () => {
 
   return (
     <>
-      <nav css={navStyle}>
+      <nav id={'blog-main-menu'} css={navStyle}>
         <ActiveLink href='/'><a>프론트</a></ActiveLink>
         <ActiveLink href='/blog'><a>홈</a></ActiveLink>
         <ActiveLink href='/about'><a>소개</a></ActiveLink>

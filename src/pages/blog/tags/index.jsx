@@ -64,7 +64,7 @@ const TagsPage = ({ tags, }) => {
         <BlogMessage />
         <BlogSeriesList />
         <div id='blog-tags-page'>
-          <Box>
+          <Box bottom={'100'}>
             <BoxHeader i='f02c' w='900' f='Free'>태그 목록</BoxHeader>
             <P>포스트에 사용된 태그 목록입니다. 각 태그에는 링크가 되어있고 어떤 태그에 어떤 포스트들이 들어있는지 확인 할 수 있습니다. 숫자는 사용된 포스트의 수를 의미합니다.</P>
             <div css={wordStyle}>

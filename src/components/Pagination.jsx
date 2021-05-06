@@ -3,7 +3,7 @@ import React from 'react';
 import { css } from '@emotion/react';
 import size from '@/data/size';
 
-const Pagination = ({ prev, next, current, total, type ='', }) => {
+const Pagination = ({ prev, next, current, total, type ='', top = '50', bottom = '100', }) => {
   
   let Path;
 
@@ -24,7 +24,8 @@ const Pagination = ({ prev, next, current, total, type ='', }) => {
   const nextPath = `/blog/${Path}/page/${next}`;
 
   const paginatorStyle = css`
-    margin-top: 50px;
+    margin-top: ${top}px;
+    margin-bottom: ${bottom}px;
     border-radius: 10px;
     padding: 7px 10px;
     background-color: #ffffff;

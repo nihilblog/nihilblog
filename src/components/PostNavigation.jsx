@@ -23,6 +23,7 @@ const PostNavigation = ({ prev, next, type = '', }) => {
     box-sizing: border-box;
     letter-spacing: -1px;
     font-weight: 500;
+    margin-bottom: 100px;
 
     & > .nav-button {
       &:nth-of-type(1) {

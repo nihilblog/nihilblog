@@ -1,5 +1,8 @@
 const getDate = (date) => {
-  const dateTime = new Date(date);
+  const curr = new Date(date);
+  // const utc = curr.getTime() + (curr.getTimezoneOffset() * 60 * 1000);
+  const KR_TIME_DIFF = 9 * 60 * 60 * 1000;
+  const dateTime = new Date(curr - KR_TIME_DIFF);
 
   let YYYY = dateTime.getFullYear();
 

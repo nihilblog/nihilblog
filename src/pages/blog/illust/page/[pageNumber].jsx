@@ -33,9 +33,9 @@ const BlogIllustListPage = ({ illusts, currentPage, prevPage, nextPage, totalPag
               </PostHeader>
               <div className={'illust-item-info'}>
                 <div className={'item-left'}>
-                  <img src={frontMatter.coverImage} alt='이미지 포스트 미리보기' />
+                  <img src={frontMatter.coverImage} alt={`${frontMatter.title} 썸네일`} />
                 </div>
-                <PostContents>
+                <PostContents type={'illust'}>
                   <p>
                     <span className={'info-name'}>일러스트 설명</span><br />
                     <span className={'info-description'}>{frontMatter.description}</span>
@@ -43,6 +43,14 @@ const BlogIllustListPage = ({ illusts, currentPage, prevPage, nextPage, totalPag
                   <p>
                     <span className={'info-name'}>작성 날짜</span>
                     <span className={'info-time'}>{getDate(frontMatter.createdAt)}</span>
+                  </p>
+                  <p>
+                    <span className={'info-name'}>키워드</span>
+                    {frontMatter.keywords.map((keyword, index) => (
+                      <Link href={`/blog/illust/keywords/${String(keyword)}`} key={index + keyword}>
+                        <a className='info-keyword'>{keyword}</a>
+                      </Link>
+                    ))}
                   </p>
                 </PostContents>
               </div>

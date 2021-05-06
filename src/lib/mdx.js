@@ -15,12 +15,18 @@ const getAllPosts = (type = '', year = '') => {
     const updatedAt = data.updatedAt.getTime();
     const drawDate = data.drawDate ? data.drawDate.getTime() : '';
 
-    const frontMatter = {
-      ...data,
-      createdAt,
-      updatedAt,
-      drawDate,
-    };
+    const frontMatter = data.drawDate
+      ? {
+        ...data,
+        createdAt,
+        updatedAt,
+        drawDate,
+      }
+      : {
+        ...data,
+        createdAt,
+        updatedAt,
+      };
   
     return {
       frontMatter,
@@ -126,13 +132,19 @@ export const getTagsAndCategories = (type = '') => {
 
   const initialBox = [];
   
-  const posts = getAllYearPosts('post').filter((post) => {
-    if (type === 'tags') {
-      initialBox.push(post.frontMatter.tags);
-    } else {
-      initialBox.push(post.frontMatter.categories);
-    }
-  });
+  if (type === 'keywords') {
+    const illusts = getAllYearIllusts('illust').filter((illust) => {
+      initialBox.push(illust.frontMatter.keywords);
+    });
+  } else {
+    const posts = getAllYearPosts('post').filter((post) => {
+      if (type === 'tags') {
+        initialBox.push(post.frontMatter.tags);
+      } else {
+        initialBox.push(post.frontMatter.categories);
+      }
+    });
+  }
 
   let ArraytoObject = [];
 
@@ -155,10 +167,15 @@ export const getTagsAndCategories = (type = '') => {
         tagName: key,
         tagCount: ArraytoObject[key],
       };
-    } else {
+    } else if (type === 'categories') {
       obj = {
         categoryName: key,
         categoryCount: ArraytoObject[key],
+      };
+    } else {
+      obj = {
+        keywordName: key,
+        keywordCount: ArraytoObject[key],
       };
     }
 
@@ -168,8 +185,10 @@ export const getTagsAndCategories = (type = '') => {
   FinallyArray.sort((a, b) => {
     if (type === 'tags') {
       return b.tagCount - a.tagCount;
-    } else {
+    } else if (type === 'categories') {
       return b.categoryCount - a.categoryCount;
+    } else {
+      return b.keywordCount - a.keywordCount;
     }
   });
 

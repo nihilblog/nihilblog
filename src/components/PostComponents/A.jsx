@@ -2,64 +2,100 @@ import React from 'react';
 import { css } from '@emotion/react';
 import Link from 'next/link';
 
-export const A = ({ children, href = '', type = 'blog', }) => {
-  let typeColor;
-  const typeProps = {};
-  const icon = {};
-
-  if (type === 'blog') {
-    typeColor = '#218cd8';
-    typeProps.href = href;
-    icon.code = 'f0c1';
-    icon.type = 'Free';
-  } else if (type === 'normal') {
-    typeColor = '#11b32c';
-    typeProps.href = href;
-    typeProps.rel = 'noreferrer noopener';
-    icon.code = 'f360';
-    icon.type = 'Free';
-  } else {
-    typeColor = '#c30505';
-    typeProps.href = href;
-    typeProps.rel = 'noreferrer noopener';
-    icon.code = 'f167';
-    icon.type = 'Brands';
-  }
+export const A = ({ children, href = '', type = 'blog', isOff = 'false', }) => {
+  const typeColor = {
+    'blog': '#218cd8',
+    'normal': '#11b32c',
+    'youtube': '#c30505',
+  };
+  
+  const typeProps = {
+    'blog': {
+      href,
+    },
+    'normal': {
+      href,
+      rel: 'noreferrer noopener',
+    },
+    'youtube': {
+      href,
+      rel: 'noreferrer noopener',
+    },
+  };
+  const icon = {
+    'blog': {
+      code: 'f0c1',
+      type: 'Free',
+    },
+    'normal': {
+      code: 'f360',
+      type: 'Free',
+    },
+    'youtube': {
+      code: 'f167',
+      type: 'Brands',
+    },
+  };
+  
+  const color = {
+    'false': `
+      border: 2px solid ${typeColor[type]};
+      color: ${typeColor[type]};
+    `,
+    'true': `
+      border: 2px solid #aaaaaa;
+      color: #aaaaaa;
+    `,
+  };
+  
+  const cursor = {
+    'false': 'pointer',
+    'true': 'default',
+  };
+  
+  const hover = {
+    'false': `
+      &:hover {
+        color: #ffffff;
+        background-color: ${typeColor[type]};
+        transition: all 0.3s;
+      }
+    `,
+    'true': ``,
+  };
 
   const style = css`
-    border: 2px solid ${typeColor};
-    color: ${typeColor};
+    ${color[isOff]}
     padding: 0 5px;
     border-radius: 5px;
     font-size: 90%;
     transition: all 0.3s;
     margin: 0 2px;
+    cursor: ${cursor[isOff]};
 
     &:after {
-      content: '\\${icon.code}';
-      font-family: 'Font Awesome 5 ${icon.type}', sans-serif;
+      content: '\\${icon[type].code}';
+      font-family: 'Font Awesome 5 ${icon[type].type}', sans-serif;
       font-weight: 900;
       margin-left: 5px;
     }
 
-    &:hover {
-      color: #ffffff;
-      background-color: ${typeColor};
-      transition: all 0.3s;
-    }
+    ${hover[isOff]}
   `;
 
   return (
     <>
       {
         type === 'blog'
-          ? (
-            <Link {...typeProps} passHref>
+          ?
+          (
+            <Link {...typeProps[type]} passHref>
               <a css={style}>{children}</a>
             </Link>
           )
-          : (
-            <a css={style} {...typeProps}>{children}</a>
+          :
+          (
+            <a css={style} {...typeProps[type]}>{children}</a>
           )
       }
     </>

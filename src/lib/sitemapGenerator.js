@@ -73,58 +73,69 @@ const getAllYearIllusts = (type = '') => {
 };
 
 const getTagsAndCategories = (type = '') => {
-
+  
   const initialBox = [];
   
-  const posts = getAllYearPosts('post').filter((post) => {
-    if (type === 'tags') {
-      initialBox.push(post.frontMatter.tags);
-    } else {
-      initialBox.push(post.frontMatter.categories);
-    }
-  });
-
-  posts;
-
+  if (type === 'keywords') {
+    const illusts = getAllYearIllusts('illust').filter((illust) => {
+      initialBox.push(illust.frontMatter.keywords);
+    });
+  } else {
+    const posts = getAllYearPosts('post').filter((post) => {
+      if (type === 'tags') {
+        initialBox.push(post.frontMatter.tags);
+      } else {
+        initialBox.push(post.frontMatter.categories);
+      }
+    });
+  }
+  
   let ArraytoObject = [];
-
+  
   for (let i = 0; i < initialBox.length; i++) {
     ArraytoObject = ArraytoObject.concat(initialBox[i]);
   }
-
+  
   ArraytoObject = ArraytoObject.reduce((pre, current) => {
     pre[current] = (pre[current] || 0) + 1;
-
+    
     return pre;
   }, {});
-
+  
   let FinallyArray = [];
   for (let key in ArraytoObject) {
     let obj;
-
+    
     if (type === 'tags') {
       obj = {
         tagName: key,
         tagCount: ArraytoObject[key],
       };
-    } else {
+    } else if (type === 'categories') {
       obj = {
         categoryName: key,
         categoryCount: ArraytoObject[key],
       };
+    } else {
+      obj = {
+        keywordName: key,
+        keywordCount: ArraytoObject[key],
+      };
     }
-
+    
     FinallyArray.push(obj);
   }
-
+  
   FinallyArray.sort((a, b) => {
     if (type === 'tags') {
       return b.tagCount - a.tagCount;
-    } else {
+    } else if (type === 'categories') {
       return b.categoryCount - a.categoryCount;
+    } else {
+      return b.keywordCount - a.keywordCount;
     }
   });
-
+  
   return FinallyArray;
 };
 
@@ -142,6 +153,7 @@ const getPages = (array, number) => {
 
 const tags = getTagsAndCategories('tags');
 const categories = getTagsAndCategories('categories');
+const keywords = getTagsAndCategories('keywords');
 
 
 // 태그 배열
@@ -152,6 +164,11 @@ const tagArray = tags.map((tag) => {
 // 카테고리 배열
 const categoryArray = categories.map((category) => {
   return category.categoryName;
+});
+
+// 키워드 배열
+const keywordArray = keywords.map((keyword) => {
+  return keyword.keywordName;
 });
 
 //포스트 페이지 배열
@@ -177,10 +194,38 @@ const postName = {
   }),
 };
 
-const sitemapGenerator = async () => {
+const date = new Date();
 
-  const date = new Date().toISOString();
+const dateFormat = (date) => {
+  const curr = new Date(date);
+  const utc = curr.getTime() + (curr.getTimezoneOffset() * 60 * 1000);
+  const utcTime = new Date(utc);
+  
+  let YYYY = utcTime.getFullYear();
+  
+  let MM = utcTime.getMonth() + 1;
+  MM = MM >= 10 ? MM : `0${MM}`;
+  
+  let DD = utcTime.getDate();
+  DD = DD >= 10 ? DD : `0${DD}`;
+  
+  let HH = utcTime.getHours();
+  HH = HH >= 10 ? HH : `0${HH}`;
+  
+  let mm = utcTime.getMinutes();
+  mm = mm >= 10 ? mm : `0${mm}`;
+  
+  let ss = utcTime.getSeconds();
+  ss = ss >= 10 ? ss : `0${ss}`;
+  
+  return (
+    `${YYYY}-${MM}-${DD}T${HH}:${mm}:${ss}+09:00`
+  );
+};
+
+const sitemapGenerator = async () => {
   const prettierConfig = await prettier.resolveConfig('./.prettierrc.js');
+  const dateTime = dateFormat(date);
 
   const defaultPages = [
     '/',
@@ -204,6 +249,8 @@ const sitemapGenerator = async () => {
     return `/blog/tags/${tag}`;
   }), categoryArray.map((category) => {
     return `/blog/categories/${category}`;
+  }), keywordArray.map((keyword) => {
+    return `/blog/illust/keywords/${keyword}`;
   }));
 
   const basePath = 'https://nihilblog.github.io';
@@ -211,15 +258,21 @@ const sitemapGenerator = async () => {
   const ruleSet = defaultPages.map((path) => {
     return `
       <url>
-        <loc>${basePath}${path}</loc>
-        <lastmod>${date}</lastmod>
+        <loc>
+          ${basePath}${path}
+        </loc>
+        <lastmod>${dateTime}</lastmod>
       </url>
     `;
   }).join('');
 
   const sitemap = `
     <?xml version="1.0" encoding="UTF-8"?>
-    <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd"
+     >
       ${ruleSet}
     </urlset>
   `;

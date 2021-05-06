@@ -11,8 +11,13 @@ import { P } from '@/components/PostComponents/P';
 import { A } from '@/components/PostComponents/A';
 import BlogMessage from '@/components/ContentComponents/BlogMessage';
 import BlogSeriesList from '@/components/ContentComponents/BlogSeriesList';
+import { css } from '@emotion/react';
 
 const BlogIndexPage = ({ posts, }) => {
+  const style = css`
+    margin-bottom: 100px;
+  `;
+  
   const siteData = {
     pageName: '홈',
     pageURL: '/blog',
@@ -23,10 +28,10 @@ const BlogIndexPage = ({ posts, }) => {
       <BlogLayout {...siteData}>
         <BlogMessage />
         <BlogSeriesList />
-        <div id='blog-index-page'>
+        <div id='blog-index-page' css={style}>
           <Box>
             <BoxHeader i='f017' w='500' f='Free'>최근 포스트</BoxHeader>
-            <P bottom='0'>가장 최근에 작성된 포스트입니다. 이 목록에는 5건의 포스트만 나타납니다. 더 많은 포스트를 보고 싶으시다면 상단의 메뉴에서 <A href='/blog/post/page/1' type='blog'>포스트</A>페이지로 이동하세요.</P>
+            <P bottom='0'>가장 최근에 작성된 5건의 포스트입니다. 더 많은 포스트를 보고 싶으시다면 상단의 메뉴에서 <A href='/blog/post/page/1' type='blog'>포스트</A>페이지로 이동하세요.</P>
           </Box>
           <div id='blog-post-list'>
             {posts.map(({ frontMatter, filePath, }, index) => (

@@ -8,7 +8,6 @@ const FooterContainer = () => {
     background-color: #333333;
     padding: 10px;
     text-align: center;
-    margin-top: 98px;
     box-sizing: border-box;
     letter-spacing: -1px;
     

@@ -58,7 +58,7 @@ const BlogNoticePage = ({ post, prev, next, }) => {
               {getDate(frontMatter.updatedAt)}
             </PostInfo>
             <DottedLine />
-            <MDXRemote {...source} components={{...MDXComponents}} />
+            <MDXRemote {...source} components={{ ...MDXComponents, }} />
             <Message color='blue' bottom='40'>
               포스트를 읽고 혹은 읽으면서 하고 싶은 말이 있다면 아래의 덧글창에 적어주시면 됩니다. 최대한 빠르게 확인하고 답변을 드리겠습니다. 이 포스트를 보신 모든 분들의 하루가 좋은 하루이길 바랍니다.
             </Message>

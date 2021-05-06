@@ -1,8 +1,16 @@
 import React from 'react';
 import { css } from '@emotion/react';
 import size from '@/data/size';
+import { useRouter } from 'next/router';
 
-const PostContents = ({ children, }) => {
+const PostContents = ({ children, type = 'normal', }) => {
+  const router = useRouter();
+  
+  const typeIcon = {
+    'normal': 'f07b',
+    'illust': 'f1fc',
+  };
+  
   const PostContentsStyle = css`
     & > p {
       margin-top: 2px;
@@ -36,7 +44,7 @@ const PostContents = ({ children, }) => {
         font-weight: 500;
       }
 
-      &:nth-of-type(3) > .info-name:before {content: '\\f07b';}
+      &:nth-of-type(3) > .info-name:before {content: '\\${typeIcon[type]}';}
       &:nth-of-type(4) > .info-name:before {content: '\\f02c';}
 
       & > .info-description,
@@ -49,7 +57,8 @@ const PostContents = ({ children, }) => {
       }
 
       & > .info-tag,
-      & > .info-category {
+      & > .info-category,
+      & > .info-keyword {
         letter-spacing: -1px;
         color: #555555;
         padding: 0 10px;
@@ -79,6 +88,13 @@ const PostContents = ({ children, }) => {
 
       & > .info-category:before {
         content: '\\f07c';
+        font-weight: 900;
+        font-family: 'Font Awesome 5 Free', sans-serif;
+        margin-right: 5px;
+      }
+
+      & > .info-keyword:before {
+        content: '\\f1fc';
         font-weight: 900;
         font-family: 'Font Awesome 5 Free', sans-serif;
         margin-right: 5px;

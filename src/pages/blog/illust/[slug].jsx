@@ -14,6 +14,7 @@ import MDXComponents from '@/components/MDXComponents';
 import { MDXRemote } from 'next-mdx-remote';
 import { DiscussionEmbed as Disqus } from 'disqus-react';
 import PostNavigation from '@/components/PostNavigation';
+import Link from 'next/link';
 
 const BlogIllustPage = ({ illust, prev, next, }) => {
   const { frontMatter, slug, source, } = illust;
@@ -58,6 +59,13 @@ const BlogIllustPage = ({ illust, prev, next, }) => {
             </PostInfo>
             <PostInfo name='작업 날짜' i='f017' w='500' itemType='p'>
               {getDate(frontMatter.drawDate)}
+            </PostInfo>
+            <PostInfo name={'키워드'} i={'f1fc'} w={'900'} itemType={'link'} linkIcon={'f1fc'}>
+              {frontMatter.keywords.map((keyword, index) => (
+                <Link href={`/blog/illust/keywords/${String(keyword)}`} key={index + keyword}>
+                  <a>{keyword}</a>
+                </Link>
+              ))}
             </PostInfo>
             <DottedLine />
             <MDXRemote {...source} components={{ ...MDXComponents, }} />
