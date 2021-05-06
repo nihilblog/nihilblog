@@ -1,7 +1,7 @@
 import React from 'react';
 import { css } from '@emotion/react';
 
-export const NoteTop = ({ children, number, }) => {
+export const NoteTop = ({ number, }) => {
   const style = css`
     font-weight: 500;
     margin-right: 2px;
@@ -28,7 +28,7 @@ export const NoteTop = ({ children, number, }) => {
 
   return (
     <>
-      <sup id={`top${number}`} css={style}><a href={`#note${number}`}>{children}</a></sup>
+      <sup id={`top${number}`} css={style}><a href={`#note${number}`}>{number}</a></sup>
     </>
   );
 };
