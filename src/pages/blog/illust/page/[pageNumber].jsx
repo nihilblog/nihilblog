@@ -1,5 +1,5 @@
 import React from 'react';
-import { getAllYearIllusts } from '@/lib/mdx';
+import getAllYearIllusts from '@/utils/mdx/getAllYearIllusts';
 import BlogMessage from '@/components/ContentComponents/BlogMessage';
 import BlogSeriesList from '@/components/ContentComponents/BlogSeriesList';
 import BlogLayout from '@/layouts/BlogLayout';

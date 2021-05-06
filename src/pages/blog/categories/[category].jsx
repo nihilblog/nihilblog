@@ -1,5 +1,6 @@
 import React from 'react';
-import { getAllYearPosts, getTagsAndCategories } from '@/lib/mdx';
+import getAllYearPosts from '@/utils/mdx/getAllYearPosts';
+import getTagsAndCategories from '@/utils/mdx/getTagsAndCategories';
 import BlogLayout from '@/layouts/BlogLayout';
 import Box from '@/components/LayoutComponensts/Box';
 import BoxHeader from '@/components/LayoutComponensts/BoxHeader';

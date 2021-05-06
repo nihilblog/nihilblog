@@ -6,7 +6,7 @@ import BlogSeriesList from '@/components/ContentComponents/BlogSeriesList';
 import Box from '@/components/LayoutComponensts/Box';
 import BoxHeader from '@/components/LayoutComponensts/BoxHeader';
 import { P } from '@/components/PostComponents';
-import { getTagsAndCategories } from '@/lib/mdx';
+import getTagsAndCategories from '@/utils/mdx/getTagsAndCategories';
 import size from '@/data/size';
 import Link from 'next/link';
 

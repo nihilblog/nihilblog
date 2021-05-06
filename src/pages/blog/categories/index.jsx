@@ -1,6 +1,6 @@
 import React from 'react';
 import { css } from '@emotion/react';
-import { getTagsAndCategories } from '@/lib/mdx';
+import getTagsAndCategories from '@/utils/mdx/getTagsAndCategories';
 import Link from 'next/link';
 import Box from '@/components/LayoutComponensts/Box';
 import BoxHeader from '@/components/LayoutComponensts/BoxHeader';

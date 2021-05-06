@@ -1,7 +1,8 @@
 import React from 'react';
 import getDate from '@/utils/getDate';
 import MDXComponents from '@/components/MDXComponents';
-import { getAllYearPosts, getPostBySlug } from '@/lib/mdx';
+import getAllYearPosts from '@/utils/mdx/getAllYearPosts';
+import getPostBySlug from '@/utils/mdx/getPostBySlug';
 import Box from '@/components/LayoutComponensts/Box';
 import BoxHeader from '@/components/LayoutComponensts/BoxHeader';
 import PostNavigation from '@/components/PostNavigation';

@@ -1,5 +1,5 @@
 import React from 'react';
-import { getAllYearPosts } from '@/lib/mdx';
+import getAllYearPosts from '@/utils/mdx/getAllYearPosts';
 import Link from 'next/link';
 import getDate from '@/utils/getDate';
 import BlogLayout from '@/layouts/BlogLayout';

@@ -1,7 +1,6 @@
 import React from 'react';
-// import { css } from '@emotion/react';
 import getPages from '@/utils/getPages';
-import { getAllYearPosts } from '@/lib/mdx';
+import getAllYearPosts from '@/utils/mdx/getAllYearPosts';
 import BlogConfig from '@/data/blog.config';
 import BlogLayout from '@/layouts/BlogLayout';
 import Box from '@/components/LayoutComponensts/Box';

@@ -1,6 +1,6 @@
 import React from 'react';
 import getPages from '@/utils/getPages';
-import { getAllYearPosts } from '@/lib/mdx';
+import getAllYearPosts from '@/utils/mdx/getAllYearPosts';
 import BlogConfig from '@/data/blog.config';
 import BlogLayout from '@/layouts/BlogLayout';
 import BlogMessage from '@/components/ContentComponents/BlogMessage';

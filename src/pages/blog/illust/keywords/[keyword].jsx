@@ -1,6 +1,7 @@
 import React from 'react';
 import { css } from '@emotion/react';
-import { getAllYearIllusts, getTagsAndCategories } from '@/lib/mdx';
+import getAllYearIllusts from '@/utils/mdx/getAllYearIllusts';
+import getTagsAndCategories from '@/utils/mdx/getTagsAndCategories';
 import BlogLayout from '@/layouts/BlogLayout';
 import BlogMessage from '@/components/ContentComponents/BlogMessage';
 import BlogSeriesList from '@/components/ContentComponents/BlogSeriesList';

@@ -1,7 +1,7 @@
 import React from 'react';
 import { css, Global } from '@emotion/react';
 import Link from 'next/link';
-import { getAllYearPosts } from '@/lib/mdx';
+import getAllYearPosts from '@/utils/mdx/getAllYearPosts';
 import Head from 'next/head';
 
 const BlogPostManagerPage = ({ posts, }) => {
