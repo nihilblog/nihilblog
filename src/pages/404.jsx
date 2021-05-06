@@ -36,9 +36,9 @@ const BlogNotPoundPage = () => {
     <>
       <BlogLayout {...siteData}>
         <div id='blog-error-page' css={blogErrorPageStyle}>
-          <Box>
+          <Box top={'100'} bottom={'100'}>
             <BoxHeader i='f00d' w='900' f='Free'>에러 404</BoxHeader>
-            <img src='/images/error-image.png' alt='블로그 에러 이미지' />
+            <img src={'/images/error-image.png'} alt='블로그 에러 이미지' />
             <P top='40' bottom='0' align='center'>
               <span>
                 페이지를 찾을 수 없습니다.<br />

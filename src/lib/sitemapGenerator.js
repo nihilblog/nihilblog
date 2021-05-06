@@ -233,6 +233,7 @@ const sitemapGenerator = async () => {
     '/about',
     '/blog/categories',
     '/blog/tags',
+    '/blog/illust/keywords',
   ].concat(postsPages.map((page) => {
     return `/blog/post/page/${page}`;
   }), noticesPages.map((page) => {

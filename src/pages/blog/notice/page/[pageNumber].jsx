@@ -32,18 +32,23 @@ const BlogNoticeListNumberPage = ({ currentPage, prevPage, nextPage, posts, tota
                   <a>{frontMatter.title}</a>
                 </Link>
               </PostHeader>
-              <PostContents>
-                <p>
-                  <span className='info-name'>공지 설명</span><br />
-                  <span className='info-description'>
-                    {frontMatter.description}
-                  </span>
-                </p>
-                <p>
-                  <span className='info-name'>작성 날짜</span>
-                  <span className='info-time'>{getDate(frontMatter.createdAt)}</span>
-                </p>
-              </PostContents>
+              <div className={'illust-item-info'}>
+                <div className={'item-left'}>
+                  <img src={frontMatter.coverImage} alt={`${frontMatter.title} 썸네일`} />
+                </div>
+                <PostContents>
+                  <p>
+                    <span className='info-name'>공지 설명</span><br />
+                    <span className='info-description'>
+                      {frontMatter.description}
+                    </span>
+                  </p>
+                  <p>
+                    <span className='info-name'>작성 날짜</span>
+                    <span className='info-time'>{getDate(frontMatter.createdAt)}</span>
+                  </p>
+                </PostContents>
+              </div>
             </Box>
           ))}
         </div>

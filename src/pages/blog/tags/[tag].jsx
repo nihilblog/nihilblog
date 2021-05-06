@@ -42,34 +42,39 @@ const TagPostsPage = ({ posts, tag, }) => {
                     <a>{frontMatter.title}</a>
                   </Link>
                 </PostHeader>
-                <PostContents>
-                  <p>
-                    <span className='info-name'>포스트 설명</span><br />
-                    <span className='info-description'>
-                      {frontMatter.description}
-                    </span>
-                  </p>
-                  <p>
-                    <span className='info-name'>작성 날짜</span>
-                    <span className='info-time'>{getDate(frontMatter.createdAt)}</span>
-                  </p>
-                  <p>
-                    <span className='info-name'>카테고리</span>
-                    {frontMatter.categories.map((category, index) => (
-                      <Link href={`/blog/categories/${String(category)}`} key={index + category}>
-                        <a className='info-category'>{category}</a>
-                      </Link>
-                    ))}
-                  </p>
-                  <p>
-                    <span className='info-name'>태그</span>
-                    {frontMatter.tags.map((tag, index) => (
-                      <Link href={`/blog/tags/${String(tag)}`} key={index + tag}>
-                        <a className='info-tag'>{tag}</a>
-                      </Link>
-                    ))}
-                  </p>
-                </PostContents>
+                <div className={'illust-item-info'}>
+                  <div className={'item-left'}>
+                    <img src={frontMatter.coverImage} alt={`${frontMatter.title} 썸네일`} />
+                  </div>
+                  <PostContents>
+                    <p>
+                      <span className='info-name'>포스트 설명</span><br />
+                      <span className='info-description'>
+                        {frontMatter.description}
+                      </span>
+                    </p>
+                    <p>
+                      <span className='info-name'>작성 날짜</span>
+                      <span className='info-time'>{getDate(frontMatter.createdAt)}</span>
+                    </p>
+                    <p>
+                      <span className='info-name'>카테고리</span>
+                      {frontMatter.categories.map((category, index) => (
+                        <Link href={`/blog/categories/${String(category)}`} key={index + category}>
+                          <a className='info-category'>{category}</a>
+                        </Link>
+                      ))}
+                    </p>
+                    <p>
+                      <span className='info-name'>태그</span>
+                      {frontMatter.tags.map((tag, index) => (
+                        <Link href={`/blog/tags/${String(tag)}`} key={index + tag}>
+                          <a className='info-tag'>{tag}</a>
+                        </Link>
+                      ))}
+                    </p>
+                  </PostContents>
+                </div>
               </Box>
             ))}
           </div>
