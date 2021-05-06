@@ -139,48 +139,6 @@ const getTagsAndCategories = (type = '') => {
   return FinallyArray;
 };
 
-const getPages = (array, number) => {
-  const length = array.length;
-  const count = Math.floor(length / number) + (Math.floor(length % number) > 0 ? 1 : 0);
-  const array2 = [];
-
-  for (let i = 0; i < count; i++) {
-    array2.push(array.splice(0, number));
-  }
-
-  return array2;
-};
-
-const tags = getTagsAndCategories('tags');
-const categories = getTagsAndCategories('categories');
-const keywords = getTagsAndCategories('keywords');
-
-
-// 태그 배열
-const tagArray = tags.map((tag) => {
-  return tag.tagName;
-});
-
-// 카테고리 배열
-const categoryArray = categories.map((category) => {
-  return category.categoryName;
-});
-
-// 키워드 배열
-const keywordArray = keywords.map((keyword) => {
-  return keyword.keywordName;
-});
-
-//포스트 페이지 배열
-const posts = getAllYearPosts('post');
-// const posts = getAllPosts('post', '2021');
-const notices = getAllYearPosts('notice');
-const illusts = getAllYearIllusts('illust');
-
-const postsPages = Array.from({ length: getPages(posts, 5).length, }, (_, index) => index + 1);
-const noticesPages = Array.from({ length: getPages(notices, 5).length, }, (_, index) => index + 1);
-const illustsPages = Array.from({ length: getPages(illusts, 5).length, }, (_, index) => index + 1);
-
 // 포스트 이름 배열
 const postName = {
   post: getAllYearPosts('post').map(({ filePath, }) => {
@@ -234,24 +192,12 @@ const sitemapGenerator = async () => {
     '/blog/categories',
     '/blog/tags',
     '/blog/illust/keywords',
-  ].concat(postsPages.map((page) => {
-    return `/blog/post/page/${page}`;
-  }), noticesPages.map((page) => {
-    return `/blog/notice/page/${page}`;
-  }), illustsPages.map((page) => {
-    return `/blog/illust/page/${page}`;
-  }), postName.post.map((post) => {
+  ].concat(postName.post.map((post) => {
     return `/blog/post/${post}`;
   }), postName.notice.map((post) => {
     return `/blog/notice/${post}`;
   }), postName.illust.map((post) => {
     return `/blog/illust/${post}`;
-  }), tagArray.map((tag) => {
-    return `/blog/tags/${tag}`;
-  }), categoryArray.map((category) => {
-    return `/blog/categories/${category}`;
-  }), keywordArray.map((keyword) => {
-    return `/blog/illust/keywords/${keyword}`;
   }));
 
   const basePath = 'https://nihilblog.github.io';
@@ -263,17 +209,15 @@ const sitemapGenerator = async () => {
           ${basePath}${path}
         </loc>
         <lastmod>${dateTime}</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>1</priority>
       </url>
     `;
   }).join('');
 
   const sitemap = `
     <?xml version="1.0" encoding="UTF-8"?>
-    <urlset
-      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd"
-     >
+    <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
       ${ruleSet}
     </urlset>
   `;
