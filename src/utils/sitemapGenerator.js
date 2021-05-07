@@ -36,10 +36,10 @@ const sitemapGenerator = async () => {
     `;
   }).join('');
   
-  const AllPostsRuleSet = AllPosts.map(({ frontMatter, filePath, }) => {
+  const AllPostsRuleSet = AllPosts.map(({ frontMatter, fullPath, }) => {
     return `
       <url>
-        <loc>${basePath}${filePath.replace('.mdx', '')}</loc>
+        <loc>${basePath}${fullPath}</loc>
         <lastmod>${getUTCString(frontMatter.updatedAt)}</lastmod>
         <changefreq>daily</changefreq>
         <priority>1</priority>

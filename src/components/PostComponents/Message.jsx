@@ -3,34 +3,57 @@ import { css } from '@emotion/react';
 import size from '@/data/size';
 
 export const Message = ({ children, color, top = 40, bottom = 40, }) => {
-  const colorType = {};
-
-  if (color === 'red') {
-    colorType.color = [ '#ff5b5b40', '#fd4444', '#fd444450', ];
-    colorType.icon = 'f057';
-    colorType.word = '위험';
-  } else if (color === 'blue') {
-    colorType.color = [ '#3daeff50', '#0084e2', '#0084e250', ];
-    colorType.icon = 'f059';
-    colorType.word = '안내';
-  } else if (color === 'yellow') {
-    colorType.color = [ '#fff70c50', '#a39000', '#a3900050', ];
-    colorType.icon = 'f06a';
-    colorType.word = '주의';
-  } else if (color === 'green') {
-    colorType.color = [ '#11b32c50', '#05881b', '#05881b50', ];
-    colorType.icon = 'f05a';
-    colorType.word = '정보';
-  }
+  const colorType = {
+    'red': {
+      color: [ '#ff5b5b40', '#fd4444', '#fd444450', ],
+      icon: 'f057',
+      word: '위험',
+    },
+    'r': {
+      color: [ '#ff5b5b40', '#fd4444', '#fd444450', ],
+      icon: 'f057',
+      word: '위험',
+    },
+    'blue': {
+      color: [ '#3daeff50', '#0084e2', '#0084e250', ],
+      icon: 'f059',
+      word: '안내',
+    },
+    'b': {
+      color: [ '#3daeff50', '#0084e2', '#0084e250', ],
+      icon: 'f059',
+      word: '안내',
+    },
+    'green': {
+      color: [ '#11b32c50', '#05881b', '#05881b50', ],
+      icon: 'f05a',
+      word: '정보',
+    },
+    'g': {
+      color: [ '#11b32c50', '#05881b', '#05881b50', ],
+      icon: 'f05a',
+      word: '정보',
+    },
+    'yellow': {
+      color: [ '#fff70c50', '#a39000', '#a3900050', ],
+      icon: 'f06a',
+      word: '주의',
+    },
+    'y': {
+      color: [ '#fff70c50', '#a39000', '#a3900050', ],
+      icon: 'f06a',
+      word: '주의',
+    },
+  };
 
   const style = css`
     padding: 10px;
     border-radius: 10px;
     margin: ${top}px 0 ${bottom}px 0;
     font-size: 90%;
-    background: ${colorType.color[0]};
-    color: ${colorType.color[1]};
-    border: 2px solid ${colorType.color[2]};
+    background: ${colorType[color].color[0]};
+    color: ${colorType[color].color[1]};
+    border: 2px solid ${colorType[color].color[2]};
 
     & > .message-title {
       text-align: left;
@@ -46,7 +69,7 @@ export const Message = ({ children, color, top = 40, bottom = 40, }) => {
         font-size: 130%;
 
         &:before {
-          content: '\\${colorType.icon}';
+          content: '\\${colorType[color].icon}';
           font-weight: 900;
           margin-right: 5px;
            font-family: 'Font Awesome 5 Free', sans-serif;
@@ -64,16 +87,16 @@ export const Message = ({ children, color, top = 40, bottom = 40, }) => {
       line-height: 1.8;
 
       & > strong {
-        color: ${colorType.color[1]};
+        color: ${colorType[color].color[1]};
       }
 
       & > a {
-        color: ${colorType.color[1]};
-        border: 2px solid ${colorType.color[1]};
+        color: ${colorType[color].color[1]};
+        border: 2px solid ${colorType[color].color[1]};
         
         &:hover {
           color: #ffffff;
-          background-color: ${colorType.color[1]};
+          background-color: ${colorType[color].color[1]};
         }
       }
     }
@@ -97,7 +120,7 @@ export const Message = ({ children, color, top = 40, bottom = 40, }) => {
   return (
     <>
       <div className={`Message-${color}`} css={style}>
-        <p className='message-title'><span>{colorType.word}</span></p>
+        <p className='message-title'><span>{colorType[color].word}</span></p>
         <p className='message-content'>{children}</p>
       </div>
     </>

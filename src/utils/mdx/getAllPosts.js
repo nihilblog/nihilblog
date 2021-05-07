@@ -27,9 +27,20 @@ module.exports = (type = '', year = '') => {
         updatedAt,
       };
     
+    let fullPath;
+    
+    if (type === 'post') {
+      fullPath = `/blog/post/${filePath.replace('.mdx', '')}`;
+    } else if (type === 'notice') {
+      fullPath = `/blog/notice/${filePath.replace('.mdx', '')}`;
+    } else {
+      fullPath = `/blog/illust/${filePath.replace('.mdx', '')}`;
+    }
+    
     return {
       frontMatter,
       filePath,
+      fullPath,
       content,
     };
   });
