@@ -12,7 +12,7 @@ import Link from 'next/link';
 import PostHeader from '@/components/LayoutComponensts/PostHeader';
 import IllustBox from '@/components/LayoutComponensts/IllustBox';
 import PostContents from '@/components/LayoutComponensts/PostContents';
-import getDate from '@/utils/getDate';
+import getUTC9 from '@/utils/getUTC9';
 
 const KeywordPostsPage = ({ illusts, keyword, }) => {
   const totalCount = illusts.length;
@@ -55,7 +55,7 @@ const KeywordPostsPage = ({ illusts, keyword, }) => {
                     </p>
                     <p>
                       <span className={'info-name'}>작성 날짜</span>
-                      <span className={'info-time'}>{getDate(frontMatter.createdAt)}</span>
+                      <span className={'info-time'}>{getUTC9(frontMatter.createdAt)}</span>
                     </p>
                     <p>
                       <span className={'info-name'}>키워드</span>

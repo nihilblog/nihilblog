@@ -7,7 +7,7 @@ import Box from '@/components/LayoutComponensts/Box';
 import PostHeader from '@/components/LayoutComponensts/PostHeader';
 import Link from 'next/link';
 import PostContents from '@/components/LayoutComponensts/PostContents';
-import getDate from '@/utils/getDate';
+import getUTC9 from '@/utils/getUTC9';
 import BlogMessage from '@/components/ContentComponents/BlogMessage';
 import BlogSeriesList from '@/components/ContentComponents/BlogSeriesList';
 import Pagination from '@/components/Pagination';
@@ -44,7 +44,7 @@ const BlogNoticeListNumberPage = ({ currentPage, prevPage, nextPage, posts, tota
                   </p>
                   <p>
                     <span className='info-name'>작성 날짜</span>
-                    <span className='info-time'>{getDate(frontMatter.createdAt)}</span>
+                    <span className='info-time'>{getUTC9(frontMatter.createdAt)}</span>
                   </p>
                 </PostContents>
               </div>

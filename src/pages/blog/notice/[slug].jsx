@@ -1,5 +1,6 @@
 import React from 'react';
-import getDate from '@/utils/getDate';
+import getUTC9 from '@/utils/getUTC9';
+import getUTCString from '@/utils/getUTCString';
 import MDXComponents from '@/components/MDXComponents';
 import getAllYearPosts from '@/utils/mdx/getAllYearPosts';
 import getPostBySlug from '@/utils/mdx/getPostBySlug';
@@ -29,8 +30,8 @@ const BlogNoticePage = ({ post, prev, next, }) => {
     pageImage: frontMatter.coverImage ? frontMatter.coverImage : '',
     pageTag: 'notice',
     pageSection: 'notice',
-    pageCreated: new Date(frontMatter.createdAt).toISOString(),
-    pageUpdated: new Date(frontMatter.updatedAt).toISOString(),
+    pageCreated: getUTCString(frontMatter.createdAt),
+    pageUpdated: getUTCString(frontMatter.updatedAt),
   };
 
   const DisqusConfig = {
@@ -53,10 +54,10 @@ const BlogNoticePage = ({ post, prev, next, }) => {
                 : ''
             }
             <PostInfo name='작성 날짜' i='f017' w='500' itemType='p'>
-              {getDate(frontMatter.createdAt)}
+              {getUTC9(frontMatter.createdAt)}
             </PostInfo>
             <PostInfo name='수정 날짜' i='f017' w='500' itemType='p'>
-              {getDate(frontMatter.updatedAt)}
+              {getUTC9(frontMatter.updatedAt)}
             </PostInfo>
             <DottedLine />
             <MDXRemote {...source} components={{ ...MDXComponents, }} />

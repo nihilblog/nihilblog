@@ -1,4 +1,4 @@
-const sitemapGenerator = require('./src/lib/sitemapGenerator.js');
+const sitemapGenerator = require('./src/utils/SitemapGenerator');
 const withMDX = require('@next/mdx')();
 
 module.exports = withMDX({

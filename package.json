@@ -1,6 +1,6 @@
 {
   "name": "nihilblog",
-  "version": "3.0.0",
+  "version": "3.1.0",
   "description": "니힐 블로그 Next.js 에디션",
   "main": "src/pages/index.jsx",
   "repository": {

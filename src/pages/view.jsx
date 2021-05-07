@@ -2,6 +2,7 @@ import React from 'react';
 import { css, Global } from '@emotion/react';
 import Link from 'next/link';
 import getAllYearPosts from '@/utils/mdx/getAllYearPosts';
+import getAllYearIllusts from '@/utils/mdx/getAllYearIllusts';
 import Head from 'next/head';
 
 const BlogPostManagerPage = ({ posts, }) => {
@@ -72,22 +73,37 @@ const BlogPostManagerPage = ({ posts, }) => {
             <h2>
               {
                 frontMatter.notice
-                  ? (<>
+                  ?
+                  (<>
                     <span className='count red'>{index + 1}</span>
                     <span className='red'>공지</span>
                   </>)
-                  : (<>
-                    <span className='count black'>{index + 1}</span>
-                    <span className='black'>일반</span>
-                  </>)
+                  :
+                  frontMatter.drawDate
+                    ?
+                    (<>
+                      <span className='count black'>{index + 1}</span>
+                      <span className='black'>일러스트</span>
+                    </>)
+                    :
+                    (<>
+                      <span className='count black'>{index + 1}</span>
+                      <span className='black'>일반</span>
+                    </>)
               }
               <span>{frontMatter.title}</span>
             </h2>
             <p>
               {
                 frontMatter.notice
-                  ? `/blog/notice/${filePath.replace('.mdx', '')}`
-                  : `/blog/post/${filePath.replace('.mdx', '')}`
+                  ?
+                  `/blog/notice/${filePath.replace('.mdx', '')}`
+                  :
+                  frontMatter.drawDate
+                    ?
+                    `/blog/illust/${filePath.replace('.mdx', '')}`
+                    :
+                    `/blog/post/${filePath.replace('.mdx', '')}`
               }
             </p>
           </div>
@@ -100,8 +116,9 @@ const BlogPostManagerPage = ({ posts, }) => {
 export const getStaticProps = async () => {
   const posts = getAllYearPosts('post');
   const notices = getAllYearPosts('notice');
+  const illusts = getAllYearIllusts('illust');
 
-  const AllPosts = posts.concat(notices);
+  const AllPosts = posts.concat(notices, illusts);
   const SortedAllPosts = AllPosts.sort((a, b) => {
     const beforeDate = a.frontMatter.createdAt;
     const afterDate = b.frontMatter.createdAt;

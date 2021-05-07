@@ -10,7 +10,7 @@ import PostHeader from '@/components/LayoutComponensts/PostHeader';
 import Link from 'next/link';
 import PostContents from '@/components/LayoutComponensts/PostContents';
 import Pagination from '@/components/Pagination';
-import getDate from '@/utils/getDate';
+import getUTC9 from '@/utils/getUTC9';
 
 const BlogPostListNumberPage = ({ currentPage, prevPage, nextPage, posts, totalPages, }) => {
   const siteData = {
@@ -44,7 +44,7 @@ const BlogPostListNumberPage = ({ currentPage, prevPage, nextPage, posts, totalP
                   </p>
                   <p>
                     <span className='info-name'>작성 날짜</span>
-                    <span className='info-time'>{getDate(frontMatter.createdAt)}</span>
+                    <span className='info-time'>{getUTC9(frontMatter.createdAt)}</span>
                   </p>
                   <p>
                     <span className='info-name'>카테고리</span>

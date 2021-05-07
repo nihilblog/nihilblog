@@ -10,9 +10,9 @@ module.exports = (type = '', year = '') => {
     const source = fs.readFileSync(path.join(postPath, filePath), 'utf8');
     const { data, content, } = matter(source);
     
-    const createdAt = data.createdAt.getTime();
-    const updatedAt = data.updatedAt.getTime();
-    const drawDate = data.drawDate ? data.drawDate.getTime() : '';
+    const createdAt = data.createdAt.getTime() - 32400000;
+    const updatedAt = data.updatedAt.getTime() - 32400000;
+    const drawDate = data.drawDate ? data.drawDate.getTime() - 32400000 : '';
     
     const frontMatter = data.drawDate
       ? {
@@ -34,12 +34,9 @@ module.exports = (type = '', year = '') => {
     };
   });
   
-  const SortedAllPosts = Allposts.sort((a, b) => {
-    const beforeDate = a.frontMatter.createdAt;
-    const afterDate = b.frontMatter.createdAt;
-    
-    return afterDate - beforeDate;
+  const displayAllPosts = Allposts.filter((post) => {
+    return post.frontMatter.display === true;
   });
   
-  return SortedAllPosts;
+  return displayAllPosts;
 };

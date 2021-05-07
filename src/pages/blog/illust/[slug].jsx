@@ -9,7 +9,8 @@ import Box from '@/components/LayoutComponensts/Box';
 import BoxHeader from '@/components/LayoutComponensts/BoxHeader';
 import { MainImage, Message, Strong } from '@/components/PostComponents';
 import PostInfo from '@/components/LayoutComponensts/PostInfo';
-import getDate from '@/utils/getDate';
+import getUTC9 from '@/utils/getUTC9';
+import getUTCString from '@/utils/getUTCString';
 import DottedLine from '@/components/LayoutComponensts/DottedLine';
 import MDXComponents from '@/components/MDXComponents';
 import { MDXRemote } from 'next-mdx-remote';
@@ -23,14 +24,14 @@ const BlogIllustPage = ({ illust, prev, next, }) => {
   const siteData = {
     pageName: frontMatter.title,
     pageDescription: frontMatter.description,
-    pageKeywords: '',
+    pageKeywords: '그림, 일러스트, 캐릭터, 컨셉아트, 디자인, 창작, 캐릭터디자인, 캐릭터일러스트, 판타지, illustration, artwork, character, fantasy, characterillustration, characterdesign, fantasycharacter ' + frontMatter.keywords.join(', '),
     pageURL: `/blog/illust/${slug}`,
     pageType: 'article',
     pageImage: frontMatter.coverImage ? frontMatter.coverImage : '',
-    pageTag: 'illust',
+    pageTag: frontMatter.keywords.join(', '),
     pageSection: 'illust',
-    pageCreated: new Date(frontMatter.createdAt).toISOString(),
-    pageUpdated: new Date(frontMatter.updatedAt).toISOString(),
+    pageCreated: getUTCString(frontMatter.createdAt),
+    pageUpdated: getUTCString(frontMatter.updatedAt),
   };
   
   const DisqusConfig = {
@@ -53,13 +54,13 @@ const BlogIllustPage = ({ illust, prev, next, }) => {
                 : ''
             }
             <PostInfo name='작성 날짜' i='f017' w='500' itemType='p'>
-              {getDate(frontMatter.createdAt)}
+              {getUTC9(frontMatter.createdAt)}
             </PostInfo>
             <PostInfo name='수정 날짜' i='f017' w='500' itemType='p'>
-              {getDate(frontMatter.updatedAt)}
+              {getUTC9(frontMatter.updatedAt)}
             </PostInfo>
             <PostInfo name='작업 날짜' i='f017' w='500' itemType='p'>
-              {getDate(frontMatter.drawDate)}
+              {getUTC9(frontMatter.drawDate)}
             </PostInfo>
             <PostInfo name={'키워드'} i={'f1fc'} w={'900'} itemType={'link'} linkIcon={'f1fc'}>
               {frontMatter.keywords.map((keyword, index) => (

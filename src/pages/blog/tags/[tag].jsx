@@ -10,7 +10,7 @@ import BlogSeriesList from '@/components/ContentComponents/BlogSeriesList';
 import PostHeader from '@/components/LayoutComponensts/PostHeader';
 import Link from 'next/link';
 import PostContents from '@/components/LayoutComponensts/PostContents';
-import getDate from '@/utils/getDate';
+import getUTC9 from '@/utils/getUTC9';
 import { css } from '@emotion/react';
 
 const TagPostsPage = ({ posts, tag, }) => {
@@ -56,7 +56,7 @@ const TagPostsPage = ({ posts, tag, }) => {
                     </p>
                     <p>
                       <span className='info-name'>작성 날짜</span>
-                      <span className='info-time'>{getDate(frontMatter.createdAt)}</span>
+                      <span className='info-time'>{getUTC9(frontMatter.createdAt)}</span>
                     </p>
                     <p>
                       <span className='info-name'>카테고리</span>

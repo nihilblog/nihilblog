@@ -1,17 +1,16 @@
 import React from 'react';
 import getAllYearPosts from '@/utils/mdx/getAllYearPosts';
 import Link from 'next/link';
-import getDate from '@/utils/getDate';
+import getUTC9 from '@/utils/getUTC9';
 import BlogLayout from '@/layouts/BlogLayout';
 import Box from '@/components/LayoutComponensts/Box';
 import PostHeader from '@/components/LayoutComponensts/PostHeader';
 import PostContents from '@/components/LayoutComponensts/PostContents';
 import BoxHeader from '@/components/LayoutComponensts/BoxHeader';
-import { P } from '@/components/PostComponents/P';
-import { A } from '@/components/PostComponents/A';
 import BlogMessage from '@/components/ContentComponents/BlogMessage';
 import BlogSeriesList from '@/components/ContentComponents/BlogSeriesList';
 import { css } from '@emotion/react';
+import { A, P } from '@/components/PostComponents';
 
 const BlogIndexPage = ({ posts, }) => {
   const style = css`
@@ -54,7 +53,7 @@ const BlogIndexPage = ({ posts, }) => {
                     </p>
                     <p>
                       <span className='info-name'>작성 날짜</span>
-                      <span className='info-time'>{getDate(frontMatter.createdAt)}</span>
+                      <span className='info-time'>{getUTC9(frontMatter.createdAt)}</span>
                     </p>
                     <p>
                       <span className='info-name'>카테고리</span>

@@ -3,7 +3,8 @@ import getPostBySlug from '@/utils/mdx/getPostBySlug';
 import React from 'react';
 import Link from 'next/link';
 import { MDXRemote } from 'next-mdx-remote';
-import getDate from '@/utils/getDate';
+import getUTCString from '@/utils/getUTCString';
+import getUTC9 from '@/utils/getUTC9';
 import BlogLayout from '@/layouts/BlogLayout';
 import Box from '@/components/LayoutComponensts/Box';
 import BoxHeader from '@/components/LayoutComponensts/BoxHeader';
@@ -30,8 +31,8 @@ const BlogPostPage = ({ post, prev, next, }) => {
     pageImage: frontMatter.coverImage ? frontMatter.coverImage : '',
     pageTag: frontMatter.tags.join(', '),
     pageSection: frontMatter.categories.join(', '),
-    pageCreated: new Date(frontMatter.createdAt).toISOString(),
-    pageUpdated: new Date(frontMatter.updatedAt).toISOString(),
+    pageCreated: getUTCString(frontMatter.createdAt),
+    pageUpdated: getUTCString(frontMatter.updatedAt),
   };
 
   const DisqusConfig = {
@@ -54,10 +55,10 @@ const BlogPostPage = ({ post, prev, next, }) => {
                 : ''
             }
             <PostInfo name='작성 날짜' i='f017' w='500' itemType='p'>
-              {getDate(frontMatter.createdAt)}
+              {getUTC9(frontMatter.createdAt)}
             </PostInfo>
             <PostInfo name='수정 날짜' i='f017' w='500' itemType='p'>
-              {getDate(frontMatter.updatedAt)}
+              {getUTC9(frontMatter.updatedAt)}
             </PostInfo>
             <PostInfo name='카테고리' i='f07b' w='900' itemType='link' linkIcon='f07c'>
               {frontMatter.categories.map((category, index) => (
