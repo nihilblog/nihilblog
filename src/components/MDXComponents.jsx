@@ -1,29 +1,21 @@
 import React from 'react';
-import { A } from './PostComponents/A';
-import { Bold } from './PostComponents/Bold';
-import { Char } from './PostComponents/Char';
-import { Code } from './PostComponents/Code';
-import { Details } from './PostComponents/Details';
-import { Dl } from './PostComponents/Dl';
-import { Em } from './PostComponents/Em';
-import { Gray } from './PostComponents/Gray';
-import { H } from './PostComponents/H';
-import { Image } from './PostComponents/Image';
-import { Kbd } from './PostComponents/Kbd';
-import { Message } from './PostComponents/Message';
-import { NoteBottom } from './PostComponents/NoteBottom';
-import { NoteTop } from './PostComponents/NoteTop';
-import { Ol } from './PostComponents/Ol';
-import { P } from './PostComponents/P';
-import { Q } from './PostComponents/Q';
-import { Quote } from './PostComponents/Quote';
-import { Score } from './PostComponents/Score';
-import { Spoiler } from './PostComponents/Spoiler';
-import { Strike } from './PostComponents/Strike';
-import { Strong } from './PostComponents/Strong';
-import { Ul } from './PostComponents/Ul';
-import { Youtube } from './PostComponents/Youtube';
-import { Prism } from './PostComponents/Prism';
+import {
+  A, Bold, Char,
+  Code, Details,
+  Dl,
+  Em,
+  Gray,
+  H,
+  Image, Kbd,
+  Line, Mark, Message, NoteBottom, NoteTop,
+  Ol,
+  P,
+  Prism, Q, Quote,
+  Score, Spoiler,
+  Strike,
+  Strong,
+  Ul, Youtube
+} from '@/components/PostComponents';
 
 const MDXComponents = {
   h1: props => <H type='1' {...props} />,
@@ -40,6 +32,7 @@ const MDXComponents = {
   ol: props => <Ol {...props} />,
   ul: props => <Ul {...props} />,
   pre: props => <Prism {...props} />,
+  hr: props => <Line {...props} />,
   H,
   Code,
   A,
@@ -64,6 +57,8 @@ const MDXComponents = {
   Quote,
   Spoiler,
   Youtube,
+  Mark,
+  Line,
 };
 
 export default MDXComponents;

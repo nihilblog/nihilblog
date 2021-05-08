@@ -2,7 +2,7 @@ import size from '@/data/size';
 import { css } from '@emotion/react';
 import React from 'react';
 
-export const H = ({ children, top = 40, bottom = 40, type = '1', }) => {
+export const H = ({ children, top = 60, bottom = 60, type = '1', }) => {
   const typePadding = {};
 
   switch (type) {

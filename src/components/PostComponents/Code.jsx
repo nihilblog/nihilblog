@@ -7,7 +7,6 @@ export const Code = ({ children, }) => {
     border-radius: 5px;
     font-weight: 500;
     text-indent: 0;
-    border: 2px solid #aaaaaa;
     color: #eeeeee;
     font-size: 90%;
     background-color: #555555;

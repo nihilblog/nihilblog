@@ -25,3 +25,5 @@ export * from './NoteTop';
 export * from './NoteBottom';
 export * from './Prism';
 export * from './CopyCode';
+export * from './Line';
+export * from './Mark';
