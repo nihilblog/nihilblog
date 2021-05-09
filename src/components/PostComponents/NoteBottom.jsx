@@ -1,20 +1,14 @@
 import React from 'react';
 import { css, Global } from '@emotion/react';
 import size from '@/data/size';
+import { Line } from '@/components/PostComponents/Line';
 
 export const NoteBottom = ({ children, number, top = 0, bottom = 0, first = 'false', }) => {
-  const anotherStyle = `
-    border-top: 3px dotted #888888;
-    padding-top: ${top}px;
-  `;
-
   const style = css`
-    margin: ${top}px 0 ${bottom}px 0;
     color: #333333;
     letter-spacing: -1px;
     font-weight: 500;
-    line-height: 1.5;
-    ${first === 'true' && anotherStyle}
+    line-height: 1.6;
     
     & > a {
       color: #218cd8;
@@ -62,6 +56,13 @@ export const NoteBottom = ({ children, number, top = 0, bottom = 0, first = 'fal
   return (
     <>
       <Global styles={fontSize} />
+      {
+        first === 'true'
+          ?
+          <Line />
+          :
+          ''
+      }
       <p className='post-foot-note' css={style}>
         <a id={`note${number}`} href={`#top${number}`}><span>{number}</span></a>
         <span className='note-body'>{children}</span>

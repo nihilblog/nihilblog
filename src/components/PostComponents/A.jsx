@@ -16,12 +16,15 @@ export const A = ({ children, href = '', type = 'blog', isOff = 'false', }) => {
     'normal': {
       href,
       rel: 'noreferrer noopener',
+      target: '_blank',
     },
     'youtube': {
       href,
       rel: 'noreferrer noopener',
+      target: '_blank',
     },
   };
+  
   const icon = {
     'blog': {
       code: 'f0c1',
@@ -88,15 +91,15 @@ export const A = ({ children, href = '', type = 'blog', isOff = 'false', }) => {
       {
         type === 'blog'
           ?
-          (
-            <Link {...typeProps[type]} passHref>
+          isOff === 'true'
+            ?
+            (<span css={style}>{children}</span>)
+            :
+            (<Link {...typeProps[type]} passHref>
               <a css={style}>{children}</a>
-            </Link>
-          )
+            </Link>)
           :
-          (
-            <a css={style} {...typeProps[type]}>{children}</a>
-          )
+          (<a css={style} {...typeProps[type]}>{children}</a>)
       }
     </>
   );

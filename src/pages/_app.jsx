@@ -13,8 +13,13 @@ const App = ({ Component, pageProps, }) => {
         <link rel='shortcut icon' type='image/x-icon' href={`${BlogConfig.siteURL}/favicon.ico`} />
         <link rel='icon' type='image/x-icon' href={`${BlogConfig.siteURL}/favicon.ico`} />
 
-        <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.15.1/css/all.css' integrity='sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp' crossOrigin='anonymous' />
-  
+        <link
+          rel='stylesheet'
+          href={'https://use.fontawesome.com/releases/v5.15.1/css/all.css'}
+          integrity={'sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp'}
+          crossOrigin='anonymous'
+        />
+
         <meta name='robots' content='All' />
         <meta name='robots' content='index, follow' />
         <meta name='NaverBot' content='All'/>
@@ -24,6 +29,11 @@ const App = ({ Component, pageProps, }) => {
 
         <meta name='google-site-verification' content='iIK1QMzAYU9YHlIbkvglYdu5GF4WsxIBaV_geNrPVMI' />
         <meta name='naver-site-verification' content='f01c4552dd70d2dbfddcc7400b30371edf57a16d' />
+        
+        <script
+          data-ad-client={'ca-pub-9256396675875954'}
+          async src={'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'}
+        />
       </Head>
       <Component {...pageProps} />
     </>

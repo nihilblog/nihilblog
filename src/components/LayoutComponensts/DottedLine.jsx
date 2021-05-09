@@ -1,12 +1,12 @@
 import React from 'react';
 import { css } from '@emotion/react';
 
-const DottedLine = ({ top = 60, bottom = 60, }) => {
+const DottedLine = ({ top = 80, bottom = 80, }) => {
   const lineStyle = css`
-    margin-top: ${top}px;
-    margin-bottom: ${bottom}px;
+    margin: ${top}px auto ${bottom}px auto;
+    width: 80%;
     border: none;
-    border-bottom: 3px dotted #888888;
+    border-bottom: 10px dotted #888888;
   `;
 
   return (
