@@ -1,7 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
 
-const SiteHead = ({siteData, BlogConfig, pageProps}) => {
+const SiteHead = ({ siteData, BlogConfig, pageProps, }) => {
   const {
     title, description, author, generator, siteType,
     siteImage, siteURL, keywords,
@@ -45,6 +45,8 @@ const SiteHead = ({siteData, BlogConfig, pageProps}) => {
         <meta name='twitter:creator' content={`@${author}`} />
         <meta name='twitter:description' content={siteData.description} />
         <meta name='twitter:image' content={siteData.image} />
+  
+        <script async src='https://www.googletagmanager.com/gtag/js?id=G-L4HTGKJF9D' />
       </Head>
     </>
   );

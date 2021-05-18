@@ -1,10 +1,26 @@
 import BlogConfig from '@/data/blog.config';
 import Head from 'next/head';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { css, Global } from '@emotion/react';
 import size from '@/data/size';
 
 const FrontLayout = ({ children, pageName, pageURL, }) => {
+  useEffect(() => {
+    if (process.env.NODE_ENV === 'production') {
+      window.dataLayer = window.dataLayer || [];
+      // eslint-disable-next-line
+      function gtag() {
+        window.dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+      gtag('config', 'G-L4HTGKJF9D', {
+        page_location: window.location.href,
+        page_path: window.location.pathname,
+        page_title: window.document.title,
+      });
+    }
+  }, []);
+  
   const FrontGlobalStyle = css`
     @import url(https://fonts.googleapis.com/earlyaccess/notosanskr.css);
 
@@ -142,6 +158,8 @@ const FrontLayout = ({ children, pageName, pageURL, }) => {
         <meta name='twitter:creator' content={`@${BlogConfig.author}`} />
         <meta name='twitter:description' content={BlogConfig.description} />
         <meta name='twitter:image' content={`${BlogConfig.siteURL}${BlogConfig.siteImage}`} />
+  
+        <script async src='https://www.googletagmanager.com/gtag/js?id=G-L4HTGKJF9D' />
       </Head>
       <main>{children}</main>
       <footer>
