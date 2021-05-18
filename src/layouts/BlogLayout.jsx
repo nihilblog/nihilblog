@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import BlogConfig from '@/data/blog.config';
 import HeaderContainer from '@/components/HeaderContainer';
 import NavContainer from '@/components/NavContainer';
@@ -13,22 +13,6 @@ const BlogLayout = ({
   pageName, pageDescription, pageKeywords, pageImage, pageType,
   pageURL, pageTag, pageSection, pageCreated, pageUpdated, children,
 }) => {
-  useEffect(() => {
-    if (process.env.NODE_ENV === 'production') {
-      window.dataLayer = window.dataLayer || [];
-      // eslint-disable-next-line
-      function gtag() {
-        window.dataLayer.push(arguments);
-      }
-      gtag('js', new Date());
-      gtag('config', 'G-L4HTGKJF9D', {
-        page_location: window.location.href,
-        page_path: window.location.pathname,
-        page_title: window.document.title,
-      });
-    }
-  }, []);
-  
   const { description, siteType, siteImage, siteURL, keywords, } = BlogConfig;
   const [ siteData, ] = useState({
     description: pageDescription ? pageDescription : description,

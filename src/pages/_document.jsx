@@ -1,4 +1,5 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document';
+import React from 'react';
 
 const AppDocument = () => {
   return (
@@ -8,6 +9,16 @@ const AppDocument = () => {
           data-ad-client={'ca-pub-9256396675875954'}
           async src={'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'}
         />
+  
+        <script async src='https://www.googletagmanager.com/gtag/js?id=G-L4HTGKJF9D' />
+  
+        <script dangerouslySetInnerHTML={{ __html: `
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+        
+          gtag('config', 'G-L4HTGKJF9D');
+        `, }} />
       </Head>
       <body>
         <Main />

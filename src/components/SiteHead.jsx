@@ -45,8 +45,6 @@ const SiteHead = ({ siteData, BlogConfig, pageProps, }) => {
         <meta name='twitter:creator' content={`@${author}`} />
         <meta name='twitter:description' content={siteData.description} />
         <meta name='twitter:image' content={siteData.image} />
-  
-        <script async src='https://www.googletagmanager.com/gtag/js?id=G-L4HTGKJF9D' />
       </Head>
     </>
   );
