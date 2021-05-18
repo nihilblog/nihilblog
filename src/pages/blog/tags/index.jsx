@@ -9,6 +9,7 @@ import BlogMessage from '@/components/ContentComponents/BlogMessage';
 import BlogSeriesList from '@/components/ContentComponents/BlogSeriesList';
 import size from '@/data/size';
 import getTagsAndCategories from '@/utils/mdx/getTagsAndCategories';
+import GoogleAd from '@/components/ContentComponents/GoogleAd';
 
 const TagsPage = ({ tags, }) => {
   const siteData = {
@@ -63,6 +64,7 @@ const TagsPage = ({ tags, }) => {
       <BlogLayout {...siteData}>
         <BlogMessage />
         <BlogSeriesList />
+        <GoogleAd slot={'7775831240'} top={'true'} margin={'30'} />
         <div id='blog-tags-page'>
           <Box bottom={'100'}>
             <BoxHeader i='f02c' w='900' f='Free'>태그 목록</BoxHeader>

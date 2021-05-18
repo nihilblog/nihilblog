@@ -11,6 +11,7 @@ import Link from 'next/link';
 import PostContents from '@/components/LayoutComponensts/PostContents';
 import Pagination from '@/components/Pagination';
 import getUTC9 from '@/utils/getUTC9';
+import GoogleAd from '@/components/ContentComponents/GoogleAd';
 
 const BlogPostListNumberPage = ({ currentPage, prevPage, nextPage, posts, totalPages, }) => {
   const siteData = {
@@ -23,6 +24,7 @@ const BlogPostListNumberPage = ({ currentPage, prevPage, nextPage, posts, totalP
       <BlogLayout {...siteData}>
         <BlogMessage />
         <BlogSeriesList />
+        <GoogleAd slot={'7775831240'} top={'true'} margin={'30'} />
         <div id='blog-post-pages'>
           {posts.map(({ frontMatter, filePath, }, index) => (
             <Box key={index + filePath.replace('.mdx', '')}>
@@ -67,6 +69,7 @@ const BlogPostListNumberPage = ({ currentPage, prevPage, nextPage, posts, totalP
             </Box>
           ))}
         </div>
+        <GoogleAd slot={'6837513463'} margin={'30'} />
         <Pagination prev={prevPage} next={nextPage} total={totalPages} current={currentPage} type='post' />
       </BlogLayout>
     </>

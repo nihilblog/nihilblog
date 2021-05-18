@@ -17,6 +17,7 @@ import { MDXRemote } from 'next-mdx-remote';
 import { DiscussionEmbed as Disqus } from 'disqus-react';
 import PostNavigation from '@/components/PostNavigation';
 import Link from 'next/link';
+import GoogleAd from '@/components/ContentComponents/GoogleAd';
 
 const BlogIllustPage = ({ illust, prev, next, }) => {
   const { frontMatter, slug, source, } = illust;
@@ -56,9 +57,15 @@ const BlogIllustPage = ({ illust, prev, next, }) => {
             <PostInfo name='작성 날짜' i='f017' w='500' itemType='p'>
               {getUTC9(frontMatter.createdAt)}
             </PostInfo>
-            <PostInfo name='수정 날짜' i='f017' w='500' itemType='p'>
-              {getUTC9(frontMatter.updatedAt)}
-            </PostInfo>
+            {
+              frontMatter.updatedAt > frontMatter.createdAt
+                ?
+                (<PostInfo name='수정 날짜' i='f017' w='500' itemType='p'>
+                  {getUTC9(frontMatter.updatedAt)}
+                </PostInfo>)
+                :
+                ''
+            }
             <PostInfo name='작업 날짜' i='f017' w='500' itemType='p'>
               {getUTC9(frontMatter.drawDate)}
             </PostInfo>
@@ -69,11 +76,13 @@ const BlogIllustPage = ({ illust, prev, next, }) => {
                 </Link>
               ))}
             </PostInfo>
+            <GoogleAd slot={'7775831240'} top={'true'} />
             <DottedLine />
             <MDXRemote {...source} components={{ ...MDXComponents, }} />
             <Message color='blue' bottom='40'>
               그림에 대한 궁금한 점이나 혹 커미션을 하고 싶으신 분들은 메일이나 인스타그램으로 연락을 주시면 빠르게 확인하고 이야기를 해보도록 하겠습니다. <Strong>하지만 지금은 타블렛이 제 기능을 할 수 없어서 커미션을 받을 수 없는 점 알립니다.</Strong>
             </Message>
+            <GoogleAd slot={'6837513463'} />
             <Disqus shortname='nihil-beulrogeu' config={{ ...DisqusConfig, }} />
           </Box>
         </article>

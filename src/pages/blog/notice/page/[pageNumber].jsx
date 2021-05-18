@@ -11,6 +11,7 @@ import getUTC9 from '@/utils/getUTC9';
 import BlogMessage from '@/components/ContentComponents/BlogMessage';
 import BlogSeriesList from '@/components/ContentComponents/BlogSeriesList';
 import Pagination from '@/components/Pagination';
+import GoogleAd from '@/components/ContentComponents/GoogleAd';
 
 const BlogNoticeListNumberPage = ({ currentPage, prevPage, nextPage, posts, totalPages, }) => {
   const siteData = {
@@ -23,6 +24,7 @@ const BlogNoticeListNumberPage = ({ currentPage, prevPage, nextPage, posts, tota
       <BlogLayout {...siteData}>
         <BlogMessage />
         <BlogSeriesList />
+        <GoogleAd slot={'7775831240'} top={'true'} margin={'30'} />
         <div id='blog-notice-pages'>
           {posts.map(({ frontMatter, filePath, }, index) => (
             <Box key={index + filePath.replace('.mdx', '')}>
@@ -51,6 +53,7 @@ const BlogNoticeListNumberPage = ({ currentPage, prevPage, nextPage, posts, tota
             </Box>
           ))}
         </div>
+        <GoogleAd slot={'6837513463'} margin={'30'} />
         <Pagination prev={prevPage} next={nextPage} total={totalPages} current={currentPage} type='notice' />
       </BlogLayout>
     </>

@@ -37,42 +37,8 @@
   </url>
 
   <url>
-    <loc
-      >https://nihilblog.github.io/blog/post/2021-05-08-01-html-block-inline-tag</loc
-    >
-    <lastmod>2021-05-08T12:40:00+09:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>1</priority>
-  </url>
-
-  <url>
-    <loc>https://nihilblog.github.io/blog/post/2021-05-07-01-html-syntax</loc>
-    <lastmod>2021-05-07T18:02:00+09:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>1</priority>
-  </url>
-
-  <url>
-    <loc>https://nihilblog.github.io/blog/post/2021-05-06-01-html-intro</loc>
-    <lastmod>2021-05-09T12:40:00+09:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>1</priority>
-  </url>
-
-  <url>
-    <loc
-      >https://nihilblog.github.io/blog/post/2021-05-02-03-complete-css-guide</loc
-    >
-    <lastmod>2021-05-02T18:53:00+09:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>1</priority>
-  </url>
-
-  <url>
-    <loc
-      >https://nihilblog.github.io/blog/post/2021-05-02-02-what-programing</loc
-    >
-    <lastmod>2021-05-09T12:40:00+09:00</lastmod>
+    <loc>https://nihilblog.github.io/blog/notice/2021-05-02-01-blog-begins</loc>
+    <lastmod>2021-05-02T14:09:00+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>1</priority>
   </url>
@@ -87,8 +53,26 @@
   </url>
 
   <url>
-    <loc>https://nihilblog.github.io/blog/notice/2021-05-02-01-blog-begins</loc>
-    <lastmod>2021-05-02T14:09:00+09:00</lastmod>
+    <loc
+      >https://nihilblog.github.io/blog/post/2021-05-02-02-what-programing</loc
+    >
+    <lastmod>2021-05-11T23:30:00+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1</priority>
+  </url>
+
+  <url>
+    <loc
+      >https://nihilblog.github.io/blog/post/2021-05-02-03-complete-css-guide</loc
+    >
+    <lastmod>2021-05-02T18:53:00+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1</priority>
+  </url>
+
+  <url>
+    <loc>https://nihilblog.github.io/blog/illust/2021-05-05-01-lumber-nill</loc>
+    <lastmod>2021-05-05T04:27:00+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>1</priority>
   </url>
@@ -103,8 +87,24 @@
   </url>
 
   <url>
-    <loc>https://nihilblog.github.io/blog/illust/2021-05-05-01-lumber-nill</loc>
-    <lastmod>2021-05-05T04:27:00+09:00</lastmod>
+    <loc>https://nihilblog.github.io/blog/post/2021-05-06-01-html-intro</loc>
+    <lastmod>2021-05-09T12:40:00+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1</priority>
+  </url>
+
+  <url>
+    <loc>https://nihilblog.github.io/blog/post/2021-05-07-01-html-syntax</loc>
+    <lastmod>2021-05-07T18:02:00+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1</priority>
+  </url>
+
+  <url>
+    <loc
+      >https://nihilblog.github.io/blog/post/2021-05-08-01-html-block-inline-tag</loc
+    >
+    <lastmod>2021-05-08T12:40:00+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>1</priority>
   </url>

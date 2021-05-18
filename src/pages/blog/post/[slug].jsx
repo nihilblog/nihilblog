@@ -18,6 +18,7 @@ import BlogMessage from '@/components/ContentComponents/BlogMessage';
 import BlogSeriesList from '@/components/ContentComponents/BlogSeriesList';
 import { DiscussionEmbed as Disqus } from 'disqus-react';
 import BlogConfig from '@/data/blog.config';
+import GoogleAd from '@/components/ContentComponents/GoogleAd';
 
 const BlogPostPage = ({ post, prev, next, }) => {
   const { frontMatter, slug, source, } = post;
@@ -57,9 +58,15 @@ const BlogPostPage = ({ post, prev, next, }) => {
             <PostInfo name='작성 날짜' i='f017' w='500' itemType='p'>
               {getUTC9(frontMatter.createdAt)}
             </PostInfo>
-            <PostInfo name='수정 날짜' i='f017' w='500' itemType='p'>
-              {getUTC9(frontMatter.updatedAt)}
-            </PostInfo>
+            {
+              frontMatter.updatedAt > frontMatter.createdAt
+                ?
+                (<PostInfo name='수정 날짜' i='f017' w='500' itemType='p'>
+                  {getUTC9(frontMatter.updatedAt)}
+                </PostInfo>)
+                :
+                ''
+            }
             <PostInfo name='카테고리' i='f07b' w='900' itemType='link' linkIcon='f07c'>
               {frontMatter.categories.map((category, index) => (
                 <Link href={`/blog/categories/${String(category)}`} key={index + category}>
@@ -74,11 +81,13 @@ const BlogPostPage = ({ post, prev, next, }) => {
                 </Link>
               ))}
             </PostInfo>
+            <GoogleAd slot={'7775831240'} top={'true'} />
             <DottedLine />
             <MDXRemote {...source} components={{ ...MDXComponents, }} />
             <Message color='blue' bottom='40'>
               포스트를 읽고 혹은 읽으면서 하고 싶은 말이 있다면 아래의 덧글창에 적어주시면 됩니다. 최대한 빠르게 확인하고 답변을 드리겠습니다. 이 포스트를 보신 모든 분들의 하루가 좋은 하루이길 바랍니다.
             </Message>
+            <GoogleAd slot={'6837513463'} />
             <Disqus shortname='nihil-beulrogeu' config={DisqusConfig} />
           </Box>
         </article>

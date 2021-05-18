@@ -9,7 +9,12 @@ const sitemapGenerator = async () => {
   const notices = getAllYearPosts('notice');
   const illusts = getAllYearIllusts('illust');
   
-  const AllPosts = posts.concat(notices, illusts);
+  const AllPosts = posts.concat(notices, illusts).sort((a, b) => {
+    const beforeDate = a.frontMatter.createdAt;
+    const afterDate = b.frontMatter.createdAt;
+  
+    return beforeDate - afterDate;
+  });
   
   const prettierConfig = await prettier.resolveConfig('./.prettierrc.js');
 

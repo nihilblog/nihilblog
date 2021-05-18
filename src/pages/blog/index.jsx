@@ -11,6 +11,7 @@ import BlogMessage from '@/components/ContentComponents/BlogMessage';
 import BlogSeriesList from '@/components/ContentComponents/BlogSeriesList';
 import { css } from '@emotion/react';
 import { A, P } from '@/components/PostComponents';
+import GoogleAd from '@/components/ContentComponents/GoogleAd';
 
 const BlogIndexPage = ({ posts, }) => {
   const style = css`
@@ -32,6 +33,7 @@ const BlogIndexPage = ({ posts, }) => {
             <BoxHeader i='f017' w='500' f='Free'>최근 포스트</BoxHeader>
             <P bottom='0'>가장 최근에 작성된 5건의 포스트입니다. 더 많은 포스트를 보고 싶으시다면 상단의 메뉴에서 <A href='/blog/post/page/1' type='blog'>포스트</A>페이지로 이동하세요.</P>
           </Box>
+          <GoogleAd slot={'7775831240'} top={'true'} margin={'30'} />
           <div id='blog-post-list'>
             {posts.map(({ frontMatter, filePath, }, index) => (
               <Box key={index}>
@@ -76,6 +78,7 @@ const BlogIndexPage = ({ posts, }) => {
               </Box>
             ))}
           </div>
+          <GoogleAd slot={'6837513463'} margin={'30'} />
         </div>
       </BlogLayout>
     </>

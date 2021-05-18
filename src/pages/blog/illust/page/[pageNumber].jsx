@@ -11,6 +11,7 @@ import Link from 'next/link';
 import PostHeader from '@/components/LayoutComponensts/PostHeader';
 import PostContents from '@/components/LayoutComponensts/PostContents';
 import Pagination from '@/components/Pagination';
+import GoogleAd from '@/components/ContentComponents/GoogleAd';
 
 const BlogIllustListPage = ({ illusts, currentPage, prevPage, nextPage, totalPages, }) => {
   const siteData = {
@@ -23,6 +24,7 @@ const BlogIllustListPage = ({ illusts, currentPage, prevPage, nextPage, totalPag
       <BlogLayout {...siteData}>
         <BlogMessage />
         <BlogSeriesList />
+        <GoogleAd slot={'7775831240'} top={'true'} margin={'30'} />
         <div id='blog-illust-list-page'>
           {illusts.map(({ frontMatter, filePath, }, index) => (
             <IllustBox key={index + filePath.replace('.mdx', '')}>
@@ -57,6 +59,7 @@ const BlogIllustListPage = ({ illusts, currentPage, prevPage, nextPage, totalPag
             </IllustBox>
           ))}
         </div>
+        <GoogleAd slot={'6837513463'} margin={'30'} />
         <Pagination prev={prevPage} next={nextPage} total={totalPages} current={currentPage} type='post' />
       </BlogLayout>
     </>

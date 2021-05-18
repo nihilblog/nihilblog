@@ -9,6 +9,7 @@ import { P } from '@/components/PostComponents';
 import getTagsAndCategories from '@/utils/mdx/getTagsAndCategories';
 import size from '@/data/size';
 import Link from 'next/link';
+import GoogleAd from '@/components/ContentComponents/GoogleAd';
 
 const KeywordsPage = ({ keywords, }) => {
   const siteData = {
@@ -63,6 +64,7 @@ const KeywordsPage = ({ keywords, }) => {
       <BlogLayout {...siteData}>
         <BlogMessage />
         <BlogSeriesList />
+        <GoogleAd slot={'7775831240'} top={'true'} margin={'30'} />
         <div id='blog-keywords-page'>
           <Box bottom={'100'}>
             <BoxHeader i='f1fc' w='900' f='Free'>일러스트 키워드 목록</BoxHeader>

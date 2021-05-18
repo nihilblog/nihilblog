@@ -13,6 +13,7 @@ import PostHeader from '@/components/LayoutComponensts/PostHeader';
 import IllustBox from '@/components/LayoutComponensts/IllustBox';
 import PostContents from '@/components/LayoutComponensts/PostContents';
 import getUTC9 from '@/utils/getUTC9';
+import GoogleAd from '@/components/ContentComponents/GoogleAd';
 
 const KeywordPostsPage = ({ illusts, keyword, }) => {
   const totalCount = illusts.length;
@@ -36,6 +37,7 @@ const KeywordPostsPage = ({ illusts, keyword, }) => {
             <BoxHeader i='f002' w='900' f='Free'>&ldquo; {keyword} &rdquo; 관련 일러스트 {totalCount}장</BoxHeader>
             <P bottom='0'>다른 키워드들을 보려면 상단 서브 메뉴에서 키워드 링크를 클릭하세요.</P>
           </Box>
+          <GoogleAd slot={'7775831240'} top={'true'} margin={'30'} />
           <div id='blog-post-list'>
             {illusts.map(({ frontMatter, filePath, }, index) => (
               <IllustBox key={index}>

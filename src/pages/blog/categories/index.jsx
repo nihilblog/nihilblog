@@ -9,6 +9,7 @@ import BlogLayout from '@/layouts/BlogLayout';
 import BlogMessage from '@/components/ContentComponents/BlogMessage';
 import BlogSeriesList from '@/components/ContentComponents/BlogSeriesList';
 import size from '@/data/size';
+import GoogleAd from '@/components/ContentComponents/GoogleAd';
 
 const CategoriesPage = ({ categories, }) => {
   const siteData = {
@@ -63,6 +64,7 @@ const CategoriesPage = ({ categories, }) => {
       <BlogLayout {...siteData}>
         <BlogMessage />
         <BlogSeriesList />
+        <GoogleAd slot={'7775831240'} top={'true'} margin={'30'} />
         <div id='blog-categories-page'>
           <Box bottom={'100'}>
             <BoxHeader i='f07b' w='900' f='Free'>카테고리 목록</BoxHeader>

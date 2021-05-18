@@ -12,6 +12,7 @@ import Link from 'next/link';
 import PostContents from '@/components/LayoutComponensts/PostContents';
 import getUTC9 from '@/utils/getUTC9';
 import { css } from '@emotion/react';
+import GoogleAd from '@/components/ContentComponents/GoogleAd';
 
 const TagPostsPage = ({ posts, tag, }) => {
   const totalCount = posts.length;
@@ -35,6 +36,7 @@ const TagPostsPage = ({ posts, tag, }) => {
             <BoxHeader i='f002' w='900' f='Free'>&ldquo; {tag} &rdquo; 관련 포스트 {totalCount}건</BoxHeader>
             <P bottom='0'>다른 태그들을 보려면 상단 메뉴에서 태그 링크를 클릭하세요.</P>
           </Box>
+          <GoogleAd slot={'7775831240'} top={'true'} margin={'30'} />
           <div id='blog-post-list'>
             {posts.map(({ frontMatter, filePath, }, index) => (
               <Box key={index + filePath.replace('.mdx', '')}>
