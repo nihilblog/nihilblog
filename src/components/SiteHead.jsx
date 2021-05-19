@@ -25,7 +25,7 @@ const SiteHead = ({ siteData, BlogConfig, pageProps, }) => {
         {/* 오픈그래프 */}
         <meta property='og:site_name' content={title} />
         <meta property='og:type' content={siteData.type} />
-        <meta property='og:title' content={pageName} />
+        <meta property='og:title' content={`${pageName} - ${title}`} />
         <meta property='og:description' content={siteData.description} />
         <meta property='og:image' content={siteData.image} />
         <meta property='og:locale' content='ko_KR' />
