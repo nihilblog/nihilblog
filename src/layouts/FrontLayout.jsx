@@ -1,10 +1,14 @@
 import BlogConfig from '@/data/blog.config';
 import Head from 'next/head';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { css, Global } from '@emotion/react';
 import size from '@/data/size';
 
 const FrontLayout = ({ children, pageName, pageURL, }) => {
+  useEffect(() => {
+    document.getElementById('__next').removeAttribute('style');
+  }, []);
+  
   const FrontGlobalStyle = css`
     @import url(https://fonts.googleapis.com/earlyaccess/notosanskr.css);
 
@@ -21,7 +25,7 @@ const FrontLayout = ({ children, pageName, pageURL, }) => {
     }
 
     html, body, div#__next, main {
-      height: 100%;
+      height: 100% !important;
       width: 100%;
     }
 
