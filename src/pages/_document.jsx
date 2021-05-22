@@ -13,12 +13,13 @@ const AppDocument = () => {
         <script async src='https://www.googletagmanager.com/gtag/js?id=G-L4HTGKJF9D' />
   
         <script dangerouslySetInnerHTML={{ __html: `
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-        
-          gtag('config', 'G-L4HTGKJF9D');
-        `, }} />
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+          
+            gtag('config', 'G-L4HTGKJF9D');
+          `, }}
+        />
       </Head>
       <body>
         <Main />

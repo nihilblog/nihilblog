@@ -24,13 +24,13 @@
   "dependencies": {
     "@emotion/react": "^11.4.0",
     "@emotion/styled": "^11.3.0",
-    "@next/mdx": "^10.2.0",
+    "@next/mdx": "^10.2.2",
     "disqus-react": "^1.0.11",
     "gray-matter": "^4.0.3",
-    "next": "^10.2.0",
+    "next": "^10.2.2",
     "next-mdx-remote": "^3.0.2",
     "prettier": "^2.3.0",
-    "prism-react-renderer": "^1.2.0",
+    "prism-react-renderer": "^1.2.1",
     "prismjs": "^1.23.0",
     "prop-types": "^15.7.2",
     "react": "^17.0.2",
@@ -43,8 +43,8 @@
     "@emotion/babel-plugin": "^11.3.0",
     "@emotion/babel-preset-css-prop": "^11.2.0",
     "@mdx-js/loader": "^1.6.22",
-    "eslint": "^7.26.0",
-    "eslint-plugin-import": "^2.23.2",
+    "eslint": "^7.27.0",
+    "eslint-plugin-import": "^2.23.3",
     "eslint-plugin-react": "^7.23.2",
     "eslint-plugin-react-hooks": "^4.2.0"
   }
