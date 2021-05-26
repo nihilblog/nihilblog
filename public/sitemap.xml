@@ -47,7 +47,7 @@
     <loc
       >https://nihilblog.github.io/blog/post/2021-05-02-01-complete-html-guide</loc
     >
-    <lastmod>2021-05-09T12:40:00+09:00</lastmod>
+    <lastmod>2021-05-26T21:20:00+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>1</priority>
   </url>
@@ -56,7 +56,7 @@
     <loc
       >https://nihilblog.github.io/blog/post/2021-05-02-02-what-programing</loc
     >
-    <lastmod>2021-05-11T23:30:00+09:00</lastmod>
+    <lastmod>2021-05-26T17:50:00+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>1</priority>
   </url>
@@ -105,6 +105,15 @@
       >https://nihilblog.github.io/blog/post/2021-05-08-01-html-block-inline-tag</loc
     >
     <lastmod>2021-05-08T12:40:00+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1</priority>
+  </url>
+
+  <url>
+    <loc
+      >https://nihilblog.github.io/blog/post/2021-05-26-01-parent-child-sibling</loc
+    >
+    <lastmod>2021-05-26T20:25:00+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>1</priority>
   </url>

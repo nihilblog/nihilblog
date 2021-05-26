@@ -27,3 +27,4 @@ export * from './Prism';
 export * from './CopyCode';
 export * from './Line';
 export * from './Mark';
+export * from './CustomMessage/HtmlGuideMessage';

@@ -15,7 +15,7 @@
     "serve": "rm -rf node_modules/.cache && rm -rf build/ && next dev",
     "start": "rm -rf node_modules/.cache && rm -rf build/ && next build && next start",
     "build": "rm -rf node_modules/.cache && rm -rf build/ && next build",
-    "export": "rm -rf node_modules/.cache && rm -rf build/ && next build && next export -o nihilblog.github.io/ && touch nihilblog.github.io/.nojekyll && cd ../nihilblog.github.io && mv .git ../backup && cd ../ && rm -rf nihilblog.github.io && cd nihilblog && mv nihilblog.github.io ../ && cd ../backup && mv .git ../nihilblog.github.io",
+    "export": "rm -rf node_modules/.cache && rm -rf build/ && next build && next export -o nihilblog.github.io/ && touch nihilblog.github.io/.nojekyll && cd ../nihilblog.github.io && mv .git ../backup && cd ../ && rm -rf nihilblog.github.io && cd nihilblog && mv nihilblog.github.io ../ && cd ../backup && mv .git ../nihilblog.github.io && cd ../nihilblog.github.io && git add .",
     "clean": "npm cache clean --force"
   },
   "keywords": [],
@@ -24,10 +24,10 @@
   "dependencies": {
     "@emotion/react": "^11.4.0",
     "@emotion/styled": "^11.3.0",
-    "@next/mdx": "^10.2.2",
+    "@next/mdx": "^10.2.3",
     "disqus-react": "^1.0.11",
     "gray-matter": "^4.0.3",
-    "next": "^10.2.2",
+    "next": "^10.2.3",
     "next-mdx-remote": "^3.0.2",
     "prettier": "^2.3.0",
     "prism-react-renderer": "^1.2.1",

@@ -14,7 +14,7 @@ import {
   Score, Spoiler,
   Strike,
   Strong,
-  Ul, Youtube
+  Ul, Youtube, HtmlGuideMessage
 } from '@/components/PostComponents';
 
 const MDXComponents = {
@@ -59,6 +59,7 @@ const MDXComponents = {
   Youtube,
   Mark,
   Line,
+  HtmlGuideMessage,
 };
 
 export default MDXComponents;
