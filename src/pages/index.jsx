@@ -11,15 +11,11 @@ const BlogFrontPage = () => {
     transform: translateY(-50%);
 
     & > #scroll-wrapper {
-      & > h1 {
-        margin-bottom: 10px;
-
-        & > img {
-          width: 80%;
-          margin: 0 auto;
-          transition: all 0.3s;
-          display: block;
-        }
+      & > img {
+        width: 80%;
+        margin: 0 auto 10px auto;
+        transition: all 0.3s;
+        display: block;
       }
 
       & > p {
@@ -86,10 +82,10 @@ const BlogFrontPage = () => {
     }
   `;
 
-const siteData = {
-  pageName: '프론트',
-  pageURL: '/',
-};
+  const siteData = {
+    pageName: '프론트',
+    pageURL: '/',
+  };
 
   return (
     <>
@@ -97,17 +93,15 @@ const siteData = {
       <FrontLayout {...siteData}>
         <div id='front-index-page' css={frontIndexStyle}>
           <div id='scroll-wrapper'>
-            <h1 id='front-logo'>
-              <img src='/images/blog-logo.svg' alt='니힐 블로그 로고' />
-            </h1>
+            <img src={'/images/blog-logo.svg'} alt='니힐 블로그 로고' />
             <p id='front-message'>
               니힐 블로그를 방문해주신 여러분 진심으로 환영합니다.<br />
               니힐 블로그는 프로그래밍, 일본어, 게임을 포함한 여러가지 주제를 다루고 있습니다.<br />
               아래의 링크 중 원하는 링크를 클릭해 블로그를 살펴보세요!
             </p>
             <nav id='front-links'>
-              <Link href='/blog'><a id='link-blog'>블로그 홈</a></Link>
-              <Link href='/about'><a id='link-about'>블로그 소개</a></Link>
+              <Link href={'/blog'}><a id='link-blog'>블로그 홈</a></Link>
+              <Link href={'/about'}><a id='link-about'>블로그 소개</a></Link>
             </nav>
           </div>
         </div>

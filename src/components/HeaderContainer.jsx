@@ -10,13 +10,11 @@ const HeaderContainer = () => {
     background-color: #333333;
     text-align: center;
 
-    & > h1 {
-      & > img {
-        width: 250px;
-        display: block;
-        transition: all 0.3s;
-        margin: 0 auto 5px auto;
-      }
+    & > img {
+      width: 250px;
+      display: block;
+      transition: all 0.3s;
+      margin: 0 auto 5px auto;
     }
 
     & > p {
@@ -45,16 +43,10 @@ const HeaderContainer = () => {
     }
   `;
 
-  // const fontSize = css`
-    
-  // `;
-
   return (
     <>
       <header css={headerStyle}>
-        <h1>
-          <img src='/images/blog-logo.svg' alt='니힐 블로그 로고' />
-        </h1>
+        <img src='/images/blog-logo.svg' alt='니힐 블로그 로고' />
         <p>{BlogConfig.title} Ver.{BlogConfig.version}.</p>
       </header>
     </>
