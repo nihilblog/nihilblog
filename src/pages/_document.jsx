@@ -10,14 +10,14 @@ const AppDocument = () => {
           async src={'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js'}
         />
   
-        <script async src='https://www.googletagmanager.com/gtag/js?id=G-L4HTGKJF9D' />
+        <script async src='https://www.googletagmanager.com/gtag/js?id=G-GZG6JWMBDB' />
   
         <script dangerouslySetInnerHTML={{ __html: `
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
           
-            gtag('config', 'G-L4HTGKJF9D');
+            gtag('config', 'G-GZG6JWMBDB');
           `, }}
         />
       </Head>

@@ -15,7 +15,7 @@
     "serve": "rm -rf node_modules/.cache && rm -rf build/ && next dev",
     "start": "rm -rf node_modules/.cache && rm -rf build/ && next build && next start",
     "build": "rm -rf node_modules/.cache && rm -rf build/ && next build",
-    "export": "rm -rf node_modules/.cache && rm -rf build/ && next build && next export -o nihilblog.github.io/ && touch nihilblog.github.io/.nojekyll && cd ../nihilblog.github.io && mv .git ../backup && cd ../ && rm -rf nihilblog.github.io && cd nihilblog && mv nihilblog.github.io ../ && cd ../backup && mv .git ../nihilblog.github.io",
+    "export": "rm -rf node_modules/.cache && rm -rf build/ && next build && next export -o nihilncunia-blog.github.io/ && touch nihilncunia-blog.github.io/.nojekyll && cd ../nihilncunia-blog.github.io && mv .git ../backup && cd ../ && rm -rf nihilncunia-blog.github.io && cd nihilncunia-blog && mv nihilncunia-blog.github.io ../ && cd ../backup && mv .git ../nihilncunia-blog.github.io",
     "clean": "npm cache clean --force"
   },
   "keywords": [],

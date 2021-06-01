@@ -8,7 +8,7 @@ const BlogConfig = {
   keywords: '블로그, 코딩, 프로그래밍, 웹 프로그래밍, Blog, Coding, Programing, Web programing, 일본어, 일본어 공부, 게임, 게임 정보, Japanese, Japanese learning, Game, Game play, 가이드, Guide',
   siteURL: process.env.NODE_ENV === 'development'
     ? 'http://localhost:3000'
-    : 'https://nihilblog.github.io',
+    : 'https://nihilncunia-blog.github.io',
   siteImage: '/images/blog-image.png',
   siteType: 'website',
   version: packageJson.version,

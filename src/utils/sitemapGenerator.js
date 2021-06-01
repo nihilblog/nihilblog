@@ -27,7 +27,7 @@ const sitemapGenerator = async () => {
     '/blog/illust/keywords',
   ];
 
-  const basePath = 'https://nihilblog.github.io';
+  const basePath = 'https://nihilncunia-blog.github.io';
   
   const ruleSet = [];
 
