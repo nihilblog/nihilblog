@@ -13,6 +13,7 @@ import PostContents from '@/components/LayoutComponensts/PostContents';
 import getUTC9 from '@/utils/getUTC9';
 import { css } from '@emotion/react';
 import GoogleAd from '@/components/ContentComponents/GoogleAd';
+import Head from 'next/head';
 
 const TagPostsPage = ({ posts, tag, }) => {
   const totalCount = posts.length;
@@ -28,6 +29,9 @@ const TagPostsPage = ({ posts, tag, }) => {
 
   return (
     <>
+      <Head>
+        <meta name='robots' content='noindex, nofollow' />
+      </Head>
       <BlogLayout {...siteData}>
         <BlogMessage />
         <BlogSeriesList />

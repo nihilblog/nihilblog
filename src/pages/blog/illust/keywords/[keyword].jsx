@@ -14,6 +14,7 @@ import IllustBox from '@/components/LayoutComponensts/IllustBox';
 import PostContents from '@/components/LayoutComponensts/PostContents';
 import getUTC9 from '@/utils/getUTC9';
 import GoogleAd from '@/components/ContentComponents/GoogleAd';
+import Head from 'next/head';
 
 const KeywordPostsPage = ({ illusts, keyword, }) => {
   const totalCount = illusts.length;
@@ -29,6 +30,9 @@ const KeywordPostsPage = ({ illusts, keyword, }) => {
   
   return (
     <>
+      <Head>
+        <meta name='robots' content='noindex, nofollow' />
+      </Head>
       <BlogLayout {...siteData}>
         <BlogMessage />
         <BlogSeriesList />
