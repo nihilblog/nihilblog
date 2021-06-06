@@ -31,13 +31,13 @@ const BlogLayout = ({
 
     @font-face {
       font-family: 'CascadiaCode';
-      src: url('https://nihilblog.github.io/fonts/CascadiaCode.eot');
+      src: url('https://nihilncunia-blog.github.io/fonts/CascadiaCode.eot');
       src:
-        url('https://nihilblog.github.io/fonts/CascadiaCode.eot?#iefix') format('embedded-opentype'),
-        url('https://nihilblog.github.io/fonts/CascadiaCode.woff2') format('woff2'),
-        url('https://nihilblog.github.io/fonts/CascadiaCode.svg#CascadiaCode') format('svg'),
-        url('https://nihilblog.github.io/fonts/CascadiaCode.ttf') format('truetype'),
-        url('https://nihilblog.github.io/fonts/CascadiaCode.woff') format('woff');
+        url('https://nihilncunia-blog.github.io/fonts/CascadiaCode.eot?#iefix') format('embedded-opentype'),
+        url('https://nihilncunia-blog.github.io/fonts/CascadiaCode.woff2') format('woff2'),
+        url('https://nihilncunia-blog.github.io/fonts/CascadiaCode.svg#CascadiaCode') format('svg'),
+        url('https://nihilncunia-blog.github.io/fonts/CascadiaCode.ttf') format('truetype'),
+        url('https://nihilncunia-blog.github.io/fonts/CascadiaCode.woff') format('woff');
       font-weight: normal;
       font-style: normal;
     }
@@ -45,7 +45,7 @@ const BlogLayout = ({
     * {
       padding: 0;
       margin: 0;
-      font-family: 'Noto Sans CJK KR', sans-serif;
+      font-family: 'Noto Sans KR', sans-serif;
       color: #333333;
       font-weight: 500;
     }

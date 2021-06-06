@@ -15,7 +15,7 @@ const FrontLayout = ({ children, pageName, pageURL, }) => {
     * {
       padding: 0;
       margin: 0;
-      font-family: 'Noto Sans CJK KR', sans-serif;
+      font-family: 'Noto Sans KR', sans-serif;
       color: #333333;
       font-weight: 500;
     }

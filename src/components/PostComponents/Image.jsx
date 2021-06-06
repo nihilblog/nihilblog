@@ -3,55 +3,65 @@ import { css } from '@emotion/react';
 import size from '@/data/size';
 
 export const Image = ({ src, alt, top = 40, bottom = 40, }) => {
+  
   const style = css`
     max-width: 940px;
     box-sizing: border-box;
     margin: ${top}px auto ${bottom}px auto;
-    background-color: #333333;
-    padding: 10px;
-    border-radius: 10px;
     display: table;
     position: relative;
 
     & > a {
-      background-color: #bbbbbb;
+      border: 2px solid #555555;
       border-radius: 10px;
       color: #555555;
       transition: all 0.3s;
       padding: 5px 10px;
-      margin-top: 10px;
+      margin: 20px auto 0 auto;
       display: block;
       text-align: center;
-      font-size: 120%;
       font-weight: 500;
+      width: 40%;
+      
+      & > span {
+        font-size: 90%;
+        color: inherit;
+      }
       
       &:before {
         content: '\\f065';
         font-weight: 900;
          font-family: 'Font Awesome 5 Free', sans-serif;
-        margin-right: 5px;
+        margin-right: 10px;
       }
 
       &:hover {
-        background-color: #ffffff;
-        color: #333333;
+        background-color: #333333;
+        color: #ffffff;
+        border: 2px solid #333333;
         transition: all 0.3s;
       }
     }
 
-    & > img {
-      margin: 0 auto;
-      max-width: 100%;
+    & > div {
+      background-color: #333333;
       border-radius: 10px;
-      display: block;
-      transition: all 0.3s;
+      padding: 10px;
+      
+      & > img {
+        margin: 0 auto;
+        max-width: 100%;
+        display: block;
+        transition: all 0.3s;
+        border-radius: 10px;
+      }
     }
 
     & > figcaption {
-      margin-top: 10px;
+      margin-top: 5px;
       text-align: center;
       font-style: italic;
-      color: #aaaaaa;
+      color: #333333;
       letter-spacing: -1px;
       transition: all 0.3s;
 
@@ -69,26 +79,30 @@ export const Image = ({ src, alt, top = 40, bottom = 40, }) => {
     }
 
     @media (min-width: 1px) and (max-width: 600px) {
-      figcaption {font-size: ${size[1]};}
+      figcaption, a {font-size: ${size[1]};}
     }
 
     @media (min-width: 601px) and (max-width: 800px) {
-      figcaption {font-size: ${size[2]};}
+      figcaption, a {font-size: ${size[2]};}
     }
 
     @media (min-width: 801px) {
-      figcaption {font-size: ${size[3]};}
+      figcaption, a {font-size: ${size[3]};}
     }
   `;
 
   return (
     <>
       <figure className='post-image-block' css={style}>
-        <img src={src} alt={alt} />
-        <a href={src} target='_blank' rel='noreferrer noopener'>크게 보기 (새 창)</a>
+        <div>
+          <img src={src} alt={alt} />
+        </div>
         <figcaption>
           <span>{alt}</span>
         </figcaption>
+        <a href={src} target='_blank' rel='noreferrer noopener'>
+          <span>크게 보기 (새 창)</span>
+        </a>
       </figure>
     </>
   );
