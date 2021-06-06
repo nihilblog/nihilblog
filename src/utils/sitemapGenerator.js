@@ -19,24 +19,42 @@ const sitemapGenerator = async () => {
   const prettierConfig = await prettier.resolveConfig('./.prettierrc.js');
 
   const defaultPages = [
-    '/',
-    '/blog',
-    '/about',
-    '/blog/categories',
-    '/blog/tags',
-    '/blog/illust/keywords',
+    {
+      url: '/',
+      priority: 1,
+    },
+    {
+      url: '/blog',
+      priority: 0.7,
+    },
+    {
+      url: '/about',
+      priority: 0.7,
+    },
+    {
+      url: '/blog/categories',
+      priority: 0.7,
+    },
+    {
+      url: '/blog/tags',
+      priority: 0.7,
+    },
+    {
+      url: '/blog/illust/keywords',
+      priority: 0.7,
+    },
   ];
 
   const basePath = 'https://nihilncunia-blog.github.io';
   
   const ruleSet = [];
 
-  const defaultPagesRuleSet = defaultPages.map((path) => {
+  const defaultPagesRuleSet = defaultPages.map(({ url, priority, }) => {
     return `
       <url>
-        <loc>${basePath}${path}</loc>
+        <loc>${basePath}${url}</loc>
         <changefreq>daily</changefreq>
-        <priority>0.5</priority>
+        <priority>${priority}</priority>
       </url>
     `;
   }).join('');
