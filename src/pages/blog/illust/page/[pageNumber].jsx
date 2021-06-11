@@ -12,6 +12,7 @@ import PostHeader from '@/components/LayoutComponensts/PostHeader';
 import PostContents from '@/components/LayoutComponensts/PostContents';
 import Pagination from '@/components/Pagination';
 import GoogleAd from '@/components/ContentComponents/GoogleAd';
+import Head from 'next/head';
 
 const BlogIllustListPage = ({ illusts, currentPage, prevPage, nextPage, totalPages, }) => {
   const siteData = {
@@ -21,6 +22,9 @@ const BlogIllustListPage = ({ illusts, currentPage, prevPage, nextPage, totalPag
   
   return (
     <>
+      <Head>
+        <meta name='robots' content='noindex, nofollow' />
+      </Head>
       <BlogLayout {...siteData}>
         <BlogMessage />
         <BlogSeriesList />

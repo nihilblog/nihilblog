@@ -17,7 +17,7 @@ export const Image = ({ src, alt, top = 40, bottom = 40, }) => {
       color: #555555;
       transition: all 0.3s;
       padding: 5px 10px;
-      margin: 20px auto 0 auto;
+      margin: 10px auto 0 auto;
       display: block;
       text-align: center;
       font-weight: 500;
@@ -46,7 +46,7 @@ export const Image = ({ src, alt, top = 40, bottom = 40, }) => {
     & > div {
       background-color: #333333;
       border-radius: 10px;
-      padding: 10px;
+      padding: 5px;
       
       & > img {
         margin: 0 auto;

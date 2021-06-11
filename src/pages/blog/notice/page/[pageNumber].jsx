@@ -12,6 +12,7 @@ import BlogMessage from '@/components/ContentComponents/BlogMessage';
 import BlogSeriesList from '@/components/ContentComponents/BlogSeriesList';
 import Pagination from '@/components/Pagination';
 import GoogleAd from '@/components/ContentComponents/GoogleAd';
+import Head from 'next/head';
 
 const BlogNoticeListNumberPage = ({ currentPage, prevPage, nextPage, posts, totalPages, }) => {
   const siteData = {
@@ -21,6 +22,9 @@ const BlogNoticeListNumberPage = ({ currentPage, prevPage, nextPage, posts, tota
 
   return (
     <>
+      <Head>
+        <meta name='robots' content='noindex, nofollow' />
+      </Head>
       <BlogLayout {...siteData}>
         <BlogMessage />
         <BlogSeriesList />
