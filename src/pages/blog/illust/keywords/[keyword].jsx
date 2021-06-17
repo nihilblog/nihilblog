@@ -30,9 +30,6 @@ const KeywordPostsPage = ({ illusts, keyword, }) => {
   
   return (
     <>
-      <Head>
-        <meta name='robots' content='noindex, nofollow' />
-      </Head>
       <BlogLayout {...siteData}>
         <BlogMessage />
         <BlogSeriesList />

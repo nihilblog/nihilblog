@@ -2,9 +2,3 @@ User-agent: *
 Allow: /
 
 Disallow: /view
-Disallow: /blog/post/page/
-Disallow: /blog/notice/page/
-Disallow: /blog/illust/page/
-Disallow: /blog/illust/keywords/
-Disallow: /blog/tags/
-Disallow: /blog/categories/

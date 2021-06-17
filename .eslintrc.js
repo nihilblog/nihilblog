@@ -24,7 +24,13 @@ module.exports = {
   plugins: [
     'import',
     'react-hooks',
+    'react',
   ],
+  settings: {
+    'react': {
+      'version': 'detect',
+    },
+  },
   rules: {
     'no-console': 0,
     'no-unused-vars': 1,

@@ -29,9 +29,6 @@ const CategoryPostsPage = ({ posts, category, }) => {
 
   return (
     <>
-      <Head>
-        <meta name='robots' content='noindex, nofollow' />
-      </Head>
       <BlogLayout {...siteData}>
         <BlogMessage />
         <BlogSeriesList />

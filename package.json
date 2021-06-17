@@ -24,8 +24,8 @@
   "dependencies": {
     "@emotion/react": "^11.4.0",
     "@emotion/styled": "^11.3.0",
-    "@next/mdx": "^10.2.3",
-    "disqus-react": "^1.0.11",
+    "@next/mdx": "^11.0.0",
+    "disqus-react": "^1.1.0",
     "gray-matter": "^4.0.3",
     "next": "^10.2.3",
     "next-mdx-remote": "^3.0.2",
@@ -36,14 +36,15 @@
     "react": "^17.0.2",
     "react-adsense": "^0.1.0",
     "react-dom": "^17.0.2",
-    "remark-unwrap-images": "^2.0.0"
+    "remark-unwrap-images": "^2.1.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.14.5",
+    "@babel/core": "^7.14.6",
     "@emotion/babel-plugin": "^11.3.0",
     "@emotion/babel-preset-css-prop": "^11.2.0",
     "@mdx-js/loader": "^1.6.22",
     "eslint": "^7.28.0",
+    "eslint-config-next": "^11.0.0",
     "eslint-plugin-import": "^2.23.4",
     "eslint-plugin-react": "^7.24.0",
     "eslint-plugin-react-hooks": "^4.2.0"
