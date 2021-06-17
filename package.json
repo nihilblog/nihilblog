@@ -15,7 +15,7 @@
     "serve": "rm -rf node_modules/.cache && rm -rf build/ && next dev",
     "start": "rm -rf node_modules/.cache && rm -rf build/ && next build && next start",
     "build": "rm -rf node_modules/.cache && rm -rf build/ && next build",
-    "export": "rm -rf node_modules/.cache && rm -rf build/ && next build && next export -o nihilncunia-blog.github.io/ && touch nihilncunia-blog.github.io/.nojekyll && cd ../nihilncunia-blog.github.io && mv .git ../backup && cd ../ && rm -rf nihilncunia-blog.github.io && cd nihilncunia-blog && mv nihilncunia-blog.github.io ../ && cd ../backup && mv .git ../nihilncunia-blog.github.io && cd ../nihilncunia-blog.github.io && git add .",
+    "export": "rm -rf node_modules/.cache && rm -rf build/ && next build && next export -o nihilncunia-blog.github.io/ && touch nihilncunia-blog.github.io/.nojekyll && cd ../nihilncunia-blog.github.io && mv .git ../backup && cd ../ && rm -rf nihilncunia-blog.github.io && cd nihilncunia-blog && mv nihilncunia-blog.github.io ../ && cd ../backup && mv .git ../nihilncunia-blog.github.io && cd ../nihilncunia-blog.github.io && git config core.autocrlf true && git add .",
     "clean": "npm cache clean --force"
   },
   "keywords": [],
@@ -27,7 +27,7 @@
     "@next/mdx": "^11.0.0",
     "disqus-react": "^1.1.0",
     "gray-matter": "^4.0.3",
-    "next": "^10.2.3",
+    "next": "^11.0.0",
     "next-mdx-remote": "^3.0.2",
     "prettier": "^2.3.1",
     "prism-react-renderer": "^1.2.1",

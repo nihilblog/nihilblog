@@ -13,4 +13,7 @@ module.exports = withMDX({
     }
     return config;
   },
+  eslint: {
+    dirs: [],
+  },
 });
