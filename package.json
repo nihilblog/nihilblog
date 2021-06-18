@@ -16,8 +16,6 @@
     "start": "rm -rf node_modules/.cache && rm -rf build/ && next build && next start",
     "build": "rm -rf node_modules/.cache && rm -rf build/ && next build",
     "export": "rm -rf node_modules/.cache && rm -rf build/ && next build && next export -o nihilncunia-blog.github.io/ && touch nihilncunia-blog.github.io/.nojekyll && cd ../nihilncunia-blog.github.io && mv .git ../backup && cd ../ && rm -rf nihilncunia-blog.github.io && cd nihilncunia-blog && mv nihilncunia-blog.github.io ../ && cd ../backup && mv .git ../nihilncunia-blog.github.io && cd ../nihilncunia-blog.github.io && git config core.autocrlf true && git add .",
-    "netlify-deploy": "next build && next export",
-    "vercel-deploy": "next build && next export",
     "clean": "npm cache clean --force"
   },
   "keywords": [],
@@ -26,8 +24,6 @@
   "dependencies": {
     "@emotion/react": "^11.4.0",
     "@emotion/styled": "^11.3.0",
-    "@netlify/plugin-nextjs": "^3.4.2",
-    "@next/mdx": "^11.0.0",
     "disqus-react": "^1.1.0",
     "gray-matter": "^4.0.3",
     "next": "^11.0.0",

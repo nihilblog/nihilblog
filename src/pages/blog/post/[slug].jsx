@@ -13,10 +13,9 @@ import MDXComponents from '@/components/MDXComponents';
 import PostNavigation from '@/components/PostNavigation';
 import BlogMessage from '@/components/ContentComponents/BlogMessage';
 import BlogSeriesList from '@/components/ContentComponents/BlogSeriesList';
-import { DiscussionEmbed as Disqus } from 'disqus-react';
-import BlogConfig from '@/data/blog.config';
 import GoogleAd from '@/components/ContentComponents/GoogleAd';
 import { Line, MainImage, Message } from '@/components/PostComponents';
+import Utterances from '@/components/LayoutComponensts/Utterances';
 
 const BlogPostPage = ({ post, prev, next, }) => {
   const { frontMatter, slug, source, } = post;
@@ -32,12 +31,6 @@ const BlogPostPage = ({ post, prev, next, }) => {
     pageSection: frontMatter.categories.join(', '),
     pageCreated: getUTCString(frontMatter.createdAt),
     pageUpdated: getUTCString(frontMatter.updatedAt),
-  };
-
-  const DisqusConfig = {
-    url: `${BlogConfig.siteURL}/blog/post/${slug}`,
-    identifier: slug,
-    title: `${frontMatter.title} - ${BlogConfig.title}`,
   };
 
   return (
@@ -86,7 +79,7 @@ const BlogPostPage = ({ post, prev, next, }) => {
               포스트를 읽고 혹은 읽으면서 하고 싶은 말이 있다면 아래의 덧글창에 적어주시면 됩니다. 최대한 빠르게 확인하고 답변을 드리겠습니다. 이 포스트를 보신 모든 분들의 하루가 좋은 하루이길 바랍니다.
             </Message>
             <GoogleAd slot={'6837513463'} />
-            <Disqus shortname='nihil-beulrogeu' config={{ ...DisqusConfig, }} />
+            <Utterances />
           </Box>
         </article>
         <PostNavigation prev={prev} next={next} type='post' />

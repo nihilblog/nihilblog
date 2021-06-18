@@ -4,7 +4,6 @@ import BlogMessage from '@/components/ContentComponents/BlogMessage';
 import BlogSeriesList from '@/components/ContentComponents/BlogSeriesList';
 import getAllYearIllusts from '@/utils/mdx/getAllYearIllusts';
 import getPostBySlug from '@/utils/mdx/getPostBySlug';
-import BlogConfig from '@/data/blog.config';
 import Box from '@/components/LayoutComponensts/Box';
 import BoxHeader from '@/components/LayoutComponensts/BoxHeader';
 import { Line, MainImage, Message, Strong } from '@/components/PostComponents';
@@ -13,10 +12,10 @@ import getUTC9 from '@/utils/getUTC9';
 import getUTCString from '@/utils/getUTCString';
 import MDXComponents from '@/components/MDXComponents';
 import { MDXRemote } from 'next-mdx-remote';
-import { DiscussionEmbed as Disqus } from 'disqus-react';
 import PostNavigation from '@/components/PostNavigation';
 import Link from 'next/link';
 import GoogleAd from '@/components/ContentComponents/GoogleAd';
+import Utterances from '@/components/LayoutComponensts/Utterances';
 
 const BlogIllustPage = ({ illust, prev, next, }) => {
   const { frontMatter, slug, source, } = illust;
@@ -32,12 +31,6 @@ const BlogIllustPage = ({ illust, prev, next, }) => {
     pageSection: 'illust',
     pageCreated: getUTCString(frontMatter.createdAt),
     pageUpdated: getUTCString(frontMatter.updatedAt),
-  };
-  
-  const DisqusConfig = {
-    url: `${BlogConfig.siteURL}/blog/post/${slug}`,
-    identifier: slug,
-    title: `${frontMatter.title} - ${BlogConfig.title}`,
   };
   
   return (
@@ -82,7 +75,7 @@ const BlogIllustPage = ({ illust, prev, next, }) => {
               그림에 대한 궁금한 점이나 혹 커미션을 하고 싶으신 분들은 메일이나 인스타그램으로 연락을 주시면 빠르게 확인하고 이야기를 해보도록 하겠습니다. <Strong>하지만 지금은 타블렛이 제 기능을 할 수 없어서 커미션을 받을 수 없는 점 알립니다.</Strong>
             </Message>
             <GoogleAd slot={'6837513463'} />
-            <Disqus shortname='nihil-beulrogeu' config={{ ...DisqusConfig, }} />
+            <Utterances />
           </Box>
         </article>
         <PostNavigation prev={prev} next={next} type='illust' />
