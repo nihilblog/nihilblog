@@ -1,10 +1,8 @@
 import React from 'react';
 import { css } from '@emotion/react';
 import size from '@/data/size';
-import { useRouter } from 'next/router';
 
 const PostContents = ({ children, type = 'normal', }) => {
-  const router = useRouter();
   
   const typeIcon = {
     'normal': 'f07b',
@@ -53,7 +51,6 @@ const PostContents = ({ children, type = 'normal', }) => {
         letter-spacing: -1px;
         font-weight: 500;
         transition: all 0.3s;
-        font-size: 90%;
       }
 
       & > .info-tag,
@@ -61,15 +58,14 @@ const PostContents = ({ children, type = 'normal', }) => {
       & > .info-keyword {
         letter-spacing: -1px;
         color: #555555;
-        padding: 0 10px;
-        border-radius: 50px;
+        padding: 0 5px;
+        border-radius: 10px;
         border: 2px solid #555555;
         margin-right: 5px;
         margin-bottom: 3px;
         transition: all 0.3s;
         font-weight: 500;
-        display: inline-block;
-        font-size: 90%;
+        line-height: 1.8;
 
         &:hover {
           color: #ffffff;

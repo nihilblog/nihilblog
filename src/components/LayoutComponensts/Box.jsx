@@ -18,15 +18,14 @@ const Box = ({ children, top = 30, bottom = 30, }) => {
 
     & > .illust-item-info {
       display: flex;
-      flex-direction: row;
 
       & > div:nth-of-type(1) {
         & > img {
           border-radius: 10px;
           border: 2px solid #555555;
-          margin-right: 20px;
           display: block;
           transition: all 0.3s;
+          box-sizing: border-box;
         }
       }
 
@@ -47,17 +46,44 @@ const Box = ({ children, top = 30, bottom = 30, }) => {
 
     @media (min-width: 1px) and (max-width: 600px) {
       & p {font-size: ${size[1]};}
-      & > .illust-item-info > div:nth-of-type(1) > img {width: 120px;}
+      & > .illust-item-info {
+        flex-direction: column;
+        
+        & > div:nth-of-type(1) {
+          & > img {
+            width: 70%;
+            margin: 10px auto 20px auto;
+          }
+        }
+      }
     }
 
     @media (min-width: 601px) and (max-width: 800px) {
       & p {font-size: ${size[2]};}
-      & > .illust-item-info > div:nth-of-type(1) > img {width: 175px;}
+      & > .illust-item-info {
+        flex-direction: row;
+
+        & > div:nth-of-type(1) {
+          & > img {
+            width: 200px;
+            margin-right: 20px;
+          }
+        }
+      }
     }
 
     @media (min-width: 801px) {
       & p {font-size: ${size[3]};}
-      & > .illust-item-info > div:nth-of-type(1) > img {width: 200px;}
+      & > .illust-item-info {
+        flex-direction: row;
+
+        & > div:nth-of-type(1) {
+          & > img {
+            width: 250px;
+            margin-right: 20px;
+          }
+        }
+      }
     }
   `;
 

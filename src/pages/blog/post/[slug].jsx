@@ -9,16 +9,14 @@ import BlogLayout from '@/layouts/BlogLayout';
 import Box from '@/components/LayoutComponensts/Box';
 import BoxHeader from '@/components/LayoutComponensts/BoxHeader';
 import PostInfo from '@/components/LayoutComponensts/PostInfo';
-import { MainImage } from '@/components/PostComponents/MainImage';
-import { Message } from '@/components/PostComponents/Message';
 import MDXComponents from '@/components/MDXComponents';
 import PostNavigation from '@/components/PostNavigation';
-import DottedLine from '@/components/LayoutComponensts/DottedLine';
 import BlogMessage from '@/components/ContentComponents/BlogMessage';
 import BlogSeriesList from '@/components/ContentComponents/BlogSeriesList';
 import { DiscussionEmbed as Disqus } from 'disqus-react';
 import BlogConfig from '@/data/blog.config';
 import GoogleAd from '@/components/ContentComponents/GoogleAd';
+import { Line, MainImage, Message } from '@/components/PostComponents';
 
 const BlogPostPage = ({ post, prev, next, }) => {
   const { frontMatter, slug, source, } = post;
@@ -82,7 +80,7 @@ const BlogPostPage = ({ post, prev, next, }) => {
               ))}
             </PostInfo>
             <GoogleAd slot={'7775831240'} top={'true'} />
-            <DottedLine />
+            <Line />
             <MDXRemote {...source} components={{ ...MDXComponents, }} />
             <Message color='blue' bottom='40'>
               포스트를 읽고 혹은 읽으면서 하고 싶은 말이 있다면 아래의 덧글창에 적어주시면 됩니다. 최대한 빠르게 확인하고 답변을 드리겠습니다. 이 포스트를 보신 모든 분들의 하루가 좋은 하루이길 바랍니다.

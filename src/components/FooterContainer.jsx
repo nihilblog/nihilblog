@@ -65,6 +65,7 @@ const FooterContainer = () => {
       color: #ffffff;
       font-weight: 900;
       transition: all 0.3s;
+      user-select: none;
 
       &:before {
         content: '\\f1f9';

@@ -9,6 +9,7 @@ const HeaderContainer = () => {
     border-bottom: 2px dotted #ffffff50;
     background-color: #333333;
     text-align: center;
+    user-select: none;
 
     & > img {
       width: 250px;
@@ -46,7 +47,7 @@ const HeaderContainer = () => {
   return (
     <>
       <header css={headerStyle}>
-        <img src='/images/blog-logo.svg' alt='니힐 블로그 로고' />
+        <img src={'/images/blog-logo.svg'} alt='니힐 블로그 로고' />
         <p>{BlogConfig.title} Ver.{BlogConfig.version}.</p>
       </header>
     </>

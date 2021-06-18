@@ -8,14 +8,14 @@ const PostInfo = ({ children, name, i, w, itemType = 'p', linkIcon = '', }) => {
       & > a {
         letter-spacing: -1px;
         color: #555555;
-        padding: 0 10px;
-        border-radius: 50px;
+        padding: 0 5px;
+        border-radius: 10px;
         border: 2px solid #555555;
         margin-right: 5px;
         margin-bottom: 3px;
         transition: all 0.3s;
         font-weight: 500;
-        display: inline-block;
+        line-height: 1.8;
 
         &:hover {
           color: #ffffff;
@@ -48,13 +48,8 @@ const PostInfo = ({ children, name, i, w, itemType = 'p', linkIcon = '', }) => {
     
     & > span {
       &:nth-of-type(2) {
-        font-size: 90%;
         color: #555555;
       }
-    }
-    
-    & > a {
-      font-size: 90%;
     }
     
     & > .name {
