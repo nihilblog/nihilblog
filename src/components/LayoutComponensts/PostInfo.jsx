@@ -9,7 +9,7 @@ const PostInfo = ({ children, name, i, w, itemType = 'p', linkIcon = '', }) => {
         letter-spacing: -1px;
         color: #555555;
         padding: 0 5px;
-        border-radius: 10px;
+        border-radius: 5px;
         border: 2px solid #555555;
         margin-right: 5px;
         margin-bottom: 3px;

@@ -3,6 +3,6 @@
 
 아직도 여러가지 코드를 수정 중에 있고 이제 막 만들어진 블로그지만 이 블로그는 제가 운영했던 다른 블로그들에 비해 더욱 애착이 생길 것도 같습니다. 처음으로 스스로의 손으로 모든 시스템을 구축해본 것은 이것이 처음이거든요. 아무튼 그래서 이 블로그는 프로그래밍을 집중적으로 다룰 것 같고, 그 외의 컨텐츠들도 다룰 예정입니다.
 
-* [니힐 블로그 프론트](https://nihilblog.github.io)
-* [니힐 블로그 홈](https://nihilblog.github.io/blog)
-* [사이트맵](https://nihilblog.github.io/sitemap.xml)
+* [니힐 블로그 프론트](https://nihilncunia-blog.github.io)
+* [니힐 블로그 홈](https://nihilncunia-blog.github.io/blog)
+* [사이트맵](https://nihilncunia-blog.github.io/sitemap.xml)

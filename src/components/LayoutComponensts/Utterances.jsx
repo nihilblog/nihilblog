@@ -1,38 +1,49 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { css } from '@emotion/react';
 
 const Utterances = () => {
   const style = css`
     background-color: #333333;
+    border: 2px solid #222222;
     padding: 10px;
     border-radius: 10px;
     
     & > .utterances {
       width: 100%;
       max-width: 100%;
-
-      & a {
-        color: #ffffff;
-      }
+      margin: -16px 0;
+      padding: 0 -4px;
     }
   `;
   
+  const ID = 'post-comments';
+  
+  useEffect(() => {
+    const script = document.createElement('script');
+    script.src = 'https://utteranc.es/client.js';
+    script.async = true;
+    script.setAttribute('repo', 'nihilncunia-blog/nihilncunia-blog');
+    script.setAttribute('issue-term', 'title');
+    script.setAttribute('theme', 'github-dark');
+    script.setAttribute('label', 'blog-comment');
+    script.setAttribute('crossorigin', 'anonymous');
+  
+    const comments = document.getElementById(ID);
+    if (comments) {
+      comments.appendChild(script);
+    }
+    
+    return () => {
+      const comments = document.getElementById(ID);
+      if (comments) {
+        comments.innerHTML = '';
+      }
+    };
+  }, []);
+  
   return (
     <>
-      <div className={'post-comments'} css={style} ref={(element) => {
-        if (!element) {
-          return;
-        }
-        const scriptElem = document.createElement('script');
-        scriptElem.src = 'https://utteranc.es/client.js';
-        scriptElem.async = true;
-        scriptElem.setAttribute('repo', 'nihilncunia-blog/nihilncunia-blog');
-        scriptElem.setAttribute('issue-term', 'title');
-        scriptElem.setAttribute('theme', 'github-dark');
-        scriptElem.setAttribute('label', 'blog-comment');
-        scriptElem.crossOrigin = 'anonymous';
-        element.appendChild(scriptElem);
-      }} />
+      <div id={ID} css={style} />
     </>
   );
 };

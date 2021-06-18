@@ -13,8 +13,9 @@ import BlogMessage from '@/components/ContentComponents/BlogMessage';
 import BlogSeriesList from '@/components/ContentComponents/BlogSeriesList';
 import { MDXRemote } from 'next-mdx-remote';
 import GoogleAd from '@/components/ContentComponents/GoogleAd';
-import { Line, MainImage, Message } from '@/components/PostComponents';
+import { Line, MainImage } from '@/components/PostComponents';
 import Utterances from '@/components/LayoutComponensts/Utterances';
+import CommentGuideMessage from '@/components/PostComponents/CustomMessage/CommentGuideMessage';
 
 const BlogNoticePage = ({ post, prev, next, }) => {
   const { frontMatter, slug, source, } = post;
@@ -60,9 +61,7 @@ const BlogNoticePage = ({ post, prev, next, }) => {
             <GoogleAd slot={'7775831240'} top={'true'} />
             <Line />
             <MDXRemote {...source} components={{ ...MDXComponents, }} />
-            <Message color='blue' bottom='40'>
-              포스트를 읽고 혹은 읽으면서 하고 싶은 말이 있다면 아래의 덧글창에 적어주시면 됩니다. 최대한 빠르게 확인하고 답변을 드리겠습니다. 이 포스트를 보신 모든 분들의 하루가 좋은 하루이길 바랍니다.
-            </Message>
+            <CommentGuideMessage postType={''} />
             <GoogleAd slot={'6837513463'} />
             <Utterances />
           </Box>
