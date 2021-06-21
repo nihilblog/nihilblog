@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import getPages from '@/utils/getPages';
 import getAllYearPosts from '@/utils/mdx/getAllYearPosts';
 import BlogConfig from '@/data/blog.config';
@@ -12,9 +12,22 @@ import PostContents from '@/components/LayoutComponensts/PostContents';
 import Pagination from '@/components/Pagination';
 import getUTC9 from '@/utils/getUTC9';
 import GoogleAd from '@/components/ContentComponents/GoogleAd';
-import Head from 'next/head';
+import BoxHeader from '@/components/LayoutComponensts/BoxHeader';
+import { A, P } from '@/components/PostComponents';
 
-const BlogPostListNumberPage = ({ currentPage, prevPage, nextPage, posts, totalPages, }) => {
+const BlogPostListNumberPage = ({ currentPage, prevPage, nextPage, posts, totalPages, PostsPages, }) => {
+  const getCount = useCallback(() => {
+    let length = 0;
+    
+    for (let i = 0; i <= PostsPages.length - 1; i++) {
+      length += PostsPages[i].length;
+    }
+    
+    return length;
+  }, []);
+  
+  const totalCount = getCount();
+  
   const siteData = {
     pageName: `포스트 목록 (${currentPage} 페이지)`,
     pageURL: `/blog/notice/page/${currentPage}`,
@@ -25,50 +38,56 @@ const BlogPostListNumberPage = ({ currentPage, prevPage, nextPage, posts, totalP
       <BlogLayout {...siteData}>
         <BlogMessage />
         <BlogSeriesList />
-        <GoogleAd slot={'7775831240'} top={'true'} margin={'30'} />
         <div id='blog-post-pages'>
-          {posts.map(({ frontMatter, filePath, }, index) => (
-            <Box key={index + filePath.replace('.mdx', '')}>
-              <PostHeader i='f27a' w='900' f='Free'>
-                <Link href={`/blog/post/${filePath.replace('.mdx', '')}`}>
-                  <a>{frontMatter.title}</a>
-                </Link>
-              </PostHeader>
-              <div className={'illust-item-info'}>
-                <div className={'item-left'}>
-                  <img src={frontMatter.coverImage} alt={`${frontMatter.title} 썸네일`} />
-                </div>
-                <PostContents>
-                  <p>
-                    <span className='info-name'>포스트 설명</span><br />
-                    <span className='info-description'>
+          <Box>
+            <BoxHeader i='f27a' w='900' f='Free'>전체 포스트 {totalCount}건</BoxHeader>
+            <P bottom='0'>공지, 일러스트를 제외한 모든 포스트의 목록을 확인할 수 있습니다. 공지와 일러스트는 각각의 링크를 이용하시기 바랍니다.</P>
+          </Box>
+          <GoogleAd slot={'7775831240'} top={'true'} margin={'30'} />
+          <div id={'blog-post-list'}>
+            {posts.map(({ frontMatter, filePath, }, index) => (
+              <Box key={index + filePath.replace('.mdx', '')}>
+                <PostHeader i='f27a' w='900' f='Free'>
+                  <Link href={`/blog/post/${filePath.replace('.mdx', '')}`}>
+                    <a>{frontMatter.title}</a>
+                  </Link>
+                </PostHeader>
+                <div className={'illust-item-info'}>
+                  <div className={'item-left'}>
+                    <img src={frontMatter.coverImage} alt={`${frontMatter.title} 썸네일`} />
+                  </div>
+                  <PostContents>
+                    <p>
+                      <span className='info-name'>포스트 설명</span><br />
+                      <span className='info-description'>
                       {frontMatter.description}
                     </span>
-                  </p>
-                  <p>
-                    <span className='info-name'>작성 날짜</span>
-                    <span className='info-time'>{getUTC9(frontMatter.createdAt)}</span>
-                  </p>
-                  <p>
-                    <span className='info-name'>카테고리</span>
-                    {frontMatter.categories.map((category, index) => (
-                      <Link href={`/blog/categories/${String(category)}`} key={index + category}>
-                        <a className='info-category'>{category}</a>
-                      </Link>
-                    ))}
-                  </p>
-                  <p>
-                    <span className='info-name'>태그</span>
-                    {frontMatter.tags.map((tag, index) => (
-                      <Link href={`/blog/tags/${String(tag)}`} key={index + tag}>
-                        <a className='info-tag'>{tag}</a>
-                      </Link>
-                    ))}
-                  </p>
-                </PostContents>
-              </div>
-            </Box>
-          ))}
+                    </p>
+                    <p>
+                      <span className='info-name'>작성 날짜</span>
+                      <span className='info-time'>{getUTC9(frontMatter.createdAt)}</span>
+                    </p>
+                    <p>
+                      <span className='info-name'>카테고리</span>
+                      {frontMatter.categories.map((category, index) => (
+                        <Link href={`/blog/categories/${String(category)}`} key={index + category}>
+                          <a className='info-category'>{category}</a>
+                        </Link>
+                      ))}
+                    </p>
+                    <p>
+                      <span className='info-name'>태그</span>
+                      {frontMatter.tags.map((tag, index) => (
+                        <Link href={`/blog/tags/${String(tag)}`} key={index + tag}>
+                          <a className='info-tag'>{tag}</a>
+                        </Link>
+                      ))}
+                    </p>
+                  </PostContents>
+                </div>
+              </Box>
+            ))}
+          </div>
         </div>
         <GoogleAd slot={'6837513463'} margin={'30'} />
         <Pagination prev={prevPage} next={nextPage} total={totalPages} current={currentPage} type='post' />
@@ -109,6 +128,7 @@ export const getStaticProps = async ({ params, }) => {
   
   return {
     props: {
+      PostsPages,
       posts: PostsPages[parseInt(params.pageNumber) - 1],
       prevPage,
       nextPage,

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback, useState } from 'react';
 import getTagsAndCategories from '@/utils/mdx/getTagsAndCategories';
 import getAllYearPosts from '@/utils/mdx/getAllYearPosts';
 import BlogLayout from '@/layouts/BlogLayout';
@@ -13,10 +13,48 @@ import PostContents from '@/components/LayoutComponensts/PostContents';
 import getUTC9 from '@/utils/getUTC9';
 import { css } from '@emotion/react';
 import GoogleAd from '@/components/ContentComponents/GoogleAd';
-import Head from 'next/head';
+import getPages from '@/utils/getPages';
+import BlogConfig from '@/data/blog.config';
+import AlterPagination from '@/components/AlterPagination';
 
-const TagPostsPage = ({ posts, tag, }) => {
-  const totalCount = posts.length;
+const TagPostsPage = ({ tag, PostsPages, }) => {
+  const [ postsIndex, setPostsIndex, ] = useState(0);
+  
+  const getCount = useCallback(() => {
+    let length = 0;
+    
+    for (let i = 0; i <= PostsPages.length - 1; i++) {
+      length += PostsPages[i].length;
+    }
+    
+    return length;
+  }, []);
+  
+  const totalCount = getCount();
+  
+  const onClickPrev = useCallback(() => {
+    if (postsIndex !== 0) {
+      setPostsIndex(postsIndex - 1);
+    }
+  }, [ postsIndex, ]);
+  
+  const onClickNext = useCallback(() => {
+    if (postsIndex !== PostsPages.length - 1) {
+      setPostsIndex(postsIndex + 1);
+    }
+  }, [ postsIndex, ]);
+  
+  const onClickFirst = useCallback(() => {
+    if (postsIndex !== 0) {
+      setPostsIndex(0);
+    }
+  }, [ postsIndex, ]);
+  
+  const onClickLast = useCallback(() => {
+    if (postsIndex !== PostsPages.length - 1) {
+      setPostsIndex(PostsPages.length - 1);
+    }
+  }, [ postsIndex, ]);
   
   const style = css`
     margin-bottom: 100px;
@@ -34,12 +72,12 @@ const TagPostsPage = ({ posts, tag, }) => {
         <BlogSeriesList />
         <div id='blog-tag-page' css={style}>
           <Box>
-            <BoxHeader i='f002' w='900' f='Free'>&ldquo; {tag} &rdquo; 관련 포스트 {totalCount}건</BoxHeader>
+            <BoxHeader i='f002' w='900' f='Free'>&ldquo; {tag} &rdquo; 태그 관련 포스트 {totalCount}건</BoxHeader>
             <P bottom='0'>다른 태그들을 보려면 상단 메뉴에서 태그 링크를 클릭하세요.</P>
           </Box>
           <GoogleAd slot={'7775831240'} top={'true'} margin={'30'} />
           <div id='blog-post-list'>
-            {posts.map(({ frontMatter, filePath, }, index) => (
+            {PostsPages[postsIndex].map(({ frontMatter, filePath, }, index) => (
               <Box key={index + filePath.replace('.mdx', '')}>
                 <PostHeader i='f27a' w='900' f='Free'>
                   <Link href={`/blog/post/${filePath.replace('.mdx', '')}`}>
@@ -82,6 +120,15 @@ const TagPostsPage = ({ posts, tag, }) => {
               </Box>
             ))}
           </div>
+          <GoogleAd slot={'6837513463'} margin={'30'} />
+          <AlterPagination
+            prev={onClickPrev}
+            next={onClickNext}
+            first={onClickFirst}
+            last={onClickLast}
+            current={postsIndex}
+            total={PostsPages.length}
+          />
         </div>
       </BlogLayout>
     </>
@@ -107,11 +154,13 @@ export const getStaticProps = async ({ params, }) => {
   const posts = await getAllYearPosts('post').filter(({ frontMatter, }) => {
     return frontMatter.tags.includes(params.tag);
   });
+  
+  const PostsPages = getPages(posts, BlogConfig.postPerPage);
 
   return {
     props: {
-      posts,
       tag: params.tag,
+      PostsPages,
     },
   };
 };

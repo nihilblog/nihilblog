@@ -40,7 +40,7 @@ const BlogNoticePage = ({ post, prev, next, }) => {
         <BlogSeriesList />
         <article id='blog-notice-page'>
           <Box>
-            <BoxHeader i='f27a' w='900' f='Free'>{frontMatter.title}</BoxHeader>
+            <BoxHeader i='f0f3' w='900' f='Free'>{frontMatter.title}</BoxHeader>
             {
               frontMatter.coverImage
                 ? <MainImage src={frontMatter.coverImage} alt={frontMatter.title} />
