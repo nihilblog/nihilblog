@@ -12,6 +12,8 @@ export const A = ({ children, href = '', type = 'blog', isOff = 'false', }) => {
   const typeProps = {
     'blog': {
       href,
+      rel: 'noreferrer noopener',
+      target: '_self',
     },
     'normal': {
       href,
