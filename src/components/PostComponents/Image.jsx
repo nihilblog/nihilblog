@@ -8,16 +8,21 @@ export const Image = ({ src, alt, top = 40, bottom = 40, }) => {
     max-width: 940px;
     box-sizing: border-box;
     margin: ${top}px auto ${bottom}px auto;
-    display: table;
+    display: block;
     position: relative;
+    background-color: #33333310;
+    border: 2px solid #33333330;
+    padding: 10px;
+    border-radius: 10px;
 
     & > a {
-      border: 2px solid #555555;
+      border: 2px solid #33333350;
+      background-color: #ffffff;
       border-radius: 10px;
-      color: #555555;
+      color: #333333;
       transition: all 0.3s;
       padding: 5px 10px;
-      margin: 10px auto 0 auto;
+      margin: 20px auto 0 auto;
       display: block;
       text-align: center;
       font-weight: 500;

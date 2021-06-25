@@ -4,12 +4,22 @@ const years = [
   '2022', '2023',
 ];
 
+const months = [
+  '01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12',
+];
+
 module.exports = (type = '') => {
-  const posts2021 = getAllPosts(type, '2021');
+  let posts = getAllPosts(type, '2021', '05');
   
-  let posts;
+  const month2021 = [ '06', '07', '08', '09', '10', '11', '12', ];
+  for (const month in month2021) {
+    posts = posts.concat(getAllPosts(type, '2021', month2021[month]));
+  }
+  
   for (const year in years) {
-    posts = posts2021.concat(getAllPosts(type, years[year]));
+    for (const month in months) {
+      posts = posts.concat(getAllPosts(type, years[year], months[month]));
+    }
   }
   
   posts = posts.sort((a, b) => {

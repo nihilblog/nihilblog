@@ -2,8 +2,8 @@ const fs = require('fs');
 const path = require('path');
 const matter = require('gray-matter');
 
-module.exports = (type = '', year = '') => {
-  const postPath = path.join(process.cwd(), 'posts', type, year);
+module.exports = (type = '', year = '', month = '') => {
+  const postPath = path.join(process.cwd(), 'posts', `${type}/${year}/${month}`);
   const getPostPaths = fs.readdirSync(postPath).filter((path) => /\.mdx?$/.test(path));
   
   const Allposts = getPostPaths.map((filePath) => {

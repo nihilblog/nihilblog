@@ -2,7 +2,7 @@ import React from 'react';
 import { css } from '@emotion/react';
 import size from '@/data/size';
 
-const Box = ({ children, top = 30, bottom = 30, }) => {
+export const Box = ({ children, top = 30, bottom = 30, }) => {
 
   const boxStyle = css`
     margin-top: ${top}px;
@@ -15,6 +15,32 @@ const Box = ({ children, top = 30, bottom = 30, }) => {
     background-color: #ffffff;
     box-shadow: 0 0 10px -4px #333333;
     border-radius: 10px;
+    transition: all 0.3s;
+    
+    & > .notice-item {
+      border: 2px solid #555555;
+      display: block;
+      padding: 5px 10px;
+      border-radius: 10px;
+      color: #555555;
+      font-weight: 500;
+      letter-spacing: -1px;
+      transition: all 0.3s;
+      
+      &:before {
+        font-weight: 900;
+        font-family: 'Font Awesome 5 Free', sans-serif;
+        content: '\\f0f3';
+        margin-right: 5px;
+      }
+      
+      &:hover {
+        background-color: #333333;
+        color: #ffffff;
+        border-color: #333333;
+        transition: all 0.3s;
+      }
+    }
 
     & > .illust-item-info {
       display: flex;
@@ -45,7 +71,9 @@ const Box = ({ children, top = 30, bottom = 30, }) => {
     }
 
     @media (min-width: 1px) and (max-width: 600px) {
-      & p {font-size: ${size[1]};}
+      & p,
+      & > .notice-item {font-size: ${size[1]};}
+      
       & > .illust-item-info {
         flex-direction: column;
         
@@ -59,7 +87,9 @@ const Box = ({ children, top = 30, bottom = 30, }) => {
     }
 
     @media (min-width: 601px) and (max-width: 800px) {
-      & p {font-size: ${size[2]};}
+      & p,
+      & > .notice-item {font-size: ${size[2]};}
+      
       & > .illust-item-info {
         flex-direction: row;
 
@@ -73,7 +103,9 @@ const Box = ({ children, top = 30, bottom = 30, }) => {
     }
 
     @media (min-width: 801px) {
-      & p {font-size: ${size[3]};}
+      & p,
+      & > .notice-item {font-size: ${size[3]};}
+      
       & > .illust-item-info {
         flex-direction: row;
 
@@ -95,5 +127,3 @@ const Box = ({ children, top = 30, bottom = 30, }) => {
     </>
   );
 };
-
-export default Box;

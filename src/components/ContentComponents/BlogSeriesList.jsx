@@ -1,10 +1,10 @@
 import React, { useState, useCallback } from 'react';
 import { Strong, A, Gray, Details, P } from '@/components/PostComponents';
-import Box from '@/components/LayoutComponensts/Box';
 import { css } from '@emotion/react';
 import size from '@/data/size';
+import { Box } from '@/components/LayoutComponensts';
 
-const BlogSeriesList = () => {
+export const BlogSeriesList = () => {
   const [ title, setTitle, ]= useState('열기');
   
   const style = css`
@@ -98,5 +98,3 @@ const BlogSeriesList = () => {
     </>
   );
 };
-
-export default BlogSeriesList;

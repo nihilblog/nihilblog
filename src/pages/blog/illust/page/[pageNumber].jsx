@@ -1,20 +1,14 @@
 import React, { useCallback } from 'react';
 import getAllYearIllusts from '@/utils/mdx/getAllYearIllusts';
-import BlogMessage from '@/components/ContentComponents/BlogMessage';
-import BlogSeriesList from '@/components/ContentComponents/BlogSeriesList';
 import BlogLayout from '@/layouts/BlogLayout';
 import getPages from '@/utils/getPages';
 import BlogConfig from '@/data/blog.config';
-import IllustBox from '@/components/LayoutComponensts/IllustBox';
 import getUTC9 from '@/utils/getUTC9';
 import Link from 'next/link';
-import PostHeader from '@/components/LayoutComponensts/PostHeader';
-import PostContents from '@/components/LayoutComponensts/PostContents';
 import Pagination from '@/components/Pagination';
-import GoogleAd from '@/components/ContentComponents/GoogleAd';
-import BoxHeader from '@/components/LayoutComponensts/BoxHeader';
 import { P } from '@/components/PostComponents';
-import Box from '@/components/LayoutComponensts/Box';
+import { BlogMessage, BlogSeriesList, GoogleAd } from '@/components/ContentComponents';
+import { Box, BoxHeader, IllustBox, PostContents, PostHeader } from '@/components/LayoutComponensts';
 
 const BlogIllustListPage = ({ illusts, currentPage, prevPage, nextPage, totalPages, PostsPages, }) => {
   const getCount = useCallback(() => {
@@ -44,7 +38,7 @@ const BlogIllustListPage = ({ illusts, currentPage, prevPage, nextPage, totalPag
             <BoxHeader i='f53f' w='900' f='Free'>전체 일러스트 {totalCount}장</BoxHeader>
             <P bottom='0'>일반 포스트, 공지를 제외한 모든 일러스트의 목록을 확인할 수 있습니다. 일반 포스트와 공지는 각각의 링크를 이용하시기 바랍니다.</P>
           </Box>
-          <GoogleAd slot={'7775831240'} top={'true'} margin={'30'} />
+          <GoogleAd pos={'top'} margin={'30'} />
           <div id='blog-post-list'>
             {illusts.map(({ frontMatter, filePath, }, index) => (
               <IllustBox key={index + filePath.replace('.mdx', '')}>
@@ -80,7 +74,7 @@ const BlogIllustListPage = ({ illusts, currentPage, prevPage, nextPage, totalPag
             ))}
           </div>
         </div>
-        <GoogleAd slot={'6837513463'} margin={'30'} />
+        <GoogleAd pos={'bottom'} margin={'30'} />
         <Pagination prev={prevPage} next={nextPage} total={totalPages} current={currentPage} type='post' />
       </BlogLayout>
     </>

@@ -2,17 +2,12 @@ import React, { useCallback, useState } from 'react';
 import getAllYearPosts from '@/utils/mdx/getAllYearPosts';
 import getTagsAndCategories from '@/utils/mdx/getTagsAndCategories';
 import BlogLayout from '@/layouts/BlogLayout';
-import Box from '@/components/LayoutComponensts/Box';
-import BoxHeader from '@/components/LayoutComponensts/BoxHeader';
+import { Box, BoxHeader, PostHeader, PostContents } from '@/components/LayoutComponensts';
+import { BlogMessage, BlogSeriesList, GoogleAd } from '@/components/ContentComponents';
 import { P } from '@/components/PostComponents/P';
-import BlogMessage from '@/components/ContentComponents/BlogMessage';
-import BlogSeriesList from '@/components/ContentComponents/BlogSeriesList';
-import PostHeader from '@/components/LayoutComponensts/PostHeader';
 import Link from 'next/link';
-import PostContents from '@/components/LayoutComponensts/PostContents';
 import getUTC9 from '@/utils/getUTC9';
 import { css } from '@emotion/react';
-import GoogleAd from '@/components/ContentComponents/GoogleAd';
 import getPages from '@/utils/getPages';
 import BlogConfig from '@/data/blog.config';
 import AlterPagination from '@/components/AlterPagination';
@@ -75,7 +70,7 @@ const CategoryPostsPage = ({ category, PostsPages, }) => {
             <BoxHeader i='f002' w='900' f='Free'>&ldquo; {category} &rdquo; 카테고리 관련 포스트 {totalCount}건</BoxHeader>
             <P bottom='0'>다른 카테고리들을 보려면 상단 메뉴에서 카테고리 링크를 클릭하세요.</P>
           </Box>
-          <GoogleAd slot={'7775831240'} top={'true'} margin={'30'} />
+          <GoogleAd pos={'top'} margin={'30'} />
           <div id='blog-post-list'>
             {PostsPages[postsIndex].map(({ frontMatter, filePath, }, index) => (
               <Box key={index + filePath.replace('.mdx', '')}>
@@ -91,9 +86,7 @@ const CategoryPostsPage = ({ category, PostsPages, }) => {
                   <PostContents>
                     <p>
                       <span className='info-name'>포스트 설명</span><br />
-                      <span className='info-description'>
-                        {frontMatter.description}
-                      </span>
+                      <span className='info-description'>{frontMatter.description}</span>
                     </p>
                     <p>
                       <span className='info-name'>작성 날짜</span>
@@ -120,7 +113,7 @@ const CategoryPostsPage = ({ category, PostsPages, }) => {
               </Box>
             ))}
           </div>
-          <GoogleAd slot={'6837513463'} margin={'30'} />
+          <GoogleAd pos={'bottom'} margin={'30'} />
           <AlterPagination
             prev={onClickPrev}
             next={onClickNext}

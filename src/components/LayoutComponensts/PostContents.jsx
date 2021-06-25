@@ -2,7 +2,7 @@ import React from 'react';
 import { css } from '@emotion/react';
 import size from '@/data/size';
 
-const PostContents = ({ children, type = 'normal', }) => {
+export const PostContents = ({ children, type = 'normal', }) => {
   
   const typeIcon = {
     'normal': 'f07b',
@@ -118,5 +118,3 @@ const PostContents = ({ children, type = 'normal', }) => {
     </>
   );
 };
-
-export default PostContents;

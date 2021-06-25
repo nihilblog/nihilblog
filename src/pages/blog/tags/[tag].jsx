@@ -2,20 +2,15 @@ import React, { useCallback, useState } from 'react';
 import getTagsAndCategories from '@/utils/mdx/getTagsAndCategories';
 import getAllYearPosts from '@/utils/mdx/getAllYearPosts';
 import BlogLayout from '@/layouts/BlogLayout';
-import Box from '@/components/LayoutComponensts/Box';
-import BoxHeader from '@/components/LayoutComponensts/BoxHeader';
 import { P } from '@/components/PostComponents/P';
-import BlogMessage from '@/components/ContentComponents/BlogMessage';
-import BlogSeriesList from '@/components/ContentComponents/BlogSeriesList';
-import PostHeader from '@/components/LayoutComponensts/PostHeader';
 import Link from 'next/link';
-import PostContents from '@/components/LayoutComponensts/PostContents';
 import getUTC9 from '@/utils/getUTC9';
 import { css } from '@emotion/react';
-import GoogleAd from '@/components/ContentComponents/GoogleAd';
 import getPages from '@/utils/getPages';
 import BlogConfig from '@/data/blog.config';
 import AlterPagination from '@/components/AlterPagination';
+import { BlogMessage, BlogSeriesList, GoogleAd } from '@/components/ContentComponents';
+import { Box, BoxHeader, PostContents, PostHeader } from '@/components/LayoutComponensts';
 
 const TagPostsPage = ({ tag, PostsPages, }) => {
   const [ postsIndex, setPostsIndex, ] = useState(0);
@@ -75,7 +70,7 @@ const TagPostsPage = ({ tag, PostsPages, }) => {
             <BoxHeader i='f002' w='900' f='Free'>&ldquo; {tag} &rdquo; 태그 관련 포스트 {totalCount}건</BoxHeader>
             <P bottom='0'>다른 태그들을 보려면 상단 메뉴에서 태그 링크를 클릭하세요.</P>
           </Box>
-          <GoogleAd slot={'7775831240'} top={'true'} margin={'30'} />
+          <GoogleAd pos={'top'} margin={'30'} />
           <div id='blog-post-list'>
             {PostsPages[postsIndex].map(({ frontMatter, filePath, }, index) => (
               <Box key={index + filePath.replace('.mdx', '')}>
@@ -120,7 +115,7 @@ const TagPostsPage = ({ tag, PostsPages, }) => {
               </Box>
             ))}
           </div>
-          <GoogleAd slot={'6837513463'} margin={'30'} />
+          <GoogleAd pos={'bottom'} margin={'30'} />
           <AlterPagination
             prev={onClickPrev}
             next={onClickNext}

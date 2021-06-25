@@ -28,3 +28,4 @@ export * from './CopyCode';
 export * from './Line';
 export * from './Mark';
 export * from './CustomMessage/HtmlGuideMessage';
+export * from './CustomMessage/CommentGuideMessage';

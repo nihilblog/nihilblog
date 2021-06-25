@@ -2,7 +2,7 @@ import React from 'react';
 import { css } from '@emotion/react';
 import size from '@/data/size';
 
-const PostHeader = ({ children, i, w, f, top = 0, bottom = 10, }) => {
+export const PostHeader = ({ children, i, w, f, top = 0, bottom = 10, }) => {
   const linkHeaderStyle = css`
     & > a {
       margin-top: ${top}px;
@@ -51,5 +51,3 @@ const PostHeader = ({ children, i, w, f, top = 0, bottom = 10, }) => {
     </>
   );
 };
-
-export default PostHeader;

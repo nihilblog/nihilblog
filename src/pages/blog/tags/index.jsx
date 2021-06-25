@@ -1,15 +1,12 @@
 import React from 'react';
 import { css } from '@emotion/react';
 import Link from 'next/link';
-import Box from '@/components/LayoutComponensts/Box';
-import BoxHeader from '@/components/LayoutComponensts/BoxHeader';
 import { P } from '@/components/PostComponents/P';
 import BlogLayout from '@/layouts/BlogLayout';
-import BlogMessage from '@/components/ContentComponents/BlogMessage';
-import BlogSeriesList from '@/components/ContentComponents/BlogSeriesList';
 import size from '@/data/size';
 import getTagsAndCategories from '@/utils/mdx/getTagsAndCategories';
-import GoogleAd from '@/components/ContentComponents/GoogleAd';
+import { BlogMessage, BlogSeriesList, GoogleAd } from '@/components/ContentComponents';
+import { Box, BoxHeader } from '@/components/LayoutComponensts';
 
 const TagsPage = ({ tags, }) => {
   const siteData = {
@@ -64,7 +61,7 @@ const TagsPage = ({ tags, }) => {
       <BlogLayout {...siteData}>
         <BlogMessage />
         <BlogSeriesList />
-        <GoogleAd slot={'7775831240'} top={'true'} margin={'30'} />
+        <GoogleAd pos={'top'} margin={'30'} />
         <div id='blog-tags-page'>
           <Box bottom={'100'}>
             <BoxHeader i='f02c' w='900' f='Free'>태그 목록</BoxHeader>

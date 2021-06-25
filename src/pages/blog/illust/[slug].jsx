@@ -1,23 +1,17 @@
 import React from 'react';
 import BlogLayout from '@/layouts/BlogLayout';
-import BlogMessage from '@/components/ContentComponents/BlogMessage';
-import BlogSeriesList from '@/components/ContentComponents/BlogSeriesList';
 import getAllYearIllusts from '@/utils/mdx/getAllYearIllusts';
 import getPostBySlug from '@/utils/mdx/getPostBySlug';
-import Box from '@/components/LayoutComponensts/Box';
-import BoxHeader from '@/components/LayoutComponensts/BoxHeader';
-import { Line, MainImage } from '@/components/PostComponents';
-import PostInfo from '@/components/LayoutComponensts/PostInfo';
+import { CommentGuideMessage, Line, MainImage } from '@/components/PostComponents';
 import getUTC9 from '@/utils/getUTC9';
 import getUTCString from '@/utils/getUTCString';
 import MDXComponents from '@/components/MDXComponents';
 import { MDXRemote } from 'next-mdx-remote';
 import PostNavigation from '@/components/PostNavigation';
 import Link from 'next/link';
-import GoogleAd from '@/components/ContentComponents/GoogleAd';
-import Utterances from '@/components/LayoutComponensts/Utterances';
 import { useRouter } from 'next/router';
-import CommentGuideMessage from '@/components/PostComponents/CustomMessage/CommentGuideMessage';
+import { BlogMessage, BlogSeriesList, GoogleAd } from '@/components/ContentComponents';
+import { Box, BoxHeader, PostInfo, Utterances } from '@/components/LayoutComponensts';
 
 const BlogIllustPage = ({ illust, prev, next, }) => {
   const { frontMatter, slug, source, } = illust;
@@ -71,11 +65,11 @@ const BlogIllustPage = ({ illust, prev, next, }) => {
                 </Link>
               ))}
             </PostInfo>
-            <GoogleAd slot={'7775831240'} top={'true'} />
+            <GoogleAd pos={'top'} />
             <Line />
             <MDXRemote {...source} components={{ ...MDXComponents, }} />
             <CommentGuideMessage postType={router.pathname} />
-            <GoogleAd slot={'6837513463'} />
+            <GoogleAd pos={'bottom'} />
             <Utterances />
           </Box>
         </article>

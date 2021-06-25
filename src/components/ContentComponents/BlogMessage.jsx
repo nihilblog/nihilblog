@@ -1,9 +1,8 @@
 import React from 'react';
-import BoxHeader from '../LayoutComponensts/BoxHeader';
-import Box from '../LayoutComponensts/Box';
 import { A, P, Strong } from '@/components/PostComponents';
+import { Box, BoxHeader } from '@/components/LayoutComponensts';
 
-const BlogMessage = () => {
+export const BlogMessage = () => {
   return (
     <>
       <Box top={'100'}>
@@ -15,5 +14,3 @@ const BlogMessage = () => {
     </>
   );
 };
-
-export default BlogMessage;

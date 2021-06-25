@@ -61,7 +61,6 @@ export const Message = ({ children, color, top = 40, bottom = 40, }) => {
       transition: all 0.3s;
       letter-spacing: -1px;
       color: inherit;
-      
 
       & > span {
         font-weight: 900;
@@ -77,26 +76,39 @@ export const Message = ({ children, color, top = 40, bottom = 40, }) => {
       }
     }
 
-    & > p:nth-of-type(2) {
-      font-weight: 500;
-      text-align: justify;
-      transition: all 0.3s;
-      letter-spacing: -1px;
-      text-indent: 10px;
+    & > .message-content {
       color: inherit;
-      line-height: 1.6;
-
-      & > strong {
-        color: ${colorType[color].color[1]};
-      }
-
-      & > a {
-        color: ${colorType[color].color[1]};
-        border: 2px solid ${colorType[color].color[1]};
+      
+      & > p {
+        font-weight: 500;
+        text-align: justify;
+        transition: all 0.3s;
+        letter-spacing: -1px;
+        text-indent: 10px;
+        color: inherit;
+        line-height: 1.6;
+        margin: 20px 0;
         
-        &:hover {
-          color: #ffffff;
-          background-color: ${colorType[color].color[1]};
+        &:nth-of-type(1) {
+          margin-top: 0;
+        }
+        
+        &:nth-last-of-type(1) {
+          margin-bottom: 0;
+        }
+
+        & > strong {
+          color: ${colorType[color].color[1]};
+        }
+
+        & > a {
+          color: ${colorType[color].color[1]};
+          border: 2px solid ${colorType[color].color[1]};
+
+          &:hover {
+            color: #ffffff;
+            background-color: ${colorType[color].color[1]};
+          }
         }
       }
     }
@@ -121,7 +133,7 @@ export const Message = ({ children, color, top = 40, bottom = 40, }) => {
     <>
       <div className={`Message-${color}`} css={style}>
         <p className='message-title'><span>{colorType[color].word}</span></p>
-        <p className='message-content'>{children}</p>
+        <div className='message-content'>{children}</div>
       </div>
     </>
   );

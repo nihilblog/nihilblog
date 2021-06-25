@@ -1,7 +1,7 @@
 const getAllPosts = require('./getAllPosts');
 
 const illustsYears = [
-  '2017', '2018', '2019', '2020', '2021',
+  '2017', '2018', '2019', '2020', '2021', '2022', '2023',
 ];
 
 module.exports = (type = '') => {

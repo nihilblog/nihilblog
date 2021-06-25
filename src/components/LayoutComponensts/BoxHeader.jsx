@@ -2,7 +2,7 @@ import React from 'react';
 import { css } from '@emotion/react';
 import size from '@/data/size';
 
-const BoxHeader = ({ children, i, w, f, top = 0, bottom = 20, }) => {
+export const BoxHeader = ({ children, i, w, f, top = 0, bottom = 20, }) => {
   const boxHeaderStyle = css`
     margin-top: ${top}px;
     margin-bottom: ${bottom}px;
@@ -42,5 +42,3 @@ const BoxHeader = ({ children, i, w, f, top = 0, bottom = 20, }) => {
     </>
   );
 };
-
-export default BoxHeader;

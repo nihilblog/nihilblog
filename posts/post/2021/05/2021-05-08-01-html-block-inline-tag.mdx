@@ -13,12 +13,10 @@ notice: false
 import {
   A, Bold, Char, Details, Dl, H, Message, NoteBottom, NoteTop, P,
   Quote, Score, Youtube, Ul, Ol, Em, Gray, Code, Kbd, Image,
-  Q, Strong, Spoiler, Strike, Line, Mark
+  Q, Strong, Spoiler, Strike, Line, Mark, HtmlGuideMessage
 } from '@/components/PostComponents';
 
-<Message color={'blue'}>
-  <Strong>웹 개발을 위한 HTML 가이드</Strong>는 HTML을 모르는 분들이 HTML의 기능들에 대해서 배우고 웹 페이지의 뼈대를 구성할 수 있게 도와주는 시리즈 입니다. 순수하게 강의 목적만 있는 것은 아니며 제가 다시 처음부터 공부한다는 생각으로 조사하고 복습하는 느낌으로 작성하고 있습니다. 가이드를 모아놓은 포스트는 <A type={'blog'} href={'/blog/post/2021-05-02-01-complete-html-guide'}>이 링크</A>로 넘어가시면 됩니다.
-</Message>
+<HtmlGuideMessage />
 
 <P>웹 개발을 위한 HTML 가이드 3편 시작합니다. 이번 글의 주제는 <Strong>태그의 유형</Strong>에 대한 이야기입니다. 태그의 특징이라고도 할 수 있겠습니다. <Mark>HTML에서 태그는 크게 두가지의 유형으로 나뉘게 됩니다.</Mark> 어떤 유형인가 하면 태그의 성질을 말하는 것이라고 보면 됩니다. 모든 태그들은 후술할 두가지의 유형 중에서 반드시 한가지의 유형으로 분류됩니다.</P>
 
@@ -32,7 +30,7 @@ import {
 겉보기에 따라서는 줄바꿈이 된다고도 이해할 수 있습니다. 대표적인 블럭 태그들은 `div` 태그와 `p` 태그가 있습니다. 아래의 코드와 이미지처럼 나타나게 됩니다. 이 두가지 태그가 뭔지 지금은 몰라도 됩니다. 어떤 일이 일어날지만 지켜보시면 되겠습니다.
 
 <Message color={'b'}>
-  여러분들에게 블럭 태그와 인라인 태그가 대체 어떤 차이가 있는지 명확하게 전달하기 위해서 디자인을 입혔음을 알립니다.
+  <p>여러분들에게 블럭 태그와 인라인 태그가 대체 어떤 차이가 있는지 명확하게 전달하기 위해서 디자인을 입혔음을 알립니다.</p>
 </Message>
 
 ```html

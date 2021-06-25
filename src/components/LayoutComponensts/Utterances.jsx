@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { css } from '@emotion/react';
 
-const Utterances = () => {
+export const Utterances = () => {
   const style = css`
     background-color: #333333;
     border: 2px solid #222222;
@@ -47,5 +47,3 @@ const Utterances = () => {
     </>
   );
 };
-
-export default Utterances;

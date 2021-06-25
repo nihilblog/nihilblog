@@ -6,17 +6,11 @@ import { MDXRemote } from 'next-mdx-remote';
 import getUTCString from '@/utils/getUTCString';
 import getUTC9 from '@/utils/getUTC9';
 import BlogLayout from '@/layouts/BlogLayout';
-import Box from '@/components/LayoutComponensts/Box';
-import BoxHeader from '@/components/LayoutComponensts/BoxHeader';
-import PostInfo from '@/components/LayoutComponensts/PostInfo';
 import MDXComponents from '@/components/MDXComponents';
 import PostNavigation from '@/components/PostNavigation';
-import BlogMessage from '@/components/ContentComponents/BlogMessage';
-import BlogSeriesList from '@/components/ContentComponents/BlogSeriesList';
-import GoogleAd from '@/components/ContentComponents/GoogleAd';
-import { Line, MainImage } from '@/components/PostComponents';
-import Utterances from '@/components/LayoutComponensts/Utterances';
-import CommentGuideMessage from '@/components/PostComponents/CustomMessage/CommentGuideMessage';
+import { CommentGuideMessage, Line, MainImage } from '@/components/PostComponents';
+import { BlogMessage, BlogSeriesList, GoogleAd } from '@/components/ContentComponents';
+import { Box, BoxHeader, PostInfo, Utterances } from '@/components/LayoutComponensts';
 
 const BlogPostPage = ({ post, prev, next, }) => {
   const { frontMatter, slug, source, } = post;
@@ -73,11 +67,11 @@ const BlogPostPage = ({ post, prev, next, }) => {
                 </Link>
               ))}
             </PostInfo>
-            <GoogleAd slot={'7775831240'} top={'true'} />
+            <GoogleAd pos={'top'} />
             <Line />
             <MDXRemote {...source} components={{ ...MDXComponents, }} />
             <CommentGuideMessage postType={''} />
-            <GoogleAd slot={'6837513463'} />
+            <GoogleAd pos={'bottom'} />
             <Utterances />
           </Box>
         </article>

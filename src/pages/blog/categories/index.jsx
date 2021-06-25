@@ -2,14 +2,11 @@ import React from 'react';
 import { css } from '@emotion/react';
 import getTagsAndCategories from '@/utils/mdx/getTagsAndCategories';
 import Link from 'next/link';
-import Box from '@/components/LayoutComponensts/Box';
-import BoxHeader from '@/components/LayoutComponensts/BoxHeader';
 import { P } from '@/components/PostComponents/P';
 import BlogLayout from '@/layouts/BlogLayout';
-import BlogMessage from '@/components/ContentComponents/BlogMessage';
-import BlogSeriesList from '@/components/ContentComponents/BlogSeriesList';
 import size from '@/data/size';
-import GoogleAd from '@/components/ContentComponents/GoogleAd';
+import { BlogMessage, BlogSeriesList, GoogleAd } from '@/components/ContentComponents';
+import { Box, BoxHeader } from '@/components/LayoutComponensts';
 
 const CategoriesPage = ({ categories, }) => {
   const siteData = {
@@ -64,7 +61,7 @@ const CategoriesPage = ({ categories, }) => {
       <BlogLayout {...siteData}>
         <BlogMessage />
         <BlogSeriesList />
-        <GoogleAd slot={'7775831240'} top={'true'} margin={'30'} />
+        <GoogleAd pos={'top'} margin={'30'} />
         <div id='blog-categories-page'>
           <Box bottom={'100'}>
             <BoxHeader i='f07b' w='900' f='Free'>카테고리 목록</BoxHeader>

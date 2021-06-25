@@ -1,7 +1,7 @@
 import React from 'react';
 import { css } from '@emotion/react';
 
-const PostInfo = ({ children, name, i, w, itemType = 'p', linkIcon = '', }) => {
+export const PostInfo = ({ children, name, i, w, itemType = 'p', linkIcon = '', }) => {
   const itemTypeStyle = {
     'p': '',
     'link': `
@@ -82,5 +82,3 @@ const PostInfo = ({ children, name, i, w, itemType = 'p', linkIcon = '', }) => {
     </>
   );
 };
-
-export default PostInfo;

@@ -1,11 +1,10 @@
 import React from 'react';
-import Box from '@/components/LayoutComponensts/Box';
-import BoxHeader from '@/components/LayoutComponensts/BoxHeader';
 import { P } from '@/components/PostComponents';
 import BlogLayout from '@/layouts/BlogLayout';
 import { css } from '@emotion/react';
 import { useRouter } from 'next/router';
 import { Strong } from '@/components/PostComponents/Strong';
+import { Box, BoxHeader } from '@/components/LayoutComponensts';
 
 const BlogNotPoundPage = () => {
   const router = useRouter();

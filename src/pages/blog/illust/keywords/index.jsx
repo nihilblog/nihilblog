@@ -1,15 +1,12 @@
 import React from 'react';
 import { css } from '@emotion/react';
 import BlogLayout from '@/layouts/BlogLayout';
-import BlogMessage from '@/components/ContentComponents/BlogMessage';
-import BlogSeriesList from '@/components/ContentComponents/BlogSeriesList';
-import Box from '@/components/LayoutComponensts/Box';
-import BoxHeader from '@/components/LayoutComponensts/BoxHeader';
 import { P } from '@/components/PostComponents';
 import getTagsAndCategories from '@/utils/mdx/getTagsAndCategories';
 import size from '@/data/size';
 import Link from 'next/link';
-import GoogleAd from '@/components/ContentComponents/GoogleAd';
+import { BlogMessage, BlogSeriesList, GoogleAd } from '@/components/ContentComponents';
+import { Box, BoxHeader } from '@/components/LayoutComponensts';
 
 const KeywordsPage = ({ keywords, }) => {
   const siteData = {
@@ -64,7 +61,7 @@ const KeywordsPage = ({ keywords, }) => {
       <BlogLayout {...siteData}>
         <BlogMessage />
         <BlogSeriesList />
-        <GoogleAd slot={'7775831240'} top={'true'} margin={'30'} />
+        <GoogleAd pos={'top'} margin={'30'} />
         <div id='blog-keywords-page'>
           <Box bottom={'100'}>
             <BoxHeader i='f1fc' w='900' f='Free'>일러스트 키워드 목록</BoxHeader>

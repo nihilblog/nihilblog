@@ -2,7 +2,7 @@ import React from 'react';
 import { css } from '@emotion/react';
 import size from '@/data/size';
 
-const IllustBox = ({ children, top = 30, bottom = 30, }) => {
+export const IllustBox = ({ children, top = 30, bottom = 30, }) => {
   const boxStyle = css`
     margin-top: ${top}px;
     margin-bottom: ${bottom}px;
@@ -94,5 +94,3 @@ const IllustBox = ({ children, top = 30, bottom = 30, }) => {
     </>
   );
 };
-
-export default IllustBox;
