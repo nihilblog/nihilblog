@@ -30,7 +30,7 @@ const BlogFrontPage = () => {
       & > nav {
         & > a {
           color: #ffffff;
-          padding: 5px 10px;
+          padding: 10px;
           border: 2px solid #ffffff;
           border-radius: 40px;
           box-shadow: 0 0 10px -4px #ffffff;
@@ -40,6 +40,7 @@ const BlogFrontPage = () => {
           box-sizing: border-box;
           letter-spacing: -1px;
           font-size: 120%;
+          line-height: 100%;
 
           &:hover {
             transition: all 0.3s;

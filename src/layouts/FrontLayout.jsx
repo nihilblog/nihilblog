@@ -55,15 +55,23 @@ const FrontLayout = ({ children, pageName, pageURL, }) => {
 
         &#blog-link {
           margin: 2px 0;
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
 
           & > a {
             transition: all 0.3s;
             box-sizing: border-box;
-            display: inline-block;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
             color: #ffffff;
             border: 2px solid #ffffff;
-            border-radius: 20px;
-            padding: 5px 10px;
+            border-radius: 25px;
+            width: 50px;
+            height: 50px;
+            font-size: 150%;
             box-shadow: 0 0 10px -4px #ffffff;
             margin: 2px;
 
@@ -95,6 +103,7 @@ const FrontLayout = ({ children, pageName, pageURL, }) => {
 
         &#blog-copyright {
           font-weight: 900;
+          user-select: none;
           
           &:before {
             content: '\\f1f9';
@@ -107,15 +116,15 @@ const FrontLayout = ({ children, pageName, pageURL, }) => {
     }
 
     @media (min-width: 1px) and (max-width: 600px) {
-      footer p {font-size: ${size[1]};}
+      footer p#blog-copyright {font-size: ${size[1]};}
     }
 
     @media (min-width: 601px) and (max-width: 800px) {
-      footer p {font-size: ${size[2]};}
+      footer p#blog-copyright {font-size: ${size[2]};}
     }
 
     @media (min-width: 801px) {
-      footer p {font-size: ${size[3]};}
+      footer p#blog-copyright {font-size: ${size[3]};}
     }
   `;
 

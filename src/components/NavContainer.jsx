@@ -23,9 +23,10 @@ const NavContainer = () => {
       background-color: #333333;
       border: 2px solid #ffffff;
       border-radius: 20px;
-      padding: 5px 10px;
+      padding: 10px;
       box-shadow: 0 0 10px -4px #ffffff;
       margin: 2px;
+      line-height: 100%;
 
       &:hover,
       &.selected {
