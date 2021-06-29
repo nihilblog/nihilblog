@@ -208,18 +208,16 @@ export const Prism = ({ children, top = 40, bottom = 40, }) => {
         {({ className, tokens, getLineProps, getTokenProps, }) => (
           <div className='blog-syntax-highlight'>
             <pre className={className} css={prismStyle}>
-            <CopyCode code={code} />
+              <CopyCode code={code} />
               {tokens.map((line, index) => (
                 <div key={index} {...getLineProps({ style: { color: 'transparent', }, line, key: index, })}>
                   <span className='line-number'>
                     {
                       (index + 1) < 10
-                        ? (
-                          <>
-                            <span css={fontColor}>0</span>
-                            <span className='number'>{index + 1}</span>
-                          </>
-                        )
+                        ? (<>
+                          <span css={fontColor}>0</span>
+                          <span className='number'>{index + 1}</span>
+                        </>)
                         : index + 1
                     }
                   </span>

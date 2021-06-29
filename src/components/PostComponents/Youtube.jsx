@@ -88,7 +88,13 @@ export const Youtube = ({ children, src, top = 40, bottom = 40, }) => {
       <div className='post-youtube-block' css={style}>
         <p className='youtube-block-title'>YouTube 영상</p>
         <div className='video-wrapper'>
-          <iframe id='video' src={replaceSrc} frameBorder='0' allow='encrypted-media; gyroscope; picture-in-picture' allowFullScreen />
+          <iframe
+            id='video'
+            src={replaceSrc}
+            frameBorder='0'
+            allow='encrypted-media; gyroscope; picture-in-picture'
+            allowFullScreen
+          />
         </div>
       </div>
       <p className='post-youtube-block-desc' css={youtubeDesc}>
