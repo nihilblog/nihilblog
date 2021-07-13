@@ -29,7 +29,7 @@ const App = ({ Component, pageProps, }) => {
         <meta name='Yeti' content='index, follow'/>
 
         <meta name='google-site-verification' content='iIK1QMzAYU9YHlIbkvglYdu5GF4WsxIBaV_geNrPVMI' />
-        <meta name='naver-site-verification' content='fc0a0319f582f3170ab2e8af534d5ee052389ef9' />
+        <meta name='naver-site-verification' content='31dbe436fb9ad06dc16459043f180273b2a9c12b' />
       </Head>
       <Component {...pageProps} />
     </>
