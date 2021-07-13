@@ -1,8 +1,9 @@
 import React from 'react';
 import { css } from '@emotion/react';
 import size from '@/data/size';
+import PropTypes from 'prop-types';
 
-export const Box = ({ children, top = 30, bottom = 30, }) => {
+export const Box = ({ children, top = '30', bottom = '30', }) => {
 
   const boxStyle = css`
     margin-top: ${top}px;
@@ -126,4 +127,10 @@ export const Box = ({ children, top = 30, bottom = 30, }) => {
       </div>
     </>
   );
+};
+
+Box.propTypes = {
+  top: PropTypes.string,
+  bottom: PropTypes.string,
+  children: PropTypes.node,
 };

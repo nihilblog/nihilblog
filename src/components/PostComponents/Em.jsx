@@ -1,5 +1,6 @@
 import React from 'react';
 import { css } from '@emotion/react';
+import PropTypes from 'prop-types';
 
 export const Em = ({ children, }) => {
   const style = css`
@@ -13,4 +14,8 @@ export const Em = ({ children, }) => {
       <em css={style}>{children}</em>
     </>
   );
+};
+
+Em.propTypes = {
+  children: PropTypes.node,
 };

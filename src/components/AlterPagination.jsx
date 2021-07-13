@@ -1,6 +1,7 @@
 import React from 'react';
 import { css } from '@emotion/react';
 import size from '@/data/size';
+import PropTypes from 'prop-types';
 
 const AlterPagination = ({ prev, next, first, last, current, total, top = '50', bottom = '100', }) => {
   const isFirst = current === 0;
@@ -135,3 +136,14 @@ const AlterPagination = ({ prev, next, first, last, current, total, top = '50', 
 };
 
 export default AlterPagination;
+
+AlterPagination.propTypes = {
+  prev: PropTypes.func,
+  next: PropTypes.func,
+  first: PropTypes.func,
+  last: PropTypes.func,
+  current: PropTypes.number,
+  total: PropTypes.number,
+  top: PropTypes.string,
+  bottom: PropTypes.string,
+};

@@ -1,6 +1,7 @@
 import React from 'react';
 import { css } from '@emotion/react';
 import size from '@/data/size';
+import PropTypes from 'prop-types';
 
 export const PostContents = ({ children, type = 'normal', }) => {
   
@@ -117,4 +118,9 @@ export const PostContents = ({ children, type = 'normal', }) => {
       </div>
     </>
   );
+};
+
+PostContents.propTypes = {
+  children: PropTypes.node,
+  type: PropTypes.string,
 };

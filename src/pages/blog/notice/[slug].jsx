@@ -10,6 +10,7 @@ import { MDXRemote } from 'next-mdx-remote';
 import { CommentGuideMessage, Line, MainImage } from '@/components/PostComponents';
 import { BlogMessage, BlogSeriesList, GoogleAd } from '@/components/ContentComponents';
 import { Box, BoxHeader, PostInfo, Utterances } from '@/components/LayoutComponensts';
+import PropTypes from 'prop-types';
 
 const BlogNoticePage = ({ post, prev, next, }) => {
   const { frontMatter, slug, source, } = post;
@@ -98,3 +99,9 @@ export const getStaticProps = async ({ params, }) => {
 };
 
 export default BlogNoticePage;
+
+BlogNoticePage.propTypes = {
+  post: PropTypes.object,
+  prev: PropTypes.object,
+  next: PropTypes.object,
+};

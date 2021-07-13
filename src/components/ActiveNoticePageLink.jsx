@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import PropTypes from 'prop-types';
 
 const ActiveNoticePageLink = ({ href, children, }) => {
   const router = useRouter();
@@ -18,3 +19,8 @@ const ActiveNoticePageLink = ({ href, children, }) => {
 };
 
 export default ActiveNoticePageLink;
+
+ActiveNoticePageLink.propTypes = {
+  children: PropTypes.node,
+  href: PropTypes.string,
+};

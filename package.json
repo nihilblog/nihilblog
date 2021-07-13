@@ -1,21 +1,21 @@
 {
-  "name": "nihilblog",
-  "version": "3.1.1",
-  "description": "니힐 블로그 Next.js 에디션",
+  "name": "nihilog-code",
+  "version": "3.2.0",
+  "description": "니힐로그 Next.js 에디션",
   "main": "src/pages/index.jsx",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nihilblog/nihilblog.git"
+    "url": "git+https://github.com/nihilblog/nihilblog-code.git"
   },
   "bugs": {
-    "url": "https://github.com/nihilblog/nihilblog/issues"
+    "url": "https://github.com/nihilblog/nihilblog-code/issues"
   },
-  "homepage": "https://github.com/nihilblog/nihilblog#readme",
+  "homepage": "https://github.com/nihilblog/nihilblog-code#readme",
   "scripts": {
     "serve": "rm -rf node_modules/.cache && rm -rf build/ && next dev",
     "start": "rm -rf node_modules/.cache && rm -rf build/ && next build && next start",
     "build": "rm -rf node_modules/.cache && rm -rf build/ && next build",
-    "export": "rm -rf node_modules/.cache && rm -rf build/ && next build && next export -o nihilncunia-blog.github.io/ && touch nihilncunia-blog.github.io/.nojekyll && cd ../nihilncunia-blog.github.io && mv .git ../backup && cd ../ && rm -rf nihilncunia-blog.github.io && cd nihilncunia-blog && mv nihilncunia-blog.github.io ../ && cd ../backup && mv .git ../nihilncunia-blog.github.io && cd ../nihilncunia-blog.github.io && git config core.autocrlf true && git add .",
+    "export": "rm -rf node_modules/.cache && rm -rf build/ && next build && next export -o nihilog.github.io/ && touch nihilog.github.io/.nojekyll && cd ../nihilog.github.io && mv .git ../backup && cd ../ && rm -rf nihilog.github.io && cd nihilog && mv nihilog.github.io ../ && cd ../backup && mv .git ../nihilog.github.io && cd ../nihilog.github.io && git config core.autocrlf true && git add .",
     "clean": "npm cache clean --force"
   },
   "keywords": [],
@@ -27,9 +27,8 @@
     "gray-matter": "^4.0.3",
     "next": "^11.0.1",
     "next-mdx-remote": "^3.0.2",
-    "prettier": "^2.3.1",
+    "prettier": "^2.3.2",
     "prism-react-renderer": "^1.2.1",
-    "prismjs": "^1.23.0",
     "prop-types": "^15.7.2",
     "react": "^17.0.2",
     "react-adsense": "^0.1.0",
@@ -40,8 +39,7 @@
     "@babel/core": "^7.14.6",
     "@emotion/babel-plugin": "^11.3.0",
     "@emotion/babel-preset-css-prop": "^11.2.0",
-    "@mdx-js/loader": "^1.6.22",
-    "eslint": "^7.29.0",
+    "eslint": "^7.30.0",
     "eslint-config-next": "^11.0.1",
     "eslint-plugin-import": "^2.23.4",
     "eslint-plugin-react": "^7.24.0",

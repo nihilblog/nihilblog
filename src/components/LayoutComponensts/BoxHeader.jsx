@@ -1,8 +1,9 @@
 import React from 'react';
 import { css } from '@emotion/react';
 import size from '@/data/size';
+import PropTypes from 'prop-types';
 
-export const BoxHeader = ({ children, i, w, f, top = 0, bottom = 20, }) => {
+export const BoxHeader = ({ children, i, w, f, top = '0', bottom = '20', }) => {
   const boxHeaderStyle = css`
     margin-top: ${top}px;
     margin-bottom: ${bottom}px;
@@ -41,4 +42,13 @@ export const BoxHeader = ({ children, i, w, f, top = 0, bottom = 20, }) => {
       <h2 css={boxHeaderStyle}>{children}</h2>
     </>
   );
+};
+
+BoxHeader.propTypes = {
+  children: PropTypes.node,
+  i: PropTypes.string,
+  w: PropTypes.string,
+  f: PropTypes.string,
+  top: PropTypes.string,
+  bottom: PropTypes.string,
 };

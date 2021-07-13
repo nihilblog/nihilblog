@@ -94,10 +94,10 @@ const BlogFrontPage = () => {
       <FrontLayout {...siteData}>
         <div id='front-index-page' css={frontIndexStyle}>
           <div id='scroll-wrapper'>
-            <img src={'/images/blog-logo.svg'} alt='니힐 블로그 로고' />
+            <img src={'/images/nihilog-front-logo.svg'} alt='니힐로그 로고' />
             <p id='front-message'>
-              니힐 블로그를 방문해주신 여러분 진심으로 환영합니다.<br />
-              니힐 블로그는 프로그래밍, 일본어, 게임을 포함한 여러가지 주제를 다루고 있습니다.<br />
+              니힐로그를 방문해주신 여러분 진심으로 환영합니다.<br />
+              니힐로그는 프로그래밍, 일본어, 게임을 포함한 여러가지 주제를 다루고 있습니다.<br />
               아래의 링크 중 원하는 링크를 클릭해 블로그를 살펴보세요!
             </p>
             <nav id='front-links'>

@@ -3,8 +3,9 @@ import { css } from '@emotion/react';
 import Highlight, { defaultProps } from 'prism-react-renderer';
 import size from '@/data/size';
 import { CopyCode } from '@/components/PostComponents/CopyCode';
+import PropTypes from 'prop-types';
 
-export const Prism = ({ children, top = 40, bottom = 40, }) => {
+export const Prism = ({ children, top = '40', bottom = '40', }) => {
 
   const className = children.props.className;
   const lang = className.replace('language-', '');
@@ -66,14 +67,6 @@ export const Prism = ({ children, top = 40, bottom = 40, }) => {
       z-index: 2;
       top: -2px;
       left: -2px;
-    }
-
-    & div {
-      /* color: inherit !important; */
-
-      &:nth-last-of-type(1) {
-        /* display: none; */
-      }
     }
 
     & .token {
@@ -232,4 +225,10 @@ export const Prism = ({ children, top = 40, bottom = 40, }) => {
       </Highlight>
     </>
   );
+};
+
+Prism.propTypes = {
+  children: PropTypes.node,
+  top: PropTypes.string,
+  bottom: PropTypes.string,
 };

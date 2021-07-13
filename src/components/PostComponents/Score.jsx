@@ -1,8 +1,9 @@
 import React from 'react';
 import { css, Global } from '@emotion/react';
 import size from '@/data/size';
+import PropTypes from 'prop-types';
 
-export const Score = ({ top = 40, bottom = 40, children, score, }) => {
+export const Score = ({ top = '40', bottom = '40', children, score, }) => {
   const scoreStar = {};
   const weight = {};
 
@@ -136,4 +137,11 @@ export const Score = ({ top = 40, bottom = 40, children, score, }) => {
       </div>
     </>
   );
+};
+
+Score.propTypes = {
+  children: PropTypes.node,
+  top: PropTypes.string,
+  bottom: PropTypes.string,
+  score: PropTypes.string,
 };

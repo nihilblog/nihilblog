@@ -9,6 +9,7 @@ import Pagination from '@/components/Pagination';
 import { P } from '@/components/PostComponents';
 import { BlogMessage, BlogSeriesList, GoogleAd } from '@/components/ContentComponents';
 import { Box, BoxHeader, PostContents, PostHeader } from '@/components/LayoutComponensts';
+import PropTypes from 'prop-types';
 
 const BlogNoticeListNumberPage = ({ currentPage, prevPage, nextPage, posts, totalPages, PostsPages, }) => {
   const getCount = useCallback(() => {
@@ -116,3 +117,12 @@ export const getStaticProps = async ({ params, }) => {
 };
 
 export default BlogNoticeListNumberPage;
+
+BlogNoticeListNumberPage.propTypes = {
+  posts: PropTypes.array,
+  currentPage: PropTypes.number,
+  prevPage: PropTypes.number,
+  nextPage: PropTypes.number,
+  totalPages: PropTypes.number,
+  PostsPages: PropTypes.array,
+};

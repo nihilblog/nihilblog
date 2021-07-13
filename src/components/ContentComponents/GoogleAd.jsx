@@ -1,6 +1,7 @@
 import React from 'react';
 import { css } from '@emotion/react';
 import Adsense  from 'react-adsense';
+import PropTypes from 'prop-types';
 
 export const GoogleAd = ({ margin = '40', pos = '', }) => {
   const positionSlot = {
@@ -22,4 +23,9 @@ export const GoogleAd = ({ margin = '40', pos = '', }) => {
       </div>
     </>
   );
+};
+
+GoogleAd.propTypes = {
+  margin: PropTypes.string,
+  pos: PropTypes.string,
 };

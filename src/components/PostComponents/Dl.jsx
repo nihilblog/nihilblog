@@ -1,8 +1,9 @@
 import React from 'react';
 import { css } from '@emotion/react';
 import size from '@/data/size';
+import PropTypes from 'prop-types';
 
-export const Dl = ({ children, top = 40, bottom = 40, }) => {
+export const Dl = ({ children, top = '40', bottom = '40', }) => {
   const style = css`
     margin: ${top}px 0 ${bottom}px 0;
     border: 2px solid #33333330;
@@ -75,4 +76,10 @@ export const Dl = ({ children, top = 40, bottom = 40, }) => {
       </dl>
     </>
   );
+};
+
+Dl.propTypes = {
+  children: PropTypes.node,
+  top: PropTypes.string,
+  bottom: PropTypes.string,
 };

@@ -1,5 +1,6 @@
 import React from 'react';
 import { css } from '@emotion/react';
+import PropTypes from 'prop-types';
 
 export const MainImage = ({ src, alt, }) => {
   const style = css`
@@ -22,4 +23,9 @@ export const MainImage = ({ src, alt, }) => {
       </div>
     </>
   );
+};
+
+MainImage.propTypes = {
+  src: PropTypes.string,
+  alt: PropTypes.string,
 };

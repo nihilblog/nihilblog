@@ -1,8 +1,9 @@
 import React from 'react';
 import { css } from '@emotion/react';
 import size from '@/data/size';
+import PropTypes from 'prop-types';
 
-export const Ol = ({ children, top = 40, bottom = 40, }) => {
+export const Ol = ({ children, top = '40', bottom = '40', }) => {
   const style = css`
     margin: ${top}px 0 ${bottom}px 0;
     transition: all 0.3s;
@@ -130,4 +131,10 @@ export const Ol = ({ children, top = 40, bottom = 40, }) => {
       <ol className='post-ordered-list' css={style}>{children}</ol>
     </>
   );
+};
+
+Ol.propTypes = {
+  children: PropTypes.node,
+  top: PropTypes.string,
+  bottom: PropTypes.string,
 };

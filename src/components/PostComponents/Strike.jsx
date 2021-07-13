@@ -1,5 +1,6 @@
 import React from 'react';
 import { css } from '@emotion/react';
+import PropTypes from 'prop-types';
 
 export const Strike = ({ children, }) => {
   const style = css`
@@ -12,4 +13,8 @@ export const Strike = ({ children, }) => {
       <s css={style}>{children}</s>
     </>
   );
+};
+
+Strike.propTypes = {
+  children: PropTypes.node,
 };

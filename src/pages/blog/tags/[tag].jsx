@@ -11,6 +11,7 @@ import BlogConfig from '@/data/blog.config';
 import AlterPagination from '@/components/AlterPagination';
 import { BlogMessage, BlogSeriesList, GoogleAd } from '@/components/ContentComponents';
 import { Box, BoxHeader, PostContents, PostHeader } from '@/components/LayoutComponensts';
+import PropTypes from 'prop-types';
 
 const TagPostsPage = ({ tag, PostsPages, }) => {
   const [ postsIndex, setPostsIndex, ] = useState(0);
@@ -161,3 +162,8 @@ export const getStaticProps = async ({ params, }) => {
 };
 
 export default TagPostsPage;
+
+TagPostsPage.propTypes = {
+  tag: PropTypes.string,
+  PostsPages: PropTypes.array,
+};

@@ -9,6 +9,7 @@ import getUTC9 from '@/utils/getUTC9';
 import { P } from '@/components/PostComponents';
 import { BlogMessage, BlogSeriesList, GoogleAd } from '@/components/ContentComponents';
 import { Box, BoxHeader, PostContents, PostHeader } from '@/components/LayoutComponensts';
+import PropTypes from 'prop-types';
 
 const BlogPostListNumberPage = ({ currentPage, prevPage, nextPage, posts, totalPages, PostsPages, }) => {
   const getCount = useCallback(() => {
@@ -132,3 +133,12 @@ export const getStaticProps = async ({ params, }) => {
 };
 
 export default BlogPostListNumberPage;
+
+BlogPostListNumberPage.propTypes = {
+  posts: PropTypes.array,
+  currentPage: PropTypes.number,
+  prevPage: PropTypes.number,
+  nextPage: PropTypes.number,
+  totalPages: PropTypes.number,
+  PostsPages: PropTypes.array,
+};

@@ -1,8 +1,9 @@
 import React from 'react';
 import { css } from '@emotion/react';
 import size from '@/data/size';
+import PropTypes from 'prop-types';
 
-export const PostHeader = ({ children, i, w, f, top = 0, bottom = 10, }) => {
+export const PostHeader = ({ children, i, w, f, top = '0', bottom = '10', }) => {
   const linkHeaderStyle = css`
     & > a {
       margin-top: ${top}px;
@@ -50,4 +51,13 @@ export const PostHeader = ({ children, i, w, f, top = 0, bottom = 10, }) => {
       <h3 css={linkHeaderStyle}>{children}</h3>
     </>
   );
+};
+
+PostHeader.propTypes = {
+  children: PropTypes.node,
+  i: PropTypes.string,
+  w: PropTypes.string,
+  f: PropTypes.string,
+  top: PropTypes.string,
+  bottom: PropTypes.string,
 };

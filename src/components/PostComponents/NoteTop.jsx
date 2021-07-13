@@ -1,5 +1,6 @@
 import React from 'react';
 import { css } from '@emotion/react';
+import PropTypes from 'prop-types';
 
 export const NoteTop = ({ number, }) => {
   const style = css`
@@ -31,4 +32,8 @@ export const NoteTop = ({ number, }) => {
       <sup id={`top${number}`} css={style}><a href={`#note${number}`}>{number}</a></sup>
     </>
   );
+};
+
+NoteTop.propTypes = {
+  number: PropTypes.string,
 };

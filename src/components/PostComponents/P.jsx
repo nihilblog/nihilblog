@@ -1,8 +1,9 @@
 import React from 'react';
 import { css } from '@emotion/react';
 import size from '@/data/size';
+import PropTypes from 'prop-types';
 
-export const P = ({ children, top = 20, bottom = 20, align = 'justify', }) => {
+export const P = ({ children, top = '20', bottom = '20', align = 'justify', }) => {
   const style = css`
     text-align: ${align};
     line-height: 1.8;
@@ -30,4 +31,11 @@ export const P = ({ children, top = 20, bottom = 20, align = 'justify', }) => {
       <p className='post-paragraph' css={style}>{children}</p>
     </>
   );
+};
+
+P.propTypes = {
+  children: PropTypes.node,
+  top: PropTypes.string,
+  bottom: PropTypes.string,
+  align: PropTypes.string,
 };

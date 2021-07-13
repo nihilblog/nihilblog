@@ -7,6 +7,7 @@ import BlogLayout from '@/layouts/BlogLayout';
 import size from '@/data/size';
 import { BlogMessage, BlogSeriesList, GoogleAd } from '@/components/ContentComponents';
 import { Box, BoxHeader } from '@/components/LayoutComponensts';
+import PropTypes from 'prop-types';
 
 const CategoriesPage = ({ categories, }) => {
   const siteData = {
@@ -91,3 +92,7 @@ export const getStaticProps = async () => {
 };
 
 export default CategoriesPage;
+
+CategoriesPage.propTypes = {
+  categories: PropTypes.array,
+};

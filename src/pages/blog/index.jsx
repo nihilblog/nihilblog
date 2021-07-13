@@ -7,6 +7,7 @@ import { BlogMessage, BlogSeriesList, GoogleAd } from '@/components/ContentCompo
 import { css } from '@emotion/react';
 import { P } from '@/components/PostComponents';
 import { Box, BoxHeader, PostContents, PostHeader } from '@/components/LayoutComponensts';
+import PropTypes from 'prop-types';
 
 const BlogIndexPage = ({ posts, notices, }) => {
   const style = css`
@@ -26,7 +27,7 @@ const BlogIndexPage = ({ posts, notices, }) => {
         <div id='blog-index-page' css={style}>
           <Box>
             <BoxHeader i={'f017'} w={'500'} f={'Free'}>최근 공지사항 3건</BoxHeader>
-            <P bottom={'0'}>최근 3건의 공지사항입니다. 니힐 블로그를 이용하는데에 있어서 도움이 될 수 있는 공지사항들입니다.</P>
+            <P bottom={'0'}>최근 3건의 공지사항입니다. 니힐로그를 이용하는데에 있어서 도움이 될 수 있는 공지사항들입니다.</P>
           </Box>
           <GoogleAd pos={'top'} margin={'30'} />
           <div id={'blog-notice-list'}>
@@ -121,3 +122,8 @@ export const getStaticProps = async () => {
 };
 
 export default BlogIndexPage;
+
+BlogIndexPage.propTypes = {
+  posts: PropTypes.array,
+  notices: PropTypes.array,
+};

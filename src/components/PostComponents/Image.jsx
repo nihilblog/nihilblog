@@ -1,8 +1,9 @@
 import React from 'react';
 import { css } from '@emotion/react';
 import size from '@/data/size';
+import PropTypes from 'prop-types';
 
-export const Image = ({ src, alt, top = 40, bottom = 40, }) => {
+export const Image = ({ src, alt, top = '40', bottom = '40', }) => {
   
   const style = css`
     max-width: 940px;
@@ -111,4 +112,11 @@ export const Image = ({ src, alt, top = 40, bottom = 40, }) => {
       </figure>
     </>
   );
+};
+
+Image.propTypes = {
+  src: PropTypes.string,
+  alt: PropTypes.string,
+  top: PropTypes.string,
+  bottom: PropTypes.string,
 };

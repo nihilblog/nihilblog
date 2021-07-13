@@ -7,6 +7,8 @@ import size from '@/data/size';
 import Link from 'next/link';
 import { BlogMessage, BlogSeriesList, GoogleAd } from '@/components/ContentComponents';
 import { Box, BoxHeader } from '@/components/LayoutComponensts';
+import KeywordPostsPage from '@/pages/blog/illust/keywords/[keyword]';
+import PropTypes from 'prop-types';
 
 const KeywordsPage = ({ keywords, }) => {
   const siteData = {
@@ -91,3 +93,7 @@ export const getStaticProps = async () => {
 };
 
 export default KeywordsPage;
+
+KeywordPostsPage.propTypes = {
+  keywords: PropTypes.array,
+};

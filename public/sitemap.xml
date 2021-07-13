@@ -1,45 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://nihilncunia-blog.github.io/</loc>
+    <loc>https://nihilog.github.io/</loc>
     <changefreq>daily</changefreq>
     <priority>1</priority>
   </url>
 
   <url>
-    <loc>https://nihilncunia-blog.github.io/blog</loc>
+    <loc>https://nihilog.github.io/blog</loc>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://nihilncunia-blog.github.io/about</loc>
+    <loc>https://nihilog.github.io/about</loc>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://nihilncunia-blog.github.io/blog/categories</loc>
+    <loc>https://nihilog.github.io/blog/categories</loc>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://nihilncunia-blog.github.io/blog/tags</loc>
+    <loc>https://nihilog.github.io/blog/tags</loc>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc>https://nihilncunia-blog.github.io/blog/illust/keywords</loc>
+    <loc>https://nihilog.github.io/blog/illust/keywords</loc>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
   </url>
 
   <url>
-    <loc
-      >https://nihilncunia-blog.github.io/blog/notice/2021-05-02-01-blog-begins</loc
-    >
+    <loc>https://nihilog.github.io/blog/notice/2021-05-02-01-blog-begins</loc>
     <lastmod>2021-05-02T14:09:00+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>1</priority>
@@ -47,7 +45,7 @@
 
   <url>
     <loc
-      >https://nihilncunia-blog.github.io/blog/post/2021-05-02-01-complete-html-guide</loc
+      >https://nihilog.github.io/blog/post/2021-05-02-01-complete-html-guide</loc
     >
     <lastmod>2021-06-25T02:22:00+09:00</lastmod>
     <changefreq>daily</changefreq>
@@ -55,9 +53,7 @@
   </url>
 
   <url>
-    <loc
-      >https://nihilncunia-blog.github.io/blog/post/2021-05-02-02-what-programing</loc
-    >
+    <loc>https://nihilog.github.io/blog/post/2021-05-02-02-what-programing</loc>
     <lastmod>2021-05-26T17:50:00+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>1</priority>
@@ -65,7 +61,7 @@
 
   <url>
     <loc
-      >https://nihilncunia-blog.github.io/blog/post/2021-05-02-03-complete-css-guide</loc
+      >https://nihilog.github.io/blog/post/2021-05-02-03-complete-css-guide</loc
     >
     <lastmod>2021-05-02T18:53:00+09:00</lastmod>
     <changefreq>daily</changefreq>
@@ -73,9 +69,7 @@
   </url>
 
   <url>
-    <loc
-      >https://nihilncunia-blog.github.io/blog/illust/2021-05-05-01-lumber-nill</loc
-    >
+    <loc>https://nihilog.github.io/blog/illust/2021-05-05-01-lumber-nill</loc>
     <lastmod>2021-05-05T04:27:00+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>1</priority>
@@ -83,7 +77,7 @@
 
   <url>
     <loc
-      >https://nihilncunia-blog.github.io/blog/illust/2021-05-06-01-lord-of-the-black-iron-empire</loc
+      >https://nihilog.github.io/blog/illust/2021-05-06-01-lord-of-the-black-iron-empire</loc
     >
     <lastmod>2021-05-06T14:16:00+09:00</lastmod>
     <changefreq>daily</changefreq>
@@ -91,18 +85,14 @@
   </url>
 
   <url>
-    <loc
-      >https://nihilncunia-blog.github.io/blog/post/2021-05-06-01-html-intro</loc
-    >
+    <loc>https://nihilog.github.io/blog/post/2021-05-06-01-html-intro</loc>
     <lastmod>2021-05-09T12:40:00+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>1</priority>
   </url>
 
   <url>
-    <loc
-      >https://nihilncunia-blog.github.io/blog/post/2021-05-07-01-html-syntax</loc
-    >
+    <loc>https://nihilog.github.io/blog/post/2021-05-07-01-html-syntax</loc>
     <lastmod>2021-05-07T18:02:00+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>1</priority>
@@ -110,7 +100,7 @@
 
   <url>
     <loc
-      >https://nihilncunia-blog.github.io/blog/post/2021-05-08-01-html-block-inline-tag</loc
+      >https://nihilog.github.io/blog/post/2021-05-08-01-html-block-inline-tag</loc
     >
     <lastmod>2021-06-25T02:20:00+09:00</lastmod>
     <changefreq>daily</changefreq>
@@ -119,7 +109,7 @@
 
   <url>
     <loc
-      >https://nihilncunia-blog.github.io/blog/post/2021-05-26-01-parent-child-sibling</loc
+      >https://nihilog.github.io/blog/post/2021-05-26-01-parent-child-sibling</loc
     >
     <lastmod>2021-05-26T20:25:00+09:00</lastmod>
     <changefreq>daily</changefreq>
@@ -128,7 +118,7 @@
 
   <url>
     <loc
-      >https://nihilncunia-blog.github.io/blog/post/2021-06-02-01-development-environment</loc
+      >https://nihilog.github.io/blog/post/2021-06-02-01-development-environment</loc
     >
     <lastmod>2021-06-03T11:50:00+09:00</lastmod>
     <changefreq>daily</changefreq>
@@ -137,7 +127,7 @@
 
   <url>
     <loc
-      >https://nihilncunia-blog.github.io/blog/post/2021-06-05-01-html-basic-structure</loc
+      >https://nihilog.github.io/blog/post/2021-06-05-01-html-basic-structure</loc
     >
     <lastmod>2021-06-06T10:20:00+09:00</lastmod>
     <changefreq>daily</changefreq>
@@ -145,18 +135,14 @@
   </url>
 
   <url>
-    <loc
-      >https://nihilncunia-blog.github.io/blog/post/2021-06-17-01-semantic-tags</loc
-    >
+    <loc>https://nihilog.github.io/blog/post/2021-06-17-01-semantic-tags</loc>
     <lastmod>2021-06-17T16:10:00+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>1</priority>
   </url>
 
   <url>
-    <loc
-      >https://nihilncunia-blog.github.io/blog/post/2021-06-19-01-comment</loc
-    >
+    <loc>https://nihilog.github.io/blog/post/2021-06-19-01-comment</loc>
     <lastmod>2021-06-19T20:48:00+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>1</priority>
@@ -164,9 +150,18 @@
 
   <url>
     <loc
-      >https://nihilncunia-blog.github.io/blog/post/2021-06-25-01-div-and-span-tag</loc
+      >https://nihilog.github.io/blog/post/2021-06-25-01-div-and-span-tag</loc
     >
     <lastmod>2021-06-25T03:00:00+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1</priority>
+  </url>
+
+  <url>
+    <loc
+      >https://nihilog.github.io/blog/notice/2021-07-14-01-blog-name-change</loc
+    >
+    <lastmod>2021-07-14T04:53:00+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>1</priority>
   </url>

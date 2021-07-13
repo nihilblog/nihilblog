@@ -22,7 +22,7 @@ export const Utterances = () => {
     const script = document.createElement('script');
     script.src = 'https://utteranc.es/client.js';
     script.async = true;
-    script.setAttribute('repo', 'nihilncunia-blog/nihilncunia-blog');
+    script.setAttribute('repo', 'nihilog/nihilog-code');
     script.setAttribute('issue-term', 'title');
     script.setAttribute('theme', 'github-dark');
     script.setAttribute('label', 'blog-comment');

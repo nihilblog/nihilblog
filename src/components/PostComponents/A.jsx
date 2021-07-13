@@ -1,6 +1,7 @@
 import React from 'react';
 import { css } from '@emotion/react';
 import Link from 'next/link';
+import PropTypes from 'prop-types';
 
 export const A = ({ children, href = '', type = 'blog', isOff = 'false', }) => {
   const typeColor = {
@@ -105,4 +106,11 @@ export const A = ({ children, href = '', type = 'blog', isOff = 'false', }) => {
       }
     </>
   );
+};
+
+A.propTypes = {
+  children: PropTypes.node,
+  href: PropTypes.string,
+  type: PropTypes.string,
+  isOff: PropTypes.string,
 };

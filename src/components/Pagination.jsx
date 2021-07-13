@@ -2,6 +2,7 @@ import Link from 'next/link';
 import React from 'react';
 import { css } from '@emotion/react';
 import size from '@/data/size';
+import PropTypes from 'prop-types';
 
 const Pagination = ({ prev, next, current, total, type ='', top = '50', bottom = '100', }) => {
   
@@ -153,3 +154,13 @@ const Pagination = ({ prev, next, current, total, type ='', top = '50', bottom =
 };
 
 export default Pagination;
+
+Pagination.propTypes = {
+  prev: PropTypes.number,
+  next: PropTypes.number,
+  current: PropTypes.number,
+  total: PropTypes.number,
+  top: PropTypes.string,
+  bottom: PropTypes.string,
+  type: PropTypes.string,
+};

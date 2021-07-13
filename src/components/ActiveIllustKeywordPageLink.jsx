@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import PropTypes from 'prop-types';
 
 const ActiveIllustKeywordPageLink = ({ href, children, }) => {
   const router = useRouter();
@@ -18,3 +19,8 @@ const ActiveIllustKeywordPageLink = ({ href, children, }) => {
 };
 
 export default ActiveIllustKeywordPageLink;
+
+ActiveIllustKeywordPageLink.propTypes = {
+  children: PropTypes.node,
+  href: PropTypes.string,
+};

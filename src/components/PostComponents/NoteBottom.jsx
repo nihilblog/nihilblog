@@ -1,9 +1,10 @@
 import React from 'react';
 import { css, Global } from '@emotion/react';
 import size from '@/data/size';
-import { Line } from '@/components/PostComponents/Line';
+import { Line } from '@/components/PostComponents';
+import PropTypes from 'prop-types';
 
-export const NoteBottom = ({ children, number, top = 0, bottom = 0, first = 'false', }) => {
+export const NoteBottom = ({ children, number, top = '0', bottom = '0', first = 'false', }) => {
   const style = css`
     color: #333333;
     letter-spacing: -1px;
@@ -69,4 +70,12 @@ export const NoteBottom = ({ children, number, top = 0, bottom = 0, first = 'fal
       </p>
     </>
   );
+};
+
+NoteBottom.propTypes = {
+  children: PropTypes.node,
+  number: PropTypes.string,
+  top: PropTypes.string,
+  bottom: PropTypes.string,
+  first: PropTypes.string,
 };

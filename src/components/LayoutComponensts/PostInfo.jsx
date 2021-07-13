@@ -1,5 +1,6 @@
 import React from 'react';
 import { css } from '@emotion/react';
+import PropTypes from 'prop-types';
 
 export const PostInfo = ({ children, name, i, w, itemType = 'p', linkIcon = '', }) => {
   const itemTypeStyle = {
@@ -81,4 +82,13 @@ export const PostInfo = ({ children, name, i, w, itemType = 'p', linkIcon = '', 
       </p>
     </>
   );
+};
+
+PostInfo.propTypes = {
+  children: PropTypes.node,
+  name: PropTypes.string,
+  i: PropTypes.string,
+  w: PropTypes.string,
+  itemType: PropTypes.string,
+  linkIcon: PropTypes.string,
 };

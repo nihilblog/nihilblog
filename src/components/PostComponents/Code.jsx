@@ -1,9 +1,10 @@
 import React from 'react';
 import { css } from '@emotion/react';
+import PropTypes from 'prop-types';
 
 export const Code = ({ children, }) => {
   const style = css`
-    padding: 0 5px;
+    padding: 2px 7px;
     border-radius: 5px;
     font-weight: 500;
     text-indent: 0;
@@ -27,4 +28,8 @@ export const Code = ({ children, }) => {
       <code css={style}>{children}</code>
     </>
   );
+};
+
+Code.propTypes = {
+  children: PropTypes.node,
 };

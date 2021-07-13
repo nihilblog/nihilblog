@@ -7,6 +7,7 @@ import size from '@/data/size';
 import getTagsAndCategories from '@/utils/mdx/getTagsAndCategories';
 import { BlogMessage, BlogSeriesList, GoogleAd } from '@/components/ContentComponents';
 import { Box, BoxHeader } from '@/components/LayoutComponensts';
+import PropTypes from 'prop-types';
 
 const TagsPage = ({ tags, }) => {
   const siteData = {
@@ -91,3 +92,7 @@ export const getStaticProps = async () => {
 };
 
 export default TagsPage;
+
+TagsPage.propTypes = {
+  tags: PropTypes.array,
+};

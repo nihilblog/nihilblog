@@ -1,5 +1,6 @@
 import React from 'react';
 import { css } from '@emotion/react';
+import PropTypes from 'prop-types';
 
 export const Q = ({ children, }) => {
   const style = css`
@@ -37,4 +38,8 @@ export const Q = ({ children, }) => {
       <q css={style}>{children}</q>
     </>
   );
+};
+
+Q.propTypes = {
+  children: PropTypes.node,
 };

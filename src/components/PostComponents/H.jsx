@@ -1,15 +1,17 @@
 import size from '@/data/size';
 import { css } from '@emotion/react';
 import React from 'react';
+import PropTypes from 'prop-types';
 
-export const H = ({ children, top = 60, bottom = 60, type = '1', }) => {
+export const H = ({ children, top = '60', bottom = '60', type = '1', }) => {
   const typePadding = {};
 
   switch (type) {
     case '1':
-      typePadding.topDown = 10;
+      typePadding.topDown = 20;
       typePadding.backColor = '#333333';
-      typePadding.spanSize = 100;
+      typePadding.textColor = '#ffffff';
+      typePadding.spanSize = 120;
       typePadding.media = [
         size[4],
         size[5],
@@ -17,33 +19,36 @@ export const H = ({ children, top = 60, bottom = 60, type = '1', }) => {
       ];
       break;
     case '2':
-      typePadding.topDown = 8;
+      typePadding.topDown = 15;
       typePadding.backColor = '#555555';
+      typePadding.textColor = '#ffffff';
       typePadding.spanSize = 100;
       typePadding.media = [
-        size[3],
         size[4],
         size[5],
+        size[6],
       ];
       break;
     case '3':
-      typePadding.topDown = 6;
+      typePadding.topDown = 12;
       typePadding.backColor = '#777777';
-      typePadding.spanSize = 90;
+      typePadding.textColor = '#ffffff';
+      typePadding.spanSize = 80;
       typePadding.media = [
-        size[3],
         size[4],
         size[5],
+        size[6],
       ];
       break;
     case '4':
-      typePadding.topDown = 4;
-      typePadding.backColor = '#999999';
-      typePadding.spanSize = 80;
+      typePadding.topDown = 8;
+      typePadding.backColor = '#cccccc';
+      typePadding.textColor = '#333333';
+      typePadding.spanSize = 60;
       typePadding.media = [
-        size[3],
         size[4],
         size[5],
+        size[6],
       ];
       break;
   }
@@ -51,18 +56,23 @@ export const H = ({ children, top = 60, bottom = 60, type = '1', }) => {
   const style = css`
     margin-top: ${top}px;
     margin-bottom: ${bottom}px;
-    font-weight: 500;
-    color: #ffffff;
+    color: ${typePadding.textColor};
     background-color: ${typePadding.backColor};
     padding: ${typePadding.topDown}px 10px;
     border-radius: 10px;
     transition: all 0.3s;
     letter-spacing: -1px;
+    line-height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    ${type === '4' ? 'border: 2px solid #33333390;' : ''}
 
     & > span {
       font-size: ${typePadding.spanSize}%;
       color: inherit;
-      transition: all 0.3s;
+      font-weight: 900;
     }
 
     &:before {
@@ -84,39 +94,19 @@ export const H = ({ children, top = 60, bottom = 60, type = '1', }) => {
       font-size: ${typePadding.media[2]};
     }
   `;
+  
+  return (
+    <>
+      <h5 className={`post-heading-${type}`} css={style}>
+        <span>{children}</span>
+      </h5>
+    </>
+  );
+};
 
-  switch (type) {
-    case '1':
-      return (
-        <>
-          <h2 className='post-heading-2' css={style}>
-            <span>{children}</span>
-          </h2>
-        </>
-      );
-    case '2':
-      return (
-        <>
-          <h3 className='post-heading-3' css={style}>
-            <span>{children}</span>
-          </h3>
-        </>
-      );
-    case '3':
-      return (
-        <>
-          <h4 className='post-heading-4' css={style}>
-            <span>{children}</span>
-          </h4>
-        </>
-      );
-    case '4':
-      return (
-        <>
-          <h5 className='post-heading-5' css={style}>
-            <span>{children}</span>
-          </h5>
-        </>
-      );
-  }
+H.propTypes = {
+  children: PropTypes.node,
+  top: PropTypes.string,
+  bottom: PropTypes.string,
+  type: PropTypes.string,
 };

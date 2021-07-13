@@ -1,5 +1,6 @@
 import React, { useState, useCallback } from 'react';
 import { css, Global } from '@emotion/react';
+import PropTypes from 'prop-types';
 
 export const Spoiler = ({ children, }) => {
   const [ isClick, setIsClick, ] = useState(false);
@@ -140,4 +141,8 @@ export const Spoiler = ({ children, }) => {
       </span>
     </>
   );
+};
+
+Spoiler.propTypes = {
+  children: PropTypes.node,
 };

@@ -1,9 +1,10 @@
 import React from 'react';
 import { css } from '@emotion/react';
+import PropTypes from 'prop-types';
 
 export const Kbd = ({ children, }) => {
   const style = css`
-    padding: 0 5px;
+    padding: 2px 7px;
     border: 2px solid #3f91ff;
     color: #3f91ff;
     background-color: #c8e0ff90;
@@ -25,4 +26,8 @@ export const Kbd = ({ children, }) => {
       <kbd css={style}>{children}</kbd>
     </>
   );
+};
+
+Kbd.propTypes = {
+  children: PropTypes.node,
 };

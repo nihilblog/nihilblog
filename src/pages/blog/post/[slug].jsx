@@ -11,6 +11,7 @@ import PostNavigation from '@/components/PostNavigation';
 import { CommentGuideMessage, Line, MainImage } from '@/components/PostComponents';
 import { BlogMessage, BlogSeriesList, GoogleAd } from '@/components/ContentComponents';
 import { Box, BoxHeader, PostInfo, Utterances } from '@/components/LayoutComponensts';
+import PropTypes from 'prop-types';
 
 const BlogPostPage = ({ post, prev, next, }) => {
   const { frontMatter, slug, source, } = post;
@@ -53,13 +54,6 @@ const BlogPostPage = ({ post, prev, next, }) => {
                 :
                 ''
             }
-            <PostInfo name='카테고리' i='f07b' w='900' itemType='link' linkIcon='f07c'>
-              {frontMatter.categories.map((category, index) => (
-                <Link href={`/blog/categories/${String(category)}`} key={index + category}>
-                  <a>{category}</a>
-                </Link>
-              ))}
-            </PostInfo>
             <PostInfo name='태그' i='f02c' w='900' itemType='link' linkIcon='f02b'>
               {frontMatter.tags.map((tag, index) => (
                 <Link href={`/blog/tags/${String(tag)}`} key={index + tag}>
@@ -113,3 +107,9 @@ export const getStaticProps = async ({ params, }) => {
 };
 
 export default BlogPostPage;
+
+BlogPostPage.propTypes = {
+  post: PropTypes.object,
+  prev: PropTypes.object,
+  next: PropTypes.object,
+};

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Message, Strong } from '@/components/PostComponents';
+import PropTypes from 'prop-types';
 
 export const CommentGuideMessage = ({ postType, }) => {
   return (
@@ -17,4 +18,8 @@ export const CommentGuideMessage = ({ postType, }) => {
       </Message>
     </>
   );
+};
+
+CommentGuideMessage.propTypes = {
+  postType: PropTypes.string,
 };

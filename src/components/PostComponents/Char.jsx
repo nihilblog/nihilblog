@@ -1,104 +1,87 @@
 import React from 'react';
 import { css } from '@emotion/react';
 import size from '@/data/size';
+import PropTypes from 'prop-types';
 
-export const Char = ({ children, who = '이름', top = 40, bottom = 40, image = '기본', }) => {
+export const Char = ({ children, who = '이름', top = '40', bottom = '40', image = '기본', }) => {
   const style = css`
     margin: ${top}px 0 ${bottom}px 0;
-    padding: 10px;
-    border: 2px solid #33333350;
-    transition: all 0.3s;
+    background-color: #333333;
+    color: #ffffff;
     border-radius: 10px;
-    background-color: #eeeeee;
-    letter-spacing: -1px;
-    display: flex;
-    flex-direction: row;
-    font-weight: 500;
-
-    & > .script-left {
-      margin-right: 10px;
+    padding: 10px;
+    
+    & > .script-top {
+      margin-bottom: 10px;
       display: flex;
-      align-items: flex-start;
-
+      flex-direction: row;
+      align-items: center;
+      justify-content: flex-start;
+      
       & > img {
-        border-radius: 10px;
-        display: block;
-        border: 2px solid #333333;
+        display: inline-block;
+        margin-right: 10px;
+        border: 1px solid #ffffff50;
+        border-radius: 5px;
+        width: 40px;
+      }
+      
+      & > span {
+        color: #ffffff;
+        font-weight: 900;
+        letter-spacing: -1px;
+        font-size: 110%;
+        line-height: 100%;
         transition: all 0.3s;
       }
     }
-
-    & > .script-right {
-      color: #333333;
-
-      & > .who {
-        margin-bottom: 5px;
-        font-weight: 900;
-        transition: all 0.3s;
-
-        & > span {
-          font-size: 120%;
-        }
-
-        &:before {
-          content: '\\f007';
-          font-family: 'Font Awesome 5 Free', sans-serif;
-          font-weight: 900;
-          margin-right: 5px;
-        }
-      }
-
+    & > .script-bottom {
       & > .script {
+        color: #ffffff;
+        letter-spacing: -1px;
+        background-color: #555555;
+        padding: 10px;
+        border-radius: 5px;
+        line-height: 100%;
         transition: all 0.3s;
-
-        &:before {
-          content: '\\f10d';
-          font-family: 'Font Awesome 5 Free', sans-serif;
-          font-weight: 900;
-          margin-right: 10px;
-        }
-
-        &:after {
-          content: '\\f10e';
-          font-family: 'Font Awesome 5 Free', sans-serif;
-          font-weight: 900;
-          margin-left: 10px;
-        }
       }
     }
 
     @media (min-width: 1px) and (max-width: 600px) {
-      & > .script-left > img {width: 40px;}
-      & > .script-right > blockquote,
-      & > .script-right > p {font-size: ${size[1]};}
+      & .script-top,
+      & blockquote {font-size: ${size[1]};}
     }
 
     @media (min-width: 601px) and (max-width: 800px) {
-      & > .script-left > img {width: 50px;}
-      & > .script-right > blockquote,
-      & > .script-right > p {font-size: ${size[2]};}
+      & .script-top,
+      & blockquote {font-size: ${size[2]};}
     }
 
     @media (min-width: 801px) {
-      & > .script-left > img {width: 60px;}
-      & > .script-right > blockquote,
-      & > .script-right > p {font-size: ${size[3]};}
+      & .script-top,
+      & blockquote {font-size: ${size[3]};}
     }
   `;
 
   return (
     <>
       <div className='post-character-script' css={style}>
-        <div className='script-left'>
+        <div className='script-top'>
           <img src={`/images/Characters/${image}.png`} alt={who} />
+          <span>{who}</span>
         </div>
-        <div className='script-right'>
-          <p className='who'>
-            <span>{who}</span>
-          </p>
+        <div className='script-bottom'>
           <blockquote className='script'>{children}</blockquote>
         </div>
       </div>
     </>
   );
+};
+
+Char.propTypes = {
+  children: PropTypes.node,
+  who: PropTypes.string,
+  top: PropTypes.string,
+  bottom: PropTypes.string,
+  image: PropTypes.string,
 };

@@ -2,6 +2,7 @@ import React from 'react';
 import { css } from '@emotion/react';
 import Link from 'next/link';
 import size from '@/data/size';
+import PropTypes from 'prop-types';
 
 const PostNavigation = ({ prev, next, type = '', }) => {
   let path;
@@ -13,6 +14,9 @@ const PostNavigation = ({ prev, next, type = '', }) => {
   } else {
     path = 'illust';
   }
+  
+  const prevHref = prev ? `/blog/${String(path)}/${String(prev.filePath.replace('.mdx', ''))}` : '';
+  const nextHref = next ? `/blog/${String(path)}/${String(next.filePath.replace('.mdx', ''))}` : '';
 
   const postNavigationStyle = css`
     padding: 10px;
@@ -187,18 +191,16 @@ const PostNavigation = ({ prev, next, type = '', }) => {
       <div css={postNavigationStyle}>
         {
           prev === null
-            ? (
+            ?
+            (
               <p className='nav-button'>
                 <span className='message'><span>이전 포스트</span>이전 포스트가 없습니다.</span>
               </p>
             )
-            : (prev && (
+            :
+            (prev && (
               <p className='nav-button'>
-                <Link
-                  className='nav-link'
-                  href={`/blog/${String(path)}/${String(prev.filePath.replace('.mdx', ''))}`}
-                  passHref
-                >
+                <Link className='nav-link' href={prevHref} passHref>
                   <a><span>이전 포스트</span>{prev.frontMatter.title}</a>
                 </Link>
               </p>
@@ -206,18 +208,16 @@ const PostNavigation = ({ prev, next, type = '', }) => {
         }
         {
           next === null
-            ? (
+            ?
+            (
               <p className='nav-button'>
                 <span className='message'>다음 포스트가 없습니다.<span>다음 포스트</span></span>
               </p>
             )
-            : (next && (
+            :
+            (next && (
               <p className='nav-button'>
-                <Link
-                  className='nav-link'
-                  href={`/blog/${String(path)}/${String(next.filePath.replace('.mdx', ''))}`}
-                  passHref
-                >
+                <Link className='nav-link' href={nextHref} passHref>
                   <a>{next.frontMatter.title}<span>다음 포스트</span></a>
                 </Link>
               </p>
@@ -229,3 +229,9 @@ const PostNavigation = ({ prev, next, type = '', }) => {
 };
 
 export default PostNavigation;
+
+PostNavigation.propTypes = {
+  prev: PropTypes.object,
+  next: PropTypes.object,
+  type: PropTypes.string,
+};

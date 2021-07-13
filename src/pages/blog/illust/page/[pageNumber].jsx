@@ -8,7 +8,8 @@ import Link from 'next/link';
 import Pagination from '@/components/Pagination';
 import { P } from '@/components/PostComponents';
 import { BlogMessage, BlogSeriesList, GoogleAd } from '@/components/ContentComponents';
-import { Box, BoxHeader, IllustBox, PostContents, PostHeader } from '@/components/LayoutComponensts';
+import { Box, BoxHeader, PostContents, PostHeader } from '@/components/LayoutComponensts';
+import PropTypes from 'prop-types';
 
 const BlogIllustListPage = ({ illusts, currentPage, prevPage, nextPage, totalPages, PostsPages, }) => {
   const getCount = useCallback(() => {
@@ -41,7 +42,7 @@ const BlogIllustListPage = ({ illusts, currentPage, prevPage, nextPage, totalPag
           <GoogleAd pos={'top'} margin={'30'} />
           <div id='blog-post-list'>
             {illusts.map(({ frontMatter, filePath, }, index) => (
-              <IllustBox key={index + filePath.replace('.mdx', '')}>
+              <Box key={index + filePath.replace('.mdx', '')}>
                 <PostHeader i='f53f' w='900' f='Free'>
                   <Link href={`/blog/illust/${filePath.replace('.mdx', '')}`}>
                     <a>{frontMatter.title}</a>
@@ -70,7 +71,7 @@ const BlogIllustListPage = ({ illusts, currentPage, prevPage, nextPage, totalPag
                     </p>
                   </PostContents>
                 </div>
-              </IllustBox>
+              </Box>
             ))}
           </div>
         </div>
@@ -124,3 +125,12 @@ export const getStaticProps = async ({ params, }) => {
 };
 
 export default BlogIllustListPage;
+
+BlogIllustListPage.propTypes = {
+  illusts: PropTypes.array,
+  currentPage: PropTypes.number,
+  prevPage: PropTypes.number,
+  nextPage: PropTypes.number,
+  totalPages: PropTypes.number,
+  PostsPages: PropTypes.array,
+};

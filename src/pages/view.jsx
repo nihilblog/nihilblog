@@ -6,6 +6,7 @@ import BlogLayout from '@/layouts/BlogLayout';
 import { Box, BoxHeader } from '@/components/LayoutComponensts';
 import { P } from '@/components/PostComponents';
 import size from '@/data/size';
+import PropTypes from 'prop-types';
 
 const BlogPostManagerPage = ({ posts, }) => {
   const style = css`
@@ -167,3 +168,7 @@ export const getStaticProps = async () => {
 };
 
 export default BlogPostManagerPage;
+
+BlogPostManagerPage.propTypes = {
+  posts: PropTypes.array,
+};

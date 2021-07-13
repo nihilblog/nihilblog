@@ -1,8 +1,9 @@
 import React from 'react';
 import { css, Global } from '@emotion/react';
 import size from '@/data/size';
+import PropTypes from 'prop-types';
 
-export const Quote = ({ top = 40, bottom = 40, who, children, }) => {
+export const Quote = ({ top = '40', bottom = '40', who, children, }) => {
   const style = css`
     margin: ${top}px 0 ${bottom}px 0;
     padding: 10px;
@@ -76,4 +77,11 @@ export const Quote = ({ top = 40, bottom = 40, who, children, }) => {
       </div>
     </>
   );
+};
+
+Quote.propTypes = {
+  children: PropTypes.node,
+  top: PropTypes.string,
+  bottom: PropTypes.string,
+  who: PropTypes.string,
 };

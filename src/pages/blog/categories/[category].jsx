@@ -11,6 +11,7 @@ import { css } from '@emotion/react';
 import getPages from '@/utils/getPages';
 import BlogConfig from '@/data/blog.config';
 import AlterPagination from '@/components/AlterPagination';
+import PropTypes from 'prop-types';
 
 const CategoryPostsPage = ({ category, PostsPages, }) => {
   const [ postsIndex, setPostsIndex, ] = useState(0);
@@ -159,3 +160,8 @@ export const getStaticProps = async ({ params, }) => {
 };
 
 export default CategoryPostsPage;
+
+CategoryPostsPage.propTypes = {
+  category: PropTypes.string,
+  PostsPages: PropTypes.array,
+};

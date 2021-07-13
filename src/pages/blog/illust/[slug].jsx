@@ -12,6 +12,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { BlogMessage, BlogSeriesList, GoogleAd } from '@/components/ContentComponents';
 import { Box, BoxHeader, PostInfo, Utterances } from '@/components/LayoutComponensts';
+import PropTypes from 'prop-types';
 
 const BlogIllustPage = ({ illust, prev, next, }) => {
   const { frontMatter, slug, source, } = illust;
@@ -111,3 +112,9 @@ export const getStaticProps = async ({ params, }) => {
 };
 
 export default BlogIllustPage;
+
+BlogIllustPage.propTypes = {
+  illust: PropTypes.object,
+  prev: PropTypes.object,
+  next: PropTypes.object,
+};

@@ -45,7 +45,7 @@ const sitemapGenerator = async () => {
     },
   ];
 
-  const basePath = 'https://nihilncunia-blog.github.io';
+  const basePath = 'https://nihilog.github.io';
   
   const ruleSet = [];
 
@@ -87,7 +87,5 @@ const sitemapGenerator = async () => {
 
   fs.writeFileSync('public/sitemap.xml', formatted);
 };
-
-sitemapGenerator();
 
 module.exports = sitemapGenerator;

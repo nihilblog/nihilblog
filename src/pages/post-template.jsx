@@ -4,7 +4,7 @@ import { Box, BoxHeader } from '@/components/LayoutComponensts';
 import {
   A,
   Bold, Char,
-  Code, Dl, Em, Gray,
+  Code, Dl, Em, Gray, H,
   Kbd,
   Line,
   Mark,
@@ -30,7 +30,11 @@ const PostTemplatePage = () => {
           <P bottom={'0'}>모든 포스트 서식을 편하게 살펴보기 위한 페이지.</P>
         </Box>
         <Box bottom={'100'}>
-          <P top={'0'}>문단입니다.</P>
+          <H top={'0'} type={'1'}>제목입니다.</H>
+          <H type={'2'}>제목입니다.</H>
+          <H type={'3'}>제목입니다.</H>
+          <H type={'4'}>제목입니다.</H>
+          <P>문단입니다.</P>
           <P><Bold>굵은 글씨입니다.</Bold></P>
           <P><Strong>중요한 내용 강조입니다.</Strong></P>
           <P><Mark>관련 내용 강조입니다.</Mark></P>
@@ -44,9 +48,9 @@ const PostTemplatePage = () => {
           <P><Em>기울임 강조입니다.</Em></P>
           <P><Strike>취소선 그어진 글씨입니다.</Strike></P>
           
-          <P>각주입니다.<NoteTop number={1} /></P>
+          <P>각주입니다.<NoteTop number={'1'} /></P>
           
-          <NoteBottom number={1}>여기에 각주 내용이 들어갑니다.</NoteBottom>
+          <NoteBottom number={'1'} first={'true'}>여기에 각주 내용이 들어갑니다.</NoteBottom>
           
           <Line />
           
@@ -100,7 +104,7 @@ const PostTemplatePage = () => {
           
           <Line />
           
-          <Youtube src={'https://www.youtube.com/watch?v=bwLNlAIDZfg'}>아이유 코인</Youtube>
+          <Youtube src={'https://www.youtube.com/watch?v=bwLNlAIDZfg'}>아이유 - 코인</Youtube>
   
           <Line />
           

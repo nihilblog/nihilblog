@@ -10,7 +10,8 @@ import getPages from '@/utils/getPages';
 import BlogConfig from '@/data/blog.config';
 import AlterPagination from '@/components/AlterPagination';
 import { BlogMessage, BlogSeriesList, GoogleAd } from '@/components/ContentComponents';
-import { Box, BoxHeader, IllustBox, PostContents, PostHeader } from '@/components/LayoutComponensts';
+import { Box, BoxHeader, PostContents, PostHeader } from '@/components/LayoutComponensts';
+import PropTypes from 'prop-types';
 
 const KeywordPostsPage = ({ PostsPages, keyword, }) => {
   const [ postsIndex, setPostsIndex, ] = useState(0);
@@ -73,7 +74,7 @@ const KeywordPostsPage = ({ PostsPages, keyword, }) => {
           <GoogleAd pos={'top'} margin={'30'} />
           <div id='blog-post-list'>
             {PostsPages[postsIndex].map(({ frontMatter, filePath, }, index) => (
-              <IllustBox key={index}>
+              <Box key={index}>
                 <PostHeader i='f53f' w='900' f='Free'>
                   <Link href={`/blog/illust/${filePath.replace('.mdx', '')}`}>
                     <a>{frontMatter.title}</a>
@@ -102,7 +103,7 @@ const KeywordPostsPage = ({ PostsPages, keyword, }) => {
                     </p>
                   </PostContents>
                 </div>
-              </IllustBox>
+              </Box>
             ))}
           </div>
           <GoogleAd pos={'bottom'} margin={'30'} />
@@ -151,3 +152,8 @@ export const getStaticProps = async ({ params, }) => {
 };
 
 export default KeywordPostsPage;
+
+KeywordPostsPage.propTypes = {
+  PostsPages: PropTypes.array,
+  keywords: PropTypes.string,
+};

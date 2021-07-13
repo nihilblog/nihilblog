@@ -1,8 +1,9 @@
 import React from 'react';
 import { css } from '@emotion/react';
 import size from '@/data/size';
+import PropTypes from 'prop-types';
 
-export const Ul = ({ children, top = 40, bottom = 40, }) => {
+export const Ul = ({ children, top = '40', bottom = '40', }) => {
   const style = css`
     margin: ${top}px 0 ${bottom}px 0;
     padding: 7px 10px 7px 10px;
@@ -112,4 +113,10 @@ export const Ul = ({ children, top = 40, bottom = 40, }) => {
       <ul className='post-unordered-list' css={style}>{children}</ul>
     </>
   );
+};
+
+Ul.propTypes = {
+  children: PropTypes.node,
+  top: PropTypes.string,
+  bottom: PropTypes.string,
 };
