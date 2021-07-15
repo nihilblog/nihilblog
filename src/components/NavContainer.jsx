@@ -22,9 +22,8 @@ const NavContainer = () => {
       color: #ffffff;
       background-color: #333333;
       border: 2px solid #ffffff;
-      border-radius: 20px;
+      border-radius: 10px;
       padding: 10px;
-      box-shadow: 0 0 10px -4px #ffffff;
       margin: 2px;
       line-height: 100%;
 
@@ -41,14 +40,13 @@ const NavContainer = () => {
         margin-right: 5px;
       }
 
-      &:nth-of-type(1):before {content: '\\f6d9';}
-      &:nth-of-type(2):before {content: '\\f015';}
-      &:nth-of-type(3):before {content: '\\f05a';}
-      &:nth-of-type(4):before {content: '\\f0f3';}
-      &:nth-of-type(5):before {content: '\\f039';}
-      &:nth-of-type(6):before {content: '\\f07b';}
-      &:nth-of-type(7):before {content: '\\f02c';}
-      &:nth-of-type(8):before {content: '\\f53f';}
+      &:nth-of-type(1):before {content: '\\f015';}
+      &:nth-of-type(2):before {content: '\\f05a';}
+      &:nth-of-type(3):before {content: '\\f0f3';}
+      &:nth-of-type(4):before {content: '\\f039';}
+      &:nth-of-type(5):before {content: '\\f07b';}
+      &:nth-of-type(6):before {content: '\\f02c';}
+      &:nth-of-type(7):before {content: '\\f53f';}
     }
 
     @media (min-width: 1px) and (max-width: 600px) {
@@ -67,14 +65,13 @@ const NavContainer = () => {
   return (
     <>
       <nav id={'blog-main-menu'} css={navStyle}>
-        <ActiveLink href='/'><a>프론트</a></ActiveLink>
-        <ActiveLink href='/blog'><a>홈</a></ActiveLink>
+        <ActiveLink href='/'><a>홈</a></ActiveLink>
         <ActiveLink href='/about'><a>소개</a></ActiveLink>
-        <ActiveNoticePageLink href='/blog/notice/page/1'><a>공지</a></ActiveNoticePageLink>
-        <ActivePostPageLink href='/blog/post/page/1'><a>포스트</a></ActivePostPageLink>
-        <ActiveLink href='/blog/categories'><a>카테고리</a></ActiveLink>
-        <ActiveLink href='/blog/tags'><a>태그</a></ActiveLink>
-        <ActiveIllustPageLink href='/blog/illust/page/1'><a>일러스트</a></ActiveIllustPageLink>
+        <ActiveNoticePageLink href='/notice/page/1'><a>공지</a></ActiveNoticePageLink>
+        <ActivePostPageLink href='/post/page/1'><a>포스트</a></ActivePostPageLink>
+        <ActiveLink href='/categories'><a>카테고리</a></ActiveLink>
+        <ActiveLink href='/tags'><a>태그</a></ActiveLink>
+        <ActiveIllustPageLink href='/illust/page/1'><a>일러스트</a></ActiveIllustPageLink>
       </nav>
     </>
   );

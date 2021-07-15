@@ -7,7 +7,7 @@ import getUTC9 from '@/utils/getUTC9';
 import Link from 'next/link';
 import Pagination from '@/components/Pagination';
 import { P } from '@/components/PostComponents';
-import { BlogMessage, BlogSeriesList, GoogleAd } from '@/components/ContentComponents';
+import { GoogleAd } from '@/components/ContentComponents';
 import { Box, BoxHeader, PostContents, PostHeader } from '@/components/LayoutComponensts';
 import PropTypes from 'prop-types';
 
@@ -26,16 +26,14 @@ const BlogIllustListPage = ({ illusts, currentPage, prevPage, nextPage, totalPag
   
   const siteData = {
     pageName: `일러스트 목록 (${currentPage} 페이지)`,
-    pageURL: `/blog/illust/page/${currentPage}`,
+    pageURL: `/illust/page/${currentPage}`,
   };
   
   return (
     <>
       <BlogLayout {...siteData}>
-        <BlogMessage />
-        <BlogSeriesList />
         <div id='blog-illust-list-page'>
-          <Box>
+          <Box top={'100'}>
             <BoxHeader i='f53f' w='900' f='Free'>전체 일러스트 {totalCount}장</BoxHeader>
             <P bottom='0'>일반 포스트, 공지를 제외한 모든 일러스트의 목록을 확인할 수 있습니다. 일반 포스트와 공지는 각각의 링크를 이용하시기 바랍니다.</P>
           </Box>
@@ -44,7 +42,7 @@ const BlogIllustListPage = ({ illusts, currentPage, prevPage, nextPage, totalPag
             {illusts.map(({ frontMatter, filePath, }, index) => (
               <Box key={index + filePath.replace('.mdx', '')}>
                 <PostHeader i='f53f' w='900' f='Free'>
-                  <Link href={`/blog/illust/${filePath.replace('.mdx', '')}`}>
+                  <Link href={`/illust/${filePath.replace('.mdx', '')}`}>
                     <a>{frontMatter.title}</a>
                   </Link>
                 </PostHeader>
@@ -64,7 +62,7 @@ const BlogIllustListPage = ({ illusts, currentPage, prevPage, nextPage, totalPag
                     <p>
                       <span className={'info-name'}>키워드</span>
                       {frontMatter.keywords.map((keyword, index) => (
-                        <Link href={`/blog/illust/keywords/${String(keyword)}`} key={index + keyword}>
+                        <Link href={`/illust/keywords/${String(keyword)}`} key={index + keyword}>
                           <a className='info-keyword'>{keyword}</a>
                         </Link>
                       ))}

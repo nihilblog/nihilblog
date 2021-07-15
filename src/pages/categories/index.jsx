@@ -5,14 +5,14 @@ import Link from 'next/link';
 import { P } from '@/components/PostComponents/P';
 import BlogLayout from '@/layouts/BlogLayout';
 import size from '@/data/size';
-import { BlogMessage, BlogSeriesList, GoogleAd } from '@/components/ContentComponents';
+import { GoogleAd } from '@/components/ContentComponents';
 import { Box, BoxHeader } from '@/components/LayoutComponensts';
 import PropTypes from 'prop-types';
 
 const CategoriesPage = ({ categories, }) => {
   const siteData = {
     pageName: '카테고리 목록',
-    pageURL: '/blog/categories',
+    pageURL: '/categories',
   };
 
   const wordStyle = css`
@@ -60,22 +60,20 @@ const CategoriesPage = ({ categories, }) => {
   return (
     <>
       <BlogLayout {...siteData}>
-        <BlogMessage />
-        <BlogSeriesList />
-        <GoogleAd pos={'top'} margin={'30'} />
         <div id='blog-categories-page'>
-          <Box bottom={'100'}>
+          <Box bottom={'100'} top={'100'}>
             <BoxHeader i='f07b' w='900' f='Free'>카테고리 목록</BoxHeader>
-            <P>포스트에 사용된 카테고리 목록입니다. 각 카테고리에는 링크가 되어있고 어떤 카테고리에 어떤 포스트들이 들어있는지 확인 할 수 있습니다. 숫자는 사용된 포스트의 수를 의미합니다.</P>
+            <P>이 페이지는 포스트에 사용된 카테고리 목록을 보여줍니다. 각 카테고리에는 링크가 되어있고 어떤 카테고리에 어떤 포스트들이 들어있는지 확인 할 수 있는 카테고리 별 포스트 목록이 제공됩니다. 숫자는 사용된 포스트의 수를 의미합니다.</P>
             <div css={wordStyle}>
               {categories.map((category, index) => (
-                <Link key={index + category.categoryName} href={`/blog/categories/${category.categoryName}`}>
+                <Link key={index + category.categoryName} href={`/categories/${category.categoryName}`}>
                   <a>{category.categoryName} ({category.categoryCount}건)</a>
                 </Link>
               ))}
             </div>
           </Box>
         </div>
+        <GoogleAd pos={'bottom'} margin={'100'} />
       </BlogLayout>
     </>
   );

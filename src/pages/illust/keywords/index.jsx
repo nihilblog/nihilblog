@@ -5,15 +5,15 @@ import { P } from '@/components/PostComponents';
 import getTagsAndCategories from '@/utils/mdx/getTagsAndCategories';
 import size from '@/data/size';
 import Link from 'next/link';
-import { BlogMessage, BlogSeriesList, GoogleAd } from '@/components/ContentComponents';
+import { GoogleAd } from '@/components/ContentComponents';
 import { Box, BoxHeader } from '@/components/LayoutComponensts';
-import KeywordPostsPage from '@/pages/blog/illust/keywords/[keyword]';
+import KeywordPostsPage from '@/pages/illust/keywords/[keyword]';
 import PropTypes from 'prop-types';
 
 const KeywordsPage = ({ keywords, }) => {
   const siteData = {
     pageName: '일러스트 키워드 목록',
-    pageURL: '/blog/illust/keywords',
+    pageURL: '/illust/keywords',
   };
   
   const wordStyle = css`
@@ -61,22 +61,20 @@ const KeywordsPage = ({ keywords, }) => {
   return (
     <>
       <BlogLayout {...siteData}>
-        <BlogMessage />
-        <BlogSeriesList />
-        <GoogleAd pos={'top'} margin={'30'} />
         <div id='blog-keywords-page'>
-          <Box bottom={'100'}>
+          <Box bottom={'100'} top={'100'}>
             <BoxHeader i='f1fc' w='900' f='Free'>일러스트 키워드 목록</BoxHeader>
-            <P>일러스트와 관련된 키워드들이 모여있는 목록입니다. 각 키워드에는 링크가 되어있고 어떤 키워드가 어떤 일러스트와 관련이 있는지 확인 할 수 있습니다. 숫자는 관련된일러스트의 수를 의미합니다.</P>
+            <P>이 페이지는 일러스트와 관련된 키워드들이 모여있는 목록을 보여줍니다. 각 키워드에는 링크가 되어있고 어떤 키워드가 어떤 일러스트와 관련이 있는지 확인 할 수 있는 키워드 별 일러스트 목록을 제공합니다. 숫자는 관련된 일러스트의 수를 의미합니다.</P>
             <div css={wordStyle}>
               {keywords.map((keyword, index) => (
-                <Link key={index + keyword.keywordName} href={`/blog/illust/keywords/${keyword.keywordName}`}>
+                <Link key={index + keyword.keywordName} href={`/illust/keywords/${keyword.keywordName}`}>
                   <a>{keyword.keywordName} ({keyword.keywordCount}건)</a>
                 </Link>
               ))}
             </div>
           </Box>
         </div>
+        <GoogleAd pos={'bottom'} margin={'100'} />
       </BlogLayout>
     </>
   );

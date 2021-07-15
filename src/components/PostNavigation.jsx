@@ -15,8 +15,8 @@ const PostNavigation = ({ prev, next, type = '', }) => {
     path = 'illust';
   }
   
-  const prevHref = prev ? `/blog/${String(path)}/${String(prev.filePath.replace('.mdx', ''))}` : '';
-  const nextHref = next ? `/blog/${String(path)}/${String(next.filePath.replace('.mdx', ''))}` : '';
+  const prevHref = prev ? `/${String(path)}/${String(prev.filePath.replace('.mdx', ''))}` : '';
+  const nextHref = next ? `/${String(path)}/${String(next.filePath.replace('.mdx', ''))}` : '';
 
   const postNavigationStyle = css`
     padding: 10px;

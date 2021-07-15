@@ -54,6 +54,19 @@ const BlogLayout = ({
       background-color: #cccccc;
       width: 100%;
     }
+    
+    html, body, #__next {
+      height: 100%;
+    }
+    
+    #__next {
+      display: flex;
+      flex-direction: column;
+      
+      & > main {
+        flex: 1;
+      }
+    }
 
     a {text-decoration: none;}
     ul {list-style: none;}
@@ -108,7 +121,7 @@ const BlogLayout = ({
       <HeaderContainer />
       <NavContainer />
       {
-        router.pathname.indexOf('blog/illust') !== -1
+        router.pathname.indexOf('illust') !== -1
           ? <SubNavContainer />
           : ''
       }

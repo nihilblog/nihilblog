@@ -1,19 +1,19 @@
 import React, { useCallback, useState } from 'react';
-import { css } from '@emotion/react';
-import getAllYearIllusts from '@/utils/mdx/getAllYearIllusts';
+import getAllYearPosts from '@/utils/mdx/getAllYearPosts';
 import getTagsAndCategories from '@/utils/mdx/getTagsAndCategories';
 import BlogLayout from '@/layouts/BlogLayout';
-import { P } from '@/components/PostComponents';
+import { Box, BoxHeader, PostHeader, PostContents } from '@/components/LayoutComponensts';
+import { GoogleAd } from '@/components/ContentComponents';
+import { P } from '@/components/PostComponents/P';
 import Link from 'next/link';
 import getUTC9 from '@/utils/getUTC9';
+import { css } from '@emotion/react';
 import getPages from '@/utils/getPages';
 import BlogConfig from '@/data/blog.config';
 import AlterPagination from '@/components/AlterPagination';
-import { BlogMessage, BlogSeriesList, GoogleAd } from '@/components/ContentComponents';
-import { Box, BoxHeader, PostContents, PostHeader } from '@/components/LayoutComponensts';
 import PropTypes from 'prop-types';
 
-const KeywordPostsPage = ({ PostsPages, keyword, }) => {
+const CategoryPostsPage = ({ category, PostsPages, }) => {
   const [ postsIndex, setPostsIndex, ] = useState(0);
   
   const getCount = useCallback(() => {
@@ -55,28 +55,26 @@ const KeywordPostsPage = ({ PostsPages, keyword, }) => {
   const style = css`
     margin-bottom: 100px;
   `;
-  
+
   const siteData = {
-    pageName: `"${keyword}" 관련 일러스트`,
-    pageURL: `/blog/illust/keywords/${keyword}`,
+    pageName: `"${category}" 관련 포스트`,
+    pageURL: `/tags/${category}`,
   };
-  
+
   return (
     <>
       <BlogLayout {...siteData}>
-        <BlogMessage />
-        <BlogSeriesList />
-        <div id='blog-keyword-page' css={style}>
-          <Box>
-            <BoxHeader i='f002' w='900' f='Free'>&ldquo; {keyword} &rdquo; 키워드 관련 일러스트 {totalCount}장</BoxHeader>
-            <P bottom='0'>다른 키워드들을 보려면 상단 서브 메뉴에서 키워드 링크를 클릭하세요.</P>
+        <div id='blog-tag-page' css={style}>
+          <Box top={'100'}>
+            <BoxHeader i='f002' w='900' f='Free'>&ldquo; {category} &rdquo; 카테고리 관련 포스트 {totalCount}건</BoxHeader>
+            <P bottom='0'>다른 카테고리들을 보려면 상단 메뉴에서 카테고리 링크를 클릭하세요.</P>
           </Box>
           <GoogleAd pos={'top'} margin={'30'} />
           <div id='blog-post-list'>
             {PostsPages[postsIndex].map(({ frontMatter, filePath, }, index) => (
-              <Box key={index}>
-                <PostHeader i='f53f' w='900' f='Free'>
-                  <Link href={`/blog/illust/${filePath.replace('.mdx', '')}`}>
+              <Box key={index + filePath.replace('.mdx', '')}>
+                <PostHeader i='f27a' w='900' f='Free'>
+                  <Link href={`/post/${filePath.replace('.mdx', '')}`}>
                     <a>{frontMatter.title}</a>
                   </Link>
                 </PostHeader>
@@ -84,20 +82,28 @@ const KeywordPostsPage = ({ PostsPages, keyword, }) => {
                   <div className={'item-left'}>
                     <img src={frontMatter.coverImage} alt={`${frontMatter.title} 썸네일`} />
                   </div>
-                  <PostContents type={'illust'}>
+                  <PostContents>
                     <p>
-                      <span className={'info-name'}>일러스트 설명</span><br />
-                      <span className={'info-description'}>{frontMatter.description}</span>
+                      <span className='info-name'>포스트 설명</span><br />
+                      <span className='info-description'>{frontMatter.description}</span>
                     </p>
                     <p>
-                      <span className={'info-name'}>작성 날짜</span>
-                      <span className={'info-time'}>{getUTC9(frontMatter.createdAt)}</span>
+                      <span className='info-name'>작성 날짜</span>
+                      <span className='info-time'>{getUTC9(frontMatter.createdAt)}</span>
                     </p>
                     <p>
-                      <span className={'info-name'}>키워드</span>
-                      {frontMatter.keywords.map((keyword, index) => (
-                        <Link href={`/blog/illust/keywords/${String(keyword)}`} key={index + keyword}>
-                          <a className='info-keyword'>{keyword}</a>
+                      <span className='info-name'>카테고리</span>
+                      {frontMatter.categories.map((category, index) => (
+                        <Link href={`/categories/${String(category)}`} key={index + category}>
+                          <a className='info-category'>{category}</a>
+                        </Link>
+                      ))}
+                    </p>
+                    <p>
+                      <span className='info-name'>태그</span>
+                      {frontMatter.tags.map((tag, index) => (
+                        <Link href={`/tags/${String(tag)}`} key={index + tag}>
+                          <a className='info-tag'>{tag}</a>
                         </Link>
                       ))}
                     </p>
@@ -122,13 +128,13 @@ const KeywordPostsPage = ({ PostsPages, keyword, }) => {
 };
 
 export const getStaticPaths = async () => {
-  const keywords = await getTagsAndCategories('keywords');
-  
+  const categories = await getTagsAndCategories('categories');
+
   return {
-    paths: keywords.map(keyword => {
+    paths: categories.map(category => {
       return {
         params: {
-          keyword: keyword.keywordName,
+          category: category.categoryName,
         },
       };
     }),
@@ -137,23 +143,23 @@ export const getStaticPaths = async () => {
 };
 
 export const getStaticProps = async ({ params, }) => {
-  const illusts = await getAllYearIllusts('illust').filter(({ frontMatter, }) => {
-    return frontMatter.keywords.includes(params.keyword);
+  const posts = await getAllYearPosts('post').filter(({ frontMatter, }) => {
+    return frontMatter.categories.includes(params.category);
   });
   
-  const PostsPages = getPages(illusts, BlogConfig.postPerPage);
-  
+  const PostsPages = getPages(posts, BlogConfig.postPerPage);
+
   return {
     props: {
-      keyword: params.keyword,
+      category: params.category,
       PostsPages,
     },
   };
 };
 
-export default KeywordPostsPage;
+export default CategoryPostsPage;
 
-KeywordPostsPage.propTypes = {
+CategoryPostsPage.propTypes = {
+  category: PropTypes.string,
   PostsPages: PropTypes.array,
-  keywords: PropTypes.string,
 };

@@ -32,15 +32,15 @@ const sitemapGenerator = async () => {
       priority: 0.7,
     },
     {
-      url: '/blog/categories',
+      url: '/categories',
       priority: 0.7,
     },
     {
-      url: '/blog/tags',
+      url: '/tags',
       priority: 0.7,
     },
     {
-      url: '/blog/illust/keywords',
+      url: '/illust/keywords',
       priority: 0.7,
     },
   ];

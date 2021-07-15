@@ -10,7 +10,7 @@ import { MDXRemote } from 'next-mdx-remote';
 import PostNavigation from '@/components/PostNavigation';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import { BlogMessage, BlogSeriesList, GoogleAd } from '@/components/ContentComponents';
+import { GoogleAd } from '@/components/ContentComponents';
 import { Box, BoxHeader, PostInfo, Utterances } from '@/components/LayoutComponensts';
 import PropTypes from 'prop-types';
 
@@ -22,7 +22,7 @@ const BlogIllustPage = ({ illust, prev, next, }) => {
     pageName: frontMatter.title,
     pageDescription: frontMatter.description,
     pageKeywords: '그림, 일러스트, 캐릭터, 컨셉아트, 디자인, 창작, 캐릭터디자인, 캐릭터일러스트, 판타지, illustration, artwork, character, fantasy, characterillustration, characterdesign, fantasycharacter ' + frontMatter.keywords.join(', '),
-    pageURL: `/blog/illust/${slug}`,
+    pageURL: `/illust/${slug}`,
     pageType: 'article',
     pageImage: frontMatter.coverImage ? frontMatter.coverImage : '',
     pageTag: frontMatter.keywords.join(', '),
@@ -34,10 +34,8 @@ const BlogIllustPage = ({ illust, prev, next, }) => {
   return (
     <>
       <BlogLayout {...siteData}>
-        <BlogMessage />
-        <BlogSeriesList />
         <article id='blog-illust-list-page'>
-          <Box>
+          <Box top={'100'}>
             <BoxHeader i='f53f' w='900' f='Free'>{frontMatter.title}</BoxHeader>
             {
               frontMatter.coverImage
@@ -61,7 +59,7 @@ const BlogIllustPage = ({ illust, prev, next, }) => {
             </PostInfo>
             <PostInfo name={'키워드'} i={'f1fc'} w={'900'} itemType={'link'} linkIcon={'f1fc'}>
               {frontMatter.keywords.map((keyword, index) => (
-                <Link href={`/blog/illust/keywords/${String(keyword)}`} key={index + keyword}>
+                <Link href={`/illust/keywords/${String(keyword)}`} key={index + keyword}>
                   <a>{keyword}</a>
                 </Link>
               ))}

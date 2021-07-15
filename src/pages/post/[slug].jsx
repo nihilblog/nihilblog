@@ -1,29 +1,30 @@
-import React from 'react';
-import getUTC9 from '@/utils/getUTC9';
-import getUTCString from '@/utils/getUTCString';
-import MDXComponents from '@/components/MDXComponents';
 import getAllYearPosts from '@/utils/mdx/getAllYearPosts';
 import getPostBySlug from '@/utils/mdx/getPostBySlug';
-import PostNavigation from '@/components/PostNavigation';
-import BlogLayout from '@/layouts/BlogLayout';
+import React from 'react';
+import Link from 'next/link';
 import { MDXRemote } from 'next-mdx-remote';
+import getUTCString from '@/utils/getUTCString';
+import getUTC9 from '@/utils/getUTC9';
+import BlogLayout from '@/layouts/BlogLayout';
+import MDXComponents from '@/components/MDXComponents';
+import PostNavigation from '@/components/PostNavigation';
 import { CommentGuideMessage, Line, MainImage } from '@/components/PostComponents';
-import { BlogMessage, BlogSeriesList, GoogleAd } from '@/components/ContentComponents';
+import { GoogleAd } from '@/components/ContentComponents';
 import { Box, BoxHeader, PostInfo, Utterances } from '@/components/LayoutComponensts';
 import PropTypes from 'prop-types';
 
-const BlogNoticePage = ({ post, prev, next, }) => {
+const BlogPostPage = ({ post, prev, next, }) => {
   const { frontMatter, slug, source, } = post;
 
   const siteData = {
     pageName: frontMatter.title,
     pageDescription: frontMatter.description,
-    pageKeywords: '',
-    pageURL: `/blog/notice/${slug}`,
+    pageKeywords: frontMatter.tags.join(', '),
+    pageURL: `/post/${slug}`,
     pageType: 'article',
     pageImage: frontMatter.coverImage ? frontMatter.coverImage : '',
-    pageTag: 'notice',
-    pageSection: 'notice',
+    pageTag: frontMatter.tags.join(', '),
+    pageSection: frontMatter.categories.join(', '),
     pageCreated: getUTCString(frontMatter.createdAt),
     pageUpdated: getUTCString(frontMatter.updatedAt),
   };
@@ -31,11 +32,9 @@ const BlogNoticePage = ({ post, prev, next, }) => {
   return (
     <>
       <BlogLayout {...siteData}>
-        <BlogMessage />
-        <BlogSeriesList />
-        <article id='blog-notice-page'>
-          <Box>
-            <BoxHeader i='f0f3' w='900' f='Free'>{frontMatter.title}</BoxHeader>
+        <article id='blog-post-page'>
+          <Box top={'100'}>
+            <BoxHeader i='f27a' w='900' f='Free'>{frontMatter.title}</BoxHeader>
             {
               frontMatter.coverImage
                 ? <MainImage src={frontMatter.coverImage} alt={frontMatter.title} />
@@ -53,6 +52,13 @@ const BlogNoticePage = ({ post, prev, next, }) => {
                 :
                 ''
             }
+            <PostInfo name='태그' i='f02c' w='900' itemType='link' linkIcon='f02b'>
+              {frontMatter.tags.map((tag, index) => (
+                <Link href={`/tags/${String(tag)}`} key={index + tag}>
+                  <a>{tag}</a>
+                </Link>
+              ))}
+            </PostInfo>
             <GoogleAd pos={'top'} />
             <Line />
             <MDXRemote {...source} components={{ ...MDXComponents, }} />
@@ -61,14 +67,14 @@ const BlogNoticePage = ({ post, prev, next, }) => {
             <Utterances />
           </Box>
         </article>
-        <PostNavigation prev={prev} next={next} type='notice' />
+        <PostNavigation prev={prev} next={next} type='post' />
       </BlogLayout>
     </>
   );
 };
 
 export const getStaticPaths = async () => {
-  const posts = await getAllYearPosts('notice');
+  const posts = await getAllYearPosts('post');
   
   return {
     paths: posts.map(post => {
@@ -83,11 +89,11 @@ export const getStaticPaths = async () => {
 };
 
 export const getStaticProps = async ({ params, }) => {
-  const posts = await getAllYearPosts('notice');
+  const posts = await getAllYearPosts('post');
   const postIndex = posts.findIndex((post) => post.filePath.replace('.mdx', '') === params.slug);
   const prev = posts[postIndex + 1] || null;
   const next = posts[postIndex - 1] || null;
-  const post = await getPostBySlug('notice', params.slug);
+  const post = await getPostBySlug('post', params.slug);
 
   return {
     props: {
@@ -98,9 +104,9 @@ export const getStaticProps = async ({ params, }) => {
   };
 };
 
-export default BlogNoticePage;
+export default BlogPostPage;
 
-BlogNoticePage.propTypes = {
+BlogPostPage.propTypes = {
   post: PropTypes.object,
   prev: PropTypes.object,
   next: PropTypes.object,

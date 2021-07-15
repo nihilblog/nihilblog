@@ -30,11 +30,11 @@ module.exports = (type = '', year = '', month = '') => {
     let fullPath;
     
     if (type === 'post') {
-      fullPath = `/blog/post/${filePath.replace('.mdx', '')}`;
+      fullPath = `/post/${filePath.replace('.mdx', '')}`;
     } else if (type === 'notice') {
-      fullPath = `/blog/notice/${filePath.replace('.mdx', '')}`;
+      fullPath = `/notice/${filePath.replace('.mdx', '')}`;
     } else {
-      fullPath = `/blog/illust/${filePath.replace('.mdx', '')}`;
+      fullPath = `/illust/${filePath.replace('.mdx', '')}`;
     }
     
     return {

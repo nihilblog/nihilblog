@@ -7,7 +7,7 @@ const ActiveIllustPageLink = ({ href, children, }) => {
   const router = useRouter();
   
   let className;
-  if (router.pathname.indexOf('blog/illust') !== -1) {
+  if (router.pathname.indexOf('illust') !== -1) {
     className = 'selected';
   }
   

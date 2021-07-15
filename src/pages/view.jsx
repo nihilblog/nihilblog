@@ -129,13 +129,13 @@ const BlogPostManagerPage = ({ posts, }) => {
                   {
                     frontMatter.notice
                       ?
-                      `/blog/notice/${filePath.replace('.mdx', '')}`
+                      `/notice/${filePath.replace('.mdx', '')}`
                       :
                       frontMatter.drawDate
                         ?
-                        `/blog/illust/${filePath.replace('.mdx', '')}`
+                        `/illust/${filePath.replace('.mdx', '')}`
                         :
-                        `/blog/post/${filePath.replace('.mdx', '')}`
+                        `/post/${filePath.replace('.mdx', '')}`
                   }
                 </p>
               </div>

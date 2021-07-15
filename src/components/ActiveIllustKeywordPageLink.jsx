@@ -7,7 +7,7 @@ const ActiveIllustKeywordPageLink = ({ href, children, }) => {
   const router = useRouter();
   
   let className;
-  if (router.pathname.indexOf('blog/illust/keywords') !== -1) {
+  if (router.pathname.indexOf('illust/keywords') !== -1) {
     className = 'selected';
   }
   

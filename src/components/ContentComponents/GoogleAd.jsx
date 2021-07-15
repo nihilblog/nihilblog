@@ -11,6 +11,7 @@ export const GoogleAd = ({ margin = '40', pos = '', }) => {
   
   const adStyle = css`
     margin: ${margin}px 0;
+    background-color: #333333;
   `;
   
   return (

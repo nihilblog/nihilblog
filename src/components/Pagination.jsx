@@ -19,10 +19,10 @@ const Pagination = ({ prev, next, current, total, type ='', top = '50', bottom =
   const isFirst = current === 1;
   const isLast = current === total;
 
-  const firstPath = `/blog/${Path}/page/1`;
-  const lastPath = `/blog/${Path}/page/${total}`;
-  const prevPath = `/blog/${Path}/page/${prev}`;
-  const nextPath = `/blog/${Path}/page/${next}`;
+  const firstPath = `/${Path}/page/1`;
+  const lastPath = `/${Path}/page/${total}`;
+  const prevPath = `/${Path}/page/${prev}`;
+  const nextPath = `/${Path}/page/${next}`;
 
   const paginatorStyle = css`
     margin-top: ${top}px;

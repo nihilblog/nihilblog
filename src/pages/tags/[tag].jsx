@@ -9,7 +9,7 @@ import { css } from '@emotion/react';
 import getPages from '@/utils/getPages';
 import BlogConfig from '@/data/blog.config';
 import AlterPagination from '@/components/AlterPagination';
-import { BlogMessage, BlogSeriesList, GoogleAd } from '@/components/ContentComponents';
+import { GoogleAd } from '@/components/ContentComponents';
 import { Box, BoxHeader, PostContents, PostHeader } from '@/components/LayoutComponensts';
 import PropTypes from 'prop-types';
 
@@ -58,16 +58,14 @@ const TagPostsPage = ({ tag, PostsPages, }) => {
 
   const siteData = {
     pageName: `"${tag}" 관련 포스트`,
-    pageURL: `/blog/tags/${tag}`,
+    pageURL: `/tags/${tag}`,
   };
 
   return (
     <>
       <BlogLayout {...siteData}>
-        <BlogMessage />
-        <BlogSeriesList />
         <div id='blog-tag-page' css={style}>
-          <Box>
+          <Box top={'100'}>
             <BoxHeader i='f002' w='900' f='Free'>&ldquo; {tag} &rdquo; 태그 관련 포스트 {totalCount}건</BoxHeader>
             <P bottom='0'>다른 태그들을 보려면 상단 메뉴에서 태그 링크를 클릭하세요.</P>
           </Box>
@@ -76,7 +74,7 @@ const TagPostsPage = ({ tag, PostsPages, }) => {
             {PostsPages[postsIndex].map(({ frontMatter, filePath, }, index) => (
               <Box key={index + filePath.replace('.mdx', '')}>
                 <PostHeader i='f27a' w='900' f='Free'>
-                  <Link href={`/blog/post/${filePath.replace('.mdx', '')}`}>
+                  <Link href={`/post/${filePath.replace('.mdx', '')}`}>
                     <a>{frontMatter.title}</a>
                   </Link>
                 </PostHeader>
@@ -98,7 +96,7 @@ const TagPostsPage = ({ tag, PostsPages, }) => {
                     <p>
                       <span className='info-name'>카테고리</span>
                       {frontMatter.categories.map((category, index) => (
-                        <Link href={`/blog/categories/${String(category)}`} key={index + category}>
+                        <Link href={`/categories/${String(category)}`} key={index + category}>
                           <a className='info-category'>{category}</a>
                         </Link>
                       ))}
@@ -106,7 +104,7 @@ const TagPostsPage = ({ tag, PostsPages, }) => {
                     <p>
                       <span className='info-name'>태그</span>
                       {frontMatter.tags.map((tag, index) => (
-                        <Link href={`/blog/tags/${String(tag)}`} key={index + tag}>
+                        <Link href={`/tags/${String(tag)}`} key={index + tag}>
                           <a className='info-tag'>{tag}</a>
                         </Link>
                       ))}

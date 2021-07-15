@@ -6,7 +6,7 @@ import size from '@/data/size';
 const HeaderContainer = () => {
   const headerStyle = css`
     padding: 10px;
-    border-bottom: 2px dotted #ffffff50;
+    border-bottom: 5px solid #ffffff;
     background-color: #333333;
     text-align: center;
     user-select: none;

@@ -20,9 +20,8 @@ const SubNavContainer = () => {
       color: #ffffff;
       background-color: #333333;
       border: 2px solid #ffffff;
-      border-radius: 20px;
+      border-radius: 10px;
       padding: 10px;
-      box-shadow: 0 0 10px -4px #ffffff;
       margin: 2px;
       line-height: 100%;
 
@@ -57,7 +56,7 @@ const SubNavContainer = () => {
   return (
     <>
       <nav id={'blog-sub-menu'} css={subNavStyle}>
-        <ActiveIllustKeywordPageLink href='/blog/illust/keywords'><a>키워드</a></ActiveIllustKeywordPageLink>
+        <ActiveIllustKeywordPageLink href='/illust/keywords'><a>키워드</a></ActiveIllustKeywordPageLink>
       </nav>
     </>
   );
