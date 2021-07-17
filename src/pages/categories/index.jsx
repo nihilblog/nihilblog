@@ -19,14 +19,14 @@ const CategoriesPage = ({ categories, }) => {
     text-align: center;
 
     & > a {
-      border: 2px solid #555555;
       padding: 5px 10px;
       display: inline-block;
-      margin: 2px;
+      margin: 4px;
       transition: all 0.3s;
       border-radius: 10px;
       color: #555555;
       letter-spacing: -1px;
+      background-color: #33333330;
 
       &:before {
         content: '\\f07c';
@@ -39,7 +39,6 @@ const CategoriesPage = ({ categories, }) => {
         color: #ffffff;
         background-color: #333333;
         transition: all 0.3s;
-        border: 2px solid #333333;
       }
     }
 

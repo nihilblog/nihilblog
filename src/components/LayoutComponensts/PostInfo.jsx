@@ -69,6 +69,24 @@ export const PostInfo = ({ top = '30', bottom = '30', type, frontMatter, }) => {
         display: inline-block;
         transition: all 0.3s;
         
+        &:before {
+          font-weight: 900;
+          font-family: 'Font Awesome 5 Free', sans-serif;
+          margin-right: 5px;
+        }
+        
+        &.post-info-tag:before {
+          content: '\\f02b';
+        }
+        
+        &.post-info-category:before {
+          content: '\\f07c';
+        }
+        
+        &.post-info-keyword:before {
+          content: '\\f1fc';
+        }
+        
         &:hover {
           color: #ffffff;
           background-color: #333333;
@@ -125,7 +143,7 @@ export const PostInfo = ({ top = '30', bottom = '30', type, frontMatter, }) => {
                   {
                     categories.map((category, index) => (
                       <Link key={index + category} passHref href={`/categories/${category}`}>
-                        <a>{category}</a>
+                        <a className={'post-info-category'}>{category}</a>
                       </Link>
                     ))
                   }
@@ -135,7 +153,7 @@ export const PostInfo = ({ top = '30', bottom = '30', type, frontMatter, }) => {
                   {
                     tags.map((tag, index) => (
                       <Link key={index + tag} passHref href={`/tags/${tag}`}>
-                        <a>{tag}</a>
+                        <a className={'post-info-tag'}>{tag}</a>
                       </Link>
                     ))
                   }
@@ -154,7 +172,7 @@ export const PostInfo = ({ top = '30', bottom = '30', type, frontMatter, }) => {
                 {
                   keywords.map((keyword, index) => (
                     <Link key={index + keyword} passHref href={`/keywords/${keyword}`}>
-                      <a>{keyword}</a>
+                      <a className={'post-info-keyword'}>{keyword}</a>
                     </Link>
                   ))
                 }

@@ -5,9 +5,9 @@ import PropTypes from 'prop-types';
 export const Kbd = ({ children, }) => {
   const style = css`
     padding: 2px 7px;
-    border: 2px solid #3f91ff;
     color: #3f91ff;
-    background-color: #c8e0ff90;
+    background-color: #3f91ff30;
+    border: 1px solid #3f91ff60;
     border-radius: 5px;
     font-weight: 900;
     font-size: 90%;

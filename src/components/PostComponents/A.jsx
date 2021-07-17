@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 
 export const A = ({ children, href = '', type = 'blog', isOff = 'false', }) => {
   const typeColor = {
-    'blog': '#218cd8',
+    'blog': '#3f91ff',
     'normal': '#11b32c',
     'youtube': '#c30505',
   };
@@ -45,12 +45,14 @@ export const A = ({ children, href = '', type = 'blog', isOff = 'false', }) => {
   
   const color = {
     'false': `
-      border: 2px solid ${typeColor[type]};
       color: ${typeColor[type]};
+      background-color: ${typeColor[type]}30;
+      border: 1px solid ${typeColor[type]}60;
     `,
     'true': `
-      border: 2px solid #aaaaaa;
       color: #aaaaaa;
+      background-color: #88888830;
+      border: 1px solid #88888860;
     `,
   };
   
@@ -64,6 +66,7 @@ export const A = ({ children, href = '', type = 'blog', isOff = 'false', }) => {
       &:hover {
         color: #ffffff;
         background-color: ${typeColor[type]};
+        border: 1px solid ${typeColor[type]};
         transition: all 0.3s;
       }
     `,
@@ -72,7 +75,7 @@ export const A = ({ children, href = '', type = 'blog', isOff = 'false', }) => {
 
   const style = css`
     ${color[isOff]}
-    padding: 0 5px;
+    padding: 2px 7px;
     border-radius: 5px;
     font-size: 90%;
     transition: all 0.3s;

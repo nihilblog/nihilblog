@@ -5,7 +5,7 @@ import ActiveLink from '@/components/ActiveLink';
 
 const NavContainer = () => {
   const navStyle = css`
-    padding: 13px 10px;
+    padding: 15px 10px;
     background-color: #333333;
     text-align: center;
     width: 100%;
@@ -17,12 +17,19 @@ const NavContainer = () => {
       box-sizing: border-box;
       display: inline-block;
       color: #ffffff;
-      background-color: #333333;
-      border: 2px solid #ffffff;
+      background-color: #444444;
       border-radius: 10px;
       padding: 10px;
-      margin: 2px;
+      margin: 0 4px;
       line-height: 100%;
+      
+      &:nth-of-type(1) {
+        margin-left: 0;
+      }
+      
+      &:nth-last-of-type(1) {
+        margin-right: 0;
+      }
 
       &:hover,
       &.selected {
