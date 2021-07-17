@@ -100,6 +100,24 @@ export const PostItemBox = ({ type, frontMatter, filePath, }) => {
               display: inline-block;
               letter-spacing: -1px;
               
+              &:before {
+                font-weight: 900;
+                font-family: 'Font Awesome 5 Free', sans-serif;
+                margin-right: 5px;
+              }
+              
+              &.post:before {
+                content: '\\f07c';
+              }
+              
+              &.notice:before {
+                content: '\\f0f3';
+              }
+              
+              &.illust:before {
+                content: '\\f1fc';
+              }
+              
               &:hover {
                 background-color: #333333;
                 color: #ffffff;
@@ -192,7 +210,7 @@ export const PostItemBox = ({ type, frontMatter, filePath, }) => {
                 ?
                 categories.map((item, index) => (
                   <Link key={item + index} href={`/categories/${item}`}>
-                    <a className={'category'}>{item}</a>
+                    <a className={'category post'}>{item}</a>
                   </Link>
                 ))
                 :
@@ -200,13 +218,13 @@ export const PostItemBox = ({ type, frontMatter, filePath, }) => {
                   ?
                   (
                     <Link href={`/${typeObj.href}/page/1`}>
-                      <a className={'category'}>공지</a>
+                      <a className={'category notice'}>공지</a>
                     </Link>
                   )
                   :
                   keywords.map((item, index) => (
-                    <Link key={item + index} href={`/keywords/${item}`}>
-                      <a className={'category'}>{item}</a>
+                    <Link key={item + index} href={`/illust/keywords/${item}`}>
+                      <a className={'category illust'}>{item}</a>
                     </Link>
                   ))
             }

@@ -47,12 +47,10 @@ export const A = ({ children, href = '', type = 'blog', isOff = 'false', }) => {
     'false': `
       color: ${typeColor[type]};
       background-color: ${typeColor[type]}30;
-      border: 1px solid ${typeColor[type]}60;
     `,
     'true': `
       color: #aaaaaa;
       background-color: #88888830;
-      border: 1px solid #88888860;
     `,
   };
   
@@ -66,7 +64,6 @@ export const A = ({ children, href = '', type = 'blog', isOff = 'false', }) => {
       &:hover {
         color: #ffffff;
         background-color: ${typeColor[type]};
-        border: 1px solid ${typeColor[type]};
         transition: all 0.3s;
       }
     `,

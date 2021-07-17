@@ -6,20 +6,18 @@ import ActiveLink from '@/components/ActiveLink';
 const SubNavContainer = () => {
   const subNavStyle = css`
     padding: 8px 10px;
-    background-color: #333333;
+    background-color: #444444;
     text-align: center;
     width: 100%;
     box-sizing: border-box;
     letter-spacing: -1px;
-    border-top: 2px dotted #ffffff50;
 
     & > a {
       transition: all 0.3s;
       box-sizing: border-box;
       display: inline-block;
-      color: #ffffff;
-      background-color: #333333;
-      border: 2px solid #ffffff;
+      color: #dddddd;
+      background-color: #555555;
       border-radius: 10px;
       padding: 10px;
       margin: 2px;

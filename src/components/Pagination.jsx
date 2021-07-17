@@ -67,8 +67,8 @@ const Pagination = ({ prev, next, current, total, type ='', top = '50', bottom =
       padding: 0 8px;
       margin: 3px;
       display: inline-block;
-      border: 2px solid #88888890;
-      color: #88888890;
+      color: #aaaaaa;
+      background-color: #33333310;
       border-radius: 5px;
     }
 
@@ -76,13 +76,13 @@ const Pagination = ({ prev, next, current, total, type ='', top = '50', bottom =
     & > span > a#page-to-prev,
     & > span > a#page-to-next,
     & > span > a#page-to-last {
-      border: 2px solid #333333;
       padding: 0 8px;
       margin: 3px;
       display: inline-block;
       border-radius: 5px;
       font-weight: 500;
-      color: #333333;
+      background-color: #33333330;
+      color: #555555;
       transition: all 0.3s;
 
       &:hover {

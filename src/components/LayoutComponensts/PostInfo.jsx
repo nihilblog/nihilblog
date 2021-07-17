@@ -171,7 +171,7 @@ export const PostInfo = ({ top = '30', bottom = '30', type, frontMatter, }) => {
                 <span>키워드</span>
                 {
                   keywords.map((keyword, index) => (
-                    <Link key={index + keyword} passHref href={`/keywords/${keyword}`}>
+                    <Link key={index + keyword} passHref href={`/illust/keywords/${keyword}`}>
                       <a className={'post-info-keyword'}>{keyword}</a>
                     </Link>
                   ))

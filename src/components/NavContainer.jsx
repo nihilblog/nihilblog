@@ -16,7 +16,7 @@ const NavContainer = () => {
       transition: all 0.3s;
       box-sizing: border-box;
       display: inline-block;
-      color: #ffffff;
+      color: #dddddd;
       background-color: #444444;
       border-radius: 10px;
       padding: 10px;

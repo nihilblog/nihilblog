@@ -7,7 +7,6 @@ export const Kbd = ({ children, }) => {
     padding: 2px 7px;
     color: #3f91ff;
     background-color: #3f91ff30;
-    border: 1px solid #3f91ff60;
     border-radius: 5px;
     font-weight: 900;
     font-size: 90%;

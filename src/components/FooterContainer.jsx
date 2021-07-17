@@ -24,16 +24,15 @@ const FooterContainer = () => {
         box-sizing: border-box;
         display: flex;
         flex-direction: row;
-        color: #ffffff;
-        border: 2px solid #ffffff;
+        color: #dddddd;
         border-radius: 25px;
-        box-shadow: 0 0 10px -4px #ffffff;
         margin: 2px;
         width: 50px;
         height: 50px;
         font-size: 150%;
         align-items: center;
         justify-content: center;
+        background-color: #444444;
 
         &:hover {
           transition: all 0.3s;
