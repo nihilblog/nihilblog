@@ -3,14 +3,12 @@ import getTagsAndCategories from '@/utils/mdx/getTagsAndCategories';
 import getAllYearPosts from '@/utils/mdx/getAllYearPosts';
 import BlogLayout from '@/layouts/BlogLayout';
 import { P } from '@/components/PostComponents/P';
-import Link from 'next/link';
-import getUTC9 from '@/utils/getUTC9';
 import { css } from '@emotion/react';
 import getPages from '@/utils/getPages';
 import BlogConfig from '@/data/blog.config';
 import AlterPagination from '@/components/AlterPagination';
 import { GoogleAd } from '@/components/ContentComponents';
-import { Box, BoxHeader, PostContents, PostHeader } from '@/components/LayoutComponensts';
+import { Box, BoxHeader, PostItemBox } from '@/components/LayoutComponensts';
 import PropTypes from 'prop-types';
 
 const TagPostsPage = ({ tag, PostsPages, }) => {
@@ -72,46 +70,10 @@ const TagPostsPage = ({ tag, PostsPages, }) => {
           <GoogleAd pos={'top'} margin={'30'} />
           <div id='blog-post-list'>
             {PostsPages[postsIndex].map(({ frontMatter, filePath, }, index) => (
-              <Box key={index + filePath.replace('.mdx', '')}>
-                <PostHeader i='f27a' w='900' f='Free'>
-                  <Link href={`/post/${filePath.replace('.mdx', '')}`}>
-                    <a>{frontMatter.title}</a>
-                  </Link>
-                </PostHeader>
-                <div className={'illust-item-info'}>
-                  <div className={'item-left'}>
-                    <img src={frontMatter.coverImage} alt={`${frontMatter.title} 썸네일`} />
-                  </div>
-                  <PostContents>
-                    <p>
-                      <span className='info-name'>포스트 설명</span><br />
-                      <span className='info-description'>
-                        {frontMatter.description}
-                      </span>
-                    </p>
-                    <p>
-                      <span className='info-name'>작성 날짜</span>
-                      <span className='info-time'>{getUTC9(frontMatter.createdAt)}</span>
-                    </p>
-                    <p>
-                      <span className='info-name'>카테고리</span>
-                      {frontMatter.categories.map((category, index) => (
-                        <Link href={`/categories/${String(category)}`} key={index + category}>
-                          <a className='info-category'>{category}</a>
-                        </Link>
-                      ))}
-                    </p>
-                    <p>
-                      <span className='info-name'>태그</span>
-                      {frontMatter.tags.map((tag, index) => (
-                        <Link href={`/tags/${String(tag)}`} key={index + tag}>
-                          <a className='info-tag'>{tag}</a>
-                        </Link>
-                      ))}
-                    </p>
-                  </PostContents>
-                </div>
-              </Box>
+              <PostItemBox
+                key={index + filePath.replace('.mdx', '')} type={'post'}
+                frontMatter={frontMatter} filePath={filePath}
+              />
             ))}
           </div>
           <GoogleAd pos={'bottom'} margin={'30'} />

@@ -53,6 +53,7 @@ const BlogLayout = ({
     body {
       background-color: #cccccc;
       width: 100%;
+      overflow-x: hidden;
     }
     
     html, body, #__next {
@@ -65,6 +66,8 @@ const BlogLayout = ({
       
       & > main {
         flex: 1;
+        width: 100%;
+        box-sizing: border-box;
       }
     }
 
@@ -79,6 +82,11 @@ const BlogLayout = ({
       & a {
         color: #ffffff;
       }
+    }
+    
+    ::selection {
+      background-color: #ff5b5b;
+      color: #ffffff;
     }
 
     ::-webkit-scrollbar {
@@ -104,7 +112,7 @@ const BlogLayout = ({
 
     @media (min-width: 801px) {
       main {
-        max-width: 960px;
+        max-width: 1000px;
         margin: 0 auto;
       }
     }

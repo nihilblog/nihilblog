@@ -41,7 +41,7 @@ export const Prism = ({ children, top = '40', bottom = '40', }) => {
     margin-top: ${top}px;
     margin-bottom: ${bottom}px;
     color: #cccccc;
-    font-family: CascadiaCode, 'Noto Sans CJK KR', sans-serif !important;
+    font-family: CascadiaCode, 'Noto Sans KR', sans-serif !important;
     text-align: left;
     line-height: 1.4;
     tab-size: 4;
@@ -70,7 +70,7 @@ export const Prism = ({ children, top = '40', bottom = '40', }) => {
     }
 
     & .token {
-      font-family: CascadiaCode, 'Noto Sans CJK KR', sans-serif !important;
+      font-family: CascadiaCode, 'Noto Sans KR', sans-serif !important;
       font-weight: 400;
     }
 
@@ -81,7 +81,7 @@ export const Prism = ({ children, top = '40', bottom = '40', }) => {
       display: inline-block;
       user-select: none;
       opacity: 0.4;
-      font-family: CascadiaCode, 'Noto Sans CJK KR', sans-serif !important;
+      font-family: CascadiaCode, 'Noto Sans KR', sans-serif !important;
       font-weight: 400;
 
       & > .number {

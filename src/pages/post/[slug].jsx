@@ -1,16 +1,14 @@
 import getAllYearPosts from '@/utils/mdx/getAllYearPosts';
 import getPostBySlug from '@/utils/mdx/getPostBySlug';
 import React from 'react';
-import Link from 'next/link';
 import { MDXRemote } from 'next-mdx-remote';
 import getUTCString from '@/utils/getUTCString';
-import getUTC9 from '@/utils/getUTC9';
 import BlogLayout from '@/layouts/BlogLayout';
 import MDXComponents from '@/components/MDXComponents';
 import PostNavigation from '@/components/PostNavigation';
 import { CommentGuideMessage, Line, MainImage } from '@/components/PostComponents';
 import { GoogleAd } from '@/components/ContentComponents';
-import { Box, BoxHeader, PostInfo, Utterances } from '@/components/LayoutComponensts';
+import { Box, PostInfo, Utterances } from '@/components/LayoutComponensts';
 import PropTypes from 'prop-types';
 
 const BlogPostPage = ({ post, prev, next, }) => {
@@ -33,32 +31,13 @@ const BlogPostPage = ({ post, prev, next, }) => {
     <>
       <BlogLayout {...siteData}>
         <article id='blog-post-page'>
-          <Box top={'100'}>
-            <BoxHeader i='f27a' w='900' f='Free'>{frontMatter.title}</BoxHeader>
+          <PostInfo top={'100'} frontMatter={frontMatter} type={'post'} />
+          <Box>
             {
               frontMatter.coverImage
                 ? <MainImage src={frontMatter.coverImage} alt={frontMatter.title} />
                 : ''
             }
-            <PostInfo name='작성 날짜' i='f017' w='500' itemType='p'>
-              {getUTC9(frontMatter.createdAt)}
-            </PostInfo>
-            {
-              frontMatter.updatedAt > frontMatter.createdAt
-                ?
-                (<PostInfo name='수정 날짜' i='f017' w='500' itemType='p'>
-                  {getUTC9(frontMatter.updatedAt)}
-                </PostInfo>)
-                :
-                ''
-            }
-            <PostInfo name='태그' i='f02c' w='900' itemType='link' linkIcon='f02b'>
-              {frontMatter.tags.map((tag, index) => (
-                <Link href={`/tags/${String(tag)}`} key={index + tag}>
-                  <a>{tag}</a>
-                </Link>
-              ))}
-            </PostInfo>
             <GoogleAd pos={'top'} />
             <Line />
             <MDXRemote {...source} components={{ ...MDXComponents, }} />

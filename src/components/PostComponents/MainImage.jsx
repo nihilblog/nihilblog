@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 export const MainImage = ({ src, alt, }) => {
   const style = css`
     max-width: 940px;
-    margin-bottom: 20px;
+    margin-bottom: 80px;
 
     & > img {
       width: 100%;

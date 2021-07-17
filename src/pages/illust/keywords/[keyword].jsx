@@ -4,13 +4,11 @@ import getAllYearIllusts from '@/utils/mdx/getAllYearIllusts';
 import getTagsAndCategories from '@/utils/mdx/getTagsAndCategories';
 import BlogLayout from '@/layouts/BlogLayout';
 import { P } from '@/components/PostComponents';
-import Link from 'next/link';
-import getUTC9 from '@/utils/getUTC9';
 import getPages from '@/utils/getPages';
 import BlogConfig from '@/data/blog.config';
 import AlterPagination from '@/components/AlterPagination';
 import { GoogleAd } from '@/components/ContentComponents';
-import { Box, BoxHeader, PostContents, PostHeader } from '@/components/LayoutComponensts';
+import { Box, BoxHeader, PostItemBox } from '@/components/LayoutComponensts';
 import PropTypes from 'prop-types';
 
 const KeywordPostsPage = ({ PostsPages, keyword, }) => {
@@ -72,36 +70,10 @@ const KeywordPostsPage = ({ PostsPages, keyword, }) => {
           <GoogleAd pos={'top'} margin={'30'} />
           <div id='blog-post-list'>
             {PostsPages[postsIndex].map(({ frontMatter, filePath, }, index) => (
-              <Box key={index}>
-                <PostHeader i='f53f' w='900' f='Free'>
-                  <Link href={`/illust/${filePath.replace('.mdx', '')}`}>
-                    <a>{frontMatter.title}</a>
-                  </Link>
-                </PostHeader>
-                <div className={'illust-item-info'}>
-                  <div className={'item-left'}>
-                    <img src={frontMatter.coverImage} alt={`${frontMatter.title} 썸네일`} />
-                  </div>
-                  <PostContents type={'illust'}>
-                    <p>
-                      <span className={'info-name'}>일러스트 설명</span><br />
-                      <span className={'info-description'}>{frontMatter.description}</span>
-                    </p>
-                    <p>
-                      <span className={'info-name'}>작성 날짜</span>
-                      <span className={'info-time'}>{getUTC9(frontMatter.createdAt)}</span>
-                    </p>
-                    <p>
-                      <span className={'info-name'}>키워드</span>
-                      {frontMatter.keywords.map((keyword, index) => (
-                        <Link href={`/illust/keywords/${String(keyword)}`} key={index + keyword}>
-                          <a className='info-keyword'>{keyword}</a>
-                        </Link>
-                      ))}
-                    </p>
-                  </PostContents>
-                </div>
-              </Box>
+              <PostItemBox
+                key={index + filePath.replace('.mdx', '')} type={'illust'}
+                frontMatter={frontMatter} filePath={filePath}
+              />
             ))}
           </div>
           <GoogleAd pos={'bottom'} margin={'30'} />

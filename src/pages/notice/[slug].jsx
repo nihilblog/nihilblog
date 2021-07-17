@@ -1,5 +1,4 @@
 import React from 'react';
-import getUTC9 from '@/utils/getUTC9';
 import getUTCString from '@/utils/getUTCString';
 import MDXComponents from '@/components/MDXComponents';
 import getAllYearPosts from '@/utils/mdx/getAllYearPosts';
@@ -9,7 +8,7 @@ import BlogLayout from '@/layouts/BlogLayout';
 import { MDXRemote } from 'next-mdx-remote';
 import { CommentGuideMessage, Line, MainImage } from '@/components/PostComponents';
 import { GoogleAd } from '@/components/ContentComponents';
-import { Box, BoxHeader, PostInfo, Utterances } from '@/components/LayoutComponensts';
+import { Box, PostInfo, Utterances } from '@/components/LayoutComponensts';
 import PropTypes from 'prop-types';
 
 const BlogNoticePage = ({ post, prev, next, }) => {
@@ -32,24 +31,12 @@ const BlogNoticePage = ({ post, prev, next, }) => {
     <>
       <BlogLayout {...siteData}>
         <article id='blog-notice-page'>
-          <Box top={'100'}>
-            <BoxHeader i='f0f3' w='900' f='Free'>{frontMatter.title}</BoxHeader>
+          <PostInfo top={'100'} frontMatter={frontMatter} type={'notice'} />
+          <Box>
             {
               frontMatter.coverImage
                 ? <MainImage src={frontMatter.coverImage} alt={frontMatter.title} />
                 : ''
-            }
-            <PostInfo name='작성 날짜' i='f017' w='500' itemType='p'>
-              {getUTC9(frontMatter.createdAt)}
-            </PostInfo>
-            {
-              frontMatter.updatedAt > frontMatter.createdAt
-                ?
-                (<PostInfo name='수정 날짜' i='f017' w='500' itemType='p'>
-                  {getUTC9(frontMatter.updatedAt)}
-                </PostInfo>)
-                :
-                ''
             }
             <GoogleAd pos={'top'} />
             <Line />

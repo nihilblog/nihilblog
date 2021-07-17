@@ -13,19 +13,47 @@ module.exports = (type = '', year = '', month = '') => {
     const createdAt = data.createdAt.getTime() - 32400000;
     const updatedAt = data.updatedAt.getTime() - 32400000;
     const drawDate = data.drawDate ? data.drawDate.getTime() - 32400000 : '';
+    const coverImage = data.coverImage;
+    const description = data.description;
+    const title = data.title;
+    const tags = data.tags ? data.tags : '';
+    const categories = data.categories ? data.categories : '';
+    const keywords = data.keywords ? data.keywords : '';
     
     const frontMatter = data.drawDate
-      ? {
+      ?
+      {
         ...data,
         createdAt,
         updatedAt,
         drawDate,
+        coverImage,
+        title,
+        keywords,
+        description,
       }
-      : {
-        ...data,
-        createdAt,
-        updatedAt,
-      };
+      :
+      data.notice
+        ?
+        {
+          ...data,
+          createdAt,
+          updatedAt,
+          coverImage,
+          title,
+          description,
+        }
+        :
+        {
+          ...data,
+          createdAt,
+          updatedAt,
+          coverImage,
+          title,
+          tags,
+          categories,
+          description,
+        };
     
     let fullPath;
     
@@ -45,9 +73,7 @@ module.exports = (type = '', year = '', month = '') => {
     };
   });
   
-  const displayAllPosts = Allposts.filter((post) => {
+  return Allposts.filter((post) => {
     return post.frontMatter.display === true;
   });
-  
-  return displayAllPosts;
 };

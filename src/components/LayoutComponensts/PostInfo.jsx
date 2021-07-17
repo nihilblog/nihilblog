@@ -1,94 +1,176 @@
 import React from 'react';
 import { css } from '@emotion/react';
 import PropTypes from 'prop-types';
+import getUTC9 from '@/utils/getUTC9';
+import Link from 'next/link';
+import size from '@/data/size';
 
-export const PostInfo = ({ children, name, i, w, itemType = 'p', linkIcon = '', }) => {
-  const itemTypeStyle = {
-    'p': '',
-    'link': `
+export const PostInfo = ({ top = '30', bottom = '30', type, frontMatter, }) => {
+  const { title, tags, categories, keywords, createdAt, updatedAt, } = frontMatter;
+
+  const postInfoStyle = css`
+    margin-top: ${top}px;
+    margin-bottom: ${bottom}px;
+    padding: 10px 10px 7px 10px;
+    border-radius: 10px;
+    background-color: #ffffff;
+    box-shadow: 0 0 10px -4px #333333;
+    
+    & > h2 {
+      font-weight: 900;
+      letter-spacing: -1px;
+      color: #ffffff;
+      margin-bottom: 20px;
+      transition: all 0.3s;
+      line-height: 1;
+      background-color: #333333;
+      padding: 10px;
+      border-radius: 5px;
+    }
+    
+    & > p {
+      margin: 8px 0;
+      transition: all 0.3s;
+      letter-spacing: -1px;
+      line-height: 1;
+      font-weight: 500;
+      text-align: justify;
+      
+      &:nth-of-type(1) {
+        margin-top: 0;
+      }
+      
+      &:nth-of-type(1),
+      &:nth-of-type(2) {
+        margin-bottom: 10px;
+      }
+      
+      &:nth-last-of-type(1) {
+        margin-bottom: 0;
+      }
+      
+      & > span {
+        background-color: #333333;
+        color: #ffffff;
+        padding: 5px 10px;
+        display: inline-block;
+        border-radius: 5px;
+        transition: all 0.3s;
+        margin-right: 10px;
+      }
+      
       & > a {
-        letter-spacing: -1px;
+        background-color: #33333330;
         color: #555555;
-        padding: 0 5px;
-        border-radius: 10px;
-        border: 2px solid #555555;
+        padding: 5px 10px;
         margin-right: 5px;
         margin-bottom: 3px;
+        border-radius: 5px;
+        display: inline-block;
         transition: all 0.3s;
-        font-weight: 500;
-        line-height: 1.8;
-
+        
         &:hover {
           color: #ffffff;
           background-color: #333333;
-          border: 2px solid #333333;
           transition: all 0.3s;
         }
-
-        &:before {
-          content: '\\${linkIcon}';
-          font-weight: 900;
-          font-family: 'Font Awesome 5 Free', sans-serif;
-          margin-right: 5px;
-        }
-      }
-    `,
-  };
-
-  const itemTypeElement = {
-    'p': <span className='content-paragraph'>{children}</span>,
-    'link': <>{children}</>,
-  };
-
-  const postInfoStyle = css`
-    margin-top: 2px;
-    color: #333333;
-    letter-spacing: -1px;
-    font-weight: 500;
-    transition: all 0.3s;
-    
-    & > span {
-      &:nth-of-type(2) {
-        color: #555555;
-      }
-    }
-    
-    & > .name {
-      display: inline-block;
-      border-radius: 10px;
-      color: #f54747;
-      font-weight: 900;
-      margin-right: 10px;
-      margin-bottom: 3px;
-      margin-top: 2px;
-      transition: all 0.3s;
-
-      &:before {
-        content: '\\${i}';
-        font-weight: ${w};
-        font-family: 'Font Awesome 5 Free', sans-serif;
-        margin-right: 5px;
       }
     }
 
-    ${itemTypeStyle[itemType]}
+    @media (min-width: 1px) and (max-width: 600px) {
+      & > h2 {font-size: ${size[4]};}
+      & > p {font-size: ${size[1]};}
+    }
+
+    @media (min-width: 601px) and (max-width: 800px) {
+      & > h2 {font-size: ${size[5]};}
+      & > p {font-size: ${size[2]};}
+    }
+
+    @media (min-width: 801px) {
+      & > h2 {font-size: ${size[6]};}
+      & > p {font-size: ${size[3]};}
+    }
   `;
 
   return (
     <>
-      <p css={postInfoStyle}>
-        <span className='name'>{name}</span>
-        {itemTypeElement[itemType]}
-      </p>
+      <div css={postInfoStyle}>
+        <h2>{title}</h2>
+        {
+          type === 'post'
+            ?
+            <p><span>분류</span>일반 포스트</p>
+            :
+            type === 'notice'
+              ?
+              <p><span>분류</span>공지 포스트</p>
+              :
+              <p><span>분류</span>일러스트 포스트</p>
+        }
+        <p><span>작성일</span>{getUTC9(createdAt)}</p>
+        {
+          createdAt < updatedAt
+            ? <p><span>수정일</span>{getUTC9(updatedAt)}</p>
+            :
+            ''
+        }
+        {
+          type === 'post'
+            ?
+            (
+              <>
+                <p>
+                  <span>카테고리</span>
+                  {
+                    categories.map((category, index) => (
+                      <Link key={index + category} passHref href={`/categories/${category}`}>
+                        <a>{category}</a>
+                      </Link>
+                    ))
+                  }
+                </p>
+                <p>
+                  <span>태그</span>
+                  {
+                    tags.map((tag, index) => (
+                      <Link key={index + tag} passHref href={`/tags/${tag}`}>
+                        <a>{tag}</a>
+                      </Link>
+                    ))
+                  }
+                </p>
+              </>
+            )
+            :
+            ''
+        }
+        {
+          type === 'illust'
+            ?
+            (
+              <p>
+                <span>키워드</span>
+                {
+                  keywords.map((keyword, index) => (
+                    <Link key={index + keyword} passHref href={`/keywords/${keyword}`}>
+                      <a>{keyword}</a>
+                    </Link>
+                  ))
+                }
+              </p>
+            )
+            :
+            ''
+        }
+      </div>
     </>
   );
 };
 
 PostInfo.propTypes = {
-  children: PropTypes.node,
-  name: PropTypes.string,
-  i: PropTypes.string,
-  w: PropTypes.string,
-  itemType: PropTypes.string,
-  linkIcon: PropTypes.string,
+  type: PropTypes.string,
+  frontMatter: PropTypes.object,
+  top: PropTypes.string,
+  bottom: PropTypes.string,
 };

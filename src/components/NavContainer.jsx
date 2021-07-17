@@ -2,9 +2,6 @@ import React from 'react';
 import { css } from '@emotion/react';
 import size from '@/data/size';
 import ActiveLink from '@/components/ActiveLink';
-import ActivePostPageLink from '@/components/ActivePostPageLink';
-import ActiveNoticePageLink from '@/components/ActiveNoticePageLink';
-import ActiveIllustPageLink from '@/components/ActiveIllustPageLink';
 
 const NavContainer = () => {
   const navStyle = css`
@@ -47,6 +44,7 @@ const NavContainer = () => {
       &:nth-of-type(5):before {content: '\\f07b';}
       &:nth-of-type(6):before {content: '\\f02c';}
       &:nth-of-type(7):before {content: '\\f53f';}
+      &:nth-of-type(8):before {content: '\\f187';}
     }
 
     @media (min-width: 1px) and (max-width: 600px) {
@@ -65,13 +63,13 @@ const NavContainer = () => {
   return (
     <>
       <nav id={'blog-main-menu'} css={navStyle}>
-        <ActiveLink href='/'><a>홈</a></ActiveLink>
-        <ActiveLink href='/about'><a>소개</a></ActiveLink>
-        <ActiveNoticePageLink href='/notice/page/1'><a>공지</a></ActiveNoticePageLink>
-        <ActivePostPageLink href='/post/page/1'><a>포스트</a></ActivePostPageLink>
-        <ActiveLink href='/categories'><a>카테고리</a></ActiveLink>
-        <ActiveLink href='/tags'><a>태그</a></ActiveLink>
-        <ActiveIllustPageLink href='/illust/page/1'><a>일러스트</a></ActiveIllustPageLink>
+        <ActiveLink href='/'>홈</ActiveLink>
+        <ActiveLink href='/about'>소개</ActiveLink>
+        <ActiveLink href='/notice/page/1' type={'notice'}>공지</ActiveLink>
+        <ActiveLink href='/post/page/1' type={'post'}>포스트</ActiveLink>
+        <ActiveLink href='/categories' type={'categories'}>카테고리</ActiveLink>
+        <ActiveLink href='/tags' type={'tags'}>태그</ActiveLink>
+        <ActiveLink href='/illust/page/1' type={'illust'}>일러스트</ActiveLink>
       </nav>
     </>
   );

@@ -3,15 +3,13 @@ import BlogLayout from '@/layouts/BlogLayout';
 import getAllYearIllusts from '@/utils/mdx/getAllYearIllusts';
 import getPostBySlug from '@/utils/mdx/getPostBySlug';
 import { CommentGuideMessage, Line, MainImage } from '@/components/PostComponents';
-import getUTC9 from '@/utils/getUTC9';
 import getUTCString from '@/utils/getUTCString';
 import MDXComponents from '@/components/MDXComponents';
 import { MDXRemote } from 'next-mdx-remote';
 import PostNavigation from '@/components/PostNavigation';
-import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { GoogleAd } from '@/components/ContentComponents';
-import { Box, BoxHeader, PostInfo, Utterances } from '@/components/LayoutComponensts';
+import { Box, PostInfo, Utterances } from '@/components/LayoutComponensts';
 import PropTypes from 'prop-types';
 
 const BlogIllustPage = ({ illust, prev, next, }) => {
@@ -35,35 +33,13 @@ const BlogIllustPage = ({ illust, prev, next, }) => {
     <>
       <BlogLayout {...siteData}>
         <article id='blog-illust-list-page'>
-          <Box top={'100'}>
-            <BoxHeader i='f53f' w='900' f='Free'>{frontMatter.title}</BoxHeader>
+          <PostInfo top={'100'} frontMatter={frontMatter} type={'illust'} />
+          <Box>
             {
               frontMatter.coverImage
                 ? <MainImage src={frontMatter.coverImage} alt={frontMatter.title} />
                 : ''
             }
-            <PostInfo name='작성 날짜' i='f017' w='500' itemType='p'>
-              {getUTC9(frontMatter.createdAt)}
-            </PostInfo>
-            {
-              frontMatter.updatedAt > frontMatter.createdAt
-                ?
-                (<PostInfo name='수정 날짜' i='f017' w='500' itemType='p'>
-                  {getUTC9(frontMatter.updatedAt)}
-                </PostInfo>)
-                :
-                ''
-            }
-            <PostInfo name='작업 날짜' i='f017' w='500' itemType='p'>
-              {getUTC9(frontMatter.drawDate)}
-            </PostInfo>
-            <PostInfo name={'키워드'} i={'f1fc'} w={'900'} itemType={'link'} linkIcon={'f1fc'}>
-              {frontMatter.keywords.map((keyword, index) => (
-                <Link href={`/illust/keywords/${String(keyword)}`} key={index + keyword}>
-                  <a>{keyword}</a>
-                </Link>
-              ))}
-            </PostInfo>
             <GoogleAd pos={'top'} />
             <Line />
             <MDXRemote {...source} components={{ ...MDXComponents, }} />

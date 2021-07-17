@@ -1,7 +1,7 @@
 import React from 'react';
 import { css } from '@emotion/react';
 import size from '@/data/size';
-import ActiveIllustKeywordPageLink from '@/components/ActiveIllustKeywordPageLink';
+import ActiveLink from '@/components/ActiveLink';
 
 const SubNavContainer = () => {
   const subNavStyle = css`
@@ -56,7 +56,7 @@ const SubNavContainer = () => {
   return (
     <>
       <nav id={'blog-sub-menu'} css={subNavStyle}>
-        <ActiveIllustKeywordPageLink href='/illust/keywords'><a>키워드</a></ActiveIllustKeywordPageLink>
+        <ActiveLink href='/illust/keywords' type={'keywords'}>키워드</ActiveLink>
       </nav>
     </>
   );
