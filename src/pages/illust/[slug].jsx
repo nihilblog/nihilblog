@@ -2,14 +2,14 @@ import React from 'react';
 import BlogLayout from '@/layouts/BlogLayout';
 import getAllYearIllusts from '@/utils/mdx/getAllYearIllusts';
 import getPostBySlug from '@/utils/mdx/getPostBySlug';
-import { CommentGuideMessage, Line, MainImage } from '@/components/PostComponents';
+import { CommentGuideMessage, Line } from '@/components/PostComponents';
 import getUTCString from '@/utils/getUTCString';
 import MDXComponents from '@/components/MDXComponents';
 import { MDXRemote } from 'next-mdx-remote';
 import PostNavigation from '@/components/PostNavigation';
 import { useRouter } from 'next/router';
 import { GoogleAd } from '@/components/ContentComponents';
-import { Box, PostInfo, Utterances } from '@/components/LayoutComponensts';
+import { PostContent, PostInfo, Utterances } from '@/components/LayoutComponensts';
 import PropTypes from 'prop-types';
 
 const BlogIllustPage = ({ illust, prev, next, }) => {
@@ -34,19 +34,14 @@ const BlogIllustPage = ({ illust, prev, next, }) => {
       <BlogLayout {...siteData}>
         <article id='blog-illust-list-page'>
           <PostInfo top={'100'} frontMatter={frontMatter} type={'illust'} />
-          <Box>
-            {
-              frontMatter.coverImage
-                ? <MainImage src={frontMatter.coverImage} alt={frontMatter.title} />
-                : ''
-            }
+          <PostContent idName={'blog-post-content'} frontMatter={frontMatter}>
             <GoogleAd pos={'top'} />
             <Line />
             <MDXRemote {...source} components={{ ...MDXComponents, }} />
             <CommentGuideMessage postType={router.pathname} />
             <GoogleAd pos={'bottom'} />
             <Utterances />
-          </Box>
+          </PostContent>
         </article>
         <PostNavigation prev={prev} next={next} type='illust' />
       </BlogLayout>

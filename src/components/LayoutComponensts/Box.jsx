@@ -3,8 +3,7 @@ import { css } from '@emotion/react';
 import size from '@/data/size';
 import PropTypes from 'prop-types';
 
-export const Box = ({ children, top = '30', bottom = '30', }) => {
-
+export const Box = ({ children, top = '30', bottom = '30', idName, }) => {
   const boxStyle = css`
     margin-top: ${top}px;
     margin-bottom: ${bottom}px;
@@ -33,9 +32,21 @@ export const Box = ({ children, top = '30', bottom = '30', }) => {
 
   return (
     <>
-      <div css={boxStyle}>
-        {children}
-      </div>
+      {
+        idName
+          ?
+          (
+            <div id={idName} css={boxStyle}>
+              {children}
+            </div>
+          )
+          :
+          (
+            <div css={boxStyle}>
+              {children}
+            </div>
+          )
+      }
     </>
   );
 };
@@ -44,4 +55,5 @@ Box.propTypes = {
   top: PropTypes.string,
   bottom: PropTypes.string,
   children: PropTypes.node,
+  idName: PropTypes.string,
 };

@@ -16,16 +16,24 @@ export const PostInfo = ({ top = '30', bottom = '30', type, frontMatter, }) => {
     background-color: #ffffff;
     box-shadow: 0 0 10px -4px #333333;
     
-    & > h2 {
+    & > h1 {
       font-weight: 900;
       letter-spacing: -1px;
       color: #ffffff;
       margin-bottom: 20px;
       transition: all 0.3s;
-      line-height: 1;
       background-color: #333333;
-      padding: 10px;
       border-radius: 5px;
+      text-align: justify;
+      
+      & > span {
+        font-size: 140%;
+        font-weight: inherit;
+        color: inherit;
+        padding: 20px 10px;
+        line-height: 1.5;
+        display: inline-block;
+      }
     }
     
     & > p {
@@ -96,17 +104,17 @@ export const PostInfo = ({ top = '30', bottom = '30', type, frontMatter, }) => {
     }
 
     @media (min-width: 1px) and (max-width: 600px) {
-      & > h2 {font-size: ${size[4]};}
+      & > h1 {font-size: ${size[4]};}
       & > p {font-size: ${size[1]};}
     }
 
     @media (min-width: 601px) and (max-width: 800px) {
-      & > h2 {font-size: ${size[5]};}
+      & > h1 {font-size: ${size[5]};}
       & > p {font-size: ${size[2]};}
     }
 
     @media (min-width: 801px) {
-      & > h2 {font-size: ${size[6]};}
+      & > h1 {font-size: ${size[6]};}
       & > p {font-size: ${size[3]};}
     }
   `;
@@ -114,7 +122,7 @@ export const PostInfo = ({ top = '30', bottom = '30', type, frontMatter, }) => {
   return (
     <>
       <div css={postInfoStyle}>
-        <h2>{title}</h2>
+        <h1><span>{title}</span></h1>
         {
           type === 'post'
             ?
@@ -142,7 +150,7 @@ export const PostInfo = ({ top = '30', bottom = '30', type, frontMatter, }) => {
                   <span>카테고리</span>
                   {
                     categories.map((category, index) => (
-                      <Link key={index + category} passHref href={`/categories/${category}`}>
+                      <Link key={index + '-category-' + category} passHref href={`/categories/${category}`}>
                         <a className={'post-info-category'}>{category}</a>
                       </Link>
                     ))
@@ -152,7 +160,7 @@ export const PostInfo = ({ top = '30', bottom = '30', type, frontMatter, }) => {
                   <span>태그</span>
                   {
                     tags.map((tag, index) => (
-                      <Link key={index + tag} passHref href={`/tags/${tag}`}>
+                      <Link key={index + '-tag-' + tag} passHref href={`/tags/${tag}`}>
                         <a className={'post-info-tag'}>{tag}</a>
                       </Link>
                     ))
@@ -171,7 +179,7 @@ export const PostInfo = ({ top = '30', bottom = '30', type, frontMatter, }) => {
                 <span>키워드</span>
                 {
                   keywords.map((keyword, index) => (
-                    <Link key={index + keyword} passHref href={`/illust/keywords/${keyword}`}>
+                    <Link key={index + '-keyword-' + keyword} passHref href={`/illust/keywords/${keyword}`}>
                       <a className={'post-info-keyword'}>{keyword}</a>
                     </Link>
                   ))

@@ -15,84 +15,42 @@ export const Ul = ({ children, top = '40', bottom = '40', }) => {
     font-weight: 500;
     transition: all 0.3s;
 
-    & > li {
+    & ul {
+      border: none;
+      padding: 0;
+      background-color: transparent;
+      margin: 0 0 0 20px;
+    }
+    
+    & li {
       margin: 3px 0;
       transition: all 0.3s;
-
+      
       &:before {
-        content: '\\f35a';
-         font-family: 'Font Awesome 5 Free', sans-serif;
+        font-family: 'Font Awesome 5 Free', sans-serif;
         margin-right: 5px;
-        font-weight: 900;
-      }
-
-      & > ol {
-        padding: 0;
-        border: none;
-        border-radius: 0;
-        background-color: transparent;
-
-        & > li {
-          &:before {
-            background: #555555;
-            color: #ffffff;
-            font-weight: 900;
-            padding: 0 5px;
-            border-radius: 5px;
-            font-size: 90%;
-          }
-        }
-      }
-
-      & > ul {
-        padding: 0;
-        border: none;
-        border-radius: 0;
-        background-color: transparent;
-
-        & > li {
-          &:before {
-            content: '\\f35a';
-             font-family: 'Font Awesome 5 Free', sans-serif;
-            margin-right: 5px;
-            font-weight: 500;
-          }
-
-          & > ol {
-            & > li {
-              &:before {
-                background: #777777;
-                color: #ffffff;
-                font-weight: 900;
-                padding: 0 5px;
-                border-radius: 5px;
-                font-size: 90%;
-              }
-            }
-          }
-
-          & > ul {
-            padding: 0;
-            border: none;
-            border-radius: 0;
-            background-color: transparent;
-
-            & > li {
-              &:before {
-                content: '\\f105';
-                 font-family: 'Font Awesome 5 Free', sans-serif;
-                margin-right: 5px;
-                font-weight: 900;
-              }
-            }
-          }
-        }
       }
     }
 
-    & ul,
-    & ol {
-      margin: 0 0 0 25px;
+    & > li {
+      &:before {
+        content: '\\f35a';
+        font-weight: 900;
+      }
+      
+      & > ul > li {
+        &:before {
+          content: '\\f35a';
+          font-weight: 500;
+        }
+        
+        & > ul li {
+          &:before {
+            content: '\\f105';
+            font-weight: 900;
+          }
+        }
+      }
     }
 
     @media (min-width: 1px) and (max-width: 600px) {

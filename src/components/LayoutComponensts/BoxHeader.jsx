@@ -11,7 +11,7 @@ export const BoxHeader = ({ children, i, w, f, top = '0', bottom = '20', }) => {
     padding: 10px;
     border-radius: 10px;
     color: #ffffff;
-    font-weight: 500;
+    font-weight: 900;
     letter-spacing: -1px;
     transition: all 0.3s;
     width: 100%;

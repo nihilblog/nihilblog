@@ -49,7 +49,7 @@ export const A = ({ children, href = '', type = 'blog', isOff = 'false', }) => {
       background-color: ${typeColor[type]}30;
     `,
     'true': `
-      color: #aaaaaa;
+      color: #999999;
       background-color: #88888830;
     `,
   };

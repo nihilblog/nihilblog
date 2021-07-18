@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 
 export const H = ({ children, top = '60', bottom = '60', type = '1', }) => {
   const typePadding = {};
+  let heading;
 
   switch (type) {
     case '1':
@@ -20,7 +21,7 @@ export const H = ({ children, top = '60', bottom = '60', type = '1', }) => {
       break;
     case '2':
       typePadding.topDown = 15;
-      typePadding.backColor = '#555555';
+      typePadding.backColor = '#444444';
       typePadding.textColor = '#ffffff';
       typePadding.spanSize = 100;
       typePadding.media = [
@@ -31,7 +32,7 @@ export const H = ({ children, top = '60', bottom = '60', type = '1', }) => {
       break;
     case '3':
       typePadding.topDown = 12;
-      typePadding.backColor = '#777777';
+      typePadding.backColor = '#555555';
       typePadding.textColor = '#ffffff';
       typePadding.spanSize = 80;
       typePadding.media = [
@@ -42,8 +43,8 @@ export const H = ({ children, top = '60', bottom = '60', type = '1', }) => {
       break;
     case '4':
       typePadding.topDown = 8;
-      typePadding.backColor = '#cccccc';
-      typePadding.textColor = '#333333';
+      typePadding.backColor = '#666666';
+      typePadding.textColor = '#ffffff';
       typePadding.spanSize = 60;
       typePadding.media = [
         size[4],
@@ -62,24 +63,41 @@ export const H = ({ children, top = '60', bottom = '60', type = '1', }) => {
     border-radius: 10px;
     transition: all 0.3s;
     letter-spacing: -1px;
-    line-height: 100%;
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
-    ${type === '4' ? 'border: 2px solid #33333390;' : ''}
+    line-height: 100%;
 
     & > span {
       font-size: ${typePadding.spanSize}%;
       color: inherit;
       font-weight: 900;
-    }
 
-    &:before {
-      content: '\\f27a';
-      font-weight: 900;
-      font-family: 'Font Awesome 5 Free', sans-serif;
-      margin-right: 10px;
+      &:before {
+        content: '\\f27a';
+        font-weight: 900;
+        font-family: 'Font Awesome 5 Free', sans-serif;
+        margin-right: 10px;
+      }
+
+      & > a {
+        color: #ffffff30;
+        margin-left: 10px;
+        transition: all 0.3s;
+        scroll-behavior: smooth;
+
+        &:before {
+          content: '\\f0c1';
+          font-weight: 900;
+          font-family: 'Font Awesome 5 Free', sans-serif;
+        }
+
+        &:hover {
+          color: #ffffff;
+          transition: all 0.3s;
+        }
+      }
     }
 
     @media (min-width: 1px) and (max-width: 600px) {
@@ -95,11 +113,40 @@ export const H = ({ children, top = '60', bottom = '60', type = '1', }) => {
     }
   `;
   
+  switch (type) {
+    case '1':
+      heading = (
+        <h2 className={`post-heading h-${type}`} css={style}>
+          <span>{children} <a href={'#top'} /></span>
+        </h2>
+      );
+      break;
+    case '2':
+      heading = (
+        <h3 className={`post-heading h-${type}`} css={style}>
+          <span>{children} <a href={'#top'} /></span>
+        </h3>
+      );
+      break;
+    case '3':
+      heading = (
+        <h4 className={`post-heading h-${type}`} css={style}>
+          <span>{children} <a href={'#top'} /></span>
+        </h4>
+      );
+      break;
+    case '4':
+      heading = (
+        <h5 className={`post-heading h-${type}`} css={style}>
+          <span>{children} <a href={'#top'} /></span>
+        </h5>
+      );
+      break;
+  }
+  
   return (
     <>
-      <h5 className={`post-heading-${type}`} css={style}>
-        <span>{children}</span>
-      </h5>
+      {heading}
     </>
   );
 };

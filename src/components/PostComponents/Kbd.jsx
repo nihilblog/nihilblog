@@ -6,7 +6,7 @@ export const Kbd = ({ children, }) => {
   const style = css`
     padding: 2px 7px;
     color: #3f91ff;
-    background-color: #3f91ff30;
+    background-color: #3f91ff20;
     border-radius: 5px;
     font-weight: 900;
     font-size: 90%;

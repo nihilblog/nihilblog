@@ -24,10 +24,6 @@ const sitemapGenerator = async () => {
       priority: 1,
     },
     {
-      url: '/blog',
-      priority: 0.7,
-    },
-    {
       url: '/about',
       priority: 0.7,
     },

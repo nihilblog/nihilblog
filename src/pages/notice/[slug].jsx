@@ -6,9 +6,9 @@ import getPostBySlug from '@/utils/mdx/getPostBySlug';
 import PostNavigation from '@/components/PostNavigation';
 import BlogLayout from '@/layouts/BlogLayout';
 import { MDXRemote } from 'next-mdx-remote';
-import { CommentGuideMessage, Line, MainImage } from '@/components/PostComponents';
+import { CommentGuideMessage, Line } from '@/components/PostComponents';
 import { GoogleAd } from '@/components/ContentComponents';
-import { Box, PostInfo, Utterances } from '@/components/LayoutComponensts';
+import { PostContent, PostInfo, Utterances } from '@/components/LayoutComponensts';
 import PropTypes from 'prop-types';
 
 const BlogNoticePage = ({ post, prev, next, }) => {
@@ -32,19 +32,14 @@ const BlogNoticePage = ({ post, prev, next, }) => {
       <BlogLayout {...siteData}>
         <article id='blog-notice-page'>
           <PostInfo top={'100'} frontMatter={frontMatter} type={'notice'} />
-          <Box>
-            {
-              frontMatter.coverImage
-                ? <MainImage src={frontMatter.coverImage} alt={frontMatter.title} />
-                : ''
-            }
+          <PostContent idName={'blog-post-content'} frontMatter={frontMatter}>
             <GoogleAd pos={'top'} />
             <Line />
             <MDXRemote {...source} components={{ ...MDXComponents, }} />
             <CommentGuideMessage postType={''} />
             <GoogleAd pos={'bottom'} />
             <Utterances />
-          </Box>
+          </PostContent>
         </article>
         <PostNavigation prev={prev} next={next} type='notice' />
       </BlogLayout>

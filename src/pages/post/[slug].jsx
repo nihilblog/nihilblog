@@ -6,9 +6,9 @@ import getUTCString from '@/utils/getUTCString';
 import BlogLayout from '@/layouts/BlogLayout';
 import MDXComponents from '@/components/MDXComponents';
 import PostNavigation from '@/components/PostNavigation';
-import { CommentGuideMessage, Line, MainImage } from '@/components/PostComponents';
+import { CommentGuideMessage, Line } from '@/components/PostComponents';
 import { GoogleAd } from '@/components/ContentComponents';
-import { Box, PostInfo, Utterances } from '@/components/LayoutComponensts';
+import { PostContent, PostInfo, Utterances } from '@/components/LayoutComponensts';
 import PropTypes from 'prop-types';
 
 const BlogPostPage = ({ post, prev, next, }) => {
@@ -32,19 +32,14 @@ const BlogPostPage = ({ post, prev, next, }) => {
       <BlogLayout {...siteData}>
         <article id='blog-post-page'>
           <PostInfo top={'100'} frontMatter={frontMatter} type={'post'} />
-          <Box>
-            {
-              frontMatter.coverImage
-                ? <MainImage src={frontMatter.coverImage} alt={frontMatter.title} />
-                : ''
-            }
+          <PostContent idName={'blog-post-content'} frontMatter={frontMatter}>
             <GoogleAd pos={'top'} />
             <Line />
             <MDXRemote {...source} components={{ ...MDXComponents, }} />
             <CommentGuideMessage postType={''} />
             <GoogleAd pos={'bottom'} />
             <Utterances />
-          </Box>
+          </PostContent>
         </article>
         <PostNavigation prev={prev} next={next} type='post' />
       </BlogLayout>

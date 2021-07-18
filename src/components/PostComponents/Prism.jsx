@@ -36,38 +36,69 @@ export const Prism = ({ children, top = '40', bottom = '40', }) => {
       color = [ '#888888', '#ffffff', ];
       break;
   }
-
-  const prismStyle = css`
+  
+  const style = css`
     margin-top: ${top}px;
     margin-bottom: ${bottom}px;
+    
+    & > .language-name {
+      background-color: ${color[0]};
+      color: ${color[1]};
+      text-align: center;
+      border-radius: 10px 10px 0 0;
+      font-weight: 900;
+      display: inline-block;
+      line-height: 1;
+      transition: all 0.3s;
+      
+      &:before {
+        content: '\\f121';
+        font-weight: 900;
+        font-family: 'Font Awesome 5 Free', sans-serif;
+        margin-right: 5px;
+      }
+    }
+
+    @media (min-width: 1px) and (max-width: 600px) {
+      & > .language-name {
+        font-size: ${size[1]};
+        padding: 10px;
+      }
+    }
+
+    @media (min-width: 601px) and (max-width: 800px) {
+      & > .language-name {
+        font-size: ${size[2]};
+        padding: 10px 15px;
+      }
+    }
+
+    @media (min-width: 801px) {
+      & > .language-name {
+        font-size: ${size[3]};
+        padding: 10px 20px;
+      }
+    }
+  `;
+  
+  const prismBoxStyle = css`
+    background-color: ${color[0]};
+    border-radius: 0 10px 10px 10px;
+    padding: 5px;
+  `;
+
+  const prismStyle = css`
     color: #cccccc;
     font-family: CascadiaCode, 'Noto Sans KR', sans-serif !important;
     text-align: left;
     line-height: 1.4;
     tab-size: 4;
     background: #333333;
-    padding: 45px 10px 15px 10px;
-    border-radius: 0 10px 10px 10px;
+    padding: 10px;
+    border-radius: 10px;
     overflow-x: auto;
     position: relative;
-    border: 5px solid ${color[0]};
     box-sizing: border-box;
-
-    &:before {
-      content: '\\f121  ${capitalizeLang}';
-      font-weight: 900;
-       font-family: 'Font Awesome 5 Free', sans-serif;
-      padding: 5px 10px;
-      background-color: ${color[0]};
-      color: ${color[1]};
-      text-align: center;
-      border-radius: 0 0 10px 0;
-      box-sizing: border-box;
-      position: absolute;
-      z-index: 2;
-      top: -2px;
-      left: -2px;
-    }
 
     & .token {
       font-family: CascadiaCode, 'Noto Sans KR', sans-serif !important;
@@ -199,27 +230,30 @@ export const Prism = ({ children, top = '40', bottom = '40', }) => {
     <>
       <Highlight {...defaultProps} code={code} language={lang}>
         {({ className, tokens, getLineProps, getTokenProps, }) => (
-          <div className='blog-syntax-highlight'>
-            <pre className={className} css={prismStyle}>
-              <CopyCode code={code} />
-              {tokens.map((line, index) => (
-                <div key={index} {...getLineProps({ style: { color: 'transparent', }, line, key: index, })}>
-                  <span className='line-number'>
-                    {
-                      (index + 1) < 10
-                        ? (<>
-                          <span css={fontColor}>0</span>
-                          <span className='number'>{index + 1}</span>
-                        </>)
-                        : index + 1
-                    }
-                  </span>
-                  {line.map((token, key) => (
-                    <span key={key} {...getTokenProps({ style: { color: 'transparent', }, token, key, })} />
-                  ))}
-                </div>
-              ))}
-            </pre>
+          <div className='blog-syntax-highlight' css={style}>
+            <span className={'language-name'}>{capitalizeLang}</span>
+            <CopyCode code={code} color={color} />
+            <div css={prismBoxStyle}>
+              <pre className={className} css={prismStyle}>
+                {tokens.map((line, index) => (
+                  <div key={index} {...getLineProps({ style: { color: 'transparent', }, line, key: index, })}>
+                    <span className='line-number'>
+                      {
+                        (index + 1) < 10
+                          ? (<>
+                            <span css={fontColor}>0</span>
+                            <span className='number'>{index + 1}</span>
+                          </>)
+                          : index + 1
+                      }
+                    </span>
+                    {line.map((token, key) => (
+                      <span key={key} {...getTokenProps({ style: { color: 'transparent', }, token, key, })} />
+                    ))}
+                  </div>
+                ))}
+              </pre>
+            </div>
           </div>
         )}
       </Highlight>

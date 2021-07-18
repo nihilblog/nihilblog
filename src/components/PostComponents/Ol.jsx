@@ -16,100 +16,48 @@ export const Ol = ({ children, top = '40', bottom = '40', }) => {
     font-weight: 500;
     color: #333333;
 
-    & > li {
-      margin: 3px 0;
-      transition: all 0.3s;
-
-      &:before {
-        background: #333333;
-        color: #ffffff;
-        font-weight: 900;
-        padding: 0 5px;
-        border-radius: 5px;
-        font-size: 90%;
-      }
-
-      & > ul {
-        border: none;
-        background-color: transparent;
-        border-radius: 0;
-        padding: 0;
-
-        & > li {
-          &:before {
-            content: '\\f35a';
-             font-family: 'Font Awesome 5 Free', sans-serif;
-            margin-right: 5px;
-            font-weight: 500;
-          }
-        }
-      }
-
-      & > ol {
-        border: none;
-        background-color: transparent;
-        border-radius: 0;
-        padding: 0;
-        
-        & > li {
-          &:before {
-            background: #555555;
-            color: #ffffff;
-            font-weight: 900;
-            padding: 0 5px;
-            border-radius: 5px;
-            font-size: 90%;
-          }
-
-          & > ul {
-            & > li {
-              &:before {
-                content: '\\f105';
-                 font-family: 'Font Awesome 5 Free', sans-serif;
-                margin-right: 5px;
-                font-weight: 900;
-              }
-            }
-          }
-
-          & > ol {
-            border: none;
-            background-color: transparent;
-            border-radius: 0;
-            padding: 0;
-            
-            & > li {
-              &:before {
-                background: #777777;
-                color: #ffffff;
-                font-weight: 900;
-                padding: 0 5px;
-                border-radius: 5px;
-                font-size: 90%;
-              }
-            }
-          }
-        }
-      }
-    }
-
     & ol {
       list-style-type: none;
       counter-reset: number;
+      border: none;
+      background-color: transparent;
+      border-radius: 0;
+      padding: 0;
+      margin: 0 0 0 20px;
     }
-
-    & ul,
-    & ol {
-      margin: 0 0 0 25px;
-    }
-
+    
     & li {
+      margin: 3px 0;
+      transition: all 0.3s;
       counter-increment: number;
       letter-spacing: -1px;
 
       &:before {
         content: counter(number) '.';
         margin-right: 5px;
+        color: #ffffff;
+        font-weight: 900;
+        padding: 0 7px;
+        border-radius: 5px;
+        font-size: 90%;
+      }
+    }
+
+    & > li {
+      &:before {
+        background: #333333;
+      }
+
+      & > ol > li {
+        &:before {
+          background: #555555;
+        }
+        
+        & > ol li {
+          &:before {
+            background: #777777;
+          }
+        }
       }
     }
 

@@ -17,7 +17,7 @@ export const BlogSeriesList = () => {
       padding: 10px;
       border-radius: 10px;
       color: #cccccc;
-      font-weight: 500;
+      font-weight: 900;
       letter-spacing: -1px;
       transition: all 0.3s;
       width: 100%;

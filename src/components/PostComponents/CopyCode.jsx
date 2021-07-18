@@ -4,7 +4,7 @@ import size from '@/data/size';
 import { copyToClipboard } from '@/utils/copy-to-clipboard';
 import PropTypes from 'prop-types';
 
-export const CopyCode = ({ code, }) => {
+export const CopyCode = ({ code, color, }) => {
   const [ word, setWord, ] = useState('복사');
 
   const onClickCopy = useCallback(() => {
@@ -17,18 +17,17 @@ export const CopyCode = ({ code, }) => {
   }, []);
 
   const CopyCode = css`
-    position: absolute;
-    top: 5px;
-    right: 5px;
-    padding: 5px 10px;
-    border-radius: 10px;
-    color: #ffffff80;
+    border-radius: 10px 10px 0 0;
     font-weight: 500;
-    border: 2px solid #ffffff80;
     transition: all, 0.3s;
-    background-color: transparent;
     cursor: pointer;
-    z-index: 2;
+    line-height: 1;
+    color: ${color[0]};
+    background-color: ${color[0]}60;
+    border: none;
+    margin-left: 5px;
+    display: inline-block;
+    outline: none;
 
     &:before {
       content: '\\f24d' ' ${word}';
@@ -37,22 +36,24 @@ export const CopyCode = ({ code, }) => {
     }
 
     &:hover {
-      background-color: #ffffff;
-      color: #333333;
+      background-color: ${color[0]};
+      color: ${color[1]};
       transition: all, 0.3s;
-      border: 2px solid #ffffff;
     }
 
     @media (min-width: 1px) and (max-width: 600px) {
       font-size: ${size[1]};
+      padding: 10px;
     }
 
     @media (min-width: 601px) and (max-width: 800px) {
       font-size: ${size[2]};
+      padding: 10px 15px;
     }
 
     @media (min-width: 801px) {
       font-size: ${size[3]};
+      padding: 10px 20px;
     }
   `;
   return (
@@ -64,4 +65,5 @@ export const CopyCode = ({ code, }) => {
 
 CopyCode.propTypes = {
   code: PropTypes.string,
+  color: PropTypes.array,
 };

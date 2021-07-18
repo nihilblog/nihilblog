@@ -56,6 +56,10 @@ const BlogLayout = ({
       overflow-x: hidden;
     }
     
+    html {
+      scroll-behavior: smooth;
+    }
+    
     html, body, #__next {
       height: 100%;
     }
