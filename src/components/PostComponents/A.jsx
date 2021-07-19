@@ -72,7 +72,7 @@ export const A = ({ children, href = '', type = 'blog', isOff = 'false', }) => {
 
   const style = css`
     ${color[isOff]}
-    padding: 2px 7px;
+    padding: 0 7px;
     border-radius: 5px;
     font-size: 90%;
     transition: all 0.3s;

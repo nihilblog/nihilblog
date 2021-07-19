@@ -2,7 +2,7 @@ import React from 'react';
 import { css } from '@emotion/react';
 import getTagsAndCategories from '@/utils/mdx/getTagsAndCategories';
 import Link from 'next/link';
-import { P } from '@/components/PostComponents/P';
+import { P } from '@/components/PostComponents';
 import BlogLayout from '@/layouts/BlogLayout';
 import size from '@/data/size';
 import { GoogleAd } from '@/components/ContentComponents';

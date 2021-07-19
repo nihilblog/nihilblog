@@ -4,7 +4,7 @@ import getTagsAndCategories from '@/utils/mdx/getTagsAndCategories';
 import BlogLayout from '@/layouts/BlogLayout';
 import { Box, BoxHeader, PostItemBox } from '@/components/LayoutComponensts';
 import { GoogleAd } from '@/components/ContentComponents';
-import { P } from '@/components/PostComponents/P';
+import { P } from '@/components/PostComponents';
 import { css } from '@emotion/react';
 import getPages from '@/utils/getPages';
 import BlogConfig from '@/data/blog.config';

@@ -19,7 +19,7 @@ export const MainImage = ({ src, alt, }) => {
   return (
     <>
       <div id='content-main-image' css={style}>
-        <img src={src} alt={alt} />
+        <img src={`/images/thumbnail/${src}.png`} alt={alt} />
       </div>
     </>
   );

@@ -35,7 +35,6 @@ const BlogIllustPage = ({ illust, prev, next, }) => {
         <article id='blog-illust-list-page'>
           <PostInfo top={'100'} frontMatter={frontMatter} type={'illust'} />
           <PostContent idName={'blog-post-content'} frontMatter={frontMatter}>
-            <GoogleAd pos={'top'} />
             <Line />
             <MDXRemote {...source} components={{ ...MDXComponents, }} />
             <CommentGuideMessage postType={router.pathname} />

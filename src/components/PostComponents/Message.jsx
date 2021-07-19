@@ -99,13 +99,12 @@ export const Message = ({ children, color, top = '40', bottom = '40', }) => {
 
         & > a {
           color: ${colorType.color[1]};
-          background-color: ${colorType.color[1]}30;
-          border: 1px solid ${colorType.color[1]}40;
+          background-color: transparent;
+          border: 2px solid ${colorType.color[1]};
 
           &:hover {
             color: #ffffff;
             background-color: ${colorType.color[1]};
-            border: 1px solid ${colorType.color[1]};
           }
         }
       }

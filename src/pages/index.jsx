@@ -3,7 +3,7 @@ import getAllYearPosts from '@/utils/mdx/getAllYearPosts';
 import BlogLayout from '@/layouts/BlogLayout';
 import { BlogMessage, BlogSeriesList, GoogleAd } from '@/components/ContentComponents';
 import { css } from '@emotion/react';
-import { P } from '@/components/PostComponents';
+import { A, P } from '@/components/PostComponents';
 import { Box, BoxHeader, PostItemBox } from '@/components/LayoutComponensts';
 import PropTypes from 'prop-types';
 
@@ -14,7 +14,7 @@ const BlogIndexPage = ({ posts, notices, }) => {
   
   const siteData = {
     pageName: '홈',
-    pageURL: '/blog',
+    pageURL: '/',
   };
 
   return (
@@ -25,7 +25,7 @@ const BlogIndexPage = ({ posts, notices, }) => {
         <div id='blog-index-page' css={style}>
           <Box>
             <BoxHeader i={'f017'} w={'500'} f={'Free'}>최근 공지사항 3건</BoxHeader>
-            <P bottom={'0'}>최근 3건의 공지사항입니다. 니힐로그를 이용하는데에 있어서 도움이 될 수 있는 공지사항들입니다.</P>
+            <P bottom={'0'}>니힐로그와 관련된 공지사항입니다. 전체 공지사항 목록은 <A type={'blog'} href={'/notice/page/1'}>이 링크</A>를 이용하시면 됩니다.</P>
           </Box>
           <GoogleAd pos={'top'} margin={'30'} />
           <div id={'blog-notice-list'}>
@@ -38,7 +38,7 @@ const BlogIndexPage = ({ posts, notices, }) => {
           </div>
           <Box top={'100'}>
             <BoxHeader i='f017' w='500' f='Free'>최근 포스트 5건</BoxHeader>
-            <P bottom='0'>최근 5건의 포스트입니다. 더 많은 포스트는 상단 메뉴의 포스트 링크를 클릭해주세요.</P>
+            <P bottom='0'>최근에 작성한 포스트 목록입니다. 전체 포스트 목록은 <A type={'blog'} href={'/post/page/1'}>이 링크</A>를 이용하시면 됩니다.</P>
           </Box>
           <div id='blog-post-list'>
             {posts.map(({ frontMatter, filePath, }, index) => (

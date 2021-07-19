@@ -99,7 +99,7 @@ const PostNavigation = ({ prev, next, type = '', }) => {
   
   return (
     <>
-      <div css={postNavigationStyle}>
+      <div id={'blog-post-navigation'} css={postNavigationStyle}>
         {
           prev === null
             ?

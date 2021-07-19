@@ -1,44 +1,117 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useRef } from 'react';
 import { css } from '@emotion/react';
 import PropTypes from 'prop-types';
 import size from '@/data/size';
 import { A } from '@/components/PostComponents';
 
 export const PostToc = ({ toc, }) => {
-  const [ isDisplay, setIsDisplay, ] = useState(false);
+  const [ text, setText, ] = useState('열기');
+  const [ ulStyle, setUlStyle, ] = useState(css`
+    display: none;
+    opacity: 0;
+  `);
+  const [ cName, setCName, ] = useState('');
+  const ulRef = useRef(null);
   
   const onClickToggle = useCallback(() => {
-    if (isDisplay === true) {
-      setIsDisplay(false);
+    if (text === '접기') {
+      setText('열기');
+      setCName('show hide');
+  
+      setTimeout(() => {
+        setCName('hide');
+      }, 301);
     } else {
-      setIsDisplay(true);
+      setText('접기');
+      setCName('show list-up');
+  
+      setTimeout(() => {
+        setCName('show list-down');
+      }, 0);
     }
-  }, [ isDisplay, ]);
+  }, [ text, ulStyle, ]);
   
   const style = css`
     margin: 80px 0;
+    overflow-y: hidden;
     
     & > div {
       padding: 20px 10px;
-      background-color: #333333;
+      background-color: #555555;
       text-align: justify;
       letter-spacing: -1px;
       line-height: 1;
       border-radius: 10px;
       margin-bottom: 10px;
+      position: relative;
+      z-index: 2;
+      cursor: pointer;
+      transition: all 0.3s;
+      
+      &:hover {
+        background-color: #333333;
+        transition: all 0.3s;
+        
+        & > span {
+          color: #ffffff;
+        }
+      }
 
       & > span {
         font-size: 120%;
-        color: #ffffff;
+        color: #cccccc;
         font-weight: 900;
+        
+        &:before {
+          content: '\\f0ca';
+          font-weight: 900;
+          font-family: 'Font Awesome 5 Free', sans-serif;
+          margin-right: 10px;
+        }
       }
     }
     
     & > ul {
-      padding: 7px 10px;
-      border-radius: 10px;
-      border: 2px solid #33333330;
-      background-color: #33333310;
+      transition: all 0.3s;
+
+      @keyframes fade-in {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      @keyframes fade-out {
+        from {
+          opacity: 1;
+
+        }
+        to {
+          opacity: 0;
+        }
+      }
+      
+      &.show {
+        animation: fade-in 0.3s;
+        animation-fill-mode: forwards;
+        display: block;
+      }
+      
+      &.list-up {
+        transform: translateY(-120%);
+      }
+      
+      &.list-down {
+        transform: translateY(0);
+      }
+      
+      &.hide {
+        animation: fade-out 0.3s;
+        animation-fill-mode: forwards;
+        transform: translateY(-120%);
+      }
       
       & ul {
         margin-left: 20px;
@@ -53,7 +126,6 @@ export const PostToc = ({ toc, }) => {
           color: #3f91ff70;
           border-radius: 5px;
           transition: all 0.3s;
-          padding: 0 7px 1.5px 7px;
         }
 
         &:hover {
@@ -86,9 +158,9 @@ export const PostToc = ({ toc, }) => {
       {toc.length > 0 && (
         <div id={'post-table-of-contents'} css={style}>
           <div id={'top'} onClick={onClickToggle}>
-            <span>목차</span>
+            <span>목차 {text}</span>
           </div>
-          <ul id={'table-of-contents-list'}>
+          <ul id={'table-of-contents-list'} className={cName} css={ulStyle} ref={ulRef}>
             {toc.map((item, index) => (
               <li key={item.name + item.id}>
                 <span>{index + 1}.</span>

@@ -33,7 +33,6 @@ const BlogNoticePage = ({ post, prev, next, }) => {
         <article id='blog-notice-page'>
           <PostInfo top={'100'} frontMatter={frontMatter} type={'notice'} />
           <PostContent idName={'blog-post-content'} frontMatter={frontMatter}>
-            <GoogleAd pos={'top'} />
             <Line />
             <MDXRemote {...source} components={{ ...MDXComponents, }} />
             <CommentGuideMessage postType={''} />

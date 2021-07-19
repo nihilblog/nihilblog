@@ -2,7 +2,7 @@ import React, { useCallback, useState } from 'react';
 import getTagsAndCategories from '@/utils/mdx/getTagsAndCategories';
 import getAllYearPosts from '@/utils/mdx/getAllYearPosts';
 import BlogLayout from '@/layouts/BlogLayout';
-import { P } from '@/components/PostComponents/P';
+import { P } from '@/components/PostComponents';
 import { css } from '@emotion/react';
 import getPages from '@/utils/getPages';
 import BlogConfig from '@/data/blog.config';

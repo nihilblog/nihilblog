@@ -17,6 +17,8 @@ export const PostItemBox = ({ type, frontMatter, filePath, }) => {
     typeObj.href = 'illust';
   }
   
+  const src = '썸네일이 없습니다';
+  
   const style = css`
     padding: 10px;
     box-shadow: 0 0 10px -4px #333333;
@@ -195,7 +197,12 @@ export const PostItemBox = ({ type, frontMatter, filePath, }) => {
     <>
       <div css={style}>
         <div>
-          <img src={coverImage} alt={title} />
+          {
+            coverImage
+              ? <img src={`/images/thumbnail/${coverImage}.png`} alt={title} />
+              : <img src={`/images/thumbnail/${src}.png`} alt={title} />
+          }
+          
         </div>
         <div>
           <h2>

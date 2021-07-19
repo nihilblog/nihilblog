@@ -5,6 +5,7 @@ import size from '@/data/size';
 import { MainImage } from '@/components/PostComponents';
 import { PostToc } from '@/components/LayoutComponensts';
 import { useRouter } from 'next/router';
+import { GoogleAd } from '@/components/ContentComponents';
 
 export const PostContent = ({ children, top = '30', bottom = '30', idName, frontMatter, }) => {
   const [ toc, setToc, ] = useState([]);
@@ -92,31 +93,22 @@ export const PostContent = ({ children, top = '30', bottom = '30', idName, front
     }
   `;
   
+  const src = '썸네일이 없습니다';
+  
   return (
     <>
-      {
-        idName
-          ?
-          (
-            <div id={idName} css={style} ref={postContentRef}>
-              {
-                frontMatter.coverImage
-                  ?
-                  <MainImage src={frontMatter.coverImage} alt={frontMatter.title} />
-                  :
-                  ''
-              }
-              <PostToc toc={toc} />
-              {children}
-            </div>
-          )
-          :
-          (
-            <div css={style}>
-              {children}
-            </div>
-          )
-      }
+      <div id={idName} css={style} ref={postContentRef}>
+        {
+          frontMatter.coverImage
+            ?
+            <MainImage src={frontMatter.coverImage} alt={frontMatter.title} />
+            :
+            <MainImage src={src} alt={frontMatter.title} />
+        }
+        <GoogleAd pos={'top'} />
+        <PostToc toc={toc} />
+        {children}
+      </div>
     </>
   );
 };

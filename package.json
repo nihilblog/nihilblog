@@ -1,16 +1,16 @@
 {
   "name": "nihilog-code",
-  "version": "3.2.0",
+  "version": "3.3.0",
   "description": "니힐로그 Next.js 에디션",
   "main": "src/pages/index.jsx",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nihilblog/nihilblog-code.git"
+    "url": "git+https://github.com/nihilog/nihilog-code.git"
   },
   "bugs": {
-    "url": "https://github.com/nihilblog/nihilblog-code/issues"
+    "url": "https://github.com/nihilog/nihilog-code/issues"
   },
-  "homepage": "https://github.com/nihilblog/nihilblog-code#readme",
+  "homepage": "https://github.com/nihilog/nihilog-code#readme",
   "scripts": {
     "serve": "rm -rf node_modules/.cache && rm -rf build/ && next dev",
     "start": "rm -rf node_modules/.cache && rm -rf build/ && next build && next start",
@@ -40,7 +40,7 @@
     "@babel/core": "^7.14.6",
     "@emotion/babel-plugin": "^11.3.0",
     "@emotion/babel-preset-css-prop": "^11.2.0",
-    "eslint": "^7.30.0",
+    "eslint": "^7.31.0",
     "eslint-config-next": "^11.0.1",
     "eslint-plugin-import": "^2.23.4",
     "eslint-plugin-react": "^7.24.0",

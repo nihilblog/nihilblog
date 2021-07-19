@@ -24,7 +24,7 @@ export const PostInfo = ({ top = '30', bottom = '30', type, frontMatter, }) => {
       transition: all 0.3s;
       background-color: #333333;
       border-radius: 5px;
-      text-align: justify;
+      text-align: left;
       
       & > span {
         font-size: 140%;

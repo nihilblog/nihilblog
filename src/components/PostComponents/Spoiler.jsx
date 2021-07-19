@@ -57,7 +57,7 @@ export const Spoiler = ({ children, }) => {
     }
 
     & > .spo-body {
-      padding: 0 5px;
+      padding: 0 7px;
       border-radius: 5px;
       background-color: ${click.background};
       color: ${click.color};

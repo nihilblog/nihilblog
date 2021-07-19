@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 export const Code = ({ children, }) => {
   const style = css`
-    padding: 2px 7px;
+    padding: 0px 7px;
     border-radius: 5px;
     font-weight: 500;
     text-indent: 0;
@@ -13,6 +13,7 @@ export const Code = ({ children, }) => {
     background-color: #555555;
     margin: 0 2px;
     transition: all 0.3s;
+    vertical-align: bottom;
 
     &:before {
       content: '\\f121';
