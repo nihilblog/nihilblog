@@ -3,17 +3,13 @@
     "baseUrl": ".",
     "paths": {
       "@/components/*": ["./src/components/*"],
-      "@/store/*": ["./src/store/*"],
       "@/styles/*": ["./src/styles/*"],
-      "@/images/*": ["./src/images/*"],
       "@/hooks/*": ["./src/hooks/*"],
-      "@/reducers/*": ["./src/reducers/*"],
       "@/utils/*": ["./src/utils/*"],
       "@/pages/*": ["src/pages/*"],
       "@/data/*": ["./src/data/*"],
       "@/layouts/*": ["./src/layouts/*"],
-      "@/templates/*": ["./src/templates/*"],
-      "@/lib/*": ["./src/lib/*"]
+      "@/types": ["./src/types/*"]
     }
   },
   "exclude": [
