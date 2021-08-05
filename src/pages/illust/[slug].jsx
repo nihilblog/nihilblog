@@ -19,7 +19,7 @@ const BlogIllustPage = ({ illust, prev, next, }) => {
   const siteData = {
     pageName: frontMatter.title,
     pageDescription: frontMatter.description,
-    pageKeywords: '그림, 일러스트, 캐릭터, 컨셉아트, 디자인, 창작, 캐릭터디자인, 캐릭터일러스트, 판타지, illustration, artwork, character, fantasy, characterillustration, characterdesign, fantasycharacter ' + frontMatter.keywords.join(', '),
+    pageKeywords: `그림, 일러스트, 캐릭터, 컨셉아트, 디자인, 창작, 캐릭터디자인, 캐릭터일러스트, 판타지, illustration, artwork, character, fantasy, characterillustration, characterdesign, fantasycharacter, ${frontMatter.keywords.join(', ')}`,
     pageURL: `/illust/${slug}`,
     pageType: 'article',
     pageImage: frontMatter.coverImage ? frontMatter.coverImage : '',
@@ -33,12 +33,12 @@ const BlogIllustPage = ({ illust, prev, next, }) => {
     <>
       <BlogLayout {...siteData}>
         <article id='blog-illust-list-page'>
-          <PostInfo top={'100'} frontMatter={frontMatter} type={'illust'} />
-          <PostContent idName={'blog-post-content'} frontMatter={frontMatter}>
+          <PostInfo top='100' frontMatter={frontMatter} type='illust' />
+          <PostContent idName='blog-post-content' frontMatter={frontMatter}>
             <Line />
             <MDXRemote {...source} components={{ ...MDXComponents, }} />
             <CommentGuideMessage postType={router.pathname} />
-            <GoogleAd pos={'bottom'} />
+            <GoogleAd pos='bottom' />
             <Utterances />
           </PostContent>
         </article>

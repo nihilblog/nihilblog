@@ -61,19 +61,19 @@ const KeywordsPage = ({ keywords, }) => {
     <>
       <BlogLayout {...siteData}>
         <div id='blog-keywords-page'>
-          <Box bottom={'100'} top={'100'}>
+          <Box bottom='100' top='100'>
             <BoxHeader i='f1fc' w='900' f='Free'>일러스트 키워드 목록</BoxHeader>
             <P>이 페이지는 일러스트와 관련된 키워드들이 모여있는 목록을 보여줍니다. 각 키워드에는 링크가 되어있고 어떤 키워드가 어떤 일러스트와 관련이 있는지 확인 할 수 있는 키워드 별 일러스트 목록을 제공합니다. 숫자는 관련된 일러스트의 수를 의미합니다.</P>
             <div css={wordStyle}>
-              {keywords.map((keyword, index) => (
-                <Link key={index + keyword.keywordName} href={`/illust/keywords/${keyword.keywordName}`}>
+              {keywords.map((keyword) => (
+                <Link key={keyword.keywordName} href={`/illust/keywords/${keyword.keywordName}`}>
                   <a>{keyword.keywordName} ({keyword.keywordCount}건)</a>
                 </Link>
               ))}
             </div>
           </Box>
         </div>
-        <GoogleAd pos={'bottom'} margin={'100'} />
+        <GoogleAd pos='bottom' margin='100' />
       </BlogLayout>
     </>
   );
@@ -91,6 +91,6 @@ export const getStaticProps = async () => {
 
 export default KeywordsPage;
 
-KeywordPostsPage.propTypes = {
+KeywordsPage.propTypes = {
   keywords: PropTypes.array,
 };

@@ -53,8 +53,8 @@ const SubNavContainer = () => {
   
   return (
     <>
-      <nav id={'blog-sub-menu'} css={subNavStyle}>
-        <ActiveLink href='/illust/keywords' type={'keywords'}>키워드</ActiveLink>
+      <nav id='blog-sub-menu' css={subNavStyle}>
+        <ActiveLink href='/illust/keywords' type='keywords'>키워드</ActiveLink>
       </nav>
     </>
   );

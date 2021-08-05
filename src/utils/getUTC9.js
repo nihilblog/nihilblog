@@ -4,7 +4,7 @@ const getUTC9 = (date) => {
   const KR_TIME_DIFF = 9 * 60 * 60 * 1000;
   const UTC9Time = new Date(UTC + KR_TIME_DIFF);
 
-  let YYYY = UTC9Time.getFullYear();
+  const YYYY = UTC9Time.getFullYear();
 
   let MM = UTC9Time.getMonth() + 1;
   MM = MM >= 10 ? MM : `0${MM}`;

@@ -5,18 +5,21 @@ module.exports = (type = '') => {
   
   const initialBox = [];
   
-  if (type === 'keywords') {
-    const illusts = getAllYearIllusts('illust').filter((illust) => {
-      initialBox.push(illust.frontMatter.keywords);
-    });
-  } else {
-    const posts = getAllYearPosts('post').filter((post) => {
-      if (type === 'tags') {
+  switch (type) {
+    case 'keywords':
+      getAllYearIllusts('illust').filter((illust) => {
+        initialBox.push(illust.frontMatter.keywords);
+      });
+      break;
+    case 'tags':
+      getAllYearPosts('post').filter((post) => {
         initialBox.push(post.frontMatter.tags);
-      } else {
+      });
+      break;
+    default:
+      getAllYearPosts('post').filter((post) => {
         initialBox.push(post.frontMatter.categories);
-      }
-    });
+      });
   }
   
   let ArraytoObject = [];
@@ -31,37 +34,41 @@ module.exports = (type = '') => {
     return pre;
   }, {});
   
-  let FinallyArray = [];
-  for (let key in ArraytoObject) {
-    let obj;
-    
-    if (type === 'tags') {
-      obj = {
-        tagName: key,
-        tagCount: ArraytoObject[key],
-      };
-    } else if (type === 'categories') {
-      obj = {
-        categoryName: key,
-        categoryCount: ArraytoObject[key],
-      };
-    } else {
-      obj = {
-        keywordName: key,
-        keywordCount: ArraytoObject[key],
-      };
+  const FinallyArray = [];
+  
+  for (const key in ArraytoObject) {
+    if (Object.prototype.hasOwnProperty.call(ArraytoObject, key)) {
+      let obj;
+      
+      if (type === 'tags') {
+        obj = {
+          tagName: key,
+          tagCount: ArraytoObject[key],
+        };
+      } else if (type === 'categories') {
+        obj = {
+          categoryName: key,
+          categoryCount: ArraytoObject[key],
+        };
+      } else {
+        obj = {
+          keywordName: key,
+          keywordCount: ArraytoObject[key],
+        };
+      }
+      
+      FinallyArray.push(obj);
     }
-    
-    FinallyArray.push(obj);
   }
   
   FinallyArray.sort((a, b) => {
-    if (type === 'tags') {
-      return b.tagCount - a.tagCount;
-    } else if (type === 'categories') {
-      return b.categoryCount - a.categoryCount;
-    } else {
-      return b.keywordCount - a.keywordCount;
+    switch (type) {
+      case 'tags':
+        return b.tagCount - a.tagCount;
+      case 'categories':
+        return b.categoryCount - a.categoryCount;
+      default:
+        return b.keywordCount - a.keywordCount;
     }
   });
   

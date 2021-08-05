@@ -4,7 +4,7 @@ const getUTCString = (date) => {
   const KR_TIME_DIFF = 9 * 60 * 60 * 1000;
   const UTCTime = new Date(UTC + KR_TIME_DIFF);
   
-  let YYYY = UTCTime.getFullYear();
+  const YYYY = UTCTime.getFullYear();
   
   let MM = UTCTime.getMonth() + 1;
   MM = MM >= 10 ? MM : `0${MM}`;

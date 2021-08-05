@@ -63,20 +63,20 @@ const KeywordPostsPage = ({ PostsPages, keyword, }) => {
     <>
       <BlogLayout {...siteData}>
         <div id='blog-keyword-page' css={style}>
-          <Box top={'100'}>
+          <Box top='100'>
             <BoxHeader i='f002' w='900' f='Free'>&ldquo; {keyword} &rdquo; 키워드 관련 일러스트 {totalCount}장</BoxHeader>
             <P bottom='0'>다른 키워드들을 보려면 상단 서브 메뉴에서 키워드 링크를 클릭하세요.</P>
           </Box>
-          <GoogleAd pos={'top'} margin={'30'} />
+          <GoogleAd pos='top' margin='30' />
           <div id='blog-post-list'>
-            {PostsPages[postsIndex].map(({ frontMatter, filePath, }, index) => (
+            {PostsPages[postsIndex].map(({ frontMatter, filePath, }) => (
               <PostItemBox
-                key={index + filePath.replace('.mdx', '')} type={'illust'}
+                key={filePath.replace('.mdx', '')} type='illust'
                 frontMatter={frontMatter} filePath={filePath}
               />
             ))}
           </div>
-          <GoogleAd pos={'bottom'} margin={'30'} />
+          <GoogleAd pos='bottom' margin='30' />
           <AlterPagination
             prev={onClickPrev}
             next={onClickNext}
@@ -125,5 +125,5 @@ export default KeywordPostsPage;
 
 KeywordPostsPage.propTypes = {
   PostsPages: PropTypes.array,
-  keywords: PropTypes.string,
+  keyword: PropTypes.string,
 };

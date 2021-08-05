@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import getUTC9 from '@/utils/getUTC9';
 import Link from 'next/link';
 import size from '@/data/size';
+import { v4 as uuid } from 'uuid';
 
 export const PostItemBox = ({ type, frontMatter, filePath, }) => {
   const { description, title, coverImage, categories, createdAt, keywords, } = frontMatter;
@@ -215,9 +216,9 @@ export const PostItemBox = ({ type, frontMatter, filePath, }) => {
             {
               type === 'post'
                 ?
-                categories.map((item, index) => (
-                  <Link key={item + index} href={`/categories/${item}`}>
-                    <a className={'category post'}>{item}</a>
+                categories.map((item) => (
+                  <Link key={uuid()} href={`/categories/${item}`}>
+                    <a className='category post'>{item}</a>
                   </Link>
                 ))
                 :
@@ -225,18 +226,18 @@ export const PostItemBox = ({ type, frontMatter, filePath, }) => {
                   ?
                   (
                     <Link href={`/${typeObj.href}/page/1`}>
-                      <a className={'category notice'}>공지</a>
+                      <a className='category notice'>공지</a>
                     </Link>
                   )
                   :
-                  keywords.map((item, index) => (
-                    <Link key={item + index} href={`/illust/keywords/${item}`}>
-                      <a className={'category illust'}>{item}</a>
+                  keywords.map((item) => (
+                    <Link key={uuid()} href={`/illust/keywords/${item}`}>
+                      <a className='category illust'>{item}</a>
                     </Link>
                   ))
             }
             {' - '}
-            <span className={'created-at'}>{getUTC9(createdAt)}</span>
+            <span className='created-at'>{getUTC9(createdAt)}</span>
           </p>
         </div>
       </div>

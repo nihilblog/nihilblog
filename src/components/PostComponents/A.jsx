@@ -67,7 +67,7 @@ export const A = ({ children, href = '', type = 'blog', isOff = 'false', }) => {
         transition: all 0.3s;
       }
     `,
-    'true': ``,
+    'true': '',
   };
 
   const style = css`

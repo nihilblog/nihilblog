@@ -105,7 +105,7 @@ export const PostContent = ({ children, top = '30', bottom = '30', idName, front
             :
             <MainImage src={src} alt={frontMatter.title} />
         }
-        <GoogleAd pos={'top'} />
+        <GoogleAd pos='top' />
         <PostToc toc={toc} />
         {children}
       </div>

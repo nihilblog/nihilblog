@@ -1,5 +1,5 @@
 import React from 'react';
-import { P, Strong } from '@/components/PostComponents';
+import { A, P, Strong } from '@/components/PostComponents';
 import BlogLayout from '@/layouts/BlogLayout';
 import { css } from '@emotion/react';
 import { useRouter } from 'next/router';
@@ -9,6 +9,11 @@ const BlogNotPoundPage = () => {
   const router = useRouter();
 
   const pathName = router.asPath.replace('/', '');
+  let newPathName;
+  
+  if (pathName.indexOf('blog/') > -1) {
+    newPathName = pathName.replace('blog/', '');
+  }
 
   const blogErrorPageStyle = css`
     & img {
@@ -42,7 +47,17 @@ const BlogNotPoundPage = () => {
                 페이지를 찾을 수 없습니다.<br />
                 경로를 확인해보세요.
               </span><br />
-              입력한 주소: <Strong>{pathName}</Strong>
+              입력한 주소: <Strong>{pathName}</Strong><br />
+              {
+                pathName.indexOf('blog/') > -1
+                  ?
+                  (
+                    <>
+                      바뀐 주소: <A type={'blog'} href={`/${newPathName}`}>{newPathName}</A>
+                    </>
+                  )
+                  : ''
+              }
             </P>
           </Box>
         </div>

@@ -58,7 +58,7 @@ export const CopyCode = ({ code, color, }) => {
   `;
   return (
     <>
-      <button onClick={ onClickCopy } onMouseLeave={ onMouseLeaveCopy } css={ CopyCode }/>
+      <button type='button' aria-label='copy' onClick={ onClickCopy } onMouseLeave={ onMouseLeaveCopy } css={ CopyCode }/>
     </>
   );
 };

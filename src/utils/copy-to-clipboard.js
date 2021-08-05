@@ -1,5 +1,5 @@
 export const copyToClipboard = str => {
-  const clipboard = window.navigator.clipboard;
+  const { clipboard } = window.navigator;
 
   if (!clipboard || typeof clipboard.writeText !== 'function') {
     const textarea = document.createElement('textarea');

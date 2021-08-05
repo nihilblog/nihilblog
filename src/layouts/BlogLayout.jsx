@@ -8,6 +8,7 @@ import { css, Global } from '@emotion/react';
 import SiteHead from '@/components/SiteHead';
 import { useRouter } from 'next/router';
 import SubNavContainer from '@/components/SubNavContainer';
+import PropTypes from 'prop-types';
 
 const BlogLayout = ({
   pageName, pageDescription, pageKeywords, pageImage, pageType,
@@ -15,10 +16,10 @@ const BlogLayout = ({
 }) => {
   const { description, siteType, siteImage, siteURL, keywords, } = BlogConfig;
   const [ siteData, ] = useState({
-    description: pageDescription ? pageDescription : description,
-    keywords: pageKeywords ? pageKeywords : keywords,
-    image: pageImage ? pageImage : `${siteURL}${siteImage}`,
-    type: pageType ? pageType : siteType,
+    description: pageDescription || description,
+    keywords: pageKeywords || keywords,
+    image: pageImage || `${siteURL}${siteImage}`,
+    type: pageType || siteType,
   });
   
   const pageProps = {
@@ -150,3 +151,22 @@ const BlogLayout = ({
 };
 
 export default BlogLayout;
+
+// {
+//   pageName, pageDescription, pageKeywords, pageImage, pageType,
+//     pageURL, pageTag, pageSection, pageCreated, pageUpdated, children,
+// }
+
+BlogLayout.propTypes = {
+  pageName: PropTypes.string,
+  pageDescription: PropTypes.string,
+  pageKeywords: PropTypes.string,
+  pageImage: PropTypes.string,
+  pageURL: PropTypes.string,
+  pageType: PropTypes.string,
+  pageTag: PropTypes.string,
+  pageSection: PropTypes.string,
+  pageCreated: PropTypes.string,
+  pageUpdated: PropTypes.string,
+  children: PropTypes.node,
+};

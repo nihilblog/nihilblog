@@ -25,7 +25,7 @@ const MDXComponents = {
   inlineCode: props => <Code {...props} />,
   p: props => <P {...props} />,
   img: props => <Image {...props} />,
-  a: props => <A href={props.href} type='blog'>{props.children}</A>,
+  a: props => <A {...props} />,
   del: props => <Strike {...props} />,
   strong: props => <Strong {...props} />,
   em: props => <Em {...props} />,

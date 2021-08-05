@@ -90,6 +90,7 @@ export const Youtube = ({ children, src, top = '40', bottom = '40', }) => {
         <p className='youtube-block-title'>YouTube 영상</p>
         <div className='video-wrapper'>
           <iframe
+            title={youtubeDesc}
             id='video'
             src={replaceSrc}
             frameBorder='0'

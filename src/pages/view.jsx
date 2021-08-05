@@ -7,6 +7,7 @@ import { Box, BoxHeader } from '@/components/LayoutComponensts';
 import { P } from '@/components/PostComponents';
 import size from '@/data/size';
 import PropTypes from 'prop-types';
+import { v4 as uuid} from 'uuid';
 
 const BlogPostManagerPage = ({ posts, }) => {
   const style = css`
@@ -95,13 +96,13 @@ const BlogPostManagerPage = ({ posts, }) => {
       <Global styles={globalStyle} />
       <BlogLayout {...siteData}>
         <div css={style}>
-          <Box top={'100'} bottom={'50'}>
-            <BoxHeader i={'f039'} w={'900'} f={'Free'}>총 포스트 {posts.length}건</BoxHeader>
-            <P bottom={'0'}>간단하게 포스트 제목과 주소를 볼 수 있게 만든 페이지.</P>
+          <Box top='100' bottom='50'>
+            <BoxHeader i='f039' w='900' f='Free'>총 포스트 {posts.length}건</BoxHeader>
+            <P bottom='0'>간단하게 포스트 제목과 주소를 볼 수 있게 만든 페이지.</P>
           </Box>
-          <div id={'post-list'}>
+          <div id='post-list'>
             {posts.map(({ frontMatter, filePath, }, index) => (
-              <div className={'post-item'} key={index}>
+              <div className='post-item' key={uuid()}>
                 <h2>
                   {
                     frontMatter.notice

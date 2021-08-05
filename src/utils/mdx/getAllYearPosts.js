@@ -13,12 +13,18 @@ module.exports = (type = '') => {
   
   const month2021 = [ '06', '07', '08', '09', '10', '11', '12', ];
   for (const month in month2021) {
-    posts = posts.concat(getAllPosts(type, '2021', month2021[month]));
+    if (Object.prototype.hasOwnProperty.call(month2021, month)) {
+      posts = posts.concat(getAllPosts(type, '2021', month2021[month]));
+    }
   }
   
   for (const year in years) {
-    for (const month in months) {
-      posts = posts.concat(getAllPosts(type, years[year], months[month]));
+    if (Object.prototype.hasOwnProperty.call(years, year)) {
+      for (const month in months) {
+        if (Object.prototype.hasOwnProperty.call(months, month)) {
+          posts = posts.concat(getAllPosts(type, years[year], months[month]));
+        }
+      }
     }
   }
   

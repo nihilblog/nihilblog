@@ -156,34 +156,34 @@ export const PostToc = ({ toc, }) => {
   return (
     <>
       {toc.length > 0 && (
-        <div id={'post-table-of-contents'} css={style}>
-          <div id={'top'} onClick={onClickToggle}>
+        <div id='post-table-of-contents' css={style}>
+          <div id='top' onClick={onClickToggle}>
             <span>목차 {text}</span>
           </div>
-          <ul id={'table-of-contents-list'} className={cName} css={ulStyle} ref={ulRef}>
+          <ul id='table-of-contents-list' className={cName} css={ulStyle} ref={ulRef}>
             {toc.map((item, index) => (
               <li key={item.name + item.id}>
                 <span>{index + 1}.</span>
-                <A href={`#${item.id}`} type={'blog'}>{item.text}</A>
+                <A href={`#${item.id}`} type='blog'>{item.text}</A>
                 {item.items.length > 0 && (
                   <ul>
                     {item.items.map((subItem, subIndex) => (
                       <li key={subItem.name + subItem.id}>
                         <span>{index + 1}.{subIndex + 1}.</span>
-                        <A href={`#${subItem.id}`} type={'blog'}>{subItem.text}</A>
+                        <A href={`#${subItem.id}`} type='blog'>{subItem.text}</A>
                         {subItem.items.length > 0 && (
                           <ul>
                             {subItem.items.map((subItem2, subIndex2) => (
                               <li key={subItem2.name + subItem2.id}>
                                 <span>{index + 1}.{subIndex + 1}.{subIndex2 + 1}.</span>
-                                <A href={`#${subItem2.id}`} type={'blog'}>{subItem2.text}</A>
+                                <A href={`#${subItem2.id}`} type='blog'>{subItem2.text}</A>
                                 {subItem2.items.length > 0 && (
                                   <ul>
                                     {
                                       subItem.items.map((lastItem, lastIndex) => (
                                         <li key={lastItem.name + lastItem.id}>
                                           <span>{index + 1}.{subIndex + 1}.{subIndex2 + 1}.{lastIndex + 1}.</span>
-                                          <A href={`#${lastItem.id}`} type={'blog'}>{lastItem.text}</A>
+                                          <A href={`#${lastItem.id}`} type='blog'>{lastItem.text}</A>
                                         </li>
                                       ))
                                     }

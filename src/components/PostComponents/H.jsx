@@ -52,6 +52,7 @@ export const H = ({ children, top = '60', bottom = '60', type = '1', }) => {
         size[6],
       ];
       break;
+    default:
   }
 
   const style = css`
@@ -117,31 +118,32 @@ export const H = ({ children, top = '60', bottom = '60', type = '1', }) => {
     case '1':
       heading = (
         <h2 className={`post-heading h-${type}`} css={style}>
-          <span>{children} <a href={'#top'} /></span>
+          <span>{children} <a href='#top' aria-label='top' /></span>
         </h2>
       );
       break;
     case '2':
       heading = (
         <h3 className={`post-heading h-${type}`} css={style}>
-          <span>{children} <a href={'#top'} /></span>
+          <span>{children} <a href='#top' aria-label='top' /></span>
         </h3>
       );
       break;
     case '3':
       heading = (
         <h4 className={`post-heading h-${type}`} css={style}>
-          <span>{children} <a href={'#top'} /></span>
+          <span>{children} <a href='#top' aria-label='top' /></span>
         </h4>
       );
       break;
     case '4':
       heading = (
         <h5 className={`post-heading h-${type}`} css={style}>
-          <span>{children} <a href={'#top'} /></span>
+          <span>{children} <a href='#top' aria-label='top' /></span>
         </h5>
       );
       break;
+    default:
   }
   
   return (

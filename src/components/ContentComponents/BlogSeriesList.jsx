@@ -25,6 +25,7 @@ export const BlogSeriesList = () => {
       user-select: none;
       outline: none;
       cursor: pointer;
+      list-style-type: none;
       
       &:hover {
         background-color: #333333;
@@ -41,10 +42,6 @@ export const BlogSeriesList = () => {
 
       @media (min-width: 801px) {
         font-size: ${size[6]};
-      }
-
-      &::-webkit-details-marker {
-        display: none;
       }
 
       &:before {
@@ -76,8 +73,8 @@ export const BlogSeriesList = () => {
   
             {/* 가이드 시리즈 */}
             <Details close='가이드 모음 열기' open='가이드 모음 닫기' bottom='20' top='20'>
-              <A type={'blog'} href={'/post/2021-05-02-01-complete-html-guide'}>HTML 가이드</A>
-              <A type={'blog'} href={'/post/2021-05-02-03-complete-css-guide'} isOff={'true'}>CSS 가이드</A>
+              <A type='blog' href='/post/2021-05-02-01-complete-html-guide'>HTML 가이드</A>
+              <A type='blog' href='/post/2021-05-02-03-complete-css-guide' isOff='true'>CSS 가이드</A>
             </Details>
   
             {/* 리뷰 시리즈 */}

@@ -37,6 +37,7 @@ export const Details = ({ children, close = '펼치기', open = '접기', top = 
         color: #cccccc;
         background-color: #555555;
         user-select: none;
+        list-style-type: none;
 
         &:hover {
           color: #ffffff;
@@ -49,10 +50,6 @@ export const Details = ({ children, close = '펼치기', open = '접기', top = 
           margin-right: 10px;
           font-weight: 900;
           font-family: 'Font Awesome 5 Free', sans-serif;
-        }
-        
-        &::-webkit-details-marker {
-          display: none;
         }
       }
 

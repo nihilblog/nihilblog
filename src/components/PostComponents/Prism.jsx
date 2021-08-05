@@ -4,10 +4,11 @@ import Highlight, { defaultProps } from 'prism-react-renderer';
 import size from '@/data/size';
 import { CopyCode } from '@/components/PostComponents';
 import PropTypes from 'prop-types';
+import { v4 as uuid } from 'uuid';
 
 export const Prism = ({ children, top = '40', bottom = '40', }) => {
 
-  const className = children.props.className;
+  const { className } = children.props;
   const lang = className.replace('language-', '');
   const code = children.props.children.trim();
 
@@ -231,12 +232,12 @@ export const Prism = ({ children, top = '40', bottom = '40', }) => {
       <Highlight {...defaultProps} code={code} language={lang}>
         {({ className, tokens, getLineProps, getTokenProps, }) => (
           <div className='blog-syntax-highlight' css={style}>
-            <span className={'language-name'}>{capitalizeLang}</span>
+            <span className='language-name'>{capitalizeLang}</span>
             <CopyCode code={code} color={color} />
             <div css={prismBoxStyle}>
               <pre className={className} css={prismStyle}>
                 {tokens.map((line, index) => (
-                  <div key={index} {...getLineProps({ style: { color: 'transparent', }, line, key: index, })}>
+                  <div key={uuid()} {...getLineProps({ style: { color: 'transparent', }, line, key: index, })}>
                     <span className='line-number'>
                       {
                         (index + 1) < 10
@@ -248,7 +249,7 @@ export const Prism = ({ children, top = '40', bottom = '40', }) => {
                       }
                     </span>
                     {line.map((token, key) => (
-                      <span key={key} {...getTokenProps({ style: { color: 'transparent', }, token, key, })} />
+                      <span key={uuid()} {...getTokenProps({ style: { color: 'transparent', }, token, key, })} />
                     ))}
                   </div>
                 ))}

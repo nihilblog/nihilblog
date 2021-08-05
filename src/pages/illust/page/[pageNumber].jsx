@@ -31,21 +31,21 @@ const BlogIllustListPage = ({ illusts, currentPage, prevPage, nextPage, totalPag
     <>
       <BlogLayout {...siteData}>
         <div id='blog-illust-list-page'>
-          <Box top={'100'}>
+          <Box top='100'>
             <BoxHeader i='f53f' w='900' f='Free'>전체 일러스트 {totalCount}장</BoxHeader>
             <P bottom='0'>일반 포스트, 공지를 제외한 모든 일러스트의 목록을 확인할 수 있습니다. 일반 포스트와 공지는 각각의 링크를 이용하시기 바랍니다.</P>
           </Box>
-          <GoogleAd pos={'top'} margin={'30'} />
+          <GoogleAd pos='top' margin='30' />
           <div id='blog-post-list'>
-            {illusts.map(({ frontMatter, filePath, }, index) => (
+            {illusts.map(({ frontMatter, filePath, }) => (
               <PostItemBox
-                key={index + filePath.replace('.mdx', '')} type={'illust'}
+                key={filePath.replace('.mdx', '')} type='illust'
                 frontMatter={frontMatter} filePath={filePath}
               />
             ))}
           </div>
         </div>
-        <GoogleAd pos={'bottom'} margin={'30'} />
+        <GoogleAd pos='bottom' margin='30' />
         <Pagination prev={prevPage} next={nextPage} total={totalPages} current={currentPage} type='post' />
       </BlogLayout>
     </>
@@ -73,22 +73,23 @@ export const getStaticProps = async ({ params, }) => {
   const illusts = getAllYearIllusts('illust');
   
   const PostsPages = getPages(illusts, BlogConfig.postPerPage);
+  const number = parseInt(params.pageNumber, 10);
   
-  const prevPage = parseInt(params.pageNumber) === 1
+  const prevPage = number === 1
     ? null
-    : parseInt(params.pageNumber) - 1;
+    : number - 1;
   
-  const nextPage = parseInt(params.pageNumber) === PostsPages.length
+  const nextPage = number === PostsPages.length
     ? null
-    : parseInt(params.pageNumber) + 1;
+    : number + 1;
   
   return {
     props: {
       PostsPages,
-      illusts: PostsPages[parseInt(params.pageNumber) - 1],
+      illusts: PostsPages[number - 1],
       prevPage,
       nextPage,
-      currentPage: parseInt(params.pageNumber),
+      currentPage: number,
       totalPages: PostsPages.length,
     },
   };

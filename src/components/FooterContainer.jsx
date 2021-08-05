@@ -91,9 +91,9 @@ const FooterContainer = () => {
     <>
       <footer css={footerContainerStyle}>
         <p id='footer-link'>
-          <a href='mailto:nihil_ncunia@naver.com' target='_blank' rel='noreferrer noopener'/>
-          <a href='https://www.instagram.com/nihil_illust/' target='_blank' rel='noreferrer noopener' />
-          <a href='https://github.com/NIHILncunia' target='_blank' rel='noreferrer noopener' />
+          <a href='mailto:nihil_ncunia@naver.com' target='_blank' rel='noreferrer noopener' aria-label='email' />
+          <a href='https://www.instagram.com/nihil_illust/' target='_blank' rel='noreferrer noopener' aria-label='instagram' />
+          <a href='https://github.com/NIHILncunia' target='_blank' rel='noreferrer noopener' aria-label='github' />
         </p>
         <p id='footer-copyright'>{BlogConfig.year}. {BlogConfig.author}.</p>
       </footer>

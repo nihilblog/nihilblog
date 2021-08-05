@@ -99,20 +99,20 @@ const PostNavigation = ({ prev, next, type = '', }) => {
   
   return (
     <>
-      <div id={'blog-post-navigation'} css={postNavigationStyle}>
+      <div id='blog-post-navigation' css={postNavigationStyle}>
         {
           prev === null
             ?
             (
               <p className='nav-button'>
-                <span className={'nav-label'}>이전 포스트</span>
+                <span className='nav-label'>이전 포스트</span>
                 <span className='message'>이전 포스트가 없습니다.</span>
               </p>
             )
             :
             (prev && (
               <p className='nav-button'>
-                <span className={'nav-label'}>이전 포스트</span>
+                <span className='nav-label'>이전 포스트</span>
                 <Link href={prevHref} passHref>
                   <a className='nav-link'>{prev.frontMatter.title}</a>
                 </Link>
@@ -124,14 +124,14 @@ const PostNavigation = ({ prev, next, type = '', }) => {
             ?
             (
               <p className='nav-button'>
-                <span className={'nav-label'}>다음 포스트</span>
+                <span className='nav-label'>다음 포스트</span>
                 <span className='message'>다음 포스트가 없습니다.</span>
               </p>
             )
             :
             (next && (
               <p className='nav-button'>
-                <span className={'nav-label'}>다음 포스트</span>
+                <span className='nav-label'>다음 포스트</span>
                 <Link href={nextHref} passHref>
                   <a className='nav-link'>{next.frontMatter.title}</a>
                 </Link>

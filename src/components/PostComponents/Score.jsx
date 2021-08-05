@@ -68,6 +68,7 @@ export const Score = ({ top = '40', bottom = '40', children, score, }) => {
       weight.left = '900';
       weight.right = '900';
       break;
+    default:
   }
 
   const style = css`

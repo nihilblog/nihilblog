@@ -8,8 +8,10 @@ module.exports = (type = '') => {
   const illusts2016 = getAllPosts(type, '2016');
   
   let illusts;
-  for (let year in illustsYears) {
-    illusts = illusts2016.concat(getAllPosts(type, illustsYears[year]));
+  for (const year in illustsYears) {
+    if (Object.prototype.hasOwnProperty.call(illustsYears, year)) {
+      illusts = illusts2016.concat(getAllPosts(type, illustsYears[year]));
+    }
   }
   
   illusts = illusts.sort((a, b) => {

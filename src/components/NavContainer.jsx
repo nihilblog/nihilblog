@@ -69,14 +69,14 @@ const NavContainer = () => {
 
   return (
     <>
-      <nav id={'blog-main-menu'} css={navStyle}>
+      <nav id='blog-main-menu' css={navStyle}>
         <ActiveLink href='/'>홈</ActiveLink>
         <ActiveLink href='/about'>소개</ActiveLink>
-        <ActiveLink href='/notice/page/1' type={'notice'}>공지</ActiveLink>
-        <ActiveLink href='/post/page/1' type={'post'}>포스트</ActiveLink>
-        <ActiveLink href='/categories' type={'categories'}>카테고리</ActiveLink>
-        <ActiveLink href='/tags' type={'tags'}>태그</ActiveLink>
-        <ActiveLink href='/illust/page/1' type={'illust'}>일러스트</ActiveLink>
+        <ActiveLink href='/notice/page/1' type='notice'>공지</ActiveLink>
+        <ActiveLink href='/post/page/1' type='post'>포스트</ActiveLink>
+        <ActiveLink href='/categories' type='categories'>카테고리</ActiveLink>
+        <ActiveLink href='/tags' type='tags'>태그</ActiveLink>
+        <ActiveLink href='/illust/page/1' type='illust'>일러스트</ActiveLink>
       </nav>
     </>
   );

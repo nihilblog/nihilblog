@@ -47,7 +47,7 @@ const HeaderContainer = () => {
   return (
     <>
       <header css={headerStyle}>
-        <img src={'/images/nihilog-front-logo.svg'} alt='니힐로그 로고' />
+        <img src='/images/nihilog-front-logo.svg' alt='니힐로그 로고' />
         <p>{BlogConfig.title} Ver.{BlogConfig.version}.</p>
       </header>
     </>

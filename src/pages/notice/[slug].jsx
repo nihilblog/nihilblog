@@ -31,12 +31,12 @@ const BlogNoticePage = ({ post, prev, next, }) => {
     <>
       <BlogLayout {...siteData}>
         <article id='blog-notice-page'>
-          <PostInfo top={'100'} frontMatter={frontMatter} type={'notice'} />
-          <PostContent idName={'blog-post-content'} frontMatter={frontMatter}>
+          <PostInfo top='100' frontMatter={frontMatter} type='notice' />
+          <PostContent idName='blog-post-content' frontMatter={frontMatter}>
             <Line />
             <MDXRemote {...source} components={{ ...MDXComponents, }} />
-            <CommentGuideMessage postType={''} />
-            <GoogleAd pos={'bottom'} />
+            <CommentGuideMessage postType='' />
+            <GoogleAd pos='bottom' />
             <Utterances />
           </PostContent>
         </article>

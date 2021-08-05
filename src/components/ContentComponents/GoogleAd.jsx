@@ -17,7 +17,7 @@ export const GoogleAd = ({ margin = '40', pos = '', }) => {
     <>
       <div className={`blog-${pos}-ad`} css={adStyle}>
         <Adsense.Google
-          client={'ca-pub-9256396675875954'}
+          client='ca-pub-9256396675875954'
           slot={positionSlot[pos]}
         />
       </div>
