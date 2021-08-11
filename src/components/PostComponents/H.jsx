@@ -3,7 +3,9 @@ import { css } from '@emotion/react';
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export const H = ({ children, top = '60', bottom = '60', type = '1', }) => {
+export const H = ({
+  children, top = '60', bottom = '60', type = '1',
+}) => {
   const typePadding = {};
   let heading;
 
@@ -62,7 +64,6 @@ export const H = ({ children, top = '60', bottom = '60', type = '1', }) => {
     background-color: ${typePadding.backColor};
     padding: ${typePadding.topDown}px 10px;
     border-radius: 10px;
-    transition: all 0.3s;
     letter-spacing: -1px;
     display: flex;
     flex-direction: row;
@@ -85,7 +86,6 @@ export const H = ({ children, top = '60', bottom = '60', type = '1', }) => {
       & > a {
         color: #ffffff30;
         margin-left: 10px;
-        transition: all 0.3s;
         scroll-behavior: smooth;
 
         &:before {
@@ -96,7 +96,6 @@ export const H = ({ children, top = '60', bottom = '60', type = '1', }) => {
 
         &:hover {
           color: #ffffff;
-          transition: all 0.3s;
         }
       }
     }
@@ -113,7 +112,7 @@ export const H = ({ children, top = '60', bottom = '60', type = '1', }) => {
       font-size: ${typePadding.media[2]};
     }
   `;
-  
+
   switch (type) {
     case '1':
       heading = (
@@ -145,7 +144,7 @@ export const H = ({ children, top = '60', bottom = '60', type = '1', }) => {
       break;
     default:
   }
-  
+
   return (
     <>
       {heading}

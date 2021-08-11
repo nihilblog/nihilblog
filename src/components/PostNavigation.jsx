@@ -14,7 +14,7 @@ const PostNavigation = ({ prev, next, type = '', }) => {
   } else {
     path = 'illust';
   }
-  
+
   const prevHref = prev ? `/${String(path)}/${String(prev.filePath.replace('.mdx', ''))}` : '';
   const nextHref = next ? `/${String(path)}/${String(next.filePath.replace('.mdx', ''))}` : '';
 
@@ -64,7 +64,6 @@ const PostNavigation = ({ prev, next, type = '', }) => {
         color: #aaaaaa;
         padding: 10px;
         border-radius: 5px;
-        transition: all 0.3s;
       }
       
       & > .nav-link {
@@ -74,12 +73,10 @@ const PostNavigation = ({ prev, next, type = '', }) => {
         padding: 10px;
         border-radius: 5px;
         line-height: 1.2;
-        transition: all 0.3s;
         
         &:hover {
           color: #ffffff;
           background-color: #333333;
-          transition: all 0.3s;
         }
       }
     }
@@ -96,21 +93,19 @@ const PostNavigation = ({ prev, next, type = '', }) => {
       & p {font-size: ${size[3]};}
     }
   `;
-  
+
   return (
     <>
       <div id='blog-post-navigation' css={postNavigationStyle}>
         {
           prev === null
-            ?
-            (
+            ? (
               <p className='nav-button'>
                 <span className='nav-label'>이전 포스트</span>
                 <span className='message'>이전 포스트가 없습니다.</span>
               </p>
             )
-            :
-            (prev && (
+            : (prev && (
               <p className='nav-button'>
                 <span className='nav-label'>이전 포스트</span>
                 <Link href={prevHref} passHref>
@@ -121,15 +116,13 @@ const PostNavigation = ({ prev, next, type = '', }) => {
         }
         {
           next === null
-            ?
-            (
+            ? (
               <p className='nav-button'>
                 <span className='nav-label'>다음 포스트</span>
                 <span className='message'>다음 포스트가 없습니다.</span>
               </p>
             )
-            :
-            (next && (
+            : (next && (
               <p className='nav-button'>
                 <span className='nav-label'>다음 포스트</span>
                 <Link href={nextHref} passHref>

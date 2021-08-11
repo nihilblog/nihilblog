@@ -3,8 +3,9 @@ import { css } from '@emotion/react';
 import size from '@/data/size';
 import PropTypes from 'prop-types';
 
-export const Image = ({ src, alt, top = '40', bottom = '40', }) => {
-  
+export const Image = ({
+  src, alt, top = '40', bottom = '40',
+}) => {
   const style = css`
     max-width: 940px;
     box-sizing: border-box;
@@ -21,7 +22,6 @@ export const Image = ({ src, alt, top = '40', bottom = '40', }) => {
       background-color: #ffffff;
       border-radius: 10px;
       color: #333333;
-      transition: all 0.3s;
       padding: 5px 10px;
       margin: 20px auto 0 auto;
       display: block;
@@ -45,7 +45,6 @@ export const Image = ({ src, alt, top = '40', bottom = '40', }) => {
         background-color: #333333;
         color: #ffffff;
         border: 2px solid #333333;
-        transition: all 0.3s;
       }
     }
 
@@ -58,7 +57,6 @@ export const Image = ({ src, alt, top = '40', bottom = '40', }) => {
         margin: 0 auto;
         max-width: 100%;
         display: block;
-        transition: all 0.3s;
         border-radius: 10px;
       }
     }
@@ -69,7 +67,6 @@ export const Image = ({ src, alt, top = '40', bottom = '40', }) => {
       font-style: italic;
       color: #333333;
       letter-spacing: -1px;
-      transition: all 0.3s;
 
       & > span {
         font-size: 90%;

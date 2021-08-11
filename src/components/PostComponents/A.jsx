@@ -3,71 +3,72 @@ import { css } from '@emotion/react';
 import Link from 'next/link';
 import PropTypes from 'prop-types';
 
-export const A = ({ children, href = '', type = 'blog', isOff = 'false', }) => {
+export const A = ({
+  children, href = '', type = 'blog', isOff = 'false',
+}) => {
   const typeColor = {
-    'blog': '#3f91ff',
-    'normal': '#11b32c',
-    'youtube': '#c30505',
+    blog: '#3f91ff',
+    normal: '#11b32c',
+    youtube: '#c30505',
   };
-  
+
   const typeProps = {
-    'blog': {
+    blog: {
       href,
       rel: 'noreferrer noopener',
       target: '_self',
     },
-    'normal': {
+    normal: {
       href,
       rel: 'noreferrer noopener',
       target: '_blank',
     },
-    'youtube': {
+    youtube: {
       href,
       rel: 'noreferrer noopener',
       target: '_blank',
     },
   };
-  
+
   const icon = {
-    'blog': {
+    blog: {
       code: 'f0c1',
       type: 'Free',
     },
-    'normal': {
+    normal: {
       code: 'f360',
       type: 'Free',
     },
-    'youtube': {
+    youtube: {
       code: 'f167',
       type: 'Brands',
     },
   };
-  
+
   const color = {
-    'false': `
+    false: `
       color: ${typeColor[type]};
       background-color: ${typeColor[type]}30;
     `,
-    'true': `
+    true: `
       color: #999999;
       background-color: #88888830;
     `,
   };
-  
+
   const cursor = {
-    'false': 'pointer',
-    'true': 'default',
+    false: 'pointer',
+    true: 'default',
   };
-  
+
   const hover = {
-    'false': `
+    false: `
       &:hover {
         color: #ffffff;
         background-color: ${typeColor[type]};
-        transition: all 0.3s;
       }
     `,
-    'true': '',
+    true: '',
   };
 
   const style = css`
@@ -75,7 +76,6 @@ export const A = ({ children, href = '', type = 'blog', isOff = 'false', }) => {
     padding: 0 7px;
     border-radius: 5px;
     font-size: 90%;
-    transition: all 0.3s;
     margin: 0 2px;
     cursor: ${cursor[isOff]};
 
@@ -93,16 +93,14 @@ export const A = ({ children, href = '', type = 'blog', isOff = 'false', }) => {
     <>
       {
         type === 'blog'
-          ?
-          isOff === 'true'
-            ?
-            (<span css={style}>{children}</span>)
-            :
-            (<Link {...typeProps[type]} passHref>
-              <a css={style}>{children}</a>
-            </Link>)
-          :
-          (<a css={style} {...typeProps[type]}>{children}</a>)
+          ? isOff === 'true'
+            ? (<span css={style}>{children}</span>)
+            : (
+              <Link {...typeProps[type]} passHref>
+                <a css={style}>{children}</a>
+              </Link>
+            )
+          : (<a css={style} {...typeProps[type]}>{children}</a>)
       }
     </>
   );

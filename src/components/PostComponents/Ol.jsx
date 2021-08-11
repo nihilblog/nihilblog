@@ -6,7 +6,6 @@ import PropTypes from 'prop-types';
 export const Ol = ({ children, top = '40', bottom = '40', }) => {
   const style = css`
     margin: ${top}px 0 ${bottom}px 0;
-    transition: all 0.3s;
     padding: 7px 10px 7px 10px;
     list-style-type: none;
     counter-reset: number;
@@ -28,7 +27,6 @@ export const Ol = ({ children, top = '40', bottom = '40', }) => {
     
     & li {
       margin: 3px 0;
-      transition: all 0.3s;
       counter-increment: number;
       letter-spacing: -1px;
 

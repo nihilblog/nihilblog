@@ -3,10 +3,12 @@ import { css } from '@emotion/react';
 import size from '@/data/size';
 import PropTypes from 'prop-types';
 
-const AlterPagination = ({ prev, next, first, last, current, total, top = '50', bottom = '100', }) => {
+const AlterPagination = ({
+  prev, next, first, last, current, total, top = '50', bottom = '100',
+}) => {
   const isFirst = current === 0;
   const isLast = current === total - 1;
-  
+
   const paginatorStyle = css`
     margin-top: ${top}px;
     margin-bottom: ${bottom}px;
@@ -67,7 +69,6 @@ const AlterPagination = ({ prev, next, first, last, current, total, top = '50', 
       font-weight: 500;
       background-color: #33333330;
       color: #555555;
-      transition: all 0.3s;
       outline: none;
       cursor: pointer;
       border: none;
@@ -75,7 +76,6 @@ const AlterPagination = ({ prev, next, first, last, current, total, top = '50', 
       &:hover {
         background-color: #333333;
         color: #ffffff;
-        transition: all 0.3s;
       }
     }
 

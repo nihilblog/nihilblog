@@ -2,31 +2,33 @@ import React, { useCallback } from 'react';
 import getAllYearIllusts from '@/utils/mdx/getAllYearIllusts';
 import BlogLayout from '@/layouts/BlogLayout';
 import getPages from '@/utils/getPages';
-import BlogConfig from '@/data/blog.config';
+import BlogConfig from '@/data/blogConfig';
 import Pagination from '@/components/Pagination';
 import { P } from '@/components/PostComponents';
 import { GoogleAd } from '@/components/ContentComponents';
 import { Box, BoxHeader, PostItemBox } from '@/components/LayoutComponensts';
 import PropTypes from 'prop-types';
 
-const BlogIllustListPage = ({ illusts, currentPage, prevPage, nextPage, totalPages, PostsPages, }) => {
+const BlogIllustListPage = ({
+  illusts, currentPage, prevPage, nextPage, totalPages, PostsPages,
+}) => {
   const getCount = useCallback(() => {
     let length = 0;
-    
+
     for (let i = 0; i <= PostsPages.length - 1; i++) {
       length += PostsPages[i].length;
     }
-    
+
     return length;
   }, []);
-  
+
   const totalCount = getCount();
-  
+
   const siteData = {
     pageName: `일러스트 목록 (${currentPage} 페이지)`,
     pageURL: `/illust/page/${currentPage}`,
   };
-  
+
   return (
     <>
       <BlogLayout {...siteData}>
@@ -39,8 +41,10 @@ const BlogIllustListPage = ({ illusts, currentPage, prevPage, nextPage, totalPag
           <div id='blog-post-list'>
             {illusts.map(({ frontMatter, filePath, }) => (
               <PostItemBox
-                key={filePath.replace('.mdx', '')} type='illust'
-                frontMatter={frontMatter} filePath={filePath}
+                key={filePath.replace('.mdx', '')}
+                type='illust'
+                frontMatter={frontMatter}
+                filePath={filePath}
               />
             ))}
           </div>
@@ -54,35 +58,33 @@ const BlogIllustListPage = ({ illusts, currentPage, prevPage, nextPage, totalPag
 
 export const getStaticPaths = async () => {
   const illusts = await getAllYearIllusts('illust');
-  
+
   const PostsPages = getPages(illusts, BlogConfig.postPerPage);
-  
+
   return {
-    paths: PostsPages.map((page, index) => {
-      return {
-        params: {
-          pageNumber: String(index + 1),
-        },
-      };
-    }),
+    paths: PostsPages.map((page, index) => ({
+      params: {
+        pageNumber: String(index + 1),
+      },
+    })),
     fallback: false,
   };
 };
 
 export const getStaticProps = async ({ params, }) => {
   const illusts = getAllYearIllusts('illust');
-  
+
   const PostsPages = getPages(illusts, BlogConfig.postPerPage);
   const number = parseInt(params.pageNumber, 10);
-  
+
   const prevPage = number === 1
     ? null
     : number - 1;
-  
+
   const nextPage = number === PostsPages.length
     ? null
     : number + 1;
-  
+
   return {
     props: {
       PostsPages,

@@ -11,7 +11,6 @@ export const Q = ({ children, }) => {
     color: #333333;
     font-size: 90%;
     margin: 0 2px;
-    transition: all 0.3s;
 
     & > .fa-quote-left,
     & > .fa-quote-right {

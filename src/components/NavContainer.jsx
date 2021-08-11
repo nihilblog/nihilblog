@@ -13,7 +13,6 @@ const NavContainer = () => {
     letter-spacing: -1px;
 
     & > a {
-      transition: all 0.3s;
       box-sizing: border-box;
       display: inline-block;
       color: #dddddd;
@@ -33,7 +32,6 @@ const NavContainer = () => {
 
       &:hover,
       &.selected {
-        transition: all 0.3s;
         color: #333333;
         background-color: #ffffff;
       }

@@ -1,6 +1,6 @@
 import React from 'react';
 import { css } from '@emotion/react';
-import BlogConfig from '@/data/blog.config';
+import BlogConfig from '@/data/blogConfig';
 import size from '@/data/size';
 
 const FooterContainer = () => {
@@ -20,7 +20,6 @@ const FooterContainer = () => {
       justify-content: center;
       
       & > a {
-        transition: all 0.3s;
         box-sizing: border-box;
         display: flex;
         flex-direction: row;
@@ -35,7 +34,6 @@ const FooterContainer = () => {
         background-color: #444444;
 
         &:hover {
-          transition: all 0.3s;
           color: #333333;
           background-color: #ffffff;
         }
@@ -63,7 +61,6 @@ const FooterContainer = () => {
     & > #footer-copyright {
       color: #ffffff;
       font-weight: 900;
-      transition: all 0.3s;
       user-select: none;
 
       &:before {

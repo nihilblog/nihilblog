@@ -13,7 +13,6 @@ export const Spoiler = ({ children, }) => {
       &:hover {
         color: #ffffff;
         background-color: #333333;
-        transition: all 0.3s;
       }
     `,
   });
@@ -41,7 +40,6 @@ export const Spoiler = ({ children, }) => {
           &:hover {
             color: #ffffff;
             background-color: #333333;
-            transition: all 0.3s;
           }
         `,
       });
@@ -64,7 +62,6 @@ export const Spoiler = ({ children, }) => {
       ${click.userSelect}
       cursor: pointer;
       text-indent: 0;
-      transition: all 0.3s;
       margin: 0 2px;
 
       ${click.hover}
@@ -87,7 +84,6 @@ export const Spoiler = ({ children, }) => {
       opacity: 0;
       pointer-events: none;
       line-height: 1.5;
-      transition: all 0.3s;
 
       &:before {
         position: absolute;

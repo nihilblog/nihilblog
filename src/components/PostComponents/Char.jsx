@@ -3,7 +3,9 @@ import { css } from '@emotion/react';
 import size from '@/data/size';
 import PropTypes from 'prop-types';
 
-export const Char = ({ children, who = '이름', top = '40', bottom = '40', image = '기본', }) => {
+export const Char = ({
+  children, who = '이름', top = '40', bottom = '40', image = '기본',
+}) => {
   const style = css`
     margin: ${top}px 0 ${bottom}px 0;
     background-color: #333333;
@@ -32,7 +34,6 @@ export const Char = ({ children, who = '이름', top = '40', bottom = '40', imag
         letter-spacing: -1px;
         font-size: 110%;
         line-height: 100%;
-        transition: all 0.3s;
       }
     }
     & > .script-bottom {
@@ -43,7 +44,6 @@ export const Char = ({ children, who = '이름', top = '40', bottom = '40', imag
         padding: 10px;
         border-radius: 5px;
         line-height: 100%;
-        transition: all 0.3s;
       }
     }
 

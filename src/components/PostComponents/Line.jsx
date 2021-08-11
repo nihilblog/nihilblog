@@ -8,9 +8,8 @@ export const Line = ({ margin = '80', }) => {
     width: 80%;
     border: none;
     border-bottom: 10px dotted #888888;
-    transition: all 0.3s;
   `;
-  
+
   return (
     <>
       <hr css={lineStyle} />

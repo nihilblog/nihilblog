@@ -5,8 +5,12 @@ import getUTC9 from '@/utils/getUTC9';
 import Link from 'next/link';
 import size from '@/data/size';
 
-export const PostInfo = ({ top = '30', bottom = '30', type, frontMatter, }) => {
-  const { title, tags, categories, keywords, createdAt, updatedAt, drawDate, } = frontMatter;
+export const PostInfo = ({
+  top = '30', bottom = '30', type, frontMatter,
+}) => {
+  const {
+    title, tags, categories, keywords, createdAt, updatedAt, drawDate,
+  } = frontMatter;
 
   const postInfoStyle = css`
     margin-top: ${top}px;
@@ -21,7 +25,6 @@ export const PostInfo = ({ top = '30', bottom = '30', type, frontMatter, }) => {
       letter-spacing: -1px;
       color: #ffffff;
       margin-bottom: 20px;
-      transition: all 0.3s;
       background-color: #333333;
       border-radius: 5px;
       text-align: left;
@@ -38,7 +41,6 @@ export const PostInfo = ({ top = '30', bottom = '30', type, frontMatter, }) => {
     
     & > p {
       margin: 10px 0 7px 0;
-      transition: all 0.3s;
       letter-spacing: -1px;
       line-height: 1;
       font-weight: 500;
@@ -58,7 +60,6 @@ export const PostInfo = ({ top = '30', bottom = '30', type, frontMatter, }) => {
         padding: 5px 10px;
         display: inline-block;
         border-radius: 5px;
-        transition: all 0.3s;
         margin-right: 10px;
       }
       
@@ -70,7 +71,6 @@ export const PostInfo = ({ top = '30', bottom = '30', type, frontMatter, }) => {
         margin-bottom: 3px;
         border-radius: 5px;
         display: inline-block;
-        transition: all 0.3s;
         
         &:before {
           font-weight: 900;
@@ -93,7 +93,6 @@ export const PostInfo = ({ top = '30', bottom = '30', type, frontMatter, }) => {
         &:hover {
           color: #ffffff;
           background-color: #333333;
-          transition: all 0.3s;
         }
       }
     }
@@ -120,21 +119,16 @@ export const PostInfo = ({ top = '30', bottom = '30', type, frontMatter, }) => {
         <h1><span>{title}</span></h1>
         {
           type === 'post'
-            ?
-            <p><span>분류</span>일반 포스트</p>
-            :
-            type === 'notice'
-              ?
-              <p><span>분류</span>공지 포스트</p>
-              :
-              <p><span>분류</span>일러스트 포스트</p>
+            ? <p><span>분류</span>일반 포스트</p>
+            : type === 'notice'
+              ? <p><span>분류</span>공지 포스트</p>
+              : <p><span>분류</span>일러스트 포스트</p>
         }
         <p><span>작성일</span>{getUTC9(createdAt)}</p>
         {
           createdAt < updatedAt
             ? <p><span>수정일</span>{getUTC9(updatedAt)}</p>
-            :
-            ''
+            : ''
         }
         {
           type === 'illust'
@@ -143,8 +137,7 @@ export const PostInfo = ({ top = '30', bottom = '30', type, frontMatter, }) => {
         }
         {
           type === 'post'
-            ?
-            (
+            ? (
               <>
                 <p>
                   <span>카테고리</span>
@@ -168,13 +161,11 @@ export const PostInfo = ({ top = '30', bottom = '30', type, frontMatter, }) => {
                 </p>
               </>
             )
-            :
-            ''
+            : ''
         }
         {
           type === 'illust'
-            ?
-            (
+            ? (
               <p>
                 <span>키워드</span>
                 {
@@ -186,8 +177,7 @@ export const PostInfo = ({ top = '30', bottom = '30', type, frontMatter, }) => {
                 }
               </p>
             )
-            :
-            ''
+            : ''
         }
       </div>
     </>

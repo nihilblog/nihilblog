@@ -3,7 +3,9 @@ import { css } from '@emotion/react';
 import size from '@/data/size';
 import PropTypes from 'prop-types';
 
-export const Details = ({ children, close = '펼치기', open = '접기', top = '40', bottom = '40', }) => {
+export const Details = ({
+  children, close = '펼치기', open = '접기', top = '40', bottom = '40',
+}) => {
   const [ isOpen, setIsOpen, ] = useState(false);
   const [ title, setTitle, ] = useState(close);
 
@@ -21,14 +23,12 @@ export const Details = ({ children, close = '펼치기', open = '접기', top = 
     margin: ${top}px 0 ${bottom}px 0;
     
     & > details {
-      transition: all 0.3s;
       font-weight: 500;
       letter-spacing: -1px;
       color: #333333;
       margin-top: 20px;
 
       & > summary {
-        transition: all 0.3s;
         outline: none;
         cursor: pointer;
         border: 2px solid #555555;
@@ -59,10 +59,8 @@ export const Details = ({ children, close = '펼치기', open = '접기', top = 
         border-radius: 0 0 10px 10px;
         padding: 10px;
         background-color: #eeeeee;
-        transition: all 0.3s;
 
         & > p {
-          transition: all 0.3s;
           line-height: 1.8;
         }
       }
@@ -71,7 +69,6 @@ export const Details = ({ children, close = '펼치기', open = '접기', top = 
     & > details[open] {
       & > summary {
         border-radius: 10px 10px 0 0;
-        transition: all 0.3s;
         border-color: #333333;
         background-color: #333333;
         color: #ffffff;

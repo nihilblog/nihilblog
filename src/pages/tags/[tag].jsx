@@ -5,7 +5,7 @@ import BlogLayout from '@/layouts/BlogLayout';
 import { P } from '@/components/PostComponents';
 import { css } from '@emotion/react';
 import getPages from '@/utils/getPages';
-import BlogConfig from '@/data/blog.config';
+import BlogConfig from '@/data/blogConfig';
 import AlterPagination from '@/components/AlterPagination';
 import { GoogleAd } from '@/components/ContentComponents';
 import { Box, BoxHeader, PostItemBox } from '@/components/LayoutComponensts';
@@ -13,43 +13,43 @@ import PropTypes from 'prop-types';
 
 const TagPostsPage = ({ tag, PostsPages, }) => {
   const [ postsIndex, setPostsIndex, ] = useState(0);
-  
+
   const getCount = useCallback(() => {
     let length = 0;
-    
+
     for (let i = 0; i <= PostsPages.length - 1; i++) {
       length += PostsPages[i].length;
     }
-    
+
     return length;
   }, []);
-  
+
   const totalCount = getCount();
-  
+
   const onClickPrev = useCallback(() => {
     if (postsIndex !== 0) {
       setPostsIndex(postsIndex - 1);
     }
   }, [ postsIndex, ]);
-  
+
   const onClickNext = useCallback(() => {
     if (postsIndex !== PostsPages.length - 1) {
       setPostsIndex(postsIndex + 1);
     }
   }, [ postsIndex, ]);
-  
+
   const onClickFirst = useCallback(() => {
     if (postsIndex !== 0) {
       setPostsIndex(0);
     }
   }, [ postsIndex, ]);
-  
+
   const onClickLast = useCallback(() => {
     if (postsIndex !== PostsPages.length - 1) {
       setPostsIndex(PostsPages.length - 1);
     }
   }, [ postsIndex, ]);
-  
+
   const style = css`
     margin-bottom: 100px;
   `;
@@ -71,8 +71,10 @@ const TagPostsPage = ({ tag, PostsPages, }) => {
           <div id='blog-post-list'>
             {PostsPages[postsIndex].map(({ frontMatter, filePath, }) => (
               <PostItemBox
-                key={filePath.replace('.mdx', '')} type='post'
-                frontMatter={frontMatter} filePath={filePath}
+                key={filePath.replace('.mdx', '')}
+                type='post'
+                frontMatter={frontMatter}
+                filePath={filePath}
               />
             ))}
           </div>
@@ -95,22 +97,18 @@ export const getStaticPaths = async () => {
   const tags = await getTagsAndCategories('tags');
 
   return {
-    paths: tags.map(tag => {
-      return {
-        params: {
-          tag: tag.tagName,
-        },
-      };
-    }),
+    paths: tags.map((tag) => ({
+      params: {
+        tag: tag.tagName,
+      },
+    })),
     fallback: false,
   };
 };
 
 export const getStaticProps = async ({ params, }) => {
-  const posts = await getAllYearPosts('post').filter(({ frontMatter, }) => {
-    return frontMatter.tags.includes(params.tag);
-  });
-  
+  const posts = await getAllYearPosts('post').filter(({ frontMatter, }) => frontMatter.tags.includes(params.tag));
+
   const PostsPages = getPages(posts, BlogConfig.postPerPage);
 
   return {

@@ -12,25 +12,25 @@ export const PostToc = ({ toc, }) => {
   `);
   const [ cName, setCName, ] = useState('');
   const ulRef = useRef(null);
-  
+
   const onClickToggle = useCallback(() => {
     if (text === '접기') {
       setText('열기');
       setCName('show hide');
-  
+
       setTimeout(() => {
         setCName('hide');
       }, 301);
     } else {
       setText('접기');
       setCName('show list-up');
-  
+
       setTimeout(() => {
         setCName('show list-down');
       }, 0);
     }
   }, [ text, ulStyle, ]);
-  
+
   const style = css`
     margin: 80px 0;
     overflow-y: hidden;
@@ -46,11 +46,9 @@ export const PostToc = ({ toc, }) => {
       position: relative;
       z-index: 2;
       cursor: pointer;
-      transition: all 0.3s;
       
       &:hover {
         background-color: #333333;
-        transition: all 0.3s;
         
         & > span {
           color: #ffffff;
@@ -72,8 +70,6 @@ export const PostToc = ({ toc, }) => {
     }
     
     & > ul {
-      transition: all 0.3s;
-
       @keyframes fade-in {
         from {
           opacity: 0;
@@ -125,13 +121,11 @@ export const PostToc = ({ toc, }) => {
           font-weight: 900;
           color: #3f91ff70;
           border-radius: 5px;
-          transition: all 0.3s;
         }
 
         &:hover {
           & > span {
             color: #3f91ff;
-            transition: all 0.3s;
           }
         }
       }
@@ -152,7 +146,7 @@ export const PostToc = ({ toc, }) => {
       & li {font-size: ${size[3]};}
     }
   `;
-  
+
   return (
     <>
       {toc.length > 0 && (

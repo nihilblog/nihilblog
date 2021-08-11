@@ -5,7 +5,6 @@ import PropTypes from 'prop-types';
 export const Strike = ({ children, }) => {
   const style = css`
     color: #888888;
-    transition: all 0.3s;
   `;
 
   return (

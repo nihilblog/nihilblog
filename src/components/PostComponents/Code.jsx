@@ -12,7 +12,6 @@ export const Code = ({ children, }) => {
     font-size: 90%;
     background-color: #555555;
     margin: 0 2px;
-    transition: all 0.3s;
     vertical-align: bottom;
 
     &:before {

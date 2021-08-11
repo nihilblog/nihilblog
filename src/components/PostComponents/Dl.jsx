@@ -12,7 +12,6 @@ export const Dl = ({ children, top = '40', bottom = '40', }) => {
     color: #333333;
     letter-spacing: -1px;
     font-weight: 500;
-    transition: all 0.3s;
     padding: 0 10px;
 
     & > dt {
@@ -20,7 +19,6 @@ export const Dl = ({ children, top = '40', bottom = '40', }) => {
       padding: 5px 10px;
       border-radius: 10px 10px 0 0;
       background-color: #555555;
-      transition: all 0.3s;
       color: #ffffff;
       text-align: justify;
       font-weight: 500;
@@ -40,7 +38,6 @@ export const Dl = ({ children, top = '40', bottom = '40', }) => {
       background-color: #ffffff;
       border: 2px solid #555555;
       border-top: none;
-      transition: all 0.3s;
       color: #333333;
       text-align: justify;
       font-weight: 500;

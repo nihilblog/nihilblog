@@ -7,20 +7,20 @@ import { PostToc } from '@/components/LayoutComponensts';
 import { useRouter } from 'next/router';
 import { GoogleAd } from '@/components/ContentComponents';
 
-export const PostContent = ({ children, top = '30', bottom = '30', idName, frontMatter, }) => {
+export const PostContent = ({
+  children, top = '30', bottom = '30', idName, frontMatter,
+}) => {
   const [ toc, setToc, ] = useState([]);
   const postContentRef = useRef(null);
   const router = useRouter();
-  
+
   useEffect(() => {
     const contents = postContentRef.current;
     const tocData = [];
 
     const contentsArray = Array.from(contents.children);
 
-    const headingContents = contentsArray.filter((node) => {
-      return node.className.includes('post-heading');
-    });
+    const headingContents = contentsArray.filter((node) => node.className.includes('post-heading'));
 
     for (let i = 0; i < headingContents.length; i++) {
       headingContents[i].id = `toc${i}`;
@@ -66,7 +66,7 @@ export const PostContent = ({ children, top = '30', bottom = '30', idName, front
 
     setToc(tocData);
   }, [ router.asPath, ]);
-  
+
   const style = css`
     margin-top: ${top}px;
     margin-bottom: ${bottom}px;
@@ -78,7 +78,6 @@ export const PostContent = ({ children, top = '30', bottom = '30', idName, front
     background-color: #ffffff;
     box-shadow: 0 0 10px -4px #333333;
     border-radius: 10px;
-    transition: all 0.3s;
 
     @media (min-width: 1px) and (max-width: 600px) {
       & p {font-size: ${size[1]};}
@@ -92,18 +91,16 @@ export const PostContent = ({ children, top = '30', bottom = '30', idName, front
       & p {font-size: ${size[3]};}
     }
   `;
-  
+
   const src = '썸네일이 없습니다';
-  
+
   return (
     <>
       <div id={idName} css={style} ref={postContentRef}>
         {
           frontMatter.coverImage
-            ?
-            <MainImage src={frontMatter.coverImage} alt={frontMatter.title} />
-            :
-            <MainImage src={src} alt={frontMatter.title} />
+            ? <MainImage src={frontMatter.coverImage} alt={frontMatter.title} />
+            : <MainImage src={src} alt={frontMatter.title} />
         }
         <GoogleAd pos='top' />
         <PostToc toc={toc} />

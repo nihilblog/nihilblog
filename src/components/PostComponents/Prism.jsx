@@ -7,8 +7,7 @@ import PropTypes from 'prop-types';
 import { v4 as uuid } from 'uuid';
 
 export const Prism = ({ children, top = '40', bottom = '40', }) => {
-
-  const { className } = children.props;
+  const { className, } = children.props;
   const lang = className.replace('language-', '');
   const code = children.props.children.trim();
 
@@ -37,7 +36,7 @@ export const Prism = ({ children, top = '40', bottom = '40', }) => {
       color = [ '#888888', '#ffffff', ];
       break;
   }
-  
+
   const style = css`
     margin-top: ${top}px;
     margin-bottom: ${bottom}px;
@@ -50,7 +49,6 @@ export const Prism = ({ children, top = '40', bottom = '40', }) => {
       font-weight: 900;
       display: inline-block;
       line-height: 1;
-      transition: all 0.3s;
       
       &:before {
         content: '\\f121';
@@ -81,7 +79,7 @@ export const Prism = ({ children, top = '40', bottom = '40', }) => {
       }
     }
   `;
-  
+
   const prismBoxStyle = css`
     background-color: ${color[0]};
     border-radius: 0 10px 10px 10px;
@@ -230,7 +228,9 @@ export const Prism = ({ children, top = '40', bottom = '40', }) => {
   return (
     <>
       <Highlight {...defaultProps} code={code} language={lang}>
-        {({ className, tokens, getLineProps, getTokenProps, }) => (
+        {({
+          className, tokens, getLineProps, getTokenProps,
+        }) => (
           <div className='blog-syntax-highlight' css={style}>
             <span className='language-name'>{capitalizeLang}</span>
             <CopyCode code={code} color={color} />
@@ -241,10 +241,12 @@ export const Prism = ({ children, top = '40', bottom = '40', }) => {
                     <span className='line-number'>
                       {
                         (index + 1) < 10
-                          ? (<>
-                            <span css={fontColor}>0</span>
-                            <span className='number'>{index + 1}</span>
-                          </>)
+                          ? (
+                            <>
+                              <span css={fontColor}>0</span>
+                              <span className='number'>{index + 1}</span>
+                            </>
+                          )
                           : index + 1
                       }
                     </span>

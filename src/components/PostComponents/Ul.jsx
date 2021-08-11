@@ -13,7 +13,6 @@ export const Ul = ({ children, top = '40', bottom = '40', }) => {
     color: #333333;
     letter-spacing: -1px;
     font-weight: 500;
-    transition: all 0.3s;
 
     & ul {
       border: none;
@@ -24,7 +23,6 @@ export const Ul = ({ children, top = '40', bottom = '40', }) => {
     
     & li {
       margin: 3px 0;
-      transition: all 0.3s;
       
       &:before {
         font-family: 'Font Awesome 5 Free', sans-serif;

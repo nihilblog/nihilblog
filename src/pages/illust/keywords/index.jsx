@@ -7,7 +7,6 @@ import size from '@/data/size';
 import Link from 'next/link';
 import { GoogleAd } from '@/components/ContentComponents';
 import { Box, BoxHeader } from '@/components/LayoutComponensts';
-import KeywordPostsPage from '@/pages/illust/keywords/[keyword]';
 import PropTypes from 'prop-types';
 
 const KeywordsPage = ({ keywords, }) => {
@@ -15,7 +14,7 @@ const KeywordsPage = ({ keywords, }) => {
     pageName: '일러스트 키워드 목록',
     pageURL: '/illust/keywords',
   };
-  
+
   const wordStyle = css`
     text-align: center;
     
@@ -23,7 +22,6 @@ const KeywordsPage = ({ keywords, }) => {
       padding: 5px 10px;
       display: inline-block;
       margin: 4px;
-      transition: all 0.3s;
       border-radius: 10px;
       color: #555555;
       letter-spacing: -1px;
@@ -39,7 +37,6 @@ const KeywordsPage = ({ keywords, }) => {
       &:hover {
         color: #ffffff;
         background-color: #333333;
-        transition: all 0.3s;
       }
     }
 
@@ -56,7 +53,7 @@ const KeywordsPage = ({ keywords, }) => {
       }
     }
   `;
-  
+
   return (
     <>
       <BlogLayout {...siteData}>
@@ -81,7 +78,7 @@ const KeywordsPage = ({ keywords, }) => {
 
 export const getStaticProps = async () => {
   const keywords = await getTagsAndCategories('keywords');
-  
+
   return {
     props: {
       keywords,

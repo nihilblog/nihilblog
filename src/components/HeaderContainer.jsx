@@ -1,6 +1,6 @@
 import React from 'react';
 import { css } from '@emotion/react';
-import BlogConfig from '@/data/blog.config';
+import BlogConfig from '@/data/blogConfig';
 import size from '@/data/size';
 
 const HeaderContainer = () => {
@@ -14,7 +14,6 @@ const HeaderContainer = () => {
     & > img {
       width: 250px;
       display: block;
-      transition: all 0.3s;
       margin: 0 auto 5px auto;
     }
 
@@ -22,24 +21,23 @@ const HeaderContainer = () => {
       color: #ffffff;
       letter-spacing: -1px;
       font-weight: 500;
-      transition: all 0.3s;
     }
 
     @media (min-width: 1px) and (max-width: 600px) {
       & > p {
-        font-size: ${ size[1] };
+        font-size: ${size[1]};
       }
     }
 
     @media (min-width: 601px) and (max-width: 800px) {
       & > p {
-        font-size: ${ size[2] };
+        font-size: ${size[2]};
       }
     }
 
     @media (min-width: 801px) {
       & > p {
-        font-size: ${ size[3] };
+        font-size: ${size[3]};
       }
     }
   `;

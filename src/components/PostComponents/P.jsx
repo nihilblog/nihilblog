@@ -3,7 +3,9 @@ import { css } from '@emotion/react';
 import size from '@/data/size';
 import PropTypes from 'prop-types';
 
-export const P = ({ children, top = '20', bottom = '20', align = 'justify', }) => {
+export const P = ({
+  children, top = '20', bottom = '20', align = 'justify',
+}) => {
   const style = css`
     text-align: ${align};
     line-height: 1.8;
@@ -12,7 +14,6 @@ export const P = ({ children, top = '20', bottom = '20', align = 'justify', }) =
     letter-spacing: -1px;
     color: #333333;
     font-weight: 500;
-    transition: all 0.3s;
 
     @media (min-width: 1px) and (max-width: 600px) {
       font-size: ${size[1]};

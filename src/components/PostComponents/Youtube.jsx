@@ -3,7 +3,9 @@ import { css, Global } from '@emotion/react';
 import size from '@/data/size';
 import PropTypes from 'prop-types';
 
-export const Youtube = ({ children, src, top = '40', bottom = '40', }) => {
+export const Youtube = ({
+  children, src, top = '40', bottom = '40',
+}) => {
   const replaceSrc = src.replace('watch?v=', 'embed/');
 
   const style = css`
@@ -17,7 +19,6 @@ export const Youtube = ({ children, src, top = '40', bottom = '40', }) => {
       margin-bottom: 10px;
       font-weight: 900;
       color: #ffffff;
-      transition: all 0.3s;
       letter-spacing: -1px;
 
       &:before {
@@ -34,7 +35,6 @@ export const Youtube = ({ children, src, top = '40', bottom = '40', }) => {
       padding-bottom: 56.25%;
       box-sizing: border-box;
       border-radius: 10px;
-      transition: all 0.3s;
 
       & > iframe {
         position: absolute;

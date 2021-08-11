@@ -5,7 +5,7 @@ import getTagsAndCategories from '@/utils/mdx/getTagsAndCategories';
 import BlogLayout from '@/layouts/BlogLayout';
 import { P } from '@/components/PostComponents';
 import getPages from '@/utils/getPages';
-import BlogConfig from '@/data/blog.config';
+import BlogConfig from '@/data/blogConfig';
 import AlterPagination from '@/components/AlterPagination';
 import { GoogleAd } from '@/components/ContentComponents';
 import { Box, BoxHeader, PostItemBox } from '@/components/LayoutComponensts';
@@ -13,52 +13,52 @@ import PropTypes from 'prop-types';
 
 const KeywordPostsPage = ({ PostsPages, keyword, }) => {
   const [ postsIndex, setPostsIndex, ] = useState(0);
-  
+
   const getCount = useCallback(() => {
     let length = 0;
-    
+
     for (let i = 0; i <= PostsPages.length - 1; i++) {
       length += PostsPages[i].length;
     }
-    
+
     return length;
   }, []);
-  
+
   const totalCount = getCount();
-  
+
   const onClickPrev = useCallback(() => {
     if (postsIndex !== 0) {
       setPostsIndex(postsIndex - 1);
     }
   }, [ postsIndex, ]);
-  
+
   const onClickNext = useCallback(() => {
     if (postsIndex !== PostsPages.length - 1) {
       setPostsIndex(postsIndex + 1);
     }
   }, [ postsIndex, ]);
-  
+
   const onClickFirst = useCallback(() => {
     if (postsIndex !== 0) {
       setPostsIndex(0);
     }
   }, [ postsIndex, ]);
-  
+
   const onClickLast = useCallback(() => {
     if (postsIndex !== PostsPages.length - 1) {
       setPostsIndex(PostsPages.length - 1);
     }
   }, [ postsIndex, ]);
-  
+
   const style = css`
     margin-bottom: 100px;
   `;
-  
+
   const siteData = {
     pageName: `"${keyword}" 관련 일러스트`,
     pageURL: `/illust/keywords/${keyword}`,
   };
-  
+
   return (
     <>
       <BlogLayout {...siteData}>
@@ -71,8 +71,10 @@ const KeywordPostsPage = ({ PostsPages, keyword, }) => {
           <div id='blog-post-list'>
             {PostsPages[postsIndex].map(({ frontMatter, filePath, }) => (
               <PostItemBox
-                key={filePath.replace('.mdx', '')} type='illust'
-                frontMatter={frontMatter} filePath={filePath}
+                key={filePath.replace('.mdx', '')}
+                type='illust'
+                frontMatter={frontMatter}
+                filePath={filePath}
               />
             ))}
           </div>
@@ -93,26 +95,22 @@ const KeywordPostsPage = ({ PostsPages, keyword, }) => {
 
 export const getStaticPaths = async () => {
   const keywords = await getTagsAndCategories('keywords');
-  
+
   return {
-    paths: keywords.map(keyword => {
-      return {
-        params: {
-          keyword: keyword.keywordName,
-        },
-      };
-    }),
+    paths: keywords.map((keyword) => ({
+      params: {
+        keyword: keyword.keywordName,
+      },
+    })),
     fallback: false,
   };
 };
 
 export const getStaticProps = async ({ params, }) => {
-  const illusts = await getAllYearIllusts('illust').filter(({ frontMatter, }) => {
-    return frontMatter.keywords.includes(params.keyword);
-  });
-  
+  const illusts = await getAllYearIllusts('illust').filter(({ frontMatter, }) => frontMatter.keywords.includes(params.keyword));
+
   const PostsPages = getPages(illusts, BlogConfig.postPerPage);
-  
+
   return {
     props: {
       keyword: params.keyword,

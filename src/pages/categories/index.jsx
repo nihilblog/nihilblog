@@ -22,7 +22,6 @@ const CategoriesPage = ({ categories, }) => {
       padding: 5px 10px;
       display: inline-block;
       margin: 4px;
-      transition: all 0.3s;
       border-radius: 10px;
       color: #555555;
       letter-spacing: -1px;
@@ -38,7 +37,6 @@ const CategoriesPage = ({ categories, }) => {
       &:hover {
         color: #ffffff;
         background-color: #333333;
-        transition: all 0.3s;
       }
     }
 

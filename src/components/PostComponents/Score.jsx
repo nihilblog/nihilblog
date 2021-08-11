@@ -3,7 +3,9 @@ import { css, Global } from '@emotion/react';
 import size from '@/data/size';
 import PropTypes from 'prop-types';
 
-export const Score = ({ top = '40', bottom = '40', children, score, }) => {
+export const Score = ({
+  top = '40', bottom = '40', children, score,
+}) => {
   const scoreStar = {};
   const weight = {};
 
@@ -77,12 +79,10 @@ export const Score = ({ top = '40', bottom = '40', children, score, }) => {
     padding: 10px;
     text-align: center;
     border-radius: 10px;
-    transition: all 0.3s;
 
     & > h2 {
       font-weight: 500;
       color: #ffffff;
-      transition: all 0.3s;
       margin-bottom: 5px;
       letter-spacing: -1px;
     }
@@ -90,7 +90,6 @@ export const Score = ({ top = '40', bottom = '40', children, score, }) => {
     & > p {
       color: #ffff00;
       font-weight: 500;
-      transition: all 0.3s;
 
       &:before {
         content: '${scoreStar.left}';
@@ -134,7 +133,7 @@ export const Score = ({ top = '40', bottom = '40', children, score, }) => {
       <Global styles={fontSize} />
       <div className='post-review-score' css={style}>
         <h2>{children}: {score}점</h2>
-        <p/>
+        <p />
       </div>
     </>
   );

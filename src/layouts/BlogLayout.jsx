@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import BlogConfig from '@/data/blog.config';
+import BlogConfig from '@/data/blogConfig';
 import HeaderContainer from '@/components/HeaderContainer';
 import NavContainer from '@/components/NavContainer';
 import FooterContainer from '@/components/FooterContainer';
@@ -14,17 +14,27 @@ const BlogLayout = ({
   pageName, pageDescription, pageKeywords, pageImage, pageType,
   pageURL, pageTag, pageSection, pageCreated, pageUpdated, children,
 }) => {
-  const { description, siteType, siteImage, siteURL, keywords, } = BlogConfig;
+  const {
+    description, siteType, siteImage, siteURL, keywords,
+  } = BlogConfig;
   const [ siteData, ] = useState({
     description: pageDescription || description,
     keywords: pageKeywords || keywords,
     image: pageImage || `${siteURL}${siteImage}`,
     type: pageType || siteType,
   });
-  
+
   const pageProps = {
-    pageName, pageDescription, pageKeywords, pageImage, pageType,
-    pageURL, pageTag, pageSection, pageCreated, pageUpdated,
+    pageName,
+    pageDescription,
+    pageKeywords,
+    pageImage,
+    pageType,
+    pageURL,
+    pageTag,
+    pageSection,
+    pageCreated,
+    pageUpdated,
   };
 
   const globalStyle = css`
@@ -122,7 +132,7 @@ const BlogLayout = ({
       }
     }
   `;
-  
+
   const router = useRouter();
 
   return (

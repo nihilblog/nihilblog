@@ -4,8 +4,9 @@ import { css } from '@emotion/react';
 import size from '@/data/size';
 import PropTypes from 'prop-types';
 
-const Pagination = ({ prev, next, current, total, type ='', top = '50', bottom = '100', }) => {
-  
+const Pagination = ({
+  prev, next, current, total, type = '', top = '50', bottom = '100',
+}) => {
   let Path;
 
   if (type === 'notice') {
@@ -83,12 +84,10 @@ const Pagination = ({ prev, next, current, total, type ='', top = '50', bottom =
       font-weight: 500;
       background-color: #33333330;
       color: #555555;
-      transition: all 0.3s;
 
       &:hover {
         background-color: #333333;
         color: #ffffff;
-        transition: all 0.3s;
       }
     }
 
@@ -126,26 +125,26 @@ const Pagination = ({ prev, next, current, total, type ='', top = '50', bottom =
         <span id='prev'>
           {
             !isFirst
-              ? <Link href={firstPath} passHref><a id='page-to-first'/></Link>
-              : <span id='page-to-first'/>
+              ? <Link href={firstPath} passHref><a id='page-to-first' /></Link>
+              : <span id='page-to-first' />
           }
           {
             !isFirst
-              ? <Link href={prevPath} passHref><a id='page-to-prev'/></Link>
-              : <span id='page-to-prev'/>
+              ? <Link href={prevPath} passHref><a id='page-to-prev' /></Link>
+              : <span id='page-to-prev' />
           }
         </span>
         <span id='page-counter'>{current} / {total}</span>
         <span id='next'>
           {
             !isLast
-              ? <Link href={nextPath} passHref><a id='page-to-next'/></Link>
-              : <span id='page-to-next'/>
+              ? <Link href={nextPath} passHref><a id='page-to-next' /></Link>
+              : <span id='page-to-next' />
           }
           {
             !isLast
-              ? <Link href={lastPath} passHref><a id='page-to-last'/></Link>
-              : <span id='page-to-last'/>
+              ? <Link href={lastPath} passHref><a id='page-to-last' /></Link>
+              : <span id='page-to-last' />
           }
         </span>
       </div>

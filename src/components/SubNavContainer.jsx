@@ -13,7 +13,6 @@ const SubNavContainer = () => {
     letter-spacing: -1px;
 
     & > a {
-      transition: all 0.3s;
       box-sizing: border-box;
       display: inline-block;
       color: #dddddd;
@@ -25,7 +24,6 @@ const SubNavContainer = () => {
 
       &:hover,
       &.selected {
-        transition: all 0.3s;
         color: #333333;
         background-color: #ffffff;
       }
@@ -50,7 +48,7 @@ const SubNavContainer = () => {
       & > a {font-size: ${size[3]};}
     }
   `;
-  
+
   return (
     <>
       <nav id='blog-sub-menu' css={subNavStyle}>

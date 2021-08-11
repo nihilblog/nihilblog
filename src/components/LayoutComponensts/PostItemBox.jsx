@@ -7,9 +7,11 @@ import size from '@/data/size';
 import { v4 as uuid } from 'uuid';
 
 export const PostItemBox = ({ type, frontMatter, filePath, }) => {
-  const { description, title, coverImage, categories, createdAt, keywords, } = frontMatter;
+  const {
+    description, title, coverImage, categories, createdAt, keywords,
+  } = frontMatter;
   const typeObj = {};
-  
+
   if (type === 'post') {
     typeObj.href = 'post';
   } else if (type === 'notice') {
@@ -17,9 +19,9 @@ export const PostItemBox = ({ type, frontMatter, filePath, }) => {
   } else {
     typeObj.href = 'illust';
   }
-  
+
   const src = '썸네일이 없습니다';
-  
+
   const style = css`
     padding: 10px;
     box-shadow: 0 0 10px -4px #333333;
@@ -60,13 +62,11 @@ export const PostItemBox = ({ type, frontMatter, filePath, }) => {
             background-color: #33333330;
             padding: 5px 10px;
             border-radius: 5px;
-            transition: all 0.3s;
             letter-spacing: -1px;
             
             &:hover {
               color: #ffffff;
               background-color: #333333;
-              transition: all 0.3s;
             }
           }
         }
@@ -98,7 +98,6 @@ export const PostItemBox = ({ type, frontMatter, filePath, }) => {
               background-color: #33333330;
               color: #555555;
               border-radius: 5px;
-              transition: all 0.3s;
               margin-right: 5px;
               display: inline-block;
               letter-spacing: -1px;
@@ -124,7 +123,6 @@ export const PostItemBox = ({ type, frontMatter, filePath, }) => {
               &:hover {
                 background-color: #333333;
                 color: #ffffff;
-                transition: all 0.3s;
               }
               
               &:nth-last-of-type(1) {
@@ -193,7 +191,7 @@ export const PostItemBox = ({ type, frontMatter, filePath, }) => {
       }
     }
   `;
-  
+
   return (
     <>
       <div css={style}>
@@ -203,7 +201,7 @@ export const PostItemBox = ({ type, frontMatter, filePath, }) => {
               ? <img src={`/images/thumbnail/${coverImage}.png`} alt={title} />
               : <img src={`/images/thumbnail/${src}.png`} alt={title} />
           }
-          
+
         </div>
         <div>
           <h2>
@@ -215,22 +213,18 @@ export const PostItemBox = ({ type, frontMatter, filePath, }) => {
           <p>
             {
               type === 'post'
-                ?
-                categories.map((item) => (
+                ? categories.map((item) => (
                   <Link key={uuid()} href={`/categories/${item}`}>
                     <a className='category post'>{item}</a>
                   </Link>
                 ))
-                :
-                type === 'notice'
-                  ?
-                  (
+                : type === 'notice'
+                  ? (
                     <Link href={`/${typeObj.href}/page/1`}>
                       <a className='category notice'>공지</a>
                     </Link>
                   )
-                  :
-                  keywords.map((item) => (
+                  : keywords.map((item) => (
                     <Link key={uuid()} href={`/illust/keywords/${item}`}>
                       <a className='category illust'>{item}</a>
                     </Link>

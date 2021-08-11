@@ -1,7 +1,7 @@
 import React, { useCallback } from 'react';
 import getPages from '@/utils/getPages';
 import getAllYearPosts from '@/utils/mdx/getAllYearPosts';
-import BlogConfig from '@/data/blog.config';
+import BlogConfig from '@/data/blogConfig';
 import BlogLayout from '@/layouts/BlogLayout';
 import Pagination from '@/components/Pagination';
 import { P } from '@/components/PostComponents';
@@ -9,19 +9,21 @@ import { GoogleAd } from '@/components/ContentComponents';
 import { Box, BoxHeader, PostItemBox } from '@/components/LayoutComponensts';
 import PropTypes from 'prop-types';
 
-const BlogNoticeListNumberPage = ({ currentPage, prevPage, nextPage, posts, totalPages, PostsPages, }) => {
+const BlogNoticeListNumberPage = ({
+  currentPage, prevPage, nextPage, posts, totalPages, PostsPages,
+}) => {
   const getCount = useCallback(() => {
     let length = 0;
-    
+
     for (let i = 0; i <= PostsPages.length - 1; i++) {
       length += PostsPages[i].length;
     }
-    
+
     return length;
   }, []);
-  
+
   const totalCount = getCount();
-  
+
   const siteData = {
     pageName: `공지 목록 (${currentPage} 페이지)`,
     pageURL: `/notice/page/${currentPage}`,
@@ -39,8 +41,10 @@ const BlogNoticeListNumberPage = ({ currentPage, prevPage, nextPage, posts, tota
           <div id='blog-post-list'>
             {posts.map(({ frontMatter, filePath, }) => (
               <PostItemBox
-                key={filePath.replace('.mdx', '')} type='notice'
-                frontMatter={frontMatter} filePath={filePath}
+                key={filePath.replace('.mdx', '')}
+                type='notice'
+                frontMatter={frontMatter}
+                filePath={filePath}
               />
             ))}
           </div>
@@ -56,15 +60,13 @@ export const getStaticPaths = async () => {
   const posts = await getAllYearPosts('notice');
 
   const PostsPages = getPages(posts, BlogConfig.postPerPage);
-  
+
   return {
-    paths: PostsPages.map((page, index) => {
-      return {
-        params: {
-          pageNumber: String(index + 1),
-        },
-      };
-    }),
+    paths: PostsPages.map((page, index) => ({
+      params: {
+        pageNumber: String(index + 1),
+      },
+    })),
     fallback: false,
   };
 };
@@ -82,7 +84,7 @@ export const getStaticProps = async ({ params, }) => {
   const nextPage = number === PostsPages.length
     ? null
     : number + 1;
-  
+
   return {
     props: {
       PostsPages,

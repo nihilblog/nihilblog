@@ -3,13 +3,15 @@ import { css } from '@emotion/react';
 import size from '@/data/size';
 import PropTypes from 'prop-types';
 
-export const Message = ({ children, color, top = '40', bottom = '40', }) => {
+export const Message = ({
+  children, color, top = '40', bottom = '40',
+}) => {
   const [ colorType, setColorType, ] = useState({
     color: [],
     icon: '',
     word: '',
   });
-  
+
   useEffect(() => {
     if (color.includes('r')) {
       setColorType({
@@ -54,7 +56,6 @@ export const Message = ({ children, color, top = '40', bottom = '40', }) => {
     & > .message-title {
       text-align: left;
       margin-bottom: 10px;
-      transition: all 0.3s;
       letter-spacing: -1px;
       color: inherit;
 
@@ -78,7 +79,6 @@ export const Message = ({ children, color, top = '40', bottom = '40', }) => {
       & > p {
         font-weight: 500;
         text-align: justify;
-        transition: all 0.3s;
         letter-spacing: -1px;
         text-indent: 10px;
         color: inherit;

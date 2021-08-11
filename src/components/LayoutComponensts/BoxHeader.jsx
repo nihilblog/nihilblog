@@ -3,7 +3,9 @@ import { css } from '@emotion/react';
 import size from '@/data/size';
 import PropTypes from 'prop-types';
 
-export const BoxHeader = ({ children, i, w, f, top = '0', bottom = '20', }) => {
+export const BoxHeader = ({
+  children, i, w, f, top = '0', bottom = '20',
+}) => {
   const boxHeaderStyle = css`
     margin-top: ${top}px;
     margin-bottom: ${bottom}px;
@@ -13,7 +15,6 @@ export const BoxHeader = ({ children, i, w, f, top = '0', bottom = '20', }) => {
     color: #ffffff;
     font-weight: 900;
     letter-spacing: -1px;
-    transition: all 0.3s;
     width: 100%;
     box-sizing: border-box;
 
