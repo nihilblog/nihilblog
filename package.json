@@ -15,7 +15,7 @@
     "serve": "rm -rf node_modules/.cache && rm -rf build/ && next dev",
     "start": "rm -rf node_modules/.cache && rm -rf build/ && next build && next start",
     "build": "rm -rf node_modules/.cache && rm -rf build/ && next build",
-    "export": "rm -rf node_modules/.cache && rm -rf build/ && next build && next export -o nihilog.github.io/ && touch nihilog.github.io/.nojekyll && cd ../nihilog.github.io && mv .git ../backup && cd ../ && rm -rf nihilog.github.io && cd nihilog && mv nihilog.github.io ../ && cd ../backup && mv .git ../nihilog.github.io && cd ../nihilog.github.io && git config core.autocrlf true && git add .",
+    "export": "rm -rf node_modules/.cache && rm -rf build/ && next build && next export -o nihilog.github.io/ && touch nihilog.github.io/.nojekyll && cd ../nihilog.github.io && mv .git ../backup && cd ../ && rm -rf nihilog.github.io && cd nihilog-code && mv nihilog.github.io ../ && cd ../backup && mv .git ../nihilog.github.io && cd ../nihilog.github.io && git config core.autocrlf true && git add .",
     "clean": "npm cache clean --force"
   },
   "keywords": [],

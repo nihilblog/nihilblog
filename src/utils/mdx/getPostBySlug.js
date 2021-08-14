@@ -1,5 +1,4 @@
 const { serialize, } = require('next-mdx-remote/serialize');
-const remarkUnWrapImages = require('remark-unwrap-images');
 const getAllYearIllusts = require('./getAllYearIllusts');
 const getAllYearPosts = require('./getAllYearPosts');
 
@@ -17,7 +16,7 @@ module.exports = async (type = '', slug = '') => {
   const mdxSource = await serialize(content, {
     mdxOptions: {
       remarkPlugins: [
-        remarkUnWrapImages,
+        import('remark-unwrap-images'),
       ],
     },
   });
