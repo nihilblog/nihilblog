@@ -1,4 +1,5 @@
 import React, { useCallback } from 'react';
+import PropTypes from 'prop-types';
 import getAllYearIllusts from '@/utils/mdx/getAllYearIllusts';
 import BlogLayout from '@/layouts/BlogLayout';
 import getPages from '@/utils/getPages';
@@ -7,7 +8,6 @@ import Pagination from '@/components/Pagination';
 import { P } from '@/components/PostComponents';
 import { GoogleAd } from '@/components/ContentComponents';
 import { Box, BoxHeader, PostItemBox } from '@/components/LayoutComponensts';
-import PropTypes from 'prop-types';
 
 const BlogIllustListPage = ({
   illusts, currentPage, prevPage, nextPage, totalPages, PostsPages,

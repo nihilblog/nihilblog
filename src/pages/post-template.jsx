@@ -21,7 +21,7 @@ const PostTemplatePage = () => {
     pageName: '포스트 서식 관리',
     pageURL: '/post-template',
   };
-  
+
   return (
     <>
       <BlogLayout {...siteData}>
@@ -47,21 +47,21 @@ const PostTemplatePage = () => {
           <P><Gray>회색 글씨입니다.</Gray></P>
           <P><Em>기울임 강조입니다.</Em></P>
           <P><Strike>취소선 그어진 글씨입니다.</Strike></P>
-          
+
           <P>각주입니다.<NoteTop number='1' /></P>
-          
+
           <NoteBottom number='1' first='true'>여기에 각주 내용이 들어갑니다.</NoteBottom>
-          
+
           <Line />
-          
+
           <P>문단 중 <Q>인용 요소입니다.</Q></P>
           <Quote who='누군가'>블럭 인용입니다.</Quote>
           <Char who='누군가' image='기본'>
             캐릭터 대사입니다.
           </Char>
-  
+
           <Line />
-          
+
           <Ul>
             <li>항목 1</li>
             <li>
@@ -86,9 +86,9 @@ const PostTemplatePage = () => {
             <dt>항목 이름</dt>
             <dd>항목 설명</dd>
           </Dl>
-  
+
           <Line />
-          
+
           <Message color='b'>
             <p><Strong>안내</Strong> 메시지입니다. <A href='#' type='blog'>내부 링크 입니다.</A> <A href='#' type='normal'>외부 링크 입니다.</A></p>
           </Message>
@@ -101,13 +101,13 @@ const PostTemplatePage = () => {
           <Message color='y'>
             <p><Strong>주의</Strong> 메시지입니다. <A href='#' type='blog'>내부 링크 입니다.</A> <A href='#' type='normal'>외부 링크 입니다.</A></p>
           </Message>
-          
+
           <Line />
-          
+
           <Youtube src='https://www.youtube.com/watch?v=bwLNlAIDZfg'>아이유 - 코인</Youtube>
-  
+
           <Line />
-          
+
           <Score score='4.5' bottom='0'>점수</Score>
         </Box>
       </BlogLayout>

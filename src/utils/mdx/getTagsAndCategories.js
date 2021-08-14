@@ -2,9 +2,8 @@ const getAllYearIllusts = require('./getAllYearIllusts');
 const getAllYearPosts = require('./getAllYearPosts');
 
 module.exports = (type = '') => {
-  
   const initialBox = [];
-  
+
   switch (type) {
     case 'keywords':
       getAllYearIllusts('illust').filter((illust) => {
@@ -21,25 +20,25 @@ module.exports = (type = '') => {
         initialBox.push(post.frontMatter.categories);
       });
   }
-  
+
   let ArraytoObject = [];
-  
+
   for (let i = 0; i < initialBox.length; i++) {
     ArraytoObject = ArraytoObject.concat(initialBox[i]);
   }
-  
+
   ArraytoObject = ArraytoObject.reduce((pre, current) => {
     pre[current] = (pre[current] || 0) + 1;
-    
+
     return pre;
   }, {});
-  
+
   const FinallyArray = [];
-  
+
   for (const key in ArraytoObject) {
     if (Object.prototype.hasOwnProperty.call(ArraytoObject, key)) {
       let obj;
-      
+
       if (type === 'tags') {
         obj = {
           tagName: key,
@@ -56,11 +55,11 @@ module.exports = (type = '') => {
           keywordCount: ArraytoObject[key],
         };
       }
-      
+
       FinallyArray.push(obj);
     }
   }
-  
+
   FinallyArray.sort((a, b) => {
     switch (type) {
       case 'tags':
@@ -71,6 +70,6 @@ module.exports = (type = '') => {
         return b.keywordCount - a.keywordCount;
     }
   });
-  
+
   return FinallyArray;
 };

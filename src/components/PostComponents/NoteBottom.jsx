@@ -1,8 +1,8 @@
 import React from 'react';
 import { css, Global } from '@emotion/react';
+import PropTypes from 'prop-types';
 import size from '@/data/size';
 import { Line } from '@/components/PostComponents';
-import PropTypes from 'prop-types';
 
 export const NoteBottom = ({ children, number, first = 'false', }) => {
   const style = css`
@@ -59,10 +59,8 @@ export const NoteBottom = ({ children, number, first = 'false', }) => {
       <Global styles={fontSize} />
       {
         first === 'true'
-          ?
-          <Line />
-          :
-          ''
+          ? <Line />
+          : ''
       }
       <p className='post-foot-note' css={style}>
         <a id={`note${number}`} href={`#top${number}`}><span>{number}</span></a>

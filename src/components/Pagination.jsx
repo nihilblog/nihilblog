@@ -1,8 +1,8 @@
 import Link from 'next/link';
 import React from 'react';
 import { css } from '@emotion/react';
-import size from '@/data/size';
 import PropTypes from 'prop-types';
+import size from '@/data/size';
 
 const Pagination = ({
   prev, next, current, total, type = '', top = '50', bottom = '100',

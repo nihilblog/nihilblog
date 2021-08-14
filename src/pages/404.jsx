@@ -1,8 +1,8 @@
 import React from 'react';
-import { A, P, Strong } from '@/components/PostComponents';
-import BlogLayout from '@/layouts/BlogLayout';
 import { css } from '@emotion/react';
 import { useRouter } from 'next/router';
+import { A, P, Strong } from '@/components/PostComponents';
+import BlogLayout from '@/layouts/BlogLayout';
 import { Box, BoxHeader } from '@/components/LayoutComponensts';
 
 const BlogNotPoundPage = () => {

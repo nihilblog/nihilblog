@@ -5,9 +5,9 @@ import PropTypes from 'prop-types';
 
 const ActiveLink = ({ href, children, type = 'default', }) => {
   const router = useRouter();
-  
+
   let className;
-  
+
   switch (type) {
     case 'post':
       if (router.pathname.indexOf('post') !== -1) {
@@ -45,7 +45,7 @@ const ActiveLink = ({ href, children, type = 'default', }) => {
       }
       break;
   }
-  
+
   return (
     <>
       <Link href={href}><a className={className}>{children}</a></Link>

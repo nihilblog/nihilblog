@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
+import { css, Global } from '@emotion/react';
+import { useRouter } from 'next/router';
+import PropTypes from 'prop-types';
 import BlogConfig from '@/data/blogConfig';
 import HeaderContainer from '@/components/HeaderContainer';
 import NavContainer from '@/components/NavContainer';
 import FooterContainer from '@/components/FooterContainer';
 import PageContainer from '@/components/PageContainer';
-import { css, Global } from '@emotion/react';
 import SiteHead from '@/components/SiteHead';
-import { useRouter } from 'next/router';
 import SubNavContainer from '@/components/SubNavContainer';
-import PropTypes from 'prop-types';
 
 const BlogLayout = ({
   pageName, pageDescription, pageKeywords, pageImage, pageType,

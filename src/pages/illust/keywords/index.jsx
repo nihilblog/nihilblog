@@ -1,13 +1,13 @@
 import React from 'react';
 import { css } from '@emotion/react';
+import Link from 'next/link';
+import PropTypes from 'prop-types';
 import BlogLayout from '@/layouts/BlogLayout';
 import { P } from '@/components/PostComponents';
 import getTagsAndCategories from '@/utils/mdx/getTagsAndCategories';
 import size from '@/data/size';
-import Link from 'next/link';
 import { GoogleAd } from '@/components/ContentComponents';
 import { Box, BoxHeader } from '@/components/LayoutComponensts';
-import PropTypes from 'prop-types';
 
 const KeywordsPage = ({ keywords, }) => {
   const siteData = {

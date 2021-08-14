@@ -8,14 +8,14 @@ const sitemapGenerator = async () => {
   const posts = getAllYearPosts('post');
   const notices = getAllYearPosts('notice');
   const illusts = getAllYearIllusts('illust');
-  
+
   const AllPosts = posts.concat(notices, illusts).sort((a, b) => {
     const beforeDate = a.frontMatter.createdAt;
     const afterDate = b.frontMatter.createdAt;
-  
+
     return beforeDate - afterDate;
   });
-  
+
   const prettierConfig = await prettier.resolveConfig('./.prettierrc.js');
 
   const defaultPages = [
@@ -42,30 +42,26 @@ const sitemapGenerator = async () => {
   ];
 
   const basePath = 'https://nihilog.github.io';
-  
+
   const ruleSet = [];
 
-  const defaultPagesRuleSet = defaultPages.map(({ url, priority, }) => {
-    return `
+  const defaultPagesRuleSet = defaultPages.map(({ url, priority, }) => `
       <url>
         <loc>${basePath}${url}</loc>
         <changefreq>daily</changefreq>
         <priority>${priority}</priority>
       </url>
-    `;
-  }).join('');
-  
-  const AllPostsRuleSet = AllPosts.map(({ frontMatter, fullPath, }) => {
-    return `
+    `).join('');
+
+  const AllPostsRuleSet = AllPosts.map(({ frontMatter, fullPath, }) => `
       <url>
         <loc>${basePath}${fullPath}</loc>
         <lastmod>${getUTCString(frontMatter.updatedAt)}</lastmod>
         <changefreq>daily</changefreq>
         <priority>1</priority>
       </url>
-    `;
-  }).join('');
-  
+    `).join('');
+
   ruleSet.push(defaultPagesRuleSet);
   ruleSet.push(AllPostsRuleSet);
 

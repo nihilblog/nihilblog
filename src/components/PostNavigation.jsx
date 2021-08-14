@@ -1,8 +1,8 @@
 import React from 'react';
 import { css } from '@emotion/react';
 import Link from 'next/link';
-import size from '@/data/size';
 import PropTypes from 'prop-types';
+import size from '@/data/size';
 
 const PostNavigation = ({ prev, next, type = '', }) => {
   let path;

@@ -1,7 +1,7 @@
 import React from 'react';
 import { css } from '@emotion/react';
-import size from '@/data/size';
 import PropTypes from 'prop-types';
+import size from '@/data/size';
 
 export const Char = ({
   children, who = '이름', top = '40', bottom = '40', image = '기본',

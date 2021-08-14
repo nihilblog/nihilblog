@@ -1,7 +1,7 @@
-import size from '@/data/size';
 import { css } from '@emotion/react';
 import React from 'react';
 import PropTypes from 'prop-types';
+import size from '@/data/size';
 
 export const H = ({
   children, top = '60', bottom = '60', type = '1',

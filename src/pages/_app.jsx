@@ -1,7 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
-import BlogConfig from '@/data/blogConfig';
 import PropTypes from 'prop-types';
+import BlogConfig from '@/data/blogConfig';
 
 const App = ({ Component, pageProps, }) => (
   <>

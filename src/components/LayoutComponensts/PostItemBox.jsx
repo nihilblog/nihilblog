@@ -1,10 +1,10 @@
 import React from 'react';
 import { css } from '@emotion/react';
 import PropTypes from 'prop-types';
-import getUTC9 from '@/utils/getUTC9';
 import Link from 'next/link';
-import size from '@/data/size';
 import { v4 as uuid } from 'uuid';
+import getUTC9 from '@/utils/getUTC9';
+import size from '@/data/size';
 
 export const PostItemBox = ({ type, frontMatter, filePath, }) => {
   const {

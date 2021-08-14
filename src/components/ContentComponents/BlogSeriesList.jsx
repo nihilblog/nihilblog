@@ -1,8 +1,8 @@
 import React, { useState, useCallback } from 'react';
+import { css } from '@emotion/react';
 import {
   Strong, A, Gray, Details, P
 } from '@/components/PostComponents';
-import { css } from '@emotion/react';
 import size from '@/data/size';
 import { Box } from '@/components/LayoutComponensts';
 

@@ -1,8 +1,8 @@
 import React, { useCallback, useState } from 'react';
 import { css } from '@emotion/react';
+import PropTypes from 'prop-types';
 import size from '@/data/size';
 import { copyToClipboard } from '@/utils/copy-to-clipboard';
-import PropTypes from 'prop-types';
 
 export const CopyCode = ({ code, color, }) => {
   const [ word, setWord, ] = useState('복사');
@@ -58,7 +58,7 @@ export const CopyCode = ({ code, color, }) => {
   `;
   return (
     <>
-      <button type='button' aria-label='copy' onClick={ onClickCopy } onMouseLeave={ onMouseLeaveCopy } css={ CopyCode }/>
+      <button type='button' aria-label='copy' onClick={onClickCopy} onMouseLeave={onMouseLeaveCopy} css={CopyCode} />
     </>
   );
 };

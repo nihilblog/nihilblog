@@ -1,21 +1,21 @@
 import React from 'react';
+import { MDXRemote } from 'next-mdx-remote';
+import { useRouter } from 'next/router';
+import PropTypes from 'prop-types';
 import BlogLayout from '@/layouts/BlogLayout';
 import getAllYearIllusts from '@/utils/mdx/getAllYearIllusts';
 import getPostBySlug from '@/utils/mdx/getPostBySlug';
 import { CommentGuideMessage, Line } from '@/components/PostComponents';
 import getUTCString from '@/utils/getUTCString';
 import MDXComponents from '@/components/MDXComponents';
-import { MDXRemote } from 'next-mdx-remote';
 import PostNavigation from '@/components/PostNavigation';
-import { useRouter } from 'next/router';
 import { GoogleAd } from '@/components/ContentComponents';
 import { PostContent, PostInfo, Utterances } from '@/components/LayoutComponensts';
-import PropTypes from 'prop-types';
 
 const BlogIllustPage = ({ illust, prev, next, }) => {
   const { frontMatter, slug, source, } = illust;
   const router = useRouter();
-  
+
   const siteData = {
     pageName: frontMatter.title,
     pageDescription: frontMatter.description,
@@ -28,7 +28,7 @@ const BlogIllustPage = ({ illust, prev, next, }) => {
     pageCreated: getUTCString(frontMatter.createdAt),
     pageUpdated: getUTCString(frontMatter.updatedAt),
   };
-  
+
   return (
     <>
       <BlogLayout {...siteData}>
@@ -50,15 +50,13 @@ const BlogIllustPage = ({ illust, prev, next, }) => {
 
 export const getStaticPaths = async () => {
   const illusts = getAllYearIllusts('illust');
-  
+
   return {
-    paths: illusts.map(illust => {
-      return {
-        params: {
-          slug: illust.filePath.replace('.mdx', ''),
-        },
-      };
-    }),
+    paths: illusts.map((illust) => ({
+      params: {
+        slug: illust.filePath.replace('.mdx', ''),
+      },
+    })),
     fallback: false,
   };
 };
@@ -69,7 +67,7 @@ export const getStaticProps = async ({ params, }) => {
   const prev = illusts[illustIndex + 1] || null;
   const next = illusts[illustIndex - 1] || null;
   const illust = await getPostBySlug('illust', params.slug);
-  
+
   return {
     props: {
       illust,

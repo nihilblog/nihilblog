@@ -7,12 +7,12 @@ const SiteHead = ({ siteData, BlogConfig, pageProps, }) => {
     title, description, author, generator, siteType,
     siteImage, siteURL, keywords,
   } = BlogConfig;
-  
+
   const {
     pageName, pageDescription, pageKeywords, pageImage, pageType,
     pageURL, pageTag, pageSection, pageCreated, pageUpdated,
   } = pageProps;
-  
+
   return (
     <>
       <Head>
@@ -22,7 +22,7 @@ const SiteHead = ({ siteData, BlogConfig, pageProps, }) => {
         <meta name='author' content={author} />
         <meta name='generator' content={generator} />
         <meta name='keywords' content={siteData.keywords} />
-    
+
         {/* 오픈그래프 */}
         <meta property='og:site_name' content={title} />
         <meta property='og:type' content={siteData.type} />
@@ -31,14 +31,14 @@ const SiteHead = ({ siteData, BlogConfig, pageProps, }) => {
         <meta property='og:image' content={siteData.image} />
         <meta property='og:locale' content='ko_KR' />
         <meta property='og:url' content={`${siteURL}${pageURL}`} />
-        
+
         {/* 오픈그래프 아티클 */}
         {siteData.type === 'article' ? <meta property='article:section' content={pageSection} /> : ''}
         {siteData.type === 'article' ? <meta property='article:tag ' content={pageTag} /> : ''}
-        {siteData.type === 'article' ? <meta property='article:author' content={ author }/> : ''}
+        {siteData.type === 'article' ? <meta property='article:author' content={author} /> : ''}
         {siteData.type === 'article' ? <meta property='article:published_time' content={pageCreated} /> : ''}
         {siteData.type === 'article' ? <meta property='article:modified_time' content={pageUpdated} /> : ''}
-    
+
         {/* 트위터 카드 */}
         <meta name='twitter:card' content='summary_large_image' />
         <meta name='twitter:site' content={`@${author}`} />

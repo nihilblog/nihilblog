@@ -1,15 +1,15 @@
-export const copyToClipboard = str => {
-  const { clipboard } = window.navigator;
+export const copyToClipboard = (str) => {
+  const { clipboard, } = window.navigator;
 
   if (!clipboard || typeof clipboard.writeText !== 'function') {
     const textarea = document.createElement('textarea');
 
     textarea.value = str;
-    textarea.setAttribute('readonly', true);
-    textarea.setAttribute('contenteditable', true);
+    textarea.setAttribute('readonly', 'true');
+    textarea.setAttribute('contenteditable', 'true');
     textarea.style.position = 'absolute';
     textarea.style.left = '-9999px';
-    
+
     document.body.appendChild(textarea);
     textarea.select();
 

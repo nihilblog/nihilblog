@@ -1,10 +1,10 @@
 import React from 'react';
 import { css } from '@emotion/react';
 import Highlight, { defaultProps } from 'prism-react-renderer';
-import size from '@/data/size';
-import { CopyCode } from '@/components/PostComponents';
 import PropTypes from 'prop-types';
 import { v4 as uuid } from 'uuid';
+import size from '@/data/size';
+import { CopyCode } from '@/components/PostComponents';
 
 export const Prism = ({ children, top = '40', bottom = '40', }) => {
   const { className, } = children.props;

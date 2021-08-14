@@ -1,5 +1,6 @@
 import React, { useCallback, useState } from 'react';
 import { css } from '@emotion/react';
+import PropTypes from 'prop-types';
 import getAllYearIllusts from '@/utils/mdx/getAllYearIllusts';
 import getTagsAndCategories from '@/utils/mdx/getTagsAndCategories';
 import BlogLayout from '@/layouts/BlogLayout';
@@ -9,7 +10,6 @@ import BlogConfig from '@/data/blogConfig';
 import AlterPagination from '@/components/AlterPagination';
 import { GoogleAd } from '@/components/ContentComponents';
 import { Box, BoxHeader, PostItemBox } from '@/components/LayoutComponensts';
-import PropTypes from 'prop-types';
 
 const KeywordPostsPage = ({ PostsPages, keyword, }) => {
   const [ postsIndex, setPostsIndex, ] = useState(0);

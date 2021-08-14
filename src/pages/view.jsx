@@ -1,13 +1,13 @@
 import React from 'react';
 import { css, Global } from '@emotion/react';
+import PropTypes from 'prop-types';
+import { v4 as uuid } from 'uuid';
 import getAllYearPosts from '@/utils/mdx/getAllYearPosts';
 import getAllYearIllusts from '@/utils/mdx/getAllYearIllusts';
 import BlogLayout from '@/layouts/BlogLayout';
 import { Box, BoxHeader } from '@/components/LayoutComponensts';
 import { P } from '@/components/PostComponents';
 import size from '@/data/size';
-import PropTypes from 'prop-types';
-import { v4 as uuid} from 'uuid';
 
 const BlogPostManagerPage = ({ posts, }) => {
   const style = css`
@@ -85,12 +85,12 @@ const BlogPostManagerPage = ({ posts, }) => {
       font-family: 'Noto Sans CJK KR', sans-serif;
     }
   `;
-  
+
   const siteData = {
     pageName: '포스트 관리',
     pageURL: '/view',
   };
-  
+
   return (
     <>
       <Global styles={globalStyle} />
@@ -106,37 +106,35 @@ const BlogPostManagerPage = ({ posts, }) => {
                 <h2>
                   {
                     frontMatter.notice
-                      ?
-                      (<>
-                        <span className='count red'>{index + 1}</span>
-                        <span className='red'>공지</span>
-                      </>)
-                      :
-                      frontMatter.drawDate
-                        ?
-                        (<>
-                          <span className='count black'>{index + 1}</span>
-                          <span className='black'>일러스트</span>
-                        </>)
-                        :
-                        (<>
-                          <span className='count black'>{index + 1}</span>
-                          <span className='black'>일반</span>
-                        </>)
+                      ? (
+                        <>
+                          <span className='count red'>{index + 1}</span>
+                          <span className='red'>공지</span>
+                        </>
+                      )
+                      : frontMatter.drawDate
+                        ? (
+                          <>
+                            <span className='count black'>{index + 1}</span>
+                            <span className='black'>일러스트</span>
+                          </>
+                        )
+                        : (
+                          <>
+                            <span className='count black'>{index + 1}</span>
+                            <span className='black'>일반</span>
+                          </>
+                        )
                   }
                   <span>{frontMatter.title}</span>
                 </h2>
                 <p>
                   {
                     frontMatter.notice
-                      ?
-                      `/notice/${filePath.replace('.mdx', '')}`
-                      :
-                      frontMatter.drawDate
-                        ?
-                        `/illust/${filePath.replace('.mdx', '')}`
-                        :
-                        `/post/${filePath.replace('.mdx', '')}`
+                      ? `/notice/${filePath.replace('.mdx', '')}`
+                      : frontMatter.drawDate
+                        ? `/illust/${filePath.replace('.mdx', '')}`
+                        : `/post/${filePath.replace('.mdx', '')}`
                   }
                 </p>
               </div>

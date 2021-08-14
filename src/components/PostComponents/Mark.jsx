@@ -10,7 +10,7 @@ export const Mark = ({ children, }) => {
     font-size: 90%;
     margin: 0 2px;
   `;
-  
+
   return (
     <>
       <mark css={markStyle}>{children}</mark>

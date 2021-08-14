@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { css } from '@emotion/react';
-import size from '@/data/size';
 import PropTypes from 'prop-types';
+import size from '@/data/size';
 
 export const Message = ({
   children, color, top = '40', bottom = '40',

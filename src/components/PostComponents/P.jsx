@@ -1,7 +1,7 @@
 import React from 'react';
 import { css } from '@emotion/react';
-import size from '@/data/size';
 import PropTypes from 'prop-types';
+import size from '@/data/size';
 
 export const P = ({
   children, top = '20', bottom = '20', align = 'justify',

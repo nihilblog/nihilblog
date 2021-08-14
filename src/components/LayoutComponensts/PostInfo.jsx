@@ -1,8 +1,8 @@
 import React from 'react';
 import { css } from '@emotion/react';
 import PropTypes from 'prop-types';
-import getUTC9 from '@/utils/getUTC9';
 import Link from 'next/link';
+import getUTC9 from '@/utils/getUTC9';
 import size from '@/data/size';
 
 export const PostInfo = ({

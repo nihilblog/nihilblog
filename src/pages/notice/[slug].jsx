@@ -1,15 +1,15 @@
 import React from 'react';
+import { MDXRemote } from 'next-mdx-remote';
+import PropTypes from 'prop-types';
 import getUTCString from '@/utils/getUTCString';
 import MDXComponents from '@/components/MDXComponents';
 import getAllYearPosts from '@/utils/mdx/getAllYearPosts';
 import getPostBySlug from '@/utils/mdx/getPostBySlug';
 import PostNavigation from '@/components/PostNavigation';
 import BlogLayout from '@/layouts/BlogLayout';
-import { MDXRemote } from 'next-mdx-remote';
 import { CommentGuideMessage, Line } from '@/components/PostComponents';
 import { GoogleAd } from '@/components/ContentComponents';
 import { PostContent, PostInfo, Utterances } from '@/components/LayoutComponensts';
-import PropTypes from 'prop-types';
 
 const BlogNoticePage = ({ post, prev, next, }) => {
   const { frontMatter, slug, source, } = post;
@@ -48,15 +48,13 @@ const BlogNoticePage = ({ post, prev, next, }) => {
 
 export const getStaticPaths = async () => {
   const posts = await getAllYearPosts('notice');
-  
+
   return {
-    paths: posts.map(post => {
-      return {
-        params: {
-          slug: post.filePath.replace('.mdx', ''),
-        },
-      };
-    }),
+    paths: posts.map((post) => ({
+      params: {
+        slug: post.filePath.replace('.mdx', ''),
+      },
+    })),
     fallback: false,
   };
 };

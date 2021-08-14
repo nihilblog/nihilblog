@@ -1,17 +1,17 @@
 import React from 'react';
+import { css } from '@emotion/react';
+import PropTypes from 'prop-types';
 import getAllYearPosts from '@/utils/mdx/getAllYearPosts';
 import BlogLayout from '@/layouts/BlogLayout';
 import { BlogMessage, BlogSeriesList, GoogleAd } from '@/components/ContentComponents';
-import { css } from '@emotion/react';
 import { A, P } from '@/components/PostComponents';
 import { Box, BoxHeader, PostItemBox } from '@/components/LayoutComponensts';
-import PropTypes from 'prop-types';
 
 const BlogIndexPage = ({ posts, notices, }) => {
   const style = css`
     margin-bottom: 100px;
   `;
-  
+
   const siteData = {
     pageName: '홈',
     pageURL: '/',
@@ -31,8 +31,10 @@ const BlogIndexPage = ({ posts, notices, }) => {
           <div id='blog-notice-list'>
             {notices.map(({ frontMatter, filePath, }) => (
               <PostItemBox
-                key={filePath.replace('.mdx', '')} type='notice'
-                frontMatter={frontMatter} filePath={filePath}
+                key={filePath.replace('.mdx', '')}
+                type='notice'
+                frontMatter={frontMatter}
+                filePath={filePath}
               />
             ))}
           </div>
@@ -43,8 +45,10 @@ const BlogIndexPage = ({ posts, notices, }) => {
           <div id='blog-post-list'>
             {posts.map(({ frontMatter, filePath, }) => (
               <PostItemBox
-                key={filePath.replace('.mdx', '')} type='post'
-                frontMatter={frontMatter} filePath={filePath}
+                key={filePath.replace('.mdx', '')}
+                type='post'
+                frontMatter={frontMatter}
+                filePath={filePath}
               />
             ))}
           </div>

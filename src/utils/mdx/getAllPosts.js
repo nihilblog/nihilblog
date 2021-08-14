@@ -5,22 +5,22 @@ const matter = require('gray-matter');
 module.exports = (type = '', year = '', month = '') => {
   const postPath = path.join(process.cwd(), 'posts', `${type}/${year}/${month}`);
   const getPostPaths = fs.readdirSync(postPath).filter((p) => /\.mdx?$/.test(p));
-  
+
   const Allposts = getPostPaths.map((filePath) => {
     const source = fs.readFileSync(path.join(postPath, filePath), 'utf8');
     const { data, content, } = matter(source);
-    
+
     const { coverImage, description, title, } = data;
-    
+
     const createdAt = data.createdAt.getTime() - 32400000;
     const updatedAt = data.updatedAt.getTime() - 32400000;
     const drawDate = data.drawDate ? data.drawDate.getTime() - 32400000 : '';
     const tags = data.tags ? data.tags : '';
     const categories = data.categories ? data.categories : '';
     const keywords = data.keywords ? data.keywords : '';
-    
+
     let frontMatter;
-    
+
     if (data.drawDate) {
       frontMatter = {
         ...data,
@@ -53,9 +53,9 @@ module.exports = (type = '', year = '', month = '') => {
         description,
       };
     }
-    
+
     let fullPath;
-    
+
     if (type === 'post') {
       fullPath = `/post/${filePath.replace('.mdx', '')}`;
     } else if (type === 'notice') {
@@ -63,7 +63,7 @@ module.exports = (type = '', year = '', month = '') => {
     } else {
       fullPath = `/illust/${filePath.replace('.mdx', '')}`;
     }
-    
+
     return {
       frontMatter,
       filePath,
@@ -71,8 +71,6 @@ module.exports = (type = '', year = '', month = '') => {
       content,
     };
   });
-  
-  return Allposts.filter((post) => {
-    return post.frontMatter.display === true;
-  });
+
+  return Allposts.filter((post) => post.frontMatter.display === true);
 };

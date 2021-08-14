@@ -1,7 +1,7 @@
 import React from 'react';
 import { css, Global } from '@emotion/react';
-import size from '@/data/size';
 import PropTypes from 'prop-types';
+import size from '@/data/size';
 
 export const Score = ({
   top = '40', bottom = '40', children, score,

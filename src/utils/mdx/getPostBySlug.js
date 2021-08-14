@@ -5,19 +5,15 @@ const getAllYearPosts = require('./getAllYearPosts');
 
 module.exports = async (type = '', slug = '') => {
   let posts;
-  
+
   if (type !== 'illust') {
-    posts = getAllYearPosts(type).filter((post) => {
-      return post.filePath.replace('.mdx', '') === slug;
-    });
+    posts = getAllYearPosts(type).filter((post) => post.filePath.replace('.mdx', '') === slug);
   } else {
-    posts = getAllYearIllusts(type).filter((post) => {
-      return post.filePath.replace('.mdx', '') === slug;
-    });
+    posts = getAllYearIllusts(type).filter((post) => post.filePath.replace('.mdx', '') === slug);
   }
-  
+
   const { frontMatter, content, } = posts[0];
-  
+
   const mdxSource = await serialize(content, {
     mdxOptions: {
       remarkPlugins: [
@@ -25,7 +21,7 @@ module.exports = async (type = '', slug = '') => {
       ],
     },
   });
-  
+
   return {
     frontMatter,
     source: mdxSource,

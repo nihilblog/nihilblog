@@ -1,4 +1,5 @@
 import React, { useCallback } from 'react';
+import PropTypes from 'prop-types';
 import getPages from '@/utils/getPages';
 import getAllYearPosts from '@/utils/mdx/getAllYearPosts';
 import BlogConfig from '@/data/blogConfig';
@@ -7,7 +8,6 @@ import Pagination from '@/components/Pagination';
 import { P } from '@/components/PostComponents';
 import { GoogleAd } from '@/components/ContentComponents';
 import { Box, BoxHeader, PostItemBox } from '@/components/LayoutComponensts';
-import PropTypes from 'prop-types';
 
 const BlogPostListNumberPage = ({
   currentPage, prevPage, nextPage, posts, totalPages, PostsPages,

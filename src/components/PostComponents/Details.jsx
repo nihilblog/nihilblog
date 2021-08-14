@@ -1,7 +1,7 @@
 import React, { useCallback, useState } from 'react';
 import { css } from '@emotion/react';
-import size from '@/data/size';
 import PropTypes from 'prop-types';
+import size from '@/data/size';
 
 export const Details = ({
   children, close = '펼치기', open = '접기', top = '40', bottom = '40',

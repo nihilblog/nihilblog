@@ -1,7 +1,7 @@
 import React from 'react';
 import { css } from '@emotion/react';
-import size from '@/data/size';
 import PropTypes from 'prop-types';
+import size from '@/data/size';
 
 export const Image = ({
   src, alt, top = '40', bottom = '40',

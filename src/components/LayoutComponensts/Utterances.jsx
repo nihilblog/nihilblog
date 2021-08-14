@@ -15,9 +15,9 @@ export const Utterances = () => {
       padding: 0 -4px;
     }
   `;
-  
+
   const ID = 'post-comments';
-  
+
   useEffect(() => {
     const script = document.createElement('script');
     script.src = 'https://utteranc.es/client.js';
@@ -27,12 +27,12 @@ export const Utterances = () => {
     script.setAttribute('theme', 'github-dark');
     script.setAttribute('label', 'blog-comment');
     script.setAttribute('crossorigin', 'anonymous');
-  
+
     const comments = document.getElementById(ID);
     if (comments) {
       comments.appendChild(script);
     }
-    
+
     return () => {
       const comments = document.getElementById(ID);
       if (comments) {
@@ -40,7 +40,7 @@ export const Utterances = () => {
       }
     };
   }, []);
-  
+
   return (
     <>
       <div id={ID} css={style} />
