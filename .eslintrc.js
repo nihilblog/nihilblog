@@ -64,6 +64,7 @@ module.exports = {
     'prefer-const': 'off',
     'max-len': 'off',
     'no-else-return': 'off',
+    'global-require': 'off',
 
     // 임포트 규칙
     'import/extensions': 'off',
