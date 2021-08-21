@@ -2,14 +2,30 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@/components/*": ["./src/components/*"],
-      "@/styles/*": ["./src/styles/*"],
-      "@/hooks/*": ["./src/hooks/*"],
-      "@/utils/*": ["./src/utils/*"],
-      "@/pages/*": ["src/pages/*"],
-      "@/data/*": ["./src/data/*"],
-      "@/layouts/*": ["./src/layouts/*"],
-      "@/types": ["./src/types/*"]
+      "@/components/*": [
+        "./src/components/*"
+      ],
+      "@/styles/*": [
+        "./src/styles/*"
+      ],
+      "@/hooks/*": [
+        "./src/hooks/*"
+      ],
+      "@/utils/*": [
+        "./src/utils/*"
+      ],
+      "@/pages/*": [
+        "src/pages/*"
+      ],
+      "@/data/*": [
+        "./src/data/*"
+      ],
+      "@/layouts/*": [
+        "./src/layouts/*"
+      ],
+      "@/types/*": [
+        "./src/types/*"
+      ]
     }
   },
   "exclude": [

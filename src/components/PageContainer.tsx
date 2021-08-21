@@ -1,0 +1,22 @@
+import React, { ReactNode } from 'react';
+import { css } from '@emotion/react';
+
+interface Props {
+  children?: ReactNode;
+}
+
+const PageContainer = ({ children, }: Props) => {
+  const PageContainerStyle = css`
+    padding: 0 20px;
+  `;
+
+  return (
+    <>
+      <main css={PageContainerStyle}>
+        {children}
+      </main>
+    </>
+  );
+};
+
+export default PageContainer;

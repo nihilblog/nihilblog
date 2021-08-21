@@ -6,6 +6,7 @@ module.exports = {
     node: true,
     es2021: true,
   },
+  parser: '@typescript-eslint/parser',
   extends: [
     'airbnb',
     'airbnb/hooks',
@@ -13,6 +14,7 @@ module.exports = {
     'plugin:import/warnings',
     'eslint:recommended',
     'plugin:react/recommended',
+    'plugin:@typescript-eslint/recommended',
   ],
   parserOptions: {
     ecmaVersion: 2021,
@@ -21,7 +23,7 @@ module.exports = {
       jsx: true,
     },
   },
-  plugins: [ 'import', 'react', 'react-hooks', ],
+  plugins: [ '@typescript-eslint', 'import', 'react', 'react-hooks', ],
   rules: {
     // 일반 규칙
     'no-console': 'off',
@@ -49,7 +51,7 @@ module.exports = {
     ],
     'object-curly-spacing': [ 'warn', 'always', ],
     'no-shadow': 'off',
-    indent: [ 'warn', 2, { SwitchCase: 1, }, ],
+    indent: 'off',
     'comma-dangle': [ 'warn', {
       arrays: 'always',
       functions: 'never',
@@ -58,18 +60,13 @@ module.exports = {
       exports: 'never',
     }, ],
     'jsx-quotes': [ 'error', 'prefer-single', ],
-    'linebreak-style': [ 'warn', 'windows', ],
+    'linebreak-style': 'off',
+    'prefer-const': 'off',
     'max-len': 'off',
-    'lines-between-class-members': 'off',
-    'no-underscore-dangle': 'off',
+    'no-else-return': 'off',
 
     // 임포트 규칙
-    'import/extensions': [ 'error', 'never', {
-      ignorePackages: true,
-      pattern: {
-        json: 'always',
-      },
-    }, ],
+    'import/extensions': 'off',
     'import/no-extraneous-dependencies': 'off',
     'import/no-unresolved': 'off',
     'import/prefer-default-export': 'off',
@@ -104,5 +101,12 @@ module.exports = {
     'jsx-a11y/anchor-has-content': 'off',
     'jsx-a11y/no-static-element-interactions': 'off',
     'jsx-a11y/click-events-have-key-events': 'off',
+
+    // 타입스크립트 규칙
+    '@typescript-eslint/explicit-module-boundary-types': 'off',
+    '@typescript-eslint/no-var-requires': 'off',
+    '@typescript-eslint/ban-ts-comment': 'off',
+    '@typescript-eslint/no-unused-vars': 'off',
+    '@typescript-eslint/indent': [ 'warn', 2, { SwitchCase: 1, }, ],
   },
 };
