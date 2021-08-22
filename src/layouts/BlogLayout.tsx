@@ -9,6 +9,7 @@ import PageContainer from '@/components/PageContainer';
 import SiteHead from '@/components/SiteHead';
 import SubNavContainer from '@/components/SubNavContainer';
 import { ISiteData } from '@/types';
+import gruvboxDark from '@/styles/prism-gruvboxDark';
 
 interface LayoutProps {
   pageName?: string;
@@ -120,6 +121,8 @@ const BlogLayout = ({
       background-color: #222222;
       border-radius: 10px;
     }
+
+    ${gruvboxDark};
 
     @media (min-width: 1px) and (max-width: 600px) {
       main {max-width: 100%;}

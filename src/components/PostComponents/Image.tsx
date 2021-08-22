@@ -5,12 +5,13 @@ import size from '@/data/size';
 interface Props {
   src?: string;
   alt?: string;
+  title?: string;
   top?: string;
   bottom?: string;
 }
 
 export const Image = ({
-  src, alt, top = '40', bottom = '40',
+  src, alt, title, top = '40', bottom = '40',
 }: Props) => {
   const style = css`
     max-width: 940px;
@@ -104,7 +105,7 @@ export const Image = ({
     <>
       <figure className='post-image-block' css={style}>
         <div>
-          <img src={src} alt={alt} />
+          <img src={src} alt={alt} title={title} />
         </div>
         <figcaption>
           <span>{alt}</span>

@@ -1,4 +1,11 @@
+interface GetColor {
+  Lang: string;
+  backgroundColor: string;
+  textColor: string;
+}
+
 const langData = {
+  plaintext: [ '#666666', '#ffffff', ],
   html: [ '#f47933', '#ffffff', ],
   js: [ '#e6a323', '#333333', ],
   javascript: [ '#e6a323', '#333333', ],
@@ -15,12 +22,20 @@ const langData = {
   json: [ '#666666', '#ffffff', ],
 };
 
-const getLangColor = (text: string): string[] => {
-  const TEXT = text.toUpperCase();
-  const backgroundColor: string = langData[text][0];
-  const textColor: string = langData[text][1];
+const getLangColor = (text: string): GetColor => {
+  let Lang: string;
 
-  return [ TEXT, backgroundColor, textColor, ];
+  if (text === 'plaintext') {
+    Lang = 'TEXT';
+  } else {
+    Lang = text.toUpperCase();
+  }
+
+  return {
+    Lang,
+    backgroundColor: langData[text][0],
+    textColor: langData[text][1],
+  };
 };
 
 export default getLangColor;
