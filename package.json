@@ -1,6 +1,6 @@
 {
   "name": "nihilog-code",
-  "version": "3.4.1",
+  "version": "3.6.0",
   "description": "니힐로그 Next.js 에디션",
   "main": "src/pages/index.jsx",
   "repository": {
@@ -28,7 +28,6 @@
     "mdx-prism": "^0.3.4",
     "next": "^11.1.0",
     "next-mdx-remote": "^3.0.4",
-    "prism-react-renderer": "^1.2.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "rehype": "^12.0.0",
@@ -42,7 +41,7 @@
     "@babel/core": "^7.15.0",
     "@emotion/babel-plugin": "^11.3.0",
     "@emotion/babel-preset-css-prop": "^11.2.0",
-    "@types/node": "^16.6.2",
+    "@types/node": "^16.7.1",
     "@types/prettier": "^2.3.2",
     "@types/react": "^17.0.19",
     "@types/react-dom": "^17.0.9",
@@ -52,7 +51,7 @@
     "eslint": "^7.32.0",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-config-next": "^11.1.0",
-    "eslint-plugin-import": "^2.24.0",
+    "eslint-plugin-import": "^2.24.1",
     "eslint-plugin-jsx-a11y": "^6.4.1",
     "eslint-plugin-react": "^7.24.0",
     "eslint-plugin-react-hooks": "^4.2.0",
