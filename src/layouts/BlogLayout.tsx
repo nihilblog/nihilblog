@@ -9,7 +9,7 @@ import PageContainer from '@/components/PageContainer';
 import SiteHead from '@/components/SiteHead';
 import SubNavContainer from '@/components/SubNavContainer';
 import { ISiteData } from '@/types';
-import gruvboxDark from '@/styles/prism-gruvboxDark';
+import draculaTheme from '@/styles/prism-draculaTheme';
 
 interface LayoutProps {
   pageName?: string;
@@ -122,7 +122,7 @@ const BlogLayout = ({
       border-radius: 10px;
     }
 
-    ${gruvboxDark};
+    ${draculaTheme};
 
     @media (min-width: 1px) and (max-width: 600px) {
       main {max-width: 100%;}

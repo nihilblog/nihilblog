@@ -66,6 +66,7 @@ export const Spoiler = ({ children, }: Props) => {
       cursor: pointer;
       text-indent: 0;
       margin: 0 2px;
+      font-size: 90%;
 
       ${click.hover}
     }

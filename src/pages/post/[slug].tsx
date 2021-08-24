@@ -36,6 +36,7 @@ const BlogPostPage = ({ post, prev, next, }: IPostsProps) => {
           <PostContent idName='blog-post-content' frontMatter={frontMatter}>
             <Line />
             <MDXRemote {...source} components={{ ...MDXComponents, }} />
+            <Line />
             <CommentGuideMessage postType='' />
             <GoogleAd pos='bottom' />
             <Utterances />

@@ -12,6 +12,23 @@ interface Props {
   frontMatter?: IFrontMatter;
 }
 
+interface InfoPProps {
+  top?: string;
+  bottom?: string;
+  children?: React.ReactNode;
+}
+
+const InfoP = ({ top, bottom, children, }: InfoPProps) => {
+  const style = css`
+    margin-top: ${top}px;
+    margin-bottom: ${bottom}px;
+  `;
+
+  return (
+    <p css={style}>{children}</p>
+  );
+};
+
 export const PostInfo = ({
   top = '30', bottom = '30', type, frontMatter,
 }: Props) => {
@@ -22,7 +39,7 @@ export const PostInfo = ({
   const postInfoStyle = css`
     margin-top: ${top}px;
     margin-bottom: ${bottom}px;
-    padding: 10px 10px 7px 10px;
+    padding: 10px 10px 5px 10px;
     border-radius: 10px;
     background-color: #ffffff;
     box-shadow: 0 0 10px -4px #333333;
@@ -47,19 +64,10 @@ export const PostInfo = ({
     }
 
     & > p {
-      margin: 10px 0 7px 0;
       letter-spacing: -1px;
       line-height: 1;
       font-weight: 500;
       text-align: justify;
-
-      &:nth-of-type(1) {
-        margin-top: 0;
-      }
-
-      &:nth-last-of-type(1) {
-        margin-bottom: 0;
-      }
 
       & > span {
         background-color: #333333;
@@ -75,7 +83,7 @@ export const PostInfo = ({
         color: #555555;
         padding: 5px 10px;
         margin-right: 5px;
-        margin-bottom: 3px;
+        margin-bottom: 5px;
         border-radius: 5px;
         display: inline-block;
 
@@ -126,27 +134,27 @@ export const PostInfo = ({
         <h1><span>{title}</span></h1>
         {
           type === 'post'
-            ? <p><span>분류</span>일반 포스트</p>
+            ? <InfoP top='10' bottom='10'><span>분류</span>일반 포스트</InfoP>
             : type === 'notice'
-              ? <p><span>분류</span>공지 포스트</p>
-              : <p><span>분류</span>일러스트 포스트</p>
+              ? <InfoP top='10' bottom='10'><span>분류</span>공지 포스트</InfoP>
+              : <InfoP top='10' bottom='10'><span>분류</span>일러스트 포스트</InfoP>
         }
-        <p><span>작성일</span>{getUTC9(createdAt)}</p>
+        <InfoP top='10' bottom='5'><span>작성일</span>{getUTC9(createdAt)}</InfoP>
         {
           createdAt < updatedAt
-            ? <p><span>수정일</span>{getUTC9(updatedAt)}</p>
+            ? <InfoP top='10' bottom='5'><span>수정일</span>{getUTC9(updatedAt)}</InfoP>
             : ''
         }
         {
           type === 'illust'
-            ? <p><span>완성일</span>{getUTC9(drawDate)}</p>
+            ? <InfoP top='10' bottom='10'><span>완성일</span>{getUTC9(drawDate)}</InfoP>
             : ''
         }
         {
           type === 'post'
             ? (
               <>
-                <p>
+                <InfoP top='5' bottom='5'>
                   <span>카테고리</span>
                   {
                     categories.map((category) => (
@@ -155,8 +163,8 @@ export const PostInfo = ({
                       </Link>
                     ))
                   }
-                </p>
-                <p>
+                </InfoP>
+                <InfoP top='5' bottom='0'>
                   <span>태그</span>
                   {
                     tags.map((tag) => (
@@ -165,7 +173,7 @@ export const PostInfo = ({
                       </Link>
                     ))
                   }
-                </p>
+                </InfoP>
               </>
             )
             : ''
@@ -173,7 +181,7 @@ export const PostInfo = ({
         {
           type === 'illust'
             ? (
-              <p>
+              <InfoP top='5' bottom='0'>
                 <span>키워드</span>
                 {
                   keywords.map((keyword) => (
@@ -182,7 +190,7 @@ export const PostInfo = ({
                     </Link>
                   ))
                 }
-              </p>
+              </InfoP>
             )
             : ''
         }

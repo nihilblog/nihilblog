@@ -6,7 +6,7 @@ interface Props {
   children?: React.ReactNode;
   top?: string;
   bottom?: string;
-  align?: ('left' | 'right' | 'justify' | 'center');
+  align?: ('left' | 'right' | 'justify');
 }
 
 export const P = ({

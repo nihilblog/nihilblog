@@ -14,25 +14,29 @@ import {
   Score, Spoiler,
   Strike,
   Strong,
-  Ul, Youtube, HtmlGuideMessage
+  Ul, Youtube, HtmlGuideMessage, Name
 } from '@/components/PostComponents';
 
+interface Props {
+  [x: string]: string;
+}
+
 const MDXComponents = {
-  h1: (props) => <H type='1' {...props} />,
-  h2: (props) => <H type='2' {...props} />,
-  h3: (props) => <H type='3' {...props} />,
-  h4: (props) => <H type='4' {...props} />,
-  inlineCode: (props) => <Code {...props} />,
-  p: (props) => <P {...props} />,
-  img: (props) => <Image {...props} />,
-  a: (props) => <A {...props} />,
-  del: (props) => <Strike {...props} />,
-  strong: (props) => <Strong {...props} />,
-  em: (props) => <Em {...props} />,
-  ol: (props) => <Ol {...props} />,
-  ul: (props) => <Ul {...props} />,
-  pre: (props) => <Prism {...props} />,
-  hr: (props) => <Line {...props} />,
+  h1: (props: Props) => <H type='1' {...props} />,
+  h2: (props: Props) => <H type='2' {...props} />,
+  h3: (props: Props) => <H type='3' {...props} />,
+  h4: (props: Props) => <H type='4' {...props} />,
+  inlineCode: (props: Props) => <Code {...props} />,
+  p: (props: Props) => <P {...props} />,
+  img: (props: Props) => <Image {...props} />,
+  a: (props: Props) => <A {...props} />,
+  del: (props: Props) => <Strike {...props} />,
+  strong: (props: Props) => <Strong {...props} />,
+  em: (props: Props) => <Em {...props} />,
+  ol: (props: Props) => <Ol {...props} />,
+  ul: (props: Props) => <Ul {...props} />,
+  pre: (props: Props) => <Prism {...props} />,
+  hr: (props: Props) => <Line {...props} />,
   H,
   Code,
   A,
@@ -60,6 +64,7 @@ const MDXComponents = {
   Mark,
   Line,
   HtmlGuideMessage,
+  Name,
 };
 
 export default MDXComponents;

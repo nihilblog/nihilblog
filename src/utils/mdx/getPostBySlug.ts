@@ -1,6 +1,5 @@
 import { serialize } from 'next-mdx-remote/serialize';
 import remarkUnwrapImages from 'remark-unwrap-images';
-import remarkCapitalize from 'remark-capitalize';
 import remarkCodeTitles from 'remark-code-titles';
 import remarkSlug from 'remark-slug';
 import mdxPrism from 'mdx-prism';
@@ -17,8 +16,6 @@ const getPostBySlug = async (type: IPostType, slug: string) => {
       remarkPlugins: [
         // @ts-ignore
         remarkUnwrapImages,
-        // @ts-ignore
-        remarkCapitalize,
         // @ts-ignore
         remarkCodeTitles,
         // @ts-ignore

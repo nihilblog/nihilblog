@@ -9,6 +9,7 @@ import {
   Line,
   Mark,
   Message,
+  Name,
   NoteBottom,
   NoteTop, Ol,
   P, Q, Quote, Score,
@@ -47,6 +48,7 @@ const PostTemplatePage = () => {
           <P><Gray>회색 글씨입니다.</Gray></P>
           <P><Em>기울임 강조입니다.</Em></P>
           <P><Strike>취소선 그어진 글씨입니다.</Strike></P>
+          <P><Name>파일 이름 입니다.</Name></P>
 
           <P>각주입니다.<NoteTop number='1' /></P>
 

@@ -16,17 +16,6 @@ export const PostItemBox = ({ type, frontMatter, filePath, }: Props) => {
   const {
     description, title, coverImage, categories, createdAt, keywords,
   } = frontMatter;
-  const typeObj = {
-    href: '',
-  };
-
-  if (type === 'post') {
-    typeObj.href = 'post';
-  } else if (type === 'notice') {
-    typeObj.href = 'notice';
-  } else {
-    typeObj.href = 'illust';
-  }
 
   const src = '썸네일이 없습니다';
 
@@ -213,7 +202,7 @@ export const PostItemBox = ({ type, frontMatter, filePath, }: Props) => {
         </div>
         <div>
           <h2>
-            <Link href={`/${typeObj.href}/${filePath.replace('.mdx', '')}`}>
+            <Link href={`/${type}/${filePath.replace('.mdx', '')}`}>
               <a>{title}</a>
             </Link>
           </h2>
@@ -228,7 +217,7 @@ export const PostItemBox = ({ type, frontMatter, filePath, }: Props) => {
                 ))
                 : type === 'notice'
                   ? (
-                    <Link href={`/${typeObj.href}/page/1`}>
+                    <Link href={`/${type}/page/1`}>
                       <a className='category notice'>공지</a>
                     </Link>
                   )

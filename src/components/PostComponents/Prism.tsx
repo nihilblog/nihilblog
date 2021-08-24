@@ -41,7 +41,7 @@ export const Prism = ({ children, top = '40', bottom = '40', }: Props) => {
         background-color: ${backgroundColor};
         color: ${textColor};
         display: inline-block;
-        border-radius: 10px 10px 0 0;
+        border-radius: 10px ${fileName ? '0' : '10px'} 0 0;
         line-height: 1;
         padding: 10px;
         margin-left: 10px;
@@ -55,13 +55,12 @@ export const Prism = ({ children, top = '40', bottom = '40', }: Props) => {
       }
 
       & > .codeblock-name {
-        background-color: ${backgroundColor}90;
+        background-color: ${backgroundColor}a0;
         color: ${textColor};
         display: inline-block;
-        border-radius: 10px 10px 0 0;
+        border-radius: 0 10px 0 0;
         line-height: 1;
         padding: 10px;
-        margin-left: 5px;
         margin-right: 10px;
         flex: 1;
       }
