@@ -5,7 +5,7 @@ import { css } from '@emotion/react';
 import { useRouter } from 'next/router';
 import size from '@/data/size';
 import { MainImage } from '@/components/PostComponents';
-import { PostToc } from '@/components/LayoutComponensts';
+import { PostToc } from '@/components/LayoutComponents';
 import { GoogleAd } from '@/components/ContentComponents';
 import { IFrontMatter, IH2 } from '@/types';
 

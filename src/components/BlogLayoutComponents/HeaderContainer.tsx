@@ -3,7 +3,7 @@ import { css } from '@emotion/react';
 import BlogConfig from '@/data/blogConfig';
 import size from '@/data/size';
 
-const HeaderContainer = () => {
+export const HeaderContainer = () => {
   const headerStyle = css`
     padding: 10px;
     border-bottom: 5px solid #ffffff;
@@ -51,5 +51,3 @@ const HeaderContainer = () => {
     </>
   );
 };
-
-export default HeaderContainer;

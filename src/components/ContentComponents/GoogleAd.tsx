@@ -8,6 +8,7 @@ interface Props {
 }
 
 declare global {
+  // eslint-disable-next-line no-unused-vars
   interface Window {
     adsbygoogle: {[key: string]: unknown}[];
   }

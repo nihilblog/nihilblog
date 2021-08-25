@@ -8,7 +8,7 @@ import BlogLayout from '@/layouts/BlogLayout';
 import size from '@/data/size';
 import getTagsAndCategories from '@/utils/mdx/getTagsAndCategories';
 import { GoogleAd } from '@/components/ContentComponents';
-import { Box, BoxHeader } from '@/components/LayoutComponensts';
+import { Box, BoxHeader } from '@/components/LayoutComponents';
 import { IPostsProps, ISiteData } from '@/types';
 
 const TagsPage = ({ tags, }: IPostsProps) => {

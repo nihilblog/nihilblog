@@ -7,7 +7,7 @@ import { P } from '@/components/PostComponents';
 import BlogLayout from '@/layouts/BlogLayout';
 import size from '@/data/size';
 import { GoogleAd } from '@/components/ContentComponents';
-import { Box, BoxHeader } from '@/components/LayoutComponensts';
+import { Box, BoxHeader } from '@/components/LayoutComponents';
 import { IPostsProps, ISiteData } from '@/types';
 
 const CategoriesPage = ({ categories, }: IPostsProps) => {

@@ -1,6 +1,6 @@
 import React from 'react';
 import { A, P, Strong } from '@/components/PostComponents';
-import { Box, BoxHeader } from '@/components/LayoutComponensts';
+import { Box, BoxHeader } from '@/components/LayoutComponents';
 
 export const BlogMessage = () => (
   <>

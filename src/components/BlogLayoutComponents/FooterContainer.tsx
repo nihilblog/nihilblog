@@ -3,7 +3,7 @@ import { css } from '@emotion/react';
 import BlogConfig from '@/data/blogConfig';
 import size from '@/data/size';
 
-const FooterContainer = () => {
+export const FooterContainer = () => {
   const footerContainerStyle = css`
     background-color: #333333;
     padding: 10px;
@@ -97,5 +97,3 @@ const FooterContainer = () => {
     </>
   );
 };
-
-export default FooterContainer;

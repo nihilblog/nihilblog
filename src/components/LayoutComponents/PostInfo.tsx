@@ -134,10 +134,10 @@ export const PostInfo = ({
         <h1><span>{title}</span></h1>
         {
           type === 'post'
-            ? <InfoP top='10' bottom='10'><span>분류</span>일반 포스트</InfoP>
+            ? <InfoP top='10' bottom='10'><span>분류</span>포스트</InfoP>
             : type === 'notice'
-              ? <InfoP top='10' bottom='10'><span>분류</span>공지 포스트</InfoP>
-              : <InfoP top='10' bottom='10'><span>분류</span>일러스트 포스트</InfoP>
+              ? <InfoP top='10' bottom='10'><span>분류</span>공지</InfoP>
+              : <InfoP top='10' bottom='10'><span>분류</span>일러스트</InfoP>
         }
         <InfoP top='10' bottom='5'><span>작성일</span>{getUTC9(createdAt)}</InfoP>
         {
@@ -154,7 +154,7 @@ export const PostInfo = ({
           type === 'post'
             ? (
               <>
-                <InfoP top='5' bottom='5'>
+                <InfoP top='10' bottom='5'>
                   <span>카테고리</span>
                   {
                     categories.map((category) => (

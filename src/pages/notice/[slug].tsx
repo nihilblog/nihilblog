@@ -2,14 +2,14 @@ import React from 'react';
 import { MDXRemote } from 'next-mdx-remote';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import getUTCString from '@/utils/getUTCString';
-import MDXComponents from '@/components/MDXComponents';
 import getAllYearMdx from '@/utils/mdx/getAllYearMdx';
 import getPostBySlug from '@/utils/mdx/getPostBySlug';
-import PostNavigation from '@/components/PostNavigation';
 import BlogLayout from '@/layouts/BlogLayout';
 import { CommentGuideMessage, Line } from '@/components/PostComponents';
-import { GoogleAd } from '@/components/ContentComponents';
-import { PostContent, PostInfo, Utterances } from '@/components/LayoutComponensts';
+import { GoogleAd, MDXComponents } from '@/components/ContentComponents';
+import {
+  PostContent, PostInfo, PostNavigation, Utterances
+} from '@/components/LayoutComponents';
 import { IPostsProps, ISiteData } from '@/types';
 
 const BlogNoticePage = ({ post, prev, next, }: IPostsProps) => {

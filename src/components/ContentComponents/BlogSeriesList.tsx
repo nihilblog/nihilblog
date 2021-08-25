@@ -4,7 +4,7 @@ import {
   Strong, A, Gray, Details, P
 } from '@/components/PostComponents';
 import size from '@/data/size';
-import { Box } from '@/components/LayoutComponensts';
+import { Box } from '@/components/LayoutComponents';
 
 export const BlogSeriesList = () => {
   const [ title, setTitle, ] = useState('열기');
@@ -12,7 +12,7 @@ export const BlogSeriesList = () => {
   const style = css`
     font-weight: 500;
     letter-spacing: -1px;
-    
+
     & > summary {
       background-color: #555555;
       padding: 10px;
@@ -26,7 +26,7 @@ export const BlogSeriesList = () => {
       outline: none;
       cursor: pointer;
       list-style-type: none;
-      
+
       &:hover {
         background-color: #333333;
         color: #ffffff;

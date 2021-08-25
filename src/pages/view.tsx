@@ -4,7 +4,7 @@ import { v4 as uuid } from 'uuid';
 import { GetStaticProps } from 'next';
 import getAllYearMdx from '@/utils/mdx/getAllYearMdx';
 import BlogLayout from '@/layouts/BlogLayout';
-import { Box, BoxHeader } from '@/components/LayoutComponensts';
+import { Box, BoxHeader } from '@/components/LayoutComponents';
 import { P } from '@/components/PostComponents';
 import size from '@/data/size';
 import { IPostsProps, ISiteData } from '@/types';
@@ -112,7 +112,7 @@ const BlogPostManagerPage = ({ posts, }: IPostsProps) => {
                           <span className='red'>공지</span>
                         </>
                       )
-                      : frontMatter.drawDate
+                      : frontMatter.keywords.length > 0
                         ? (
                           <>
                             <span className='count black'>{index + 1}</span>
@@ -122,7 +122,7 @@ const BlogPostManagerPage = ({ posts, }: IPostsProps) => {
                         : (
                           <>
                             <span className='count black'>{index + 1}</span>
-                            <span className='black'>일반</span>
+                            <span className='black'>포스트</span>
                           </>
                         )
                   }
@@ -132,7 +132,7 @@ const BlogPostManagerPage = ({ posts, }: IPostsProps) => {
                   {
                     frontMatter.notice
                       ? `/notice/${filePath.replace('.mdx', '')}`
-                      : frontMatter.drawDate
+                      : frontMatter.keywords.length > 0
                         ? `/illust/${filePath.replace('.mdx', '')}`
                         : `/post/${filePath.replace('.mdx', '')}`
                   }

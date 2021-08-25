@@ -5,7 +5,7 @@ import getAllYearMdx from '@/utils/mdx/getAllYearMdx';
 import BlogLayout from '@/layouts/BlogLayout';
 import { BlogMessage, BlogSeriesList, GoogleAd } from '@/components/ContentComponents';
 import { A, P } from '@/components/PostComponents';
-import { Box, BoxHeader, PostItemBox } from '@/components/LayoutComponensts';
+import { Box, BoxHeader, PostItemBox } from '@/components/LayoutComponents';
 import { IPostsProps } from '@/types';
 
 const BlogIndexPage = ({ posts, notices, }: IPostsProps) => {

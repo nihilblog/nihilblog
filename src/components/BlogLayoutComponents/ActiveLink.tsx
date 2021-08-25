@@ -8,7 +8,7 @@ interface Props {
   type?: string;
 }
 
-const ActiveLink = ({ href, children, type = 'default', }: Props) => {
+export const ActiveLink = ({ href, children, type = 'default', }: Props) => {
   const router = useRouter();
 
   let className: string;
@@ -57,5 +57,3 @@ const ActiveLink = ({ href, children, type = 'default', }: Props) => {
     </>
   );
 };
-
-export default ActiveLink;

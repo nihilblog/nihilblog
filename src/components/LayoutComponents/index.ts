@@ -5,3 +5,6 @@ export * from './PostInfo';
 export * from './PostItemBox';
 export * from './PostContent';
 export * from './PostToc';
+export * from './AlterPagination';
+export * from './Pagination';
+export * from './PostNavigation';

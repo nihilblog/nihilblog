@@ -4,12 +4,13 @@ import { GetStaticPaths, GetStaticProps } from 'next';
 import getAllYearMdx from '@/utils/mdx/getAllYearMdx';
 import getTagsAndCategories from '@/utils/mdx/getTagsAndCategories';
 import BlogLayout from '@/layouts/BlogLayout';
-import { Box, BoxHeader, PostItemBox } from '@/components/LayoutComponensts';
+import {
+  AlterPagination, Box, BoxHeader, PostItemBox
+} from '@/components/LayoutComponents';
 import { GoogleAd } from '@/components/ContentComponents';
 import { P } from '@/components/PostComponents';
 import getPages from '@/utils/getPages';
 import BlogConfig from '@/data/blogConfig';
-import AlterPagination from '@/components/AlterPagination';
 import {
   IFirst,
   ILast,

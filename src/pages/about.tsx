@@ -1,7 +1,7 @@
 import React from 'react';
 import BlogLayout from '@/layouts/BlogLayout';
 import { A, P, Strong } from '@/components/PostComponents';
-import { Box, BoxHeader } from '@/components/LayoutComponensts';
+import { Box, BoxHeader } from '@/components/LayoutComponents';
 import { GoogleAd } from '@/components/ContentComponents';
 import { ISiteData } from '@/types';
 

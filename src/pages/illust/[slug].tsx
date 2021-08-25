@@ -7,10 +7,10 @@ import getAllYearMdx from '@/utils/mdx/getAllYearMdx';
 import getPostBySlug from '@/utils/mdx/getPostBySlug';
 import { CommentGuideMessage, Line } from '@/components/PostComponents';
 import getUTCString from '@/utils/getUTCString';
-import MDXComponents from '@/components/MDXComponents';
-import PostNavigation from '@/components/PostNavigation';
-import { GoogleAd } from '@/components/ContentComponents';
-import { PostContent, PostInfo, Utterances } from '@/components/LayoutComponensts';
+import { GoogleAd, MDXComponents } from '@/components/ContentComponents';
+import {
+  PostContent, PostInfo, PostNavigation, Utterances
+} from '@/components/LayoutComponents';
 import { IPostsProps, ISiteData } from '@/types';
 
 const BlogIllustPage = ({ illust, prev, next, }: IPostsProps) => {

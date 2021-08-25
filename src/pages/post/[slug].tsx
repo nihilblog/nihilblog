@@ -5,11 +5,11 @@ import getAllYearMdx from '@/utils/mdx/getAllYearMdx';
 import getPostBySlug from '@/utils/mdx/getPostBySlug';
 import getUTCString from '@/utils/getUTCString';
 import BlogLayout from '@/layouts/BlogLayout';
-import MDXComponents from '@/components/MDXComponents';
-import PostNavigation from '@/components/PostNavigation';
 import { CommentGuideMessage, Line } from '@/components/PostComponents';
-import { GoogleAd } from '@/components/ContentComponents';
-import { PostContent, PostInfo, Utterances } from '@/components/LayoutComponensts';
+import { GoogleAd, MDXComponents } from '@/components/ContentComponents';
+import {
+  PostContent, PostInfo, PostNavigation, Utterances
+} from '@/components/LayoutComponents';
 import { IPostsProps, ISiteData } from '@/types';
 
 const BlogPostPage = ({ post, prev, next, }: IPostsProps) => {

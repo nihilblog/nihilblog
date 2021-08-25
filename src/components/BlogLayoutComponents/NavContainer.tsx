@@ -1,9 +1,9 @@
 import React from 'react';
 import { css } from '@emotion/react';
 import size from '@/data/size';
-import ActiveLink from '@/components/ActiveLink';
+import { ActiveLink } from './ActiveLink';
 
-const NavContainer = () => {
+export const NavContainer = () => {
   const navStyle = css`
     padding: 15px 10px;
     background-color: #333333;
@@ -21,11 +21,11 @@ const NavContainer = () => {
       padding: 10px;
       margin: 0 4px;
       line-height: 100%;
-      
+
       &:nth-of-type(1) {
         margin-left: 0;
       }
-      
+
       &:nth-last-of-type(1) {
         margin-right: 0;
       }
@@ -79,5 +79,3 @@ const NavContainer = () => {
     </>
   );
 };
-
-export default NavContainer;

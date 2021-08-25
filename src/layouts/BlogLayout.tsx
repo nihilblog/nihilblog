@@ -2,14 +2,11 @@ import React, { ReactNode } from 'react';
 import { css, Global } from '@emotion/react';
 import { useRouter } from 'next/router';
 import BlogConfig from '@/data/blogConfig';
-import HeaderContainer from '@/components/HeaderContainer';
-import NavContainer from '@/components/NavContainer';
-import FooterContainer from '@/components/FooterContainer';
-import PageContainer from '@/components/PageContainer';
-import SiteHead from '@/components/SiteHead';
-import SubNavContainer from '@/components/SubNavContainer';
 import { ISiteData } from '@/types';
 import draculaTheme from '@/styles/prism-draculaTheme';
+import {
+  FooterContainer, HeaderContainer, NavContainer, PageContainer, SiteHead, SubNavContainer
+} from '@/components/BlogLayoutComponents';
 
 interface LayoutProps {
   pageName?: string;
@@ -107,19 +104,6 @@ const BlogLayout = ({
     ::selection {
       background-color: #ff5b5b;
       color: #ffffff;
-    }
-
-    ::-webkit-scrollbar {
-      width: 10px;
-    }
-
-    ::-webkit-scrollbar-track {
-      background-color: #bbbbbb;
-    }
-
-    ::-webkit-scrollbar-thumb {
-      background-color: #222222;
-      border-radius: 10px;
     }
 
     ${draculaTheme};

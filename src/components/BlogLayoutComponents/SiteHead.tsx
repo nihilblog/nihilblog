@@ -2,7 +2,7 @@ import React from 'react';
 import Head from 'next/head';
 import { ISiteHead } from '@/types';
 
-const SiteHead = ({ BlogConfig, pageProps, }: ISiteHead) => {
+export const SiteHead = ({ BlogConfig, pageProps, }: ISiteHead) => {
   const {
     siteTitle, siteDescription, siteURL, siteKeywords, siteType, siteImage,
     siteAuthor, siteGenerator,
@@ -60,5 +60,3 @@ const SiteHead = ({ BlogConfig, pageProps, }: ISiteHead) => {
     </>
   );
 };
-
-export default SiteHead;

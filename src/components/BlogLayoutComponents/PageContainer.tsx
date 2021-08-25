@@ -5,7 +5,7 @@ interface Props {
   children?: ReactNode;
 }
 
-const PageContainer = ({ children, }: Props) => {
+export const PageContainer = ({ children, }: Props) => {
   const PageContainerStyle = css`
     padding: 0 20px;
   `;
@@ -18,5 +18,3 @@ const PageContainer = ({ children, }: Props) => {
     </>
   );
 };
-
-export default PageContainer;

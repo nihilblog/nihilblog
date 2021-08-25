@@ -4,10 +4,11 @@ import getAllYearMdx from '@/utils/mdx/getAllYearMdx';
 import BlogLayout from '@/layouts/BlogLayout';
 import getPages from '@/utils/getPages';
 import BlogConfig from '@/data/blogConfig';
-import Pagination from '@/components/Pagination';
 import { P } from '@/components/PostComponents';
 import { GoogleAd } from '@/components/ContentComponents';
-import { Box, BoxHeader, PostItemBox } from '@/components/LayoutComponensts';
+import {
+  Box, BoxHeader, Pagination, PostItemBox
+} from '@/components/LayoutComponents';
 import { IPostsProps, ISiteData } from '@/types';
 import getCount from '@/utils/getCount';
 

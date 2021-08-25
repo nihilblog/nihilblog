@@ -1,9 +1,9 @@
 import React from 'react';
 import { css } from '@emotion/react';
 import size from '@/data/size';
-import ActiveLink from '@/components/ActiveLink';
+import { ActiveLink } from './ActiveLink';
 
-const SubNavContainer = () => {
+export const SubNavContainer = () => {
   const subNavStyle = css`
     padding: 8px 10px;
     background-color: #444444;
@@ -57,5 +57,3 @@ const SubNavContainer = () => {
     </>
   );
 };
-
-export default SubNavContainer;

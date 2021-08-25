@@ -14,7 +14,7 @@ interface Props {
   bottom?: string;
 }
 
-const Pagination = ({
+export const Pagination = ({
   prev, next, current, total, type, top = '50', bottom = '100',
 }: Props) => {
   const isFirst = current === 1;
@@ -151,5 +151,3 @@ const Pagination = ({
     </>
   );
 };
-
-export default Pagination;

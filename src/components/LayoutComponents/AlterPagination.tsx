@@ -3,7 +3,7 @@ import { css } from '@emotion/react';
 import size from '@/data/size';
 import { IPagination } from '@/types';
 
-const AlterPagination = ({
+export const AlterPagination = ({
   prev, next, first, last, current, total, top = '50', bottom = '100',
 }: IPagination) => {
   const isFirst = current === 0;
@@ -139,5 +139,3 @@ const AlterPagination = ({
     </>
   );
 };
-
-export default AlterPagination;

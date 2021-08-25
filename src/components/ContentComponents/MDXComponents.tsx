@@ -21,7 +21,7 @@ interface Props {
   [x: string]: string;
 }
 
-const MDXComponents = {
+export const MDXComponents = {
   h1: (props: Props) => <H type='1' {...props} />,
   h2: (props: Props) => <H type='2' {...props} />,
   h3: (props: Props) => <H type='3' {...props} />,
@@ -66,5 +66,3 @@ const MDXComponents = {
   HtmlGuideMessage,
   Name,
 };
-
-export default MDXComponents;

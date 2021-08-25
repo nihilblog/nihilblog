@@ -7,9 +7,10 @@ import BlogLayout from '@/layouts/BlogLayout';
 import { P } from '@/components/PostComponents';
 import getPages from '@/utils/getPages';
 import BlogConfig from '@/data/blogConfig';
-import AlterPagination from '@/components/AlterPagination';
 import { GoogleAd } from '@/components/ContentComponents';
-import { Box, BoxHeader, PostItemBox } from '@/components/LayoutComponensts';
+import {
+  AlterPagination, Box, BoxHeader, PostItemBox
+} from '@/components/LayoutComponents';
 import {
   IFirst, ILast, INext, IPostsProps, IPrev, ISiteData
 } from '@/types';

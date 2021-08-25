@@ -1,6 +1,6 @@
 import React from 'react';
 import BlogLayout from '@/layouts/BlogLayout';
-import { Box, BoxHeader } from '@/components/LayoutComponensts';
+import { Box, BoxHeader } from '@/components/LayoutComponents';
 import {
   A,
   Bold, Char,
