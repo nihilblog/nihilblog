@@ -55,6 +55,12 @@ export const FooterContainer = () => {
           font-weight: 500;
           font-family: 'Font Awesome 5 Brands', sans-serif;
         }
+
+        &:nth-of-type(4):before {
+          content: '\\f015';
+          font-weight: 900;
+          font-family: 'Font Awesome 5 Free', sans-serif;
+        }
       }
     }
 
@@ -91,6 +97,7 @@ export const FooterContainer = () => {
           <a href='mailto:nihil_ncunia@naver.com' target='_blank' rel='noreferrer noopener' aria-label='email' />
           <a href='https://www.instagram.com/nihil_illust/' target='_blank' rel='noreferrer noopener' aria-label='instagram' />
           <a href='https://github.com/NIHILncunia' target='_blank' rel='noreferrer noopener' aria-label='github' />
+          <a href='https://nihilncunia.github.io/' target='_blank' rel='noreferrer noopener' aria-label='homepage' />
         </p>
         <p id='footer-copyright'>{BlogConfig.copyrightYear}. {BlogConfig.siteAuthor}.</p>
       </footer>
