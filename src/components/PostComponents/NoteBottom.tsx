@@ -1,5 +1,5 @@
 import React from 'react';
-import { css, Global } from '@emotion/react';
+import { css } from '@emotion/react';
 import size from '@/data/size';
 import { Line } from '@/components/PostComponents';
 
@@ -15,6 +15,16 @@ export const NoteBottom = ({ children, number, first = 'false', }: Props) => {
     letter-spacing: -1px;
     font-weight: 500;
     line-height: 1.6;
+    margin-top: 5px;
+    margin-bottom: 5px;
+
+    &:nth-of-type(1) {
+      margin-top: 0;
+    }
+
+    &:nth-last-of-type(1) {
+      margin-bottom: 0;
+    }
 
     & > a {
       color: #218cd8;
@@ -43,25 +53,22 @@ export const NoteBottom = ({ children, number, first = 'false', }: Props) => {
     & > span {
       font-size: 90%;
     }
-  `;
 
-  const fontSize = css`
     @media (min-width: 1px) and (max-width: 600px) {
-      .post-foot-note {font-size: ${size[1]};}
+      font-size: ${size[1]};
     }
 
     @media (min-width: 601px) and (max-width: 800px) {
-      .post-foot-note {font-size: ${size[2]};}
+      font-size: ${size[2]};
     }
 
     @media (min-width: 801px) {
-      .post-foot-note {font-size: ${size[3]};}
+      font-size: ${size[3]};
     }
   `;
 
   return (
     <>
-      <Global styles={fontSize} />
       {
         first === 'true'
           ? <Line />

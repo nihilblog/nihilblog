@@ -22,28 +22,28 @@ export const Message = ({
     if (color.includes('r')) {
       setColorType({
         ...colorType,
-        color: [ '#ff5b5b40', '#fd4444', '#fd444450', ],
+        color: [ '#ff5b5b20', '#fd4444', '#fd444440', ],
         icon: 'f057',
         word: '위험',
       });
     } else if (color.includes('b')) {
       setColorType({
         ...colorType,
-        color: [ '#3daeff50', '#0084e2', '#0084e250', ],
+        color: [ '#3daeff30', '#0084e2', '#0084e240', ],
         icon: 'f059',
         word: '안내',
       });
     } else if (color.includes('g')) {
       setColorType({
         ...colorType,
-        color: [ '#11b32c50', '#05881b', '#05881b50', ],
+        color: [ '#11b32c30', '#05881b', '#05881b40', ],
         icon: 'f05a',
         word: '정보',
       });
     } else if (color.includes('y')) {
       setColorType({
         ...colorType,
-        color: [ '#fff70c50', '#a39000', '#a3900050', ],
+        color: [ '#fff70c30', '#a39000', '#a3900040', ],
         icon: 'f06a',
         word: '주의',
       });
@@ -105,8 +105,7 @@ export const Message = ({
 
         & > a {
           color: ${colorType.color[1]};
-          background-color: transparent;
-          border: 2px solid ${colorType.color[1]};
+          background-color: ${colorType.color[1]}35;
 
           &:hover {
             color: #ffffff;

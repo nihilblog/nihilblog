@@ -73,8 +73,15 @@ export const BlogSeriesList = () => {
 
             {/* 가이드 시리즈 */}
             <Details close='가이드 모음 열기' open='가이드 모음 닫기' bottom='20' top='20'>
-              <A type='blog' href='/post/2021-05-02-01-complete-html-guide'>HTML 가이드</A>
-              <A type='blog' href='/post/2021-05-02-03-complete-css-guide' isOff='true'>CSS 가이드</A>
+              <A type='blog' href='/post/2021-05-02-02-complete-programming-knowledge'>
+                개발을 위한 프로그래밍 지식
+              </A>
+              <A type='blog' href='/post/2021-05-02-01-complete-html-guide'>
+                웹 개발을 위한 HTML 가이드
+              </A>
+              <A type='blog' href='/post/2021-05-02-03-complete-css-guide' isOff='true'>
+                웹 개발을 위한 CSS 가이드
+              </A>
             </Details>
 
             {/* 리뷰 시리즈 */}

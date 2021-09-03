@@ -106,6 +106,7 @@ const gruvboxDark = css`
   .token.important,
   .token.atrule,
   .token.keyword,
+  .token.directive-hash,
   .token.builtin {
     color: #cc99cd;
   }

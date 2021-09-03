@@ -16,6 +16,7 @@ const langData = {
   python: [ '#007ff4', '#ffffff', ],
   cs: [ '#67217a', '#ffffff', ],
   csharp: [ '#67217a', '#ffffff', ],
+  c: [ '#00589d', '#ffffff', ],
   jsx: [ '#61dafb', '#ffffff', ],
   tsx: [ '#007acc', '#ffffff', ],
   bash: [ '#666666', '#ffffff', ],
