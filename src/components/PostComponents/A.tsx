@@ -10,7 +10,7 @@ interface Props {
 }
 
 export const A = ({
-  children, href = '', type = 'blog', isOff = 'false',
+  children, href, type = 'blog', isOff = 'false',
 }: Props) => {
   const typeColor = {
     blog: '#3f91ff',
@@ -72,6 +72,10 @@ export const A = ({
       &:hover {
         color: #ffffff;
         background-color: ${typeColor[type]};
+
+        & > strong {
+          color: #ffffff;
+        }
       }
     `,
     true: '',
@@ -90,6 +94,10 @@ export const A = ({
       font-family: 'Font Awesome 5 ${icon[type].type}', sans-serif;
       font-weight: 900;
       margin-left: 5px;
+    }
+
+    & > strong {
+      color: ${typeColor[type]};
     }
 
     ${hover[isOff]}
