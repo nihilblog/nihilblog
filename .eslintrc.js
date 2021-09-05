@@ -65,6 +65,7 @@ module.exports = {
     'max-len': 'off',
     'no-else-return': 'off',
     'global-require': 'off',
+    'class-methods-use-this': 'off',
 
     // 임포트 규칙
     'import/extensions': 'off',
