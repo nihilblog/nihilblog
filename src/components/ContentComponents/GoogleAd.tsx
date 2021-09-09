@@ -24,8 +24,7 @@ export const GoogleAd = ({ margin = '40', pos, }: Props) => {
 
   useEffect(() => {
     try {
-      window.adsbygoogle = window.adsbygoogle || [];
-      window.adsbygoogle.push({});
+      (window.adsbygoogle = window.adsbygoogle || []).push({});
     } catch (err) {
       console.log(err);
     }

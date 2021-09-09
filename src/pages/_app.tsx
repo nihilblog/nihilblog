@@ -3,29 +3,20 @@ import Head from 'next/head';
 import { AppProps } from 'next/app';
 import Router from 'next/router';
 import BlogConfig from '@/data/blogConfig';
-import { gaTracrId } from '@/data/ga';
+import { pageview } from '@/data/ga';
 
 const App = ({ Component, pageProps, }: AppProps) => {
   useEffect(() => {
-    const handleRouteChangeComplete = () => {
-      if (typeof window === 'object') {
-        const { title, } = window.document;
-        const { href, pathname, } = window.location;
-
-        window.gtag('config', gaTracrId, {
-          page_title: title,
-          page_location: href,
-          page_path: pathname,
-        });
-      }
+    const handleRouteChange = (url: URL) => {
+      pageview(url);
     };
 
-    Router.events.on('routeChangeComplete', handleRouteChangeComplete);
+    Router.events.on('routeChangeComplete', handleRouteChange);
 
     return () => {
-      Router.events.off('routeChangeComplete', handleRouteChangeComplete);
+      Router.events.off('routeChangeComplete', handleRouteChange);
     };
-  }, []);
+  }, [ Router.events, ]);
 
   return (
     <>

@@ -75,6 +75,13 @@ export const NavContainer = () => {
         <ActiveLink href='/categories' type='categories'>카테고리</ActiveLink>
         <ActiveLink href='/tags' type='tags'>태그</ActiveLink>
         <ActiveLink href='/illust/page/1' type='illust'>일러스트</ActiveLink>
+        {
+          process.env.NODE_ENV === 'development'
+            ? (
+              <ActiveLink href='/view'>포스트 리스트</ActiveLink>
+            )
+            : ''
+        }
       </nav>
     </>
   );

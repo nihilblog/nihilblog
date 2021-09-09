@@ -17,7 +17,9 @@ class AppDocument extends Document {
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
 
-        gtag('config', '${gaTracrId}');
+        gtag('config', '${gaTracrId}', {
+          page_path: window.location.pathname,
+        });
       `,
     };
   }
