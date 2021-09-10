@@ -14,7 +14,7 @@ declare global {
   }
 }
 
-export const GoogleAd = ({ margin = '40', pos, }: Props) => {
+export const GoogleAd = ({ margin = '100', pos, }: Props) => {
   const { asPath, } = useRouter();
 
   const positionSlot = {
@@ -36,7 +36,7 @@ export const GoogleAd = ({ margin = '40', pos, }: Props) => {
 
   return (
     <>
-      <div className={`blog-${pos}-ad`} css={adStyle} key={asPath}>
+      <div className={`blog-${pos}-ad`} css={adStyle} key={`${asPath}-${pos}`}>
         <ins
           className='adsbygoogle'
           style={{ display: 'block', }}

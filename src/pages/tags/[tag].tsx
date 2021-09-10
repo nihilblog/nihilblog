@@ -62,7 +62,7 @@ const TagPostsPage = ({ tag, PostsPages, }: IPostsProps) => {
             <BoxHeader i='f002' w='900' f='Free'>&ldquo; {tag} &rdquo; 태그 관련 포스트 {totalCount}건</BoxHeader>
             <P bottom='0'>다른 태그들을 보려면 상단 메뉴에서 태그 링크를 클릭하세요.</P>
           </Box>
-          <GoogleAd pos='top' margin='30' />
+          <GoogleAd pos='top' />
           <div id='blog-post-list'>
             {PostsPages[postsIndex].map(({ frontMatter, filePath, }) => (
               <PostItemBox
@@ -73,7 +73,7 @@ const TagPostsPage = ({ tag, PostsPages, }: IPostsProps) => {
               />
             ))}
           </div>
-          <GoogleAd pos='bottom' margin='30' />
+          <GoogleAd pos='bottom' />
           <AlterPagination
             prev={onClickPrev}
             next={onClickNext}

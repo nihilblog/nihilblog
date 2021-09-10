@@ -70,7 +70,7 @@ const KeywordsPage = ({ keywords, }: IPostsProps) => {
             </div>
           </Box>
         </div>
-        <GoogleAd pos='bottom' margin='100' />
+        <GoogleAd pos='bottom' />
       </BlogLayout>
     </>
   );

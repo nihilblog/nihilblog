@@ -10,9 +10,10 @@ export const FooterContainer = () => {
     text-align: center;
     box-sizing: border-box;
     letter-spacing: -1px;
+    user-select: none;
 
     & > #footer-link {
-      margin-bottom: 5px;
+      margin-bottom: 10px;
       width: 100%;
       box-sizing: border-box;
       display: flex;
@@ -64,10 +65,20 @@ export const FooterContainer = () => {
       }
     }
 
+    & > #footer-blog-version {
+      color: #ffffff;
+      font-weight: 500;
+      margin-bottom: 5px;
+
+      & > strong {
+        color: inherit;
+        font-weight: 900;
+      }
+    }
+
     & > #footer-copyright {
       color: #ffffff;
       font-weight: 900;
-      user-select: none;
 
       &:before {
         content: '\\f1f9';
@@ -78,15 +89,24 @@ export const FooterContainer = () => {
     }
 
     @media (min-width: 1px) and (max-width: 600px) {
-      & > #footer-copyright {font-size: ${size[1]};}
+      & > #footer-copyright,
+      & > #footer-blog-version {
+        font-size: ${size[1]};
+      }
     }
 
     @media (min-width: 601px) and (max-width: 800px) {
-      & > #footer-copyright {font-size: ${size[2]};}
+      & > #footer-copyright,
+      & > #footer-blog-version {
+        font-size: ${size[2]};
+      }
     }
 
     @media (min-width: 801px) {
-      & > #footer-copyright {font-size: ${size[3]};}
+      & > #footer-copyright,
+      & > #footer-blog-version {
+        font-size: ${size[3]};
+      }
     }
   `;
 
@@ -99,6 +119,7 @@ export const FooterContainer = () => {
           <a href='https://github.com/NIHILncunia' target='_blank' rel='noreferrer noopener' aria-label='github' />
           <a href='https://nihilncunia.github.io/' target='_blank' rel='noreferrer noopener' aria-label='homepage' />
         </p>
+        <p id='footer-blog-version'>니힐로그 <strong>v{BlogConfig.siteVersion}</strong></p>
         <p id='footer-copyright'>{BlogConfig.copyrightYear}. {BlogConfig.siteAuthor}.</p>
       </footer>
     </>
