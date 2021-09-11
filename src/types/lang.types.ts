@@ -1,0 +1,15 @@
+export type ILanguageType = (
+  'html'
+  | 'js'
+  | 'javascript'
+  | 'ts'
+  | 'typescript'
+  | 'css'
+  | 'scss'
+  | 'python'
+  | 'cs'
+  | 'jsx'
+  | 'tsx'
+  | 'bash'
+  | 'json'
+);
