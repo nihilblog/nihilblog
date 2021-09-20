@@ -23,7 +23,7 @@ export const MainImage = ({ src, alt, }: Props) => {
   return (
     <>
       <div id='content-main-image' css={style}>
-        <img src={`/images/thumbnail/${src}.png`} alt={alt} />
+        <img src={src} alt={alt} />
       </div>
     </>
   );

@@ -107,9 +107,15 @@ export const Image = ({
         <div>
           <img src={src} alt={alt} title={title} />
         </div>
-        <figcaption>
-          <span>{alt}</span>
-        </figcaption>
+        {
+          alt === null
+            ? ''
+            : (
+              <figcaption>
+                <span>{alt}</span>
+              </figcaption>
+            )
+        }
         <a href={src} target='_blank' rel='noreferrer noopener'>
           <span>크게 보기 (새 창)</span>
         </a>

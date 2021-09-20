@@ -43,7 +43,7 @@
 
   <url>
     <loc>https://nihilog.github.io/post/2021-05-02-01-complete-html-guide</loc>
-    <lastmod>2021-08-24T14:25:00+09:00</lastmod>
+    <lastmod>2021-09-13T03:08:00+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>1</priority>
   </url>
@@ -217,6 +217,13 @@
   <url>
     <loc>https://nihilog.github.io/post/2021-09-04-01-filename-index</loc>
     <lastmod>2021-09-05T05:30:00+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1</priority>
+  </url>
+
+  <url>
+    <loc>https://nihilog.github.io/post/2021-09-13-01-vscode-install</loc>
+    <lastmod>2021-09-13T03:08:00+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>1</priority>
   </url>

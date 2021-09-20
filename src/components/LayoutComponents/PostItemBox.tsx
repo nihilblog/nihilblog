@@ -195,8 +195,8 @@ export const PostItemBox = ({ type, frontMatter, filePath, }: Props) => {
         <div>
           {
             coverImage
-              ? <img src={`/images/thumbnail/${coverImage}.png`} alt={title} />
-              : <img src={`/images/thumbnail/${src}.png`} alt={title} />
+              ? <img src={coverImage} alt={title} />
+              : <img src={src} alt={title} />
           }
 
         </div>
@@ -209,23 +209,25 @@ export const PostItemBox = ({ type, frontMatter, filePath, }: Props) => {
           <p>{description}</p>
           <p>
             {
-              type === 'post'
-                ? categories.map((item) => (
-                  <Link key={uuid()} href={`/categories/${item}`}>
-                    <a className='category post'>{item}</a>
-                  </Link>
-                ))
-                : type === 'notice'
-                  ? (
-                    <Link href={`/${type}/page/1`}>
-                      <a className='category notice'>공지</a>
-                    </Link>
-                  )
-                  : keywords.map((item) => (
-                    <Link key={uuid()} href={`/illust/keywords/${item}`}>
-                      <a className='category illust'>{item}</a>
-                    </Link>
-                  ))
+              type === 'post' && categories.map((item) => (
+                <Link key={uuid()} href={`/categories/${item}`}>
+                  <a className='category post'>{item}</a>
+                </Link>
+              ))
+            }
+            {
+              type === 'notice' && (
+                <Link href={`/${type}/page/1`}>
+                  <a className='category notice'>공지</a>
+                </Link>
+              )
+            }
+            {
+              type === 'illust' && keywords.map((item) => (
+                <Link key={uuid()} href={`/illust/keywords/${item}`}>
+                  <a className='category illust'>{item}</a>
+                </Link>
+              ))
             }
             {' - '}
             <span className='created-at'>{getUTC9(createdAt)}</span>

@@ -102,7 +102,7 @@ export const PostContent = ({
     }
   `;
 
-  const src = '썸네일이 없습니다';
+  const src = 'https://drive.google.com/uc?export=view&id=1SD9HD4JtWQip-4P24NoYgSj__iXXw3AT';
 
   return (
     <>
