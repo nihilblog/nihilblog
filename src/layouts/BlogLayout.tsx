@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react';
 import { css, Global } from '@emotion/react';
 import { useRouter } from 'next/router';
-import BlogConfig from '@/data/blogConfig';
+import BlogConfig from '@/data/blog.config';
 import { ISiteData } from '@/types';
 import draculaTheme from '@/styles/prism-draculaTheme';
 import {

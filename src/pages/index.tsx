@@ -28,7 +28,6 @@ const BlogIndexPage = ({ posts, notices, }: IPostsProps) => {
             <BoxHeader i='f017' w='500' f='Free'>최근 공지사항 3건</BoxHeader>
             <P bottom='0'>니힐로그와 관련된 공지사항입니다. 전체 공지사항 목록은 <A type='blog' href='/notice/page/1'>이 링크</A>를 이용하시면 됩니다.</P>
           </Box>
-          <GoogleAd pos='top' />
           <div id='blog-notice-list'>
             {notices.map(({ frontMatter, filePath, }) => (
               <PostItemBox

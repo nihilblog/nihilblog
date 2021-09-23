@@ -3,9 +3,8 @@ import { GetStaticPaths, GetStaticProps } from 'next';
 import getAllYearMdx from '@/utils/mdx/getAllYearMdx';
 import BlogLayout from '@/layouts/BlogLayout';
 import getPages from '@/utils/getPages';
-import BlogConfig from '@/data/blogConfig';
+import BlogConfig from '@/data/blog.config';
 import { P } from '@/components/PostComponents';
-import { GoogleAd } from '@/components/ContentComponents';
 import {
   Box, BoxHeader, Pagination, PostItemBox
 } from '@/components/LayoutComponents';
@@ -30,7 +29,6 @@ const BlogIllustListPage = ({
             <BoxHeader i='f53f' w='900' f='Free'>전체 일러스트 {totalCount}장</BoxHeader>
             <P bottom='0'>일반 포스트, 공지를 제외한 모든 일러스트의 목록을 확인할 수 있습니다. 일반 포스트와 공지는 각각의 링크를 이용하시기 바랍니다.</P>
           </Box>
-          <GoogleAd pos='top' />
           <div id='blog-post-list'>
             {illusts.map(({ frontMatter, filePath, }) => (
               <PostItemBox
@@ -42,7 +40,6 @@ const BlogIllustListPage = ({
             ))}
           </div>
         </div>
-        <GoogleAd pos='bottom' />
         <Pagination prev={prevPage} next={nextPage} total={totalPages} current={currentPage} type='post' />
       </BlogLayout>
     </>

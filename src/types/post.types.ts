@@ -1,6 +1,7 @@
 import { MDXRemoteSerializeResult } from 'next-mdx-remote';
 
 export interface IFrontMatter {
+  id: number;
   title: string;
   description: string;
   coverImage: string;
@@ -15,6 +16,7 @@ export interface IFrontMatter {
 }
 
 export interface IMatterData {
+  id?: number;
   title?: string;
   description?: string;
   coverImage?: string;
@@ -35,7 +37,7 @@ export interface IPosts {
   content: string;
 }
 
-export type IPostType = ('post' | 'notice' | 'illust');
+export type IPostType = ('post' | 'notice' | 'illust' | 'view');
 
 export type ITagsCategoriesKeywardsType = ('tags' | 'categories' | 'keywords');
 

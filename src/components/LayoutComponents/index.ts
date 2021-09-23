@@ -8,3 +8,5 @@ export * from './PostToc';
 export * from './AlterPagination';
 export * from './Pagination';
 export * from './PostNavigation';
+export * from './InfoP';
+export * from './PostList';

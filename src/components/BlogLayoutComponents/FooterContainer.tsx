@@ -1,6 +1,6 @@
 import React from 'react';
 import { css } from '@emotion/react';
-import BlogConfig from '@/data/blogConfig';
+import BlogConfig from '@/data/blog.config';
 import size from '@/data/size';
 
 export const FooterContainer = () => {

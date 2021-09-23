@@ -7,10 +7,9 @@ import BlogLayout from '@/layouts/BlogLayout';
 import {
   AlterPagination, Box, BoxHeader, PostItemBox
 } from '@/components/LayoutComponents';
-import { GoogleAd } from '@/components/ContentComponents';
 import { P } from '@/components/PostComponents';
 import getPages from '@/utils/getPages';
-import BlogConfig from '@/data/blogConfig';
+import BlogConfig from '@/data/blog.config';
 import {
   IFirst,
   ILast,
@@ -64,7 +63,6 @@ const CategoryPostsPage = ({ category, PostsPages, }: IPostsProps) => {
             <BoxHeader i='f002' w='900' f='Free'>&ldquo; {category} &rdquo; 카테고리 관련 포스트 {totalCount}건</BoxHeader>
             <P bottom='0'>다른 카테고리들을 보려면 상단 메뉴에서 카테고리 링크를 클릭하세요.</P>
           </Box>
-          <GoogleAd pos='top' />
           <div id='blog-post-list'>
             {PostsPages[postsIndex].map(({ frontMatter, filePath, }) => (
               <PostItemBox
@@ -75,7 +73,6 @@ const CategoryPostsPage = ({ category, PostsPages, }: IPostsProps) => {
               />
             ))}
           </div>
-          <GoogleAd pos='bottom' />
           <AlterPagination
             prev={onClickPrev}
             next={onClickNext}

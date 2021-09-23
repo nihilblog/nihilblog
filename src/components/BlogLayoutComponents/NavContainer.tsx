@@ -78,7 +78,7 @@ export const NavContainer = () => {
         {
           process.env.NODE_ENV === 'development'
             ? (
-              <ActiveLink href='/view'>포스트 리스트</ActiveLink>
+              <ActiveLink href='/view/page/1'>포스트 리스트</ActiveLink>
             )
             : ''
         }

@@ -4,6 +4,7 @@ import Link from 'next/link';
 import getUTC9 from '@/utils/getUTC9';
 import size from '@/data/size';
 import { IFrontMatter, IPostType } from '@/types';
+import { InfoP } from './InfoP';
 
 interface Props {
   top?: string;
@@ -11,23 +12,6 @@ interface Props {
   type?: IPostType;
   frontMatter?: IFrontMatter;
 }
-
-interface InfoPProps {
-  top?: string;
-  bottom?: string;
-  children?: React.ReactNode;
-}
-
-const InfoP = ({ top, bottom, children, }: InfoPProps) => {
-  const style = css`
-    margin-top: ${top}px;
-    margin-bottom: ${bottom}px;
-  `;
-
-  return (
-    <p css={style}>{children}</p>
-  );
-};
 
 export const PostInfo = ({
   top = '30', bottom = '30', type, frontMatter,
@@ -63,68 +47,16 @@ export const PostInfo = ({
       }
     }
 
-    & > p {
-      letter-spacing: -1px;
-      line-height: 1;
-      font-weight: 500;
-      text-align: justify;
-
-      & > span {
-        background-color: #333333;
-        color: #ffffff;
-        padding: 5px 10px;
-        display: inline-block;
-        border-radius: 5px;
-        margin-right: 10px;
-      }
-
-      & > a {
-        background-color: #33333330;
-        color: #555555;
-        padding: 5px 10px;
-        margin-right: 5px;
-        margin-bottom: 5px;
-        border-radius: 5px;
-        display: inline-block;
-
-        &:before {
-          font-weight: 900;
-          font-family: 'Font Awesome 5 Free', sans-serif;
-          margin-right: 5px;
-        }
-
-        &.post-info-tag:before {
-          content: '\\f02b';
-        }
-
-        &.post-info-category:before {
-          content: '\\f07c';
-        }
-
-        &.post-info-keyword:before {
-          content: '\\f1fc';
-        }
-
-        &:hover {
-          color: #ffffff;
-          background-color: #333333;
-        }
-      }
-    }
-
     @media (min-width: 1px) and (max-width: 600px) {
       & > h1 {font-size: ${size[4]};}
-      & > p {font-size: ${size[1]};}
     }
 
     @media (min-width: 601px) and (max-width: 800px) {
       & > h1 {font-size: ${size[5]};}
-      & > p {font-size: ${size[2]};}
     }
 
     @media (min-width: 801px) {
       & > h1 {font-size: ${size[6]};}
-      & > p {font-size: ${size[3]};}
     }
   `;
 
@@ -159,7 +91,7 @@ export const PostInfo = ({
                   {
                     categories.map((category) => (
                       <Link key={`category-${category}`} passHref href={`/categories/${category}`}>
-                        <a className='post-info-category'>{category}</a>
+                        <a className='post-info-category'><strong>{category}</strong></a>
                       </Link>
                     ))
                   }
@@ -169,7 +101,7 @@ export const PostInfo = ({
                   {
                     tags.map((tag) => (
                       <Link key={`tag-${tag}`} passHref href={`/tags/${tag}`}>
-                        <a className='post-info-tag'>{tag}</a>
+                        <a className='post-info-tag'><strong>{tag}</strong></a>
                       </Link>
                     ))
                   }
@@ -186,7 +118,7 @@ export const PostInfo = ({
                 {
                   keywords.map((keyword) => (
                     <Link key={`keyword-${keyword}`} passHref href={`/illust/keywords/${keyword}`}>
-                      <a className='post-info-keyword'>{keyword}</a>
+                      <a className='post-info-keyword'><strong>{keyword}</strong></a>
                     </Link>
                   ))
                 }

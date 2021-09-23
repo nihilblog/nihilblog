@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import Head from 'next/head';
 import { AppProps } from 'next/app';
 import Router from 'next/router';
-import BlogConfig from '@/data/blogConfig';
+import BlogConfig from '@/data/blog.config';
 import { pageview } from '@/data/ga';
 
 const App = ({ Component, pageProps, }: AppProps) => {

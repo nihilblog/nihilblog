@@ -15,6 +15,7 @@ const getAllMdx = (type: IPostType, year?: string, month?: string): IPosts[] => 
     const newData: IMatterData = { ...data, };
 
     const frontMatter: IFrontMatter = {
+      id: newData.id,
       title: newData.title,
       description: newData.description,
       coverImage: newData.coverImage,

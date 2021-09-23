@@ -7,9 +7,9 @@ import { P } from '@/components/PostComponents';
 import BlogLayout from '@/layouts/BlogLayout';
 import size from '@/data/size';
 import getTagsAndCategories from '@/utils/mdx/getTagsAndCategories';
-import { GoogleAd } from '@/components/ContentComponents';
 import { Box, BoxHeader } from '@/components/LayoutComponents';
 import { IPostsProps, ISiteData } from '@/types';
+import { GoogleAd } from '@/components/ContentComponents';
 
 const TagsPage = ({ tags, }: IPostsProps) => {
   const siteData: ISiteData = {
