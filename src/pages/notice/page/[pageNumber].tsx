@@ -10,6 +10,7 @@ import {
 } from '@/components/LayoutComponents';
 import { IPostsProps, ISiteData } from '@/types';
 import getCount from '@/utils/getCount';
+import { GoogleAd } from '@/components/ContentComponents';
 
 const BlogNoticeListNumberPage = ({
   currentPage, prevPage, nextPage, posts, totalPages, PostsPages,
@@ -40,6 +41,7 @@ const BlogNoticeListNumberPage = ({
             ))}
           </div>
         </div>
+        <GoogleAd pos='bottom' />
         <Pagination prev={prevPage} next={nextPage} total={totalPages} current={currentPage} type='notice' />
       </BlogLayout>
     </>
