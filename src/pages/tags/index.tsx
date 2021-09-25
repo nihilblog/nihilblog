@@ -71,7 +71,7 @@ const TagsPage = ({ tags, }: IPostsProps) => {
             </div>
           </Box>
         </div>
-        <GoogleAd pos='bottom' />
+        <GoogleAd pos='bottom' type='list' />
       </BlogLayout>
     </>
   );

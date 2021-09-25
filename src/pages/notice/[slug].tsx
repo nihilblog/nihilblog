@@ -38,7 +38,7 @@ const BlogNoticePage = ({ post, prev, next, }: IPostsProps) => {
             <MDXRemote {...source} components={{ ...MDXComponents, }} />
             <Line />
             <CommentGuideMessage postType='' />
-            <GoogleAd pos='bottom' />
+            <GoogleAd pos='bottom' type='post' />
             <Utterances />
           </PostContent>
         </article>

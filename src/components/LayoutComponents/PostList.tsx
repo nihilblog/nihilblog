@@ -12,7 +12,7 @@ export const PostList = ({ frontMatter, filePath, }: Props) => {
   const [ type, setType, ] = useState<string>('');
   const [ className, setClassName, ] = useState<string[]>([]);
   const [ path, setPath, ] = useState<string>('');
-  const [ color, setColor, ] = useState<string>('');
+  const [ color, setColor, ] = useState<string[]>([]);
 
   const postName = filePath.replace('.mdx', '');
   const postNumber = frontMatter.id;
@@ -22,17 +22,17 @@ export const PostList = ({ frontMatter, filePath, }: Props) => {
       setType('공지');
       setClassName([ 'count', 'color red', ]);
       setPath(`/notice/${postName}`);
-      setColor('#b90c0c');
+      setColor([ '#b90c0c', '#800505', ]);
     } else if (frontMatter.keywords.length > 0) {
       setType('일러스트');
       setClassName([ 'count', 'color green', ]);
       setPath(`/illust/${postName}`);
-      setColor('#11b32c');
+      setColor([ '#11b32c', '#047918', ]);
     } else {
       setType('포스트');
       setClassName([ 'count', 'color blue', ]);
       setPath(`/post/${postName}`);
-      setColor('#3f91ff');
+      setColor([ '#3f91ff', '#1f6acc', ]);
     }
   }, []);
 
@@ -44,13 +44,14 @@ export const PostList = ({ frontMatter, filePath, }: Props) => {
     box-shadow: 0 0 10px -4px #333333;
 
     & > h2 {
-      padding: 10px;
-      border: 2px solid ${color}70;
+      padding: 5px;
+      border: 2px solid ${color[0]}70;
       border-radius: 10px 10px 0 0;
 
       & > span {
         letter-spacing: -1px;
         font-weight: 900;
+        color: #333333;
       }
 
       & > .color {
@@ -80,18 +81,17 @@ export const PostList = ({ frontMatter, filePath, }: Props) => {
     }
 
     & > p {
-      padding: 10px;
+      padding: 5px;
       letter-spacing: -1px;
-      color: #333333;
-      border: 2px solid ${color}70;
+      border: 2px solid ${color[0]}70;
       border-top: none;
       border-radius: 0 0 10px 10px;
 
       & > a {
-        color: #3f91ff;
+        color: ${color[0]};
 
         &:hover {
-          color: #0d58bb;
+          color: ${color[1]};
           text-decoration: underline;
         }
       }

@@ -1,10 +1,11 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import { css } from '@emotion/react';
 
 interface Props {
   margin?: string;
   pos?: ('top' | 'bottom');
+  type: ('list' | 'post');
 }
 
 declare global {
@@ -14,7 +15,8 @@ declare global {
   }
 }
 
-export const GoogleAd = ({ margin = '100', pos, }: Props) => {
+export const GoogleAd = ({ margin = '100', pos, type, }: Props) => {
+  const [ backgroundColor, setBackgroundColor, ] = useState('');
   const { asPath, } = useRouter();
 
   const positionSlot = {
@@ -30,8 +32,23 @@ export const GoogleAd = ({ margin = '100', pos, }: Props) => {
     }
   }, [ asPath, ]);
 
+  useEffect(() => {
+    if (type === 'post') {
+      setBackgroundColor('#eeeeee');
+    } else if (type === 'list') {
+      setBackgroundColor('#bbbbbb');
+    }
+  }, []);
+
   const adStyle = css`
     margin: ${margin}px 0;
+    background-color: ${backgroundColor};
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
   `;
 
   return (

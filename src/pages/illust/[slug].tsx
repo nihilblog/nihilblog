@@ -40,7 +40,7 @@ const BlogIllustPage = ({ illust, prev, next, }: IPostsProps) => {
             <MDXRemote {...source} components={{ ...MDXComponents, }} />
             <Line />
             <CommentGuideMessage postType={router.pathname} />
-            <GoogleAd pos='bottom' />
+            <GoogleAd pos='bottom' type='post' />
             <Utterances />
           </PostContent>
         </article>

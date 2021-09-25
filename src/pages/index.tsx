@@ -52,7 +52,7 @@ const BlogIndexPage = ({ posts, notices, }: IPostsProps) => {
               />
             ))}
           </div>
-          <GoogleAd pos='bottom' />
+          <GoogleAd pos='bottom' type='list' />
         </div>
       </BlogLayout>
     </>
