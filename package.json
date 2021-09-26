@@ -1,6 +1,6 @@
 {
   "name": "nihilog-code",
-  "version": "3.7.2",
+  "version": "3.7.4",
   "description": "니힐로그 Next.js 에디션",
   "main": "src/pages/index.jsx",
   "repository": {

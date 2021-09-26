@@ -34,6 +34,7 @@ const getAllMdx = (type: IPostType, year?: string, month?: string): IPosts[] => 
       filePath: file,
       fullPath: `/${type}/${file.replace('.mdx', '')}`,
       content,
+      yearMonth: `${year}-${month}`,
     };
   });
 

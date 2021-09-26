@@ -167,6 +167,10 @@ const sitemapGenerator = async () => {
       url: '/illust/keywords',
       priority: 0.7,
     },
+    {
+      url: '/archive',
+      priority: 0.7,
+    },
   ];
 
   const basePath = 'https://nihilog.github.io';

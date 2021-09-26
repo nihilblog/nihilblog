@@ -35,6 +35,7 @@ export interface IPosts {
   filePath: string;
   fullPath: string;
   content: string;
+  yearMonth: string;
 }
 
 export type IPostType = ('post' | 'notice' | 'illust' | 'view');
@@ -58,6 +59,7 @@ export interface ITagsCategoriesKeywards {
 
 export interface IPostsProps {
   posts?: IPosts[];
+  archivePosts?: IArchive[];
   notices?: IPosts[];
   illusts?: IPosts[];
   tags?: ITagsCategoriesKeywards[];
@@ -136,4 +138,9 @@ export interface IPostNav {
   prev?: IPosts;
   next?: IPosts;
   type?: IPostType;
+}
+
+export interface IArchive {
+  yearMonth: string;
+  posts: IPosts[];
 }

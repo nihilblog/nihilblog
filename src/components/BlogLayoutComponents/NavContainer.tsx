@@ -5,7 +5,7 @@ import { ActiveLink } from './ActiveLink';
 
 export const NavContainer = () => {
   const navStyle = css`
-    padding: 15px 10px;
+    padding: 13px 10px;
     background-color: #333333;
     text-align: center;
     width: 100%;
@@ -19,7 +19,7 @@ export const NavContainer = () => {
       background-color: #444444;
       border-radius: 10px;
       padding: 10px;
-      margin: 0 4px;
+      margin: 2px 4px;
       line-height: 100%;
 
       &:nth-of-type(1) {
@@ -80,7 +80,9 @@ export const NavContainer = () => {
             ? (
               <ActiveLink href='/view/page/1'>포스트 리스트</ActiveLink>
             )
-            : ''
+            : (
+              <ActiveLink href='/archive'>아카이브</ActiveLink>
+            )
         }
       </nav>
     </>

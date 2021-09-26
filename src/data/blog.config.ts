@@ -11,7 +11,7 @@ const BlogConfig: IBlogConfig = {
     : 'https://nihilog.github.io',
   siteImage: '/images/blog-image.png',
   siteType: 'website',
-  siteVersion: '3.7.2',
+  siteVersion: '3.7.4',
   copyrightYear: new Date().getFullYear(),
   postPerPage: 5,
 };
