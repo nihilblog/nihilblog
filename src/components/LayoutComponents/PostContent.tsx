@@ -112,7 +112,7 @@ export const PostContent = ({
             ? <MainImage src={frontMatter.coverImage} alt={frontMatter.title} />
             : <MainImage src={src} alt={frontMatter.title} />
         }
-        <GoogleAd pos='top' />
+        {router.asPath.startsWith('/notice') ? '' : <GoogleAd pos='top' />}
         <PostToc toc={toc} />
         {children}
       </div>

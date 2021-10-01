@@ -49,7 +49,7 @@
 
   <url>
     <loc>https://nihilog.github.io/post/2021-05-02-01-complete-html-guide</loc>
-    <lastmod>2021-09-25T02:49:00+09:00</lastmod>
+    <lastmod>2021-10-02T04:44:00+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>1</priority>
   </url>
@@ -222,7 +222,7 @@
 
   <url>
     <loc>https://nihilog.github.io/post/2021-09-04-01-filename-index</loc>
-    <lastmod>2021-09-25T02:49:00+09:00</lastmod>
+    <lastmod>2021-10-02T04:42:00+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>1</priority>
   </url>
@@ -244,6 +244,13 @@
   <url>
     <loc>https://nihilog.github.io/post/2021-09-25-01-link-tag</loc>
     <lastmod>2021-09-25T02:49:00+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1</priority>
+  </url>
+
+  <url>
+    <loc>https://nihilog.github.io/post/2021-10-02-29-about-path</loc>
+    <lastmod>2021-10-02T04:44:00+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>1</priority>
   </url>

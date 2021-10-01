@@ -17,7 +17,7 @@ export const PostItemBox = ({ type, frontMatter, filePath, }: Props) => {
     description, title, coverImage, categories, createdAt, keywords,
   } = frontMatter;
 
-  const src = '썸네일이 없습니다';
+  const src = 'https://drive.google.com/uc?export=view&id=1SD9HD4JtWQip-4P24NoYgSj__iXXw3AT';
 
   const style = css`
     padding: 10px;
