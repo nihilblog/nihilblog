@@ -30,9 +30,7 @@ const App = ({ Component, pageProps, }: AppProps) => {
 
         <link
           rel='stylesheet'
-          href='https://use.fontawesome.com/releases/v5.15.1/css/all.css'
-          integrity='sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp'
-          crossOrigin='anonymous'
+          href='https://use.fontawesome.com/releases/v5.15.4/css/all.css'
         />
 
         <meta name='robots' content='All' />

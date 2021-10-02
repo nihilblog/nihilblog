@@ -40,8 +40,15 @@ export const PostNavigation = ({ prev, next, type, }: IPostNav) => {
         flex-direction: row;
         align-items: center;
 
-        &:after {
-          content: '\\f35a';
+        &.next:after {
+          content: '\\f35b';
+          font-family: 'Font Awesome 5 Free', sans-serif;
+          font-weight: 900;
+          margin-left: 5px;
+        }
+
+        &.prev:after {
+          content: '\\f358';
           font-family: 'Font Awesome 5 Free', sans-serif;
           font-weight: 900;
           margin-left: 5px;
@@ -88,35 +95,35 @@ export const PostNavigation = ({ prev, next, type, }: IPostNav) => {
     <>
       <div id='blog-post-navigation' css={postNavigationStyle}>
         {
-          prev === null
-            ? (
-              <p className='nav-button'>
-                <span className='nav-label'>이전 포스트</span>
-                <span className='message'>이전 포스트가 없습니다.</span>
-              </p>
-            )
-            : (prev && (
-              <p className='nav-button'>
-                <span className='nav-label'>이전 포스트</span>
-                <Link href={prevHref} passHref>
-                  <a className='nav-link'>{prev.frontMatter.title}</a>
-                </Link>
-              </p>
-            ))
-        }
-        {
           next === null
             ? (
               <p className='nav-button'>
-                <span className='nav-label'>다음 포스트</span>
+                <span className='nav-label next'>다음 포스트</span>
                 <span className='message'>다음 포스트가 없습니다.</span>
               </p>
             )
             : (next && (
               <p className='nav-button'>
-                <span className='nav-label'>다음 포스트</span>
+                <span className='nav-label next'>다음 포스트</span>
                 <Link href={nextHref} passHref>
                   <a className='nav-link'>{next.frontMatter.title}</a>
+                </Link>
+              </p>
+            ))
+        }
+        {
+          prev === null
+            ? (
+              <p className='nav-button'>
+                <span className='nav-label prev'>이전 포스트</span>
+                <span className='message'>이전 포스트가 없습니다.</span>
+              </p>
+            )
+            : (prev && (
+              <p className='nav-button'>
+                <span className='nav-label prev'>이전 포스트</span>
+                <Link href={prevHref} passHref>
+                  <a className='nav-link'>{prev.frontMatter.title}</a>
                 </Link>
               </p>
             ))
