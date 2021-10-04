@@ -1,4 +1,4 @@
-const sitemapGenerator = require('./src/utils/sitemapGenerator');
+const sitemapGenerator = require('./src/utils/sitemap/index');
 
 module.exports = {
   distDir: 'build',
