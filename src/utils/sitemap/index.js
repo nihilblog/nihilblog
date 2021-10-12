@@ -79,7 +79,7 @@ const sitemapGenerator = async () => {
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
-  `);
+  `).join('');
 
   const categoriesRuleSet = categories.map((category) => `
     <url>
@@ -87,7 +87,7 @@ const sitemapGenerator = async () => {
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
-  `);
+  `).join('');
 
   const keywordsRuleSet = keywords.map((keyword) => `
     <url>
@@ -95,7 +95,7 @@ const sitemapGenerator = async () => {
       <changefreq>daily</changefreq>
       <priority>0.7</priority>
     </url>
-  `);
+  `).join('');
 
   ruleSet.push(tagsRuleSet);
   ruleSet.push(categoriesRuleSet);
