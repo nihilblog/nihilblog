@@ -10,12 +10,13 @@ import { GoogleAd, MDXComponents } from '@/components/ContentComponents';
 import {
   PostContent, PostInfo, PostNavigation, Utterances
 } from '@/components/LayoutComponents';
-import { IPost, ISiteData } from '@/types';
+import { IPost } from '@/types';
+import { useMetaData } from '@/hooks';
 
 const BlogNoticePage = ({ notice, prev, next, }: IPost) => {
   const { frontMatter, slug, source, } = notice;
 
-  const siteData: ISiteData = {
+  const siteMeta = useMetaData({
     title: frontMatter.title,
     description: frontMatter.description,
     keywords: '',
@@ -26,7 +27,7 @@ const BlogNoticePage = ({ notice, prev, next, }: IPost) => {
     section: 'notice',
     created: getUTCString(frontMatter.createdAt),
     updated: getUTCString(frontMatter.updatedAt),
-  };
+  });
 
   return (
     <>

@@ -11,9 +11,10 @@ import {
   AlterPagination, Box, BoxHeader, PostItemBox
 } from '@/components/LayoutComponents';
 import {
-  IFirst, ILast, INext, IPostTCK, IPrev, ISiteData
+  IFirst, ILast, INext, IPostTCK, IPrev
 } from '@/types';
 import getCount from '@/utils/getCount';
+import { useMetaData } from '@/hooks';
 
 const KeywordPostsPage = ({ PostsPages, keyword, }: IPostTCK) => {
   const [ postsIndex, setPostsIndex, ] = useState(0);
@@ -48,10 +49,10 @@ const KeywordPostsPage = ({ PostsPages, keyword, }: IPostTCK) => {
     margin-bottom: 100px;
   `;
 
-  const siteData: ISiteData = {
+  const siteMeta = useMetaData({
     title: `"${keyword}" 관련 일러스트`,
     url: `/illust/keywords/${keyword}`,
-  };
+  });
 
   return (
     <>
