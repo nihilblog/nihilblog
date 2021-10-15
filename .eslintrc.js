@@ -66,11 +66,15 @@ module.exports = {
     'no-else-return': 'off',
     'global-require': 'off',
     'class-methods-use-this': 'off',
+    'no-useless-constructor': 'off',
+    'no-useless-return': 'off',
+    'lines-between-class-members': 'off',
 
     // 임포트 규칙
     'import/extensions': 'off',
     'import/no-extraneous-dependencies': 'off',
     'import/no-unresolved': 'off',
+    'import/no-dynamic-require': 'off',
     'import/prefer-default-export': 'off',
 
     // 리액트 규칙
@@ -86,7 +90,6 @@ module.exports = {
     ],
     'react/require-default-props': 'off',
     'react/jsx-one-expression-per-line': 'off',
-    'react/display-name': 'off',
 
     // 리액트 훅스 규칙
     'react-hooks/exhaustive-deps': 'off',
@@ -103,9 +106,13 @@ module.exports = {
     'jsx-a11y/anchor-has-content': 'off',
     'jsx-a11y/no-static-element-interactions': 'off',
     'jsx-a11y/click-events-have-key-events': 'off',
+    'jsx-a11y/no-noninteractive-element-interactions': 'off',
 
     // 타입스크립트 규칙
+    '@typescript-eslint/interface-name-prefix': 'off',
+    '@typescript-eslint/explicit-function-return-type': 'off',
     '@typescript-eslint/explicit-module-boundary-types': 'off',
+    '@typescript-eslint/no-explicit-any': 'off',
     '@typescript-eslint/no-var-requires': 'off',
     '@typescript-eslint/ban-ts-comment': 'off',
     '@typescript-eslint/no-unused-vars': 'off',

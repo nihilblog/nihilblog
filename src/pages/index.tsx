@@ -6,21 +6,22 @@ import BlogLayout from '@/layouts/BlogLayout';
 import { BlogMessage, BlogSeriesList, GoogleAd } from '@/components/ContentComponents';
 import { A, P } from '@/components/PostComponents';
 import { Box, BoxHeader, PostItemBox } from '@/components/LayoutComponents';
-import { IPostsProps } from '@/types';
+import { IBlogIndexPage } from '@/types';
+import { useMetaData } from '@/hooks';
 
-const BlogIndexPage = ({ posts, notices, }: IPostsProps) => {
+const BlogIndexPage = ({ posts, notices, }: IBlogIndexPage) => {
   const style = css`
     margin-bottom: 100px;
   `;
 
-  const siteData = {
+  const siteData = useMetaData({
     pageName: '홈',
     pageURL: '/',
-  };
+  });
 
   return (
     <>
-      <BlogLayout {...siteData}>
+      <BlogLayout siteData={siteData}>
         <BlogMessage />
         <BlogSeriesList />
         <div id='blog-index-page' css={style}>

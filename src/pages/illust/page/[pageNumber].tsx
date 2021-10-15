@@ -3,28 +3,29 @@ import { GetStaticPaths, GetStaticProps } from 'next';
 import getAllYearMdx from '@/utils/mdx/getAllYearMdx';
 import BlogLayout from '@/layouts/BlogLayout';
 import getPages from '@/utils/getPages';
-import BlogConfig from '@/data/blog.config';
+import config from '@/data/config.data';
 import { P } from '@/components/PostComponents';
 import {
   Box, BoxHeader, Pagination, PostItemBox
 } from '@/components/LayoutComponents';
-import { IPostsProps, ISiteData } from '@/types';
+import { IPostsPage } from '@/types';
 import getCount from '@/utils/getCount';
 import { GoogleAd } from '@/components/ContentComponents';
+import { useMetaData } from '@/hooks';
 
 const BlogIllustListPage = ({
   illusts, currentPage, prevPage, nextPage, totalPages, PostsPages,
-}: IPostsProps) => {
+}: IPostsPage) => {
   const totalCount = getCount(PostsPages);
 
-  const siteData: ISiteData = {
+  const siteData = useMetaData({
     pageName: `일러스트 목록 (${currentPage} 페이지)`,
     pageURL: `/illust/page/${currentPage}`,
-  };
+  });
 
   return (
     <>
-      <BlogLayout {...siteData}>
+      <BlogLayout siteData={siteData}>
         <div id='blog-illust-list-page'>
           <Box top='100'>
             <BoxHeader i='f53f' w='900' f='Free'>전체 일러스트 {totalCount}장</BoxHeader>
@@ -51,7 +52,7 @@ const BlogIllustListPage = ({
 export const getStaticPaths: GetStaticPaths = async () => {
   const illusts = getAllYearMdx('illust');
 
-  const PostsPages = getPages(illusts, BlogConfig.postPerPage);
+  const PostsPages = getPages(illusts, config.postPerPage);
 
   return {
     paths: PostsPages.map((page, index) => ({
@@ -72,16 +73,10 @@ type Params = {
 export const getStaticProps: GetStaticProps = async ({ params, }: Params) => {
   const illusts = getAllYearMdx('illust');
 
-  const PostsPages = getPages(illusts, BlogConfig.postPerPage);
+  const PostsPages = getPages(illusts, config.postPerPage);
   const number = parseInt(params.pageNumber, 10);
-
-  const prevPage = number === 1
-    ? null
-    : number - 1;
-
-  const nextPage = number === PostsPages.length
-    ? null
-    : number + 1;
+  const prevPage = number === 1 ? null : number - 1;
+  const nextPage = number === PostsPages.length ? null : number + 1;
 
   return {
     props: {

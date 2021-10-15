@@ -3,12 +3,13 @@ import { css } from '@emotion/react';
 import { GetStaticProps } from 'next';
 import { v4 as uuid } from 'uuid';
 import BlogLayout from '@/layouts/BlogLayout';
-import { IPostsProps, ISiteData } from '@/types';
+import { IPostArchive } from '@/types';
 import { ArchiveBlock, Box, BoxHeader } from '@/components/LayoutComponents';
 import getArchive from '@/utils/mdx/getArchive';
 import { P } from '@/components/PostComponents';
+import { useMetaData } from '@/hooks';
 
-const ArchivePage = ({ archivePosts, }: IPostsProps) => {
+const ArchivePage = ({ archivePosts, }: IPostArchive) => {
   const style = css`
     & > div {
       margin: 30px 0;
@@ -23,14 +24,14 @@ const ArchivePage = ({ archivePosts, }: IPostsProps) => {
     }
   `;
 
-  const siteData: ISiteData = {
+  const siteData = useMetaData({
     pageName: '포스트 아카이브',
     pageURL: '/archive',
-  };
+  });
 
   return (
     <>
-      <BlogLayout {...siteData}>
+      <BlogLayout siteData={siteData}>
         <div id='blog-archive-page'>
           <Box top='100' bottom='100'>
             <BoxHeader w='900' f='Free' i='f187'>포스트 아카이브</BoxHeader>

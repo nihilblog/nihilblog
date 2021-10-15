@@ -10,10 +10,10 @@ import { GoogleAd, MDXComponents } from '@/components/ContentComponents';
 import {
   PostContent, PostInfo, PostNavigation, Utterances
 } from '@/components/LayoutComponents';
-import { IPostsProps, ISiteData } from '@/types';
+import { IPost, ISiteData } from '@/types';
 
-const BlogNoticePage = ({ post, prev, next, }: IPostsProps) => {
-  const { frontMatter, slug, source, } = post;
+const BlogNoticePage = ({ notice, prev, next, }: IPost) => {
+  const { frontMatter, slug, source, } = notice;
 
   const siteData: ISiteData = {
     pageName: frontMatter.title,
@@ -30,7 +30,7 @@ const BlogNoticePage = ({ post, prev, next, }: IPostsProps) => {
 
   return (
     <>
-      <BlogLayout {...siteData}>
+      <BlogLayout siteData={siteData}>
         <article id='blog-notice-page'>
           <PostInfo top='100' frontMatter={frontMatter} type='notice' />
           <PostContent idName='blog-post-content' frontMatter={frontMatter}>
@@ -72,11 +72,11 @@ export const getStaticProps: GetStaticProps = async ({ params, }: Params) => {
   const postIndex = posts.findIndex((post) => post.filePath.replace('.mdx', '') === params.slug);
   const prev = posts[postIndex + 1] || null;
   const next = posts[postIndex - 1] || null;
-  const post = await getPostBySlug('notice', params.slug);
+  const notice = await getPostBySlug('notice', params.slug);
 
   return {
     props: {
-      post,
+      notice,
       prev,
       next,
     },

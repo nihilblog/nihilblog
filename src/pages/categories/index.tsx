@@ -7,15 +7,11 @@ import { P } from '@/components/PostComponents';
 import BlogLayout from '@/layouts/BlogLayout';
 import size from '@/data/size';
 import { Box, BoxHeader } from '@/components/LayoutComponents';
-import { IPostsProps, ISiteData } from '@/types';
+import { IPostTCKPage } from '@/types';
 import { GoogleAd } from '@/components/ContentComponents';
+import { useMetaData } from '@/hooks';
 
-const CategoriesPage = ({ categories, }: IPostsProps) => {
-  const siteData: ISiteData = {
-    pageName: '카테고리 목록',
-    pageURL: '/categories',
-  };
-
+const CategoriesPage = ({ categories, }: IPostTCKPage) => {
   const wordStyle = css`
     text-align: center;
 
@@ -54,9 +50,14 @@ const CategoriesPage = ({ categories, }: IPostsProps) => {
     }
   `;
 
+  const siteData = useMetaData({
+    pageName: '카테고리 목록',
+    pageURL: '/categories',
+  });
+
   return (
     <>
-      <BlogLayout {...siteData}>
+      <BlogLayout siteData={siteData}>
         <div id='blog-categories-page'>
           <Box bottom='100' top='100'>
             <BoxHeader i='f07b' w='900' f='Free'>카테고리 목록</BoxHeader>

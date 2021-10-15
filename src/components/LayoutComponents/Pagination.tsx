@@ -2,10 +2,10 @@ import Link from 'next/link';
 import React from 'react';
 import { css } from '@emotion/react';
 import size from '@/data/size';
-import { IPostType } from '@/types';
+import { IPostString } from '@/types';
 
 interface Props {
-  type?: IPostType;
+  type?: IPostString;
   prev?: number;
   next?: number;
   current?: number;

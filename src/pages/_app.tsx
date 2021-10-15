@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import Head from 'next/head';
 import { AppProps } from 'next/app';
 import Router from 'next/router';
-import BlogConfig from '@/data/blog.config';
+import config from '@/data/config.data';
 import { pageview } from '@/data/ga';
 
 const App = ({ Component, pageProps, }: AppProps) => {
@@ -25,8 +25,8 @@ const App = ({ Component, pageProps, }: AppProps) => {
         <meta httpEquiv='X-UA-Compatible' content='ie=edge' />
         <meta name='viewport' content='width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0' />
 
-        <link rel='shortcut icon' type='image/x-icon' href={`${BlogConfig.siteURL}/favicon.ico`} />
-        <link rel='icon' type='image/x-icon' href={`${BlogConfig.siteURL}/favicon.ico`} />
+        <link rel='shortcut icon' type='image/x-icon' href={`${config.siteURL}/favicon.ico`} />
+        <link rel='icon' type='image/x-icon' href={`${config.siteURL}/favicon.ico`} />
 
         <link
           rel='stylesheet'

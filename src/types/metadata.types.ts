@@ -14,6 +14,6 @@ export interface ISiteData {
 }
 
 export interface ISiteHead {
-  BlogConfig: IBlogConfig;
-  pageProps: ISiteData;
+  config: IBlogConfig;
+  siteData: ISiteData;
 }

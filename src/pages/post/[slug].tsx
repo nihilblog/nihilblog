@@ -10,12 +10,13 @@ import { GoogleAd, MDXComponents } from '@/components/ContentComponents';
 import {
   PostContent, PostInfo, PostNavigation, Utterances
 } from '@/components/LayoutComponents';
-import { IPostsProps, ISiteData } from '@/types';
+import { IPost } from '@/types';
+import { useMetaData } from '@/hooks';
 
-const BlogPostPage = ({ post, prev, next, }: IPostsProps) => {
+const BlogPostPage = ({ post, prev, next, }: IPost) => {
   const { frontMatter, slug, source, } = post;
 
-  const siteData: ISiteData = {
+  const siteData = useMetaData({
     pageName: frontMatter.title,
     pageDescription: frontMatter.description,
     pageKeywords: frontMatter.tags.join(', '),
@@ -26,11 +27,11 @@ const BlogPostPage = ({ post, prev, next, }: IPostsProps) => {
     pageSection: frontMatter.categories.join(', '),
     pageCreated: getUTCString(frontMatter.createdAt),
     pageUpdated: getUTCString(frontMatter.updatedAt),
-  };
+  });
 
   return (
     <>
-      <BlogLayout {...siteData}>
+      <BlogLayout siteData={siteData}>
         <article id='blog-post-page'>
           <PostInfo top='100' frontMatter={frontMatter} type='post' />
           <PostContent idName='blog-post-content' frontMatter={frontMatter}>

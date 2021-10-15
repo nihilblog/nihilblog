@@ -3,13 +3,13 @@ import { css } from '@emotion/react';
 import Link from 'next/link';
 import getUTC9 from '@/utils/getUTC9';
 import size from '@/data/size';
-import { IFrontMatter, IPostType } from '@/types';
+import { IFrontMatter, IPostString } from '@/types';
 import { InfoP } from './InfoP';
 
 interface Props {
   top?: string;
   bottom?: string;
-  type?: IPostType;
+  type?: IPostString;
   frontMatter?: IFrontMatter;
 }
 

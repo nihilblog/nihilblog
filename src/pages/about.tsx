@@ -2,18 +2,18 @@ import React from 'react';
 import BlogLayout from '@/layouts/BlogLayout';
 import { A, P, Strong } from '@/components/PostComponents';
 import { Box, BoxHeader } from '@/components/LayoutComponents';
-import { ISiteData } from '@/types';
 import { GoogleAd } from '@/components/ContentComponents';
+import { useMetaData } from '@/hooks';
 
 const BlogAboutPage = () => {
-  const siteData: ISiteData = {
+  const siteData = useMetaData({
     pageName: '소개',
     pageURL: '/about',
-  };
+  });
 
   return (
     <>
-      <BlogLayout {...siteData}>
+      <BlogLayout siteData={siteData}>
         <div id='blog-about-page'>
           <Box top='100'>
             <BoxHeader i='f05a' w='900' f='Free'>니힐로그에 대해</BoxHeader>

@@ -7,14 +7,15 @@ import {
   Box, BoxHeader, Pagination, PostList
 } from '@/components/LayoutComponents';
 import { P } from '@/components/PostComponents';
-import { IPostsProps, ISiteData } from '@/types';
+import { IPostsPage } from '@/types';
 import getPages from '@/utils/getPages';
 import getAllTypePosts from '@/utils/mdx/getAllTypePosts';
 import getCount from '@/utils/getCount';
+import { useMetaData } from '@/hooks';
 
 const BlogPostManagerPage = ({
   currentPage, prevPage, nextPage, posts, totalPages, PostsPages,
-}: IPostsProps) => {
+}: IPostsPage) => {
   const totalCount = getCount(PostsPages);
 
   const style = css`
@@ -23,14 +24,14 @@ const BlogPostManagerPage = ({
     }
   `;
 
-  const siteData: ISiteData = {
+  const siteData = useMetaData({
     pageName: '포스트 관리',
     pageURL: '/view',
-  };
+  });
 
   return (
     <>
-      <BlogLayout {...siteData}>
+      <BlogLayout siteData={siteData}>
         <div css={style}>
           <Box top='100' bottom='50'>
             <BoxHeader i='f039' w='900' f='Free'>총 포스트 {totalCount}건</BoxHeader>
@@ -74,14 +75,8 @@ export const getStaticProps: GetStaticProps = async ({ params, }: Params) => {
 
   const PostsPages = getPages(posts, 50);
   const number = parseInt(params.pageNumber, 10);
-
-  const prevPage = number === 1
-    ? null
-    : number - 1;
-
-  const nextPage = number === PostsPages.length
-    ? null
-    : number + 1;
+  const prevPage = number === 1 ? null : number - 1;
+  const nextPage = number === PostsPages.length ? null : number + 1;
 
   return {
     props: {

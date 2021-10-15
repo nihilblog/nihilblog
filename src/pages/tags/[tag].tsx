@@ -6,16 +6,17 @@ import getAllYearMdx from '@/utils/mdx/getAllYearMdx';
 import BlogLayout from '@/layouts/BlogLayout';
 import { P } from '@/components/PostComponents';
 import getPages from '@/utils/getPages';
-import BlogConfig from '@/data/blog.config';
+import config from '@/data/config.data';
 import {
   AlterPagination, Box, BoxHeader, PostItemBox
 } from '@/components/LayoutComponents';
 import {
-  IFirst, ILast, INext, IPostsProps, IPrev, ISiteData
+  IFirst, ILast, INext, IPostTCK, IPrev
 } from '@/types';
 import getCount from '@/utils/getCount';
+import { useMetaData } from '@/hooks';
 
-const TagPostsPage = ({ tag, PostsPages, }: IPostsProps) => {
+const TagPostsPage = ({ tag, PostsPages, }: IPostTCK) => {
   const [ postsIndex, setPostsIndex, ] = useState(0);
 
   const totalCount = getCount(PostsPages);
@@ -48,14 +49,14 @@ const TagPostsPage = ({ tag, PostsPages, }: IPostsProps) => {
     margin-bottom: 100px;
   `;
 
-  const siteData: ISiteData = {
+  const siteData = useMetaData({
     pageName: `"${tag}" 관련 포스트`,
     pageURL: `/tags/${tag}`,
-  };
+  });
 
   return (
     <>
-      <BlogLayout {...siteData}>
+      <BlogLayout siteData={siteData}>
         <div id='blog-tag-page' css={style}>
           <Box top='100'>
             <BoxHeader i='f002' w='900' f='Free'>&ldquo; {tag} &rdquo; 태그 관련 포스트 {totalCount}건</BoxHeader>
@@ -108,7 +109,7 @@ export const getStaticProps: GetStaticProps = async ({ params, }: Params) => {
   const posts = getAllYearMdx('post')
     .filter(({ frontMatter, }) => frontMatter.tags.includes(params.tag));
 
-  const PostsPages = getPages(posts, BlogConfig.postPerPage);
+  const PostsPages = getPages(posts, config.postPerPage);
 
   return {
     props: {

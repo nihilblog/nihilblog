@@ -1,4 +1,4 @@
-import { IPostType } from '@/types';
+import { IPostString } from '@/types';
 import getAllMdx from './getAllMdx';
 
 const years = [
@@ -9,7 +9,7 @@ const months = [
   '01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12',
 ];
 
-const getAllYearMdx = (type: IPostType) => {
+const getAllYearMdx = (type: IPostString) => {
   let posts = getAllMdx(type, '2021', '05');
 
   const month2021 = [ '06', '07', '08', '09', '10', '11', '12', ];

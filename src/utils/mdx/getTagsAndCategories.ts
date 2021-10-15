@@ -1,7 +1,7 @@
-import { ITagsCategoriesKeywards, ITagsCategoriesKeywardsType } from '@/types';
+import { ITCKObj, ITCKString } from '@/types';
 import getAllYearMdx from './getAllYearMdx';
 
-const getTagsAndCategories = (type: ITagsCategoriesKeywardsType) => {
+const getTagsAndCategories = (type: ITCKString) => {
   const initialBox: string[][] = [];
 
   switch (type) {
@@ -38,11 +38,11 @@ const getTagsAndCategories = (type: ITagsCategoriesKeywardsType) => {
     return pre;
   }, {});
 
-  const FinallyArray: ITagsCategoriesKeywards[] = [];
+  const FinallyArray: ITCKObj[] = [];
 
   for (const key in ArraytoObject) {
     if (Object.prototype.hasOwnProperty.call(ArraytoObject, key)) {
-      let obj: ITagsCategoriesKeywards;
+      let obj: ITCKObj;
 
       if (type === 'tags') {
         obj = {

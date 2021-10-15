@@ -9,15 +9,16 @@ import {
 } from '@/components/LayoutComponents';
 import { P } from '@/components/PostComponents';
 import getPages from '@/utils/getPages';
-import BlogConfig from '@/data/blog.config';
+import config from '@/data/config.data';
 import {
   IFirst,
   ILast,
-  INext, IPostsProps, IPrev, ISiteData
+  INext, IPostTCK, IPrev
 } from '@/types';
 import getCount from '@/utils/getCount';
+import { useMetaData } from '@/hooks';
 
-const CategoryPostsPage = ({ category, PostsPages, }: IPostsProps) => {
+const CategoryPostsPage = ({ category, PostsPages, }: IPostTCK) => {
   const [ postsIndex, setPostsIndex, ] = useState(0);
 
   const totalCount = getCount(PostsPages);
@@ -50,14 +51,14 @@ const CategoryPostsPage = ({ category, PostsPages, }: IPostsProps) => {
     margin-bottom: 100px;
   `;
 
-  const siteData: ISiteData = {
+  const siteData = useMetaData({
     pageName: `"${category}" 관련 포스트`,
     pageURL: `/tags/${category}`,
-  };
+  });
 
   return (
     <>
-      <BlogLayout {...siteData}>
+      <BlogLayout siteData={siteData}>
         <div id='blog-tag-page' css={style}>
           <Box top='100'>
             <BoxHeader i='f002' w='900' f='Free'>&ldquo; {category} &rdquo; 카테고리 관련 포스트 {totalCount}건</BoxHeader>
@@ -110,7 +111,7 @@ export const getStaticProps: GetStaticProps = async ({ params, }: Params) => {
   const posts = getAllYearMdx('post')
     .filter(({ frontMatter, }) => frontMatter.categories.includes(params.category));
 
-  const PostsPages = getPages(posts, BlogConfig.postPerPage);
+  const PostsPages = getPages(posts, config.postPerPage);
 
   return {
     props: {

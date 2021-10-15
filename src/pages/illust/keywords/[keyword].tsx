@@ -6,16 +6,16 @@ import getTagsAndCategories from '@/utils/mdx/getTagsAndCategories';
 import BlogLayout from '@/layouts/BlogLayout';
 import { P } from '@/components/PostComponents';
 import getPages from '@/utils/getPages';
-import BlogConfig from '@/data/blog.config';
+import config from '@/data/config.data';
 import {
   AlterPagination, Box, BoxHeader, PostItemBox
 } from '@/components/LayoutComponents';
 import {
-  IFirst, ILast, INext, IPostsProps, IPrev, ISiteData
+  IFirst, ILast, INext, IPostTCK, IPrev, ISiteData
 } from '@/types';
 import getCount from '@/utils/getCount';
 
-const KeywordPostsPage = ({ PostsPages, keyword, }: IPostsProps) => {
+const KeywordPostsPage = ({ PostsPages, keyword, }: IPostTCK) => {
   const [ postsIndex, setPostsIndex, ] = useState(0);
 
   const totalCount = getCount(PostsPages);
@@ -55,7 +55,7 @@ const KeywordPostsPage = ({ PostsPages, keyword, }: IPostsProps) => {
 
   return (
     <>
-      <BlogLayout {...siteData}>
+      <BlogLayout siteData={siteData}>
         <div id='blog-keyword-page' css={style}>
           <Box top='100'>
             <BoxHeader i='f002' w='900' f='Free'>&ldquo; {keyword} &rdquo; 키워드 관련 일러스트 {totalCount}장</BoxHeader>
@@ -108,7 +108,7 @@ export const getStaticProps: GetStaticProps = async ({ params, }: Params) => {
   const illusts = getAllYearMdx('illust')
     .filter(({ frontMatter, }) => frontMatter.keywords.includes(params.keyword));
 
-  const PostsPages = getPages(illusts, BlogConfig.postPerPage);
+  const PostsPages = getPages(illusts, config.postPerPage);
 
   return {
     props: {

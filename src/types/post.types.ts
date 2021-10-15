@@ -15,21 +15,6 @@ export interface IFrontMatter {
   notice: boolean;
 }
 
-export interface IMatterData {
-  id?: number;
-  title?: string;
-  description?: string;
-  coverImage?: string;
-  tags?: string[];
-  categories?: string[];
-  createdAt?: Date;
-  updatedAt?: Date;
-  keywords?: string[];
-  drawDate?: Date;
-  display?: boolean;
-  notice?: boolean;
-}
-
 export interface IPosts {
   frontMatter: IFrontMatter;
   filePath: string;
@@ -38,9 +23,9 @@ export interface IPosts {
   yearMonth: string;
 }
 
-export type IPostType = ('post' | 'notice' | 'illust' | 'view');
+export type IPostString = ('post' | 'notice' | 'illust' | 'view');
 
-export type ITagsCategoriesKeywardsType = ('tags' | 'categories' | 'keywords');
+export type ITCKString = ('tags' | 'categories' | 'keywords');
 
 export interface IPostSlug {
   frontMatter: IFrontMatter;
@@ -48,7 +33,7 @@ export interface IPostSlug {
   slug: string;
 }
 
-export interface ITagsCategoriesKeywards {
+export interface ITCKObj {
   tagName?: string;
   tagCount?: number;
   categoryName?: string;
@@ -59,52 +44,55 @@ export interface ITagsCategoriesKeywards {
 
 export interface IPostsProps {
   posts?: IPosts[];
-  archivePosts?: IArchive[];
   notices?: IPosts[];
   illusts?: IPosts[];
-  tags?: ITagsCategoriesKeywards[];
-  categories?: ITagsCategoriesKeywards[];
-  keywords?: ITagsCategoriesKeywards[];
   tag?: string;
-  category?: string;
-  keyword?: string;
-  PostsPages?: IPosts[][];
   post?: IPostSlug;
   notice?: IPostSlug;
   illust?: IPostSlug;
   prev?: IPosts;
   next?: IPosts;
-  prevPage?: number;
-  nextPage?: number;
-  currentPage?: number;
-  totalPages?: number;
 }
 
-export interface IH5 {
-  id: string;
-  text: string;
-  name: 'H5';
+export interface IPostTCKPage {
+  categories?: ITCKObj[];
+  keywords?: ITCKObj[];
+  tags?: ITCKObj[];
 }
 
-export interface IH4 {
-  id: string;
-  text: string;
-  name: 'H4';
-  items?: IH5[];
+export interface IPostTCK {
+  category?: string;
+  keyword?: string;
+  tag?: string;
+  PostsPages: IPosts[][];
 }
 
-export interface IH3 {
-  id: string;
-  text: string;
-  name: 'H3';
-  items?: IH4[];
+export interface IPost {
+  illust?: IPostSlug;
+  notice?: IPostSlug;
+  post?: IPostSlug;
+  prev: IPosts;
+  next: IPosts;
 }
 
-export interface IH2 {
-  id: string;
-  text: string;
-  name: 'H2';
-  items?: IH3[];
+export interface IPostsPage {
+  currentPage: number;
+  prevPage: number;
+  nextPage: number;
+  posts?: IPosts[];
+  notices?: IPosts[];
+  illusts?: IPosts[];
+  totalPages: number;
+  PostsPages: IPosts[][];
+}
+
+export interface IBlogIndexPage {
+  posts: IPosts[];
+  notices: IPosts[];
+}
+
+export interface IPostArchive {
+  archivePosts: IArchive[];
 }
 
 export interface IPrev {
@@ -137,7 +125,7 @@ export interface IPagination {
 export interface IPostNav {
   prev?: IPosts;
   next?: IPosts;
-  type?: IPostType;
+  type?: IPostString;
 }
 
 export interface IArchive {

@@ -1,44 +1,19 @@
 import React, { ReactNode } from 'react';
 import { css, Global } from '@emotion/react';
 import { useRouter } from 'next/router';
-import BlogConfig from '@/data/blog.config';
+import config from '@/data/config.data';
 import { ISiteData } from '@/types';
 import draculaTheme from '@/styles/prism-draculaTheme';
 import {
   FooterContainer, HeaderContainer, NavContainer, PageContainer, SiteHead, SubNavContainer
 } from '@/components/BlogLayoutComponents';
 
-interface LayoutProps {
-  pageName?: string;
-  pageDescription?: string;
-  pageKeywords?: string;
-  pageImage?: string;
-  pageType?: string;
-  pageURL?: string;
-  pageTag?: string;
-  pageSection?: string;
-  pageCreated?: string;
-  pageUpdated?: string;
+interface Props {
+  siteData: ISiteData;
   children: ReactNode;
 }
 
-const BlogLayout = ({
-  pageName, pageDescription, pageKeywords, pageImage, pageType,
-  pageURL, pageTag, pageSection, pageCreated, pageUpdated, children,
-}: LayoutProps) => {
-  const pageProps: ISiteData = {
-    pageName,
-    pageDescription,
-    pageKeywords,
-    pageImage,
-    pageType,
-    pageURL,
-    pageTag,
-    pageSection,
-    pageCreated,
-    pageUpdated,
-  };
-
+const BlogLayout = ({ siteData, children, }: Props) => {
   const globalStyle = css`
     @import url(https://fonts.googleapis.com/earlyaccess/notosanskr.css);
 
@@ -130,7 +105,7 @@ const BlogLayout = ({
     <>
       <Global styles={globalStyle} />
       {/* 메타 데이터 */}
-      <SiteHead BlogConfig={BlogConfig} pageProps={pageProps} />
+      <SiteHead config={config} siteData={siteData} />
       {/* 헤더와 메뉴 */}
       <HeaderContainer />
       <NavContainer />

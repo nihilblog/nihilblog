@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 import { A, P, Strong } from '@/components/PostComponents';
 import BlogLayout from '@/layouts/BlogLayout';
 import { Box, BoxHeader } from '@/components/LayoutComponents';
-import { ISiteData } from '@/types';
+import { useMetaData } from '@/hooks';
 
 const BlogNotPoundPage = () => {
   const router = useRouter();
@@ -30,14 +30,14 @@ const BlogNotPoundPage = () => {
     }
   `;
 
-  const siteData: ISiteData = {
+  const siteData = useMetaData({
     pageName: '에러 404',
     pageURL: '/404',
-  };
+  });
 
   return (
     <>
-      <BlogLayout {...siteData}>
+      <BlogLayout siteData={siteData}>
         <div id='blog-error-page' css={blogErrorPageStyle}>
           <Box top='100' bottom='100'>
             <BoxHeader i='f00d' w='900' f='Free'>에러 404</BoxHeader>

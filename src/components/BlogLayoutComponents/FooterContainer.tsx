@@ -1,6 +1,6 @@
 import React from 'react';
 import { css } from '@emotion/react';
-import BlogConfig from '@/data/blog.config';
+import config from '@/data/config.data';
 import size from '@/data/size';
 
 export const FooterContainer = () => {
@@ -119,8 +119,8 @@ export const FooterContainer = () => {
           <a href='https://github.com/NIHILncunia' target='_blank' rel='noreferrer noopener' aria-label='github' />
           <a href='https://nihilncunia.github.io/' target='_blank' rel='noreferrer noopener' aria-label='homepage' />
         </p>
-        <p id='footer-blog-version'>니힐로그 <strong>v{BlogConfig.siteVersion}</strong></p>
-        <p id='footer-copyright'>{BlogConfig.copyrightYear}. {BlogConfig.siteAuthor}.</p>
+        <p id='footer-blog-version'>니힐로그 <strong>v{config.siteVersion}</strong></p>
+        <p id='footer-copyright'>{config.copyrightYear}. {config.siteAuthor}.</p>
       </footer>
     </>
   );

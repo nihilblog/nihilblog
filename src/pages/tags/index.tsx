@@ -8,15 +8,11 @@ import BlogLayout from '@/layouts/BlogLayout';
 import size from '@/data/size';
 import getTagsAndCategories from '@/utils/mdx/getTagsAndCategories';
 import { Box, BoxHeader } from '@/components/LayoutComponents';
-import { IPostsProps, ISiteData } from '@/types';
+import { IPostTCKPage } from '@/types';
 import { GoogleAd } from '@/components/ContentComponents';
+import { useMetaData } from '@/hooks';
 
-const TagsPage = ({ tags, }: IPostsProps) => {
-  const siteData: ISiteData = {
-    pageName: '태그 목록',
-    pageURL: '/tags',
-  };
-
+const TagsPage = ({ tags, }: IPostTCKPage) => {
   const wordStyle = css`
     text-align: center;
 
@@ -55,9 +51,14 @@ const TagsPage = ({ tags, }: IPostsProps) => {
     }
   `;
 
+  const siteData = useMetaData({
+    pageName: '태그 목록',
+    pageURL: '/tags',
+  });
+
   return (
     <>
-      <BlogLayout {...siteData}>
+      <BlogLayout siteData={siteData}>
         <div id='blog-tags-page'>
           <Box bottom='100' top='100'>
             <BoxHeader i='f02c' w='900' f='Free'>태그 목록</BoxHeader>

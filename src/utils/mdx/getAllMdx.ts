@@ -2,10 +2,25 @@ import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 import {
-  IFrontMatter, IPosts, IPostType, IMatterData
+  IFrontMatter, IPosts, IPostString
 } from '@/types';
 
-const getAllMdx = (type: IPostType, year?: string, month?: string): IPosts[] => {
+interface IMatterData {
+  id?: number;
+  title?: string;
+  description?: string;
+  coverImage?: string;
+  tags?: string[];
+  categories?: string[];
+  createdAt?: Date;
+  updatedAt?: Date;
+  keywords?: string[];
+  drawDate?: Date;
+  display?: boolean;
+  notice?: boolean;
+}
+
+const getAllMdx = (type: IPostString, year?: string, month?: string): IPosts[] => {
   const folderPath = path.join(process.cwd(), 'posts', `${type}/${year}/${month}`);
   const postPaths = fs.readdirSync(folderPath).filter((p) => /\.mdx?$/.test(p));
 

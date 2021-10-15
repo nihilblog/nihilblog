@@ -4,10 +4,10 @@ import Link from 'next/link';
 import { v4 as uuid } from 'uuid';
 import getUTC9 from '@/utils/getUTC9';
 import size from '@/data/size';
-import { IFrontMatter, IPostType } from '@/types';
+import { IFrontMatter, IPostString } from '@/types';
 
 interface Props {
-  type?: IPostType;
+  type?: IPostString;
   frontMatter?: IFrontMatter;
   filePath?: string;
 }

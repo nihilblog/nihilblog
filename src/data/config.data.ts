@@ -1,6 +1,6 @@
 import { IBlogConfig } from '@/types';
 
-const BlogConfig: IBlogConfig = {
+const config: IBlogConfig = {
   siteTitle: '니힐로그',
   siteDescription: '웹 프로그래밍을 중심으로 개발 공부 과정을 기록하는 블로그.',
   siteAuthor: 'NIHILncunia',
@@ -11,9 +11,9 @@ const BlogConfig: IBlogConfig = {
     : 'https://nihilog.github.io',
   siteImage: '/images/blog-image.png',
   siteType: 'website',
-  siteVersion: '3.7.6',
+  siteVersion: '3.7.7',
   copyrightYear: new Date().getFullYear(),
   postPerPage: 5,
 };
 
-export default BlogConfig;
+export default config;

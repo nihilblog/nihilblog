@@ -11,13 +11,14 @@ import { GoogleAd, MDXComponents } from '@/components/ContentComponents';
 import {
   PostContent, PostInfo, PostNavigation, Utterances
 } from '@/components/LayoutComponents';
-import { IPostsProps, ISiteData } from '@/types';
+import { IPost } from '@/types';
+import { useMetaData } from '@/hooks';
 
-const BlogIllustPage = ({ illust, prev, next, }: IPostsProps) => {
+const BlogIllustPage = ({ illust, prev, next, }: IPost) => {
   const { frontMatter, slug, source, } = illust;
   const router = useRouter();
 
-  const siteData: ISiteData = {
+  const siteData = useMetaData({
     pageName: frontMatter.title,
     pageDescription: frontMatter.description,
     pageKeywords: `그림, 일러스트, 캐릭터, 컨셉아트, 디자인, 창작, 캐릭터디자인, 캐릭터일러스트, 판타지, illustration, artwork, character, fantasy, characterillustration, characterdesign, fantasycharacter, ${frontMatter.keywords.join(', ')}`,
@@ -28,11 +29,11 @@ const BlogIllustPage = ({ illust, prev, next, }: IPostsProps) => {
     pageSection: 'illust',
     pageCreated: getUTCString(frontMatter.createdAt),
     pageUpdated: getUTCString(frontMatter.updatedAt),
-  };
+  });
 
   return (
     <>
-      <BlogLayout {...siteData}>
+      <BlogLayout siteData={siteData}>
         <article id='blog-illust-list-page'>
           <PostInfo top='100' frontMatter={frontMatter} type='illust' />
           <PostContent idName='blog-post-content' frontMatter={frontMatter}>

@@ -3,10 +3,10 @@ import remarkUnwrapImages from 'remark-unwrap-images';
 import remarkCodeTitles from 'remark-code-titles';
 import remarkSlug from 'remark-slug';
 import mdxPrism from 'mdx-prism';
-import { IPostType } from '@/types';
+import { IPostString } from '@/types';
 import getAllYearMdx from './getAllYearMdx';
 
-const getPostBySlug = async (type: IPostType, slug: string) => {
+const getPostBySlug = async (type: IPostString, slug: string) => {
   const posts = getAllYearMdx(type).filter((post) => post.filePath.replace('.mdx', '') === slug);
 
   const { frontMatter, content, } = posts[0];
