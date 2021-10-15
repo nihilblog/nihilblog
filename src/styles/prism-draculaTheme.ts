@@ -1,5 +1,5 @@
 import { css } from '@emotion/react';
-import size from '@/data/size';
+import size from '@/data/size.data';
 
 const gruvboxDark = css`
   code[class*="language-"],

@@ -5,7 +5,7 @@ import { GetStaticProps } from 'next';
 import BlogLayout from '@/layouts/BlogLayout';
 import { P } from '@/components/PostComponents';
 import getTagsAndCategories from '@/utils/mdx/getTagsAndCategories';
-import size from '@/data/size';
+import size from '@/data/size.data';
 import { Box, BoxHeader } from '@/components/LayoutComponents';
 import { IPostTCKPage } from '@/types';
 import { GoogleAd } from '@/components/ContentComponents';
@@ -50,14 +50,14 @@ const KeywordsPage = ({ keywords, }: IPostTCKPage) => {
     }
   `;
 
-  const siteData = useMetaData({
-    pageName: '일러스트 키워드 목록',
-    pageURL: '/illust/keywords',
+  const siteMeta = useMetaData({
+    title: '일러스트 키워드 목록',
+    url: '/illust/keywords',
   });
 
   return (
     <>
-      <BlogLayout siteData={siteData}>
+      <BlogLayout meta={siteMeta}>
         <div id='blog-keywords-page'>
           <Box bottom='100' top='100'>
             <BoxHeader i='f1fc' w='900' f='Free'>일러스트 키워드 목록</BoxHeader>

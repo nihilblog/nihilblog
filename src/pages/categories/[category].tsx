@@ -51,14 +51,14 @@ const CategoryPostsPage = ({ category, PostsPages, }: IPostTCK) => {
     margin-bottom: 100px;
   `;
 
-  const siteData = useMetaData({
-    pageName: `"${category}" 관련 포스트`,
-    pageURL: `/tags/${category}`,
+  const siteMeta = useMetaData({
+    title: `"${category}" 관련 포스트`,
+    url: `/tags/${category}`,
   });
 
   return (
     <>
-      <BlogLayout siteData={siteData}>
+      <BlogLayout meta={siteMeta}>
         <div id='blog-tag-page' css={style}>
           <Box top='100'>
             <BoxHeader i='f002' w='900' f='Free'>&ldquo; {category} &rdquo; 카테고리 관련 포스트 {totalCount}건</BoxHeader>

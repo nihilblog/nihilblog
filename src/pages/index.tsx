@@ -14,14 +14,14 @@ const BlogIndexPage = ({ posts, notices, }: IBlogIndexPage) => {
     margin-bottom: 100px;
   `;
 
-  const siteData = useMetaData({
-    pageName: '홈',
-    pageURL: '/',
+  const siteMeta = useMetaData({
+    title: '홈',
+    url: '/',
   });
 
   return (
     <>
-      <BlogLayout siteData={siteData}>
+      <BlogLayout meta={siteMeta}>
         <BlogMessage />
         <BlogSeriesList />
         <div id='blog-index-page' css={style}>

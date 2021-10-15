@@ -18,14 +18,14 @@ const BlogNoticeListNumberPage = ({
 }: IPostsPage) => {
   const totalCount = getCount(PostsPages);
 
-  const siteData = useMetaData({
-    pageName: `공지 목록 (${currentPage} 페이지)`,
-    pageURL: `/notice/page/${currentPage}`,
+  const siteMeta = useMetaData({
+    title: `공지 목록 (${currentPage} 페이지)`,
+    url: `/notice/page/${currentPage}`,
   });
 
   return (
     <>
-      <BlogLayout siteData={siteData}>
+      <BlogLayout meta={siteMeta}>
         <div id='blog-notice-pages'>
           <Box top='100'>
             <BoxHeader i='f0f3' w='900' f='Free'>전체 공지 {totalCount}건</BoxHeader>

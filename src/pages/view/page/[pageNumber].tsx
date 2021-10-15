@@ -24,14 +24,14 @@ const BlogPostManagerPage = ({
     }
   `;
 
-  const siteData = useMetaData({
-    pageName: '포스트 관리',
-    pageURL: '/view',
+  const siteMeta = useMetaData({
+    title: '포스트 관리',
+    url: '/view',
   });
 
   return (
     <>
-      <BlogLayout siteData={siteData}>
+      <BlogLayout meta={siteMeta}>
         <div css={style}>
           <Box top='100' bottom='50'>
             <BoxHeader i='f039' w='900' f='Free'>총 포스트 {totalCount}건</BoxHeader>

@@ -49,14 +49,14 @@ const TagPostsPage = ({ tag, PostsPages, }: IPostTCK) => {
     margin-bottom: 100px;
   `;
 
-  const siteData = useMetaData({
-    pageName: `"${tag}" 관련 포스트`,
-    pageURL: `/tags/${tag}`,
+  const siteMeta = useMetaData({
+    title: `"${tag}" 관련 포스트`,
+    url: `/tags/${tag}`,
   });
 
   return (
     <>
-      <BlogLayout siteData={siteData}>
+      <BlogLayout meta={siteMeta}>
         <div id='blog-tag-page' css={style}>
           <Box top='100'>
             <BoxHeader i='f002' w='900' f='Free'>&ldquo; {tag} &rdquo; 태그 관련 포스트 {totalCount}건</BoxHeader>

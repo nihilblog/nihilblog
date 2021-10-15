@@ -18,14 +18,14 @@ const BlogIllustListPage = ({
 }: IPostsPage) => {
   const totalCount = getCount(PostsPages);
 
-  const siteData = useMetaData({
-    pageName: `일러스트 목록 (${currentPage} 페이지)`,
-    pageURL: `/illust/page/${currentPage}`,
+  const siteMeta = useMetaData({
+    title: `일러스트 목록 (${currentPage} 페이지)`,
+    url: `/illust/page/${currentPage}`,
   });
 
   return (
     <>
-      <BlogLayout siteData={siteData}>
+      <BlogLayout meta={siteMeta}>
         <div id='blog-illust-list-page'>
           <Box top='100'>
             <BoxHeader i='f53f' w='900' f='Free'>전체 일러스트 {totalCount}장</BoxHeader>

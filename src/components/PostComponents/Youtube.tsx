@@ -1,6 +1,6 @@
 import React from 'react';
 import { css, Global } from '@emotion/react';
-import size from '@/data/size';
+import size from '@/data/size.data';
 
 interface Props {
   children?: string;

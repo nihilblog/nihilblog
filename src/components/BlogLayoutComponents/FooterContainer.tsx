@@ -1,7 +1,7 @@
 import React from 'react';
 import { css } from '@emotion/react';
 import config from '@/data/config.data';
-import size from '@/data/size';
+import size from '@/data/size.data';
 
 export const FooterContainer = () => {
   const footerContainerStyle = css`

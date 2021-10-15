@@ -49,13 +49,13 @@ const KeywordPostsPage = ({ PostsPages, keyword, }: IPostTCK) => {
   `;
 
   const siteData: ISiteData = {
-    pageName: `"${keyword}" 관련 일러스트`,
-    pageURL: `/illust/keywords/${keyword}`,
+    title: `"${keyword}" 관련 일러스트`,
+    url: `/illust/keywords/${keyword}`,
   };
 
   return (
     <>
-      <BlogLayout siteData={siteData}>
+      <BlogLayout meta={siteMeta}>
         <div id='blog-keyword-page' css={style}>
           <Box top='100'>
             <BoxHeader i='f002' w='900' f='Free'>&ldquo; {keyword} &rdquo; 키워드 관련 일러스트 {totalCount}장</BoxHeader>

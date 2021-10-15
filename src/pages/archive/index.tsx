@@ -24,14 +24,14 @@ const ArchivePage = ({ archivePosts, }: IPostArchive) => {
     }
   `;
 
-  const siteData = useMetaData({
-    pageName: '포스트 아카이브',
-    pageURL: '/archive',
+  const siteMeta = useMetaData({
+    title: '포스트 아카이브',
+    url: '/archive',
   });
 
   return (
     <>
-      <BlogLayout siteData={siteData}>
+      <BlogLayout meta={siteMeta}>
         <div id='blog-archive-page'>
           <Box top='100' bottom='100'>
             <BoxHeader w='900' f='Free' i='f187'>포스트 아카이브</BoxHeader>

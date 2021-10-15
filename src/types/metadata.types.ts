@@ -1,19 +1,19 @@
 import { IBlogConfig } from './index';
 
 export interface ISiteData {
-  pageName?: string;
-  pageDescription?: string;
-  pageKeywords?: string;
-  pageImage?: string;
-  pageType?: string;
-  pageURL?: string;
-  pageTag?: string;
-  pageSection?: string;
-  pageCreated?: string;
-  pageUpdated?: string;
+  title?: string;
+  description?: string;
+  keywords?: string;
+  image?: string;
+  type?: string;
+  url?: string;
+  tag?: string;
+  section?: string;
+  created?: string;
+  updated?: string;
 }
 
 export interface ISiteHead {
   config: IBlogConfig;
-  siteData: ISiteData;
+  meta: ISiteData;
 }

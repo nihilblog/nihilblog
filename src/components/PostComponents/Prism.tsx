@@ -1,7 +1,7 @@
 import React from 'react';
 import { css } from '@emotion/react';
 import getLangColor from '@/utils/getLangColor';
-import size from '@/data/size';
+import size from '@/data/size.data';
 
 interface Props {
   top?: string;

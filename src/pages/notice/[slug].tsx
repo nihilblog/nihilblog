@@ -16,21 +16,21 @@ const BlogNoticePage = ({ notice, prev, next, }: IPost) => {
   const { frontMatter, slug, source, } = notice;
 
   const siteData: ISiteData = {
-    pageName: frontMatter.title,
-    pageDescription: frontMatter.description,
-    pageKeywords: '',
-    pageURL: `/notice/${slug}`,
-    pageType: 'article',
-    pageImage: frontMatter.coverImage ? frontMatter.coverImage : '',
-    pageTag: 'notice',
-    pageSection: 'notice',
-    pageCreated: getUTCString(frontMatter.createdAt),
-    pageUpdated: getUTCString(frontMatter.updatedAt),
+    title: frontMatter.title,
+    description: frontMatter.description,
+    keywords: '',
+    url: `/notice/${slug}`,
+    type: 'article',
+    image: frontMatter.coverImage ? frontMatter.coverImage : '',
+    tag: 'notice',
+    section: 'notice',
+    created: getUTCString(frontMatter.createdAt),
+    updated: getUTCString(frontMatter.updatedAt),
   };
 
   return (
     <>
-      <BlogLayout siteData={siteData}>
+      <BlogLayout meta={siteMeta}>
         <article id='blog-notice-page'>
           <PostInfo top='100' frontMatter={frontMatter} type='notice' />
           <PostContent idName='blog-post-content' frontMatter={frontMatter}>

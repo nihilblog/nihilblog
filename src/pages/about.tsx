@@ -6,14 +6,14 @@ import { GoogleAd } from '@/components/ContentComponents';
 import { useMetaData } from '@/hooks';
 
 const BlogAboutPage = () => {
-  const siteData = useMetaData({
-    pageName: '소개',
-    pageURL: '/about',
+  const siteMeta = useMetaData({
+    title: '소개',
+    url: '/about',
   });
 
   return (
     <>
-      <BlogLayout siteData={siteData}>
+      <BlogLayout meta={siteMeta}>
         <div id='blog-about-page'>
           <Box top='100'>
             <BoxHeader i='f05a' w='900' f='Free'>니힐로그에 대해</BoxHeader>

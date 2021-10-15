@@ -3,7 +3,7 @@ import { css } from '@emotion/react';
 import {
   Strong, A, Gray, Details, P
 } from '@/components/PostComponents';
-import size from '@/data/size';
+import size from '@/data/size.data';
 import { Box } from '@/components/LayoutComponents';
 
 export const BlogSeriesList = () => {

@@ -16,22 +16,22 @@ import { useMetaData } from '@/hooks';
 const BlogPostPage = ({ post, prev, next, }: IPost) => {
   const { frontMatter, slug, source, } = post;
 
-  const siteData = useMetaData({
-    pageName: frontMatter.title,
-    pageDescription: frontMatter.description,
-    pageKeywords: frontMatter.tags.join(', '),
-    pageURL: `/post/${slug}`,
-    pageType: 'article',
-    pageImage: frontMatter.coverImage ? frontMatter.coverImage : '',
-    pageTag: frontMatter.tags.join(', '),
-    pageSection: frontMatter.categories.join(', '),
-    pageCreated: getUTCString(frontMatter.createdAt),
-    pageUpdated: getUTCString(frontMatter.updatedAt),
+  const siteMeta = useMetaData({
+    title: frontMatter.title,
+    description: frontMatter.description,
+    keywords: frontMatter.tags.join(', '),
+    url: `/post/${slug}`,
+    type: 'article',
+    image: frontMatter.coverImage ? frontMatter.coverImage : '',
+    tag: frontMatter.tags.join(', '),
+    section: frontMatter.categories.join(', '),
+    created: getUTCString(frontMatter.createdAt),
+    updated: getUTCString(frontMatter.updatedAt),
   });
 
   return (
     <>
-      <BlogLayout siteData={siteData}>
+      <BlogLayout meta={siteMeta}>
         <article id='blog-post-page'>
           <PostInfo top='100' frontMatter={frontMatter} type='post' />
           <PostContent idName='blog-post-content' frontMatter={frontMatter}>

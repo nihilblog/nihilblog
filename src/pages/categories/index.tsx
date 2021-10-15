@@ -5,7 +5,7 @@ import { GetStaticProps } from 'next';
 import getTagsAndCategories from '@/utils/mdx/getTagsAndCategories';
 import { P } from '@/components/PostComponents';
 import BlogLayout from '@/layouts/BlogLayout';
-import size from '@/data/size';
+import size from '@/data/size.data';
 import { Box, BoxHeader } from '@/components/LayoutComponents';
 import { IPostTCKPage } from '@/types';
 import { GoogleAd } from '@/components/ContentComponents';
@@ -50,14 +50,14 @@ const CategoriesPage = ({ categories, }: IPostTCKPage) => {
     }
   `;
 
-  const siteData = useMetaData({
-    pageName: '카테고리 목록',
-    pageURL: '/categories',
+  const siteMeta = useMetaData({
+    title: '카테고리 목록',
+    url: '/categories',
   });
 
   return (
     <>
-      <BlogLayout siteData={siteData}>
+      <BlogLayout meta={siteMeta}>
         <div id='blog-categories-page'>
           <Box bottom='100' top='100'>
             <BoxHeader i='f07b' w='900' f='Free'>카테고리 목록</BoxHeader>

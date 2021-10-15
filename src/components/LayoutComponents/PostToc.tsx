@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 import { css } from '@emotion/react';
-import size from '@/data/size';
+import size from '@/data/size.data';
 import { A } from '@/components/PostComponents';
 import { IH2 } from '@/types';
 

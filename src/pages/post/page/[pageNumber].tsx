@@ -18,14 +18,14 @@ const BlogPostListNumberPage = ({
 }: IPostsPage) => {
   const totalCount = getCount(PostsPages);
 
-  const siteData = useMetaData({
-    pageName: `포스트 목록 (${currentPage} 페이지)`,
-    pageURL: `/notice/page/${currentPage}`,
+  const siteMeta = useMetaData({
+    title: `포스트 목록 (${currentPage} 페이지)`,
+    url: `/notice/page/${currentPage}`,
   });
 
   return (
     <>
-      <BlogLayout siteData={siteData}>
+      <BlogLayout meta={siteMeta}>
         <div id='blog-post-pages'>
           <Box top='100'>
             <BoxHeader i='f27a' w='900' f='Free'>전체 포스트 {totalCount}건</BoxHeader>

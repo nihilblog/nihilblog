@@ -18,22 +18,22 @@ const BlogIllustPage = ({ illust, prev, next, }: IPost) => {
   const { frontMatter, slug, source, } = illust;
   const router = useRouter();
 
-  const siteData = useMetaData({
-    pageName: frontMatter.title,
-    pageDescription: frontMatter.description,
-    pageKeywords: `그림, 일러스트, 캐릭터, 컨셉아트, 디자인, 창작, 캐릭터디자인, 캐릭터일러스트, 판타지, illustration, artwork, character, fantasy, characterillustration, characterdesign, fantasycharacter, ${frontMatter.keywords.join(', ')}`,
-    pageURL: `/illust/${slug}`,
-    pageType: 'article',
-    pageImage: frontMatter.coverImage ? frontMatter.coverImage : '',
-    pageTag: frontMatter.keywords.join(', '),
-    pageSection: 'illust',
-    pageCreated: getUTCString(frontMatter.createdAt),
-    pageUpdated: getUTCString(frontMatter.updatedAt),
+  const siteMeta = useMetaData({
+    title: frontMatter.title,
+    description: frontMatter.description,
+    keywords: `그림, 일러스트, 캐릭터, 컨셉아트, 디자인, 창작, 캐릭터디자인, 캐릭터일러스트, 판타지, illustration, artwork, character, fantasy, characterillustration, characterdesign, fantasycharacter, ${frontMatter.keywords.join(', ')}`,
+    url: `/illust/${slug}`,
+    type: 'article',
+    image: frontMatter.coverImage ? frontMatter.coverImage : '',
+    tag: frontMatter.keywords.join(', '),
+    section: 'illust',
+    created: getUTCString(frontMatter.createdAt),
+    updated: getUTCString(frontMatter.updatedAt),
   });
 
   return (
     <>
-      <BlogLayout siteData={siteData}>
+      <BlogLayout meta={siteMeta}>
         <article id='blog-illust-list-page'>
           <PostInfo top='100' frontMatter={frontMatter} type='illust' />
           <PostContent idName='blog-post-content' frontMatter={frontMatter}>

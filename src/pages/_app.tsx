@@ -3,7 +3,7 @@ import Head from 'next/head';
 import { AppProps } from 'next/app';
 import Router from 'next/router';
 import config from '@/data/config.data';
-import { pageview } from '@/data/ga';
+import { pageview } from '@/data/ga.data';
 
 const App = ({ Component, pageProps, }: AppProps) => {
   useEffect(() => {

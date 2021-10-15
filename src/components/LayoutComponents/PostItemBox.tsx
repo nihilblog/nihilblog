@@ -3,7 +3,7 @@ import { css } from '@emotion/react';
 import Link from 'next/link';
 import { v4 as uuid } from 'uuid';
 import getUTC9 from '@/utils/getUTC9';
-import size from '@/data/size';
+import size from '@/data/size.data';
 import { IFrontMatter, IPostString } from '@/types';
 
 interface Props {

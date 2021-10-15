@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import React from 'react';
 import { css } from '@emotion/react';
-import size from '@/data/size';
+import size from '@/data/size.data';
 import { IPostString } from '@/types';
 
 interface Props {

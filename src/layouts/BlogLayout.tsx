@@ -9,11 +9,11 @@ import {
 } from '@/components/BlogLayoutComponents';
 
 interface Props {
-  siteData: ISiteData;
+  meta: ISiteData;
   children: ReactNode;
 }
 
-const BlogLayout = ({ siteData, children, }: Props) => {
+const BlogLayout = ({ meta, children, }: Props) => {
   const globalStyle = css`
     @import url(https://fonts.googleapis.com/earlyaccess/notosanskr.css);
 
@@ -105,7 +105,7 @@ const BlogLayout = ({ siteData, children, }: Props) => {
     <>
       <Global styles={globalStyle} />
       {/* 메타 데이터 */}
-      <SiteHead config={config} siteData={siteData} />
+      <SiteHead config={config} meta={meta} />
       {/* 헤더와 메뉴 */}
       <HeaderContainer />
       <NavContainer />

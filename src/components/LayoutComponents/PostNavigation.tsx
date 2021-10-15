@@ -1,7 +1,7 @@
 import React from 'react';
 import { css } from '@emotion/react';
 import Link from 'next/link';
-import size from '@/data/size';
+import size from '@/data/size.data';
 import { IPostNav } from '@/types';
 
 export const PostNavigation = ({ prev, next, type, }: IPostNav) => {

@@ -30,14 +30,14 @@ const BlogNotPoundPage = () => {
     }
   `;
 
-  const siteData = useMetaData({
-    pageName: '에러 404',
-    pageURL: '/404',
+  const siteMeta = useMetaData({
+    title: '에러 404',
+    url: '/404',
   });
 
   return (
     <>
-      <BlogLayout siteData={siteData}>
+      <BlogLayout meta={siteMeta}>
         <div id='blog-error-page' css={blogErrorPageStyle}>
           <Box top='100' bottom='100'>
             <BoxHeader i='f00d' w='900' f='Free'>에러 404</BoxHeader>

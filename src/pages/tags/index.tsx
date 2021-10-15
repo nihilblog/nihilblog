@@ -5,7 +5,7 @@ import { v4 as uuid } from 'uuid';
 import { GetStaticProps } from 'next';
 import { P } from '@/components/PostComponents';
 import BlogLayout from '@/layouts/BlogLayout';
-import size from '@/data/size';
+import size from '@/data/size.data';
 import getTagsAndCategories from '@/utils/mdx/getTagsAndCategories';
 import { Box, BoxHeader } from '@/components/LayoutComponents';
 import { IPostTCKPage } from '@/types';
@@ -51,14 +51,14 @@ const TagsPage = ({ tags, }: IPostTCKPage) => {
     }
   `;
 
-  const siteData = useMetaData({
-    pageName: '태그 목록',
-    pageURL: '/tags',
+  const siteMeta = useMetaData({
+    title: '태그 목록',
+    url: '/tags',
   });
 
   return (
     <>
-      <BlogLayout siteData={siteData}>
+      <BlogLayout meta={siteMeta}>
         <div id='blog-tags-page'>
           <Box bottom='100' top='100'>
             <BoxHeader i='f02c' w='900' f='Free'>태그 목록</BoxHeader>

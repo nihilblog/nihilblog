@@ -1,7 +1,7 @@
 import { css } from '@emotion/react';
 import React from 'react';
 import PropTypes from 'prop-types';
-import size from '@/data/size';
+import size from '@/data/size.data';
 
 interface Props {
   children?: React.ReactNode;
