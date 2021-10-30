@@ -14,7 +14,7 @@ import {
   Score, Spoiler,
   Strike,
   Strong,
-  Ul, Youtube, HtmlGuideMessage, Name
+  Ul, Youtube, HtmlGuideMessage, Name, ProgrammingGuideMessage, HTMLTextPosts
 } from '@/components/PostComponents';
 
 interface Props {
@@ -65,4 +65,6 @@ export const MDXComponents = {
   Line,
   HtmlGuideMessage,
   Name,
+  ProgrammingGuideMessage,
+  HTMLTextPosts,
 };

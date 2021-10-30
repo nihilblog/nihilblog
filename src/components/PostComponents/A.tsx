@@ -12,13 +12,52 @@ interface Props {
 export const A = ({
   children, href, type = 'blog', isOff = 'false',
 }: Props) => {
-  const typeColor = {
-    blog: '#3f91ff',
-    normal: '#11b32c',
-    youtube: '#c30505',
+  const typeOBJ = {
+    blog: {
+      color: '#3f91ff',
+      backgroundColor: '#3f91ff30',
+      iconCode: 'f0c1',
+      iconType: 'Free',
+    },
+    normal: {
+      color: '#11b32c',
+      backgroundColor: '#11b32c30',
+      iconCode: 'f360',
+      iconType: 'Free',
+    },
+    youtube: {
+      color: '#c30505',
+      backgroundColor: '#c3050530',
+      iconCode: 'f167',
+      iconType: 'Brands',
+    },
   };
 
-  const typeProps = {
+  const offOBJ = {
+    false: {
+      color: typeOBJ[type].color,
+      backgroundColor: typeOBJ[type].backgroundColor,
+      cursor: 'pointer',
+      hover: `
+        &:hover {
+          color: #ffffff;
+          background-color: ${typeOBJ[type].color};
+
+          & > strong {
+            color: #ffffff;
+          }
+        }
+      `,
+    },
+    true: {
+      color: '#999999',
+      backgroundColor: '#88888830',
+      cursor: 'default',
+      hover: '',
+    },
+  };
+
+  const linkProps = {
     blog: {
       href,
       rel: 'noreferrer noopener',
@@ -36,71 +75,28 @@ export const A = ({
     },
   };
 
-  const icon = {
-    blog: {
-      code: 'f0c1',
-      type: 'Free',
-    },
-    normal: {
-      code: 'f360',
-      type: 'Free',
-    },
-    youtube: {
-      code: 'f167',
-      type: 'Brands',
-    },
-  };
-
-  const color = {
-    false: `
-      color: ${typeColor[type]};
-      background-color: ${typeColor[type]}30;
-    `,
-    true: `
-      color: #999999;
-      background-color: #88888830;
-    `,
-  };
-
-  const cursor = {
-    false: 'pointer',
-    true: 'default',
-  };
-
-  const hover = {
-    false: `
-      &:hover {
-        color: #ffffff;
-        background-color: ${typeColor[type]};
-
-        & > strong {
-          color: #ffffff;
-        }
-      }
-    `,
-    true: '',
-  };
-
   const style = css`
-    ${color[isOff]}
+    color: ${offOBJ[isOff].color};
+    background-color: ${offOBJ[isOff].backgroundColor};
     padding: 0 7px;
     border-radius: 5px;
     font-size: 90%;
     margin: 0 2px;
-    cursor: ${cursor[isOff]};
+    cursor: ${offOBJ[isOff].cursor};
 
     &:after {
-      content: '\\${icon[type].code}';
-      font-family: 'Font Awesome 5 ${icon[type].type}', sans-serif;
+      content: '\\${typeOBJ[type].iconCode}';
+      font-family: 'Font Awesome 5 ${typeOBJ[type].iconType}', sans-serif;
       font-weight: 900;
       margin-left: 5px;
     }
 
     & > strong {
-      color: ${typeColor[type]};
+      color: ${offOBJ[isOff].color};
+      font-weight: 900;
     }
 
-    ${hover[isOff]}
+    ${offOBJ[isOff].hover}
   `;
 
   return (
@@ -110,11 +106,11 @@ export const A = ({
           ? isOff === 'true'
             ? (<span css={style}>{children}</span>)
             : (
-              <Link {...typeProps[type]} passHref>
+              <Link {...linkProps[type]} passHref>
                 <a css={style}>{children}</a>
               </Link>
             )
-          : (<a css={style} {...typeProps[type]}>{children}</a>)
+          : (<a css={style} {...linkProps[type]}>{children}</a>)
       }
     </>
   );

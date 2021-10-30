@@ -1,6 +1,5 @@
 import { css } from '@emotion/react';
 import React from 'react';
-import PropTypes from 'prop-types';
 import size from '@/data/size.data';
 
 interface Props {
@@ -165,11 +164,4 @@ export const H = ({
       {heading}
     </>
   );
-};
-
-H.propTypes = {
-  children: PropTypes.node,
-  top: PropTypes.string,
-  bottom: PropTypes.string,
-  type: PropTypes.string,
 };

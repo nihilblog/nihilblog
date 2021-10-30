@@ -49,7 +49,7 @@
 
   <url>
     <loc>https://nihilog.github.io/post/2021-05-02-01-complete-html-guide</loc>
-    <lastmod>2021-10-02T04:44:00+09:00</lastmod>
+    <lastmod>2021-10-30T13:58:00+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>1</priority>
   </url>
@@ -72,7 +72,7 @@
 
   <url>
     <loc>https://nihilog.github.io/post/2021-05-03-01-history-of-computer</loc>
-    <lastmod>2021-05-03T08:30:00+09:00</lastmod>
+    <lastmod>2021-10-30T14:28:00+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>1</priority>
   </url>
@@ -81,7 +81,7 @@
     <loc
       >https://nihilog.github.io/post/2021-05-03-02-program-and-programming</loc
     >
-    <lastmod>2021-05-03T09:45:00+09:00</lastmod>
+    <lastmod>2021-10-30T14:28:00+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>1</priority>
   </url>
@@ -90,28 +90,28 @@
     <loc
       >https://nihilog.github.io/post/2021-05-03-03-history-of-programming-language</loc
     >
-    <lastmod>2021-05-03T12:30:00+09:00</lastmod>
+    <lastmod>2021-10-30T14:28:00+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>1</priority>
   </url>
 
   <url>
     <loc>https://nihilog.github.io/post/2021-05-04-01-origin-of-internet</loc>
-    <lastmod>2021-05-04T09:40:00+09:00</lastmod>
+    <lastmod>2021-10-30T14:28:00+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>1</priority>
   </url>
 
   <url>
     <loc>https://nihilog.github.io/post/2021-05-04-02-history-of-web</loc>
-    <lastmod>2021-05-04T11:54:00+09:00</lastmod>
+    <lastmod>2021-10-30T14:28:00+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>1</priority>
   </url>
 
   <url>
     <loc>https://nihilog.github.io/post/2021-05-04-03-web-programming</loc>
-    <lastmod>2021-05-04T14:20:00+09:00</lastmod>
+    <lastmod>2021-10-30T14:28:00+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>1</priority>
   </url>
@@ -265,57 +265,12 @@
   </url>
 
   <url>
-    <loc>https://nihilog.github.io/tags/블로그</loc>
+    <loc
+      >https://nihilog.github.io/post/2021-10-30-31-text-bold-and-italic-tags</loc
+    >
+    <lastmod>2021-10-30T13:58:00+09:00</lastmod>
     <changefreq>daily</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://nihilog.github.io/tags/구글</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://nihilog.github.io/tags/구글 서치 콘솔</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://nihilog.github.io/tags/사이트맵</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://nihilog.github.io/tags/구글 검색등록</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://nihilog.github.io/tags/google</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://nihilog.github.io/tags/google search console</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://nihilog.github.io/tags/blog</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://nihilog.github.io/tags/sitemap</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.7</priority>
+    <priority>1</priority>
   </url>
 
   <url>
@@ -368,6 +323,96 @@
 
   <url>
     <loc>https://nihilog.github.io/tags/HTML 초보</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://nihilog.github.io/tags/b 태그</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://nihilog.github.io/tags/i 태그</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://nihilog.github.io/tags/em 태그</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://nihilog.github.io/tags/strong 태그</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://nihilog.github.io/tags/굵기 태그</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://nihilog.github.io/tags/기울기 태그</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://nihilog.github.io/tags/블로그</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://nihilog.github.io/tags/구글</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://nihilog.github.io/tags/구글 서치 콘솔</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://nihilog.github.io/tags/사이트맵</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://nihilog.github.io/tags/구글 검색등록</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://nihilog.github.io/tags/google</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://nihilog.github.io/tags/google search console</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://nihilog.github.io/tags/blog</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://nihilog.github.io/tags/sitemap</loc>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
   </url>
@@ -661,12 +706,6 @@
   </url>
 
   <url>
-    <loc>https://nihilog.github.io/categories/블로그</loc>
-    <changefreq>daily</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
     <loc>https://nihilog.github.io/categories/가이드</loc>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
@@ -674,6 +713,12 @@
 
   <url>
     <loc>https://nihilog.github.io/categories/HTML</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://nihilog.github.io/categories/블로그</loc>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
   </url>

@@ -14,4 +14,5 @@ module.exports = {
   eslint: {
     dirs: [],
   },
+  // swcMinify: true,
 };
