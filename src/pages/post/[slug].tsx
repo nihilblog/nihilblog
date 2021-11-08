@@ -1,8 +1,6 @@
 import React from 'react';
 import { MDXRemote } from 'next-mdx-remote';
 import { GetStaticPaths, GetStaticProps } from 'next';
-import getAllYearMdx from '@/utils/mdx/getAllYearMdx';
-import getPostBySlug from '@/utils/mdx/getPostBySlug';
 import getUTCString from '@/utils/getUTCString';
 import BlogLayout from '@/layouts/BlogLayout';
 import { CommentGuideMessage, Line } from '@/components/PostComponents';
@@ -12,6 +10,7 @@ import {
 } from '@/components/LayoutComponents';
 import { IPost } from '@/types';
 import { useMetaData } from '@/hooks';
+import { getAllTimePost, getSinglePost } from '@/utils/mdx';
 
 const BlogPostPage = ({ post, prev, next, }: IPost) => {
   const { frontMatter, slug, source, } = post;
@@ -25,8 +24,8 @@ const BlogPostPage = ({ post, prev, next, }: IPost) => {
     image: frontMatter.coverImage ? frontMatter.coverImage : '',
     tag: frontMatter.tags.join(', '),
     section: frontMatter.categories.join(', '),
-    created: getUTCString(frontMatter.createdAt),
-    updated: getUTCString(frontMatter.updatedAt),
+    created: getUTCString(frontMatter.createdAt as number),
+    updated: getUTCString(frontMatter.updatedAt as number),
   });
 
   return (
@@ -50,12 +49,14 @@ const BlogPostPage = ({ post, prev, next, }: IPost) => {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const posts = getAllYearMdx('post');
+  const allPosts = getAllTimePost();
+
+  const posts = allPosts.filter((post) => post.frontMatter.type === 'post');
 
   return {
-    paths: posts.map((post) => ({
+    paths: posts.map(({ slug, }) => ({
       params: {
-        slug: post.filePath.replace('.mdx', ''),
+        slug,
       },
     })),
     fallback: false,
@@ -69,11 +70,14 @@ type Params = {
 };
 
 export const getStaticProps: GetStaticProps = async ({ params, }: Params) => {
-  const posts = getAllYearMdx('post');
-  const postIndex = posts.findIndex((post) => post.filePath.replace('.mdx', '') === params.slug);
+  const allPosts = getAllTimePost();
+
+  const posts = allPosts.filter((post) => post.frontMatter.type === 'post');
+
+  const postIndex = posts.findIndex((post) => post.slug === params.slug);
   const prev = posts[postIndex + 1] || null;
   const next = posts[postIndex - 1] || null;
-  const post = await getPostBySlug('post', params.slug);
+  const post = await getSinglePost(params.slug);
 
   return {
     props: {

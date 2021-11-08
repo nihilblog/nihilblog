@@ -10,5 +10,4 @@ export * from './Pagination';
 export * from './PostNavigation';
 export * from './InfoP';
 export * from './PostList';
-export * from './ArchiveBlock';
 export * from './ArchiveItem';

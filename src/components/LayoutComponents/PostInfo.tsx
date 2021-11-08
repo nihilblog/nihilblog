@@ -71,15 +71,15 @@ export const PostInfo = ({
               ? <InfoP top='10' bottom='10'><span>분류</span>공지</InfoP>
               : <InfoP top='10' bottom='10'><span>분류</span>일러스트</InfoP>
         }
-        <InfoP top='10' bottom='5'><span>작성일</span>{getUTC9(createdAt)}</InfoP>
+        <InfoP top='10' bottom='5'><span>작성일</span>{getUTC9(createdAt as number)}</InfoP>
         {
           createdAt < updatedAt
-            ? <InfoP top='10' bottom='5'><span>수정일</span>{getUTC9(updatedAt)}</InfoP>
+            ? <InfoP top='10' bottom='5'><span>수정일</span>{getUTC9(updatedAt as number)}</InfoP>
             : ''
         }
         {
           type === 'illust'
-            ? <InfoP top='10' bottom='10'><span>완성일</span>{getUTC9(drawDate)}</InfoP>
+            ? <InfoP top='10' bottom='10'><span>완성일</span>{getUTC9(drawDate as number)}</InfoP>
             : ''
         }
         {

@@ -5,30 +5,30 @@ import size from '@/data/size.data';
 
 interface Props {
   frontMatter: IFrontMatter;
-  filePath: string;
+  slug: string;
 }
 
-export const PostList = ({ frontMatter, filePath, }: Props) => {
+export const PostList = ({ frontMatter, slug, }: Props) => {
   const [ type, setType, ] = useState<string>('');
   const [ className, setClassName, ] = useState<string[]>([]);
   const [ path, setPath, ] = useState<string>('');
   const [ color, setColor, ] = useState<string[]>([]);
 
-  const postName = filePath.replace('.mdx', '');
+  const postName = slug;
   const postNumber = frontMatter.id;
 
   useEffect(() => {
-    if (frontMatter.notice) {
+    if (frontMatter.type === 'notice') {
       setType('공지');
       setClassName([ 'count', 'color red', ]);
       setPath(`/notice/${postName}`);
       setColor([ '#b90c0c', '#800505', ]);
-    } else if (frontMatter.keywords.length > 0) {
+    } else if (frontMatter.type === 'illust') {
       setType('일러스트');
       setClassName([ 'count', 'color green', ]);
       setPath(`/illust/${postName}`);
       setColor([ '#11b32c', '#047918', ]);
-    } else {
+    } else if (frontMatter.type === 'post') {
       setType('포스트');
       setClassName([ 'count', 'color blue', ]);
       setPath(`/post/${postName}`);

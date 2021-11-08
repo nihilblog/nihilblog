@@ -2,7 +2,6 @@ import React from 'react';
 import { css } from '@emotion/react';
 import Link from 'next/link';
 import { GetStaticProps } from 'next';
-import getTagsAndCategories from '@/utils/mdx/getTagsAndCategories';
 import { P } from '@/components/PostComponents';
 import BlogLayout from '@/layouts/BlogLayout';
 import size from '@/data/size.data';
@@ -10,6 +9,7 @@ import { Box, BoxHeader } from '@/components/LayoutComponents';
 import { IPostTCKPage } from '@/types';
 import { GoogleAd } from '@/components/ContentComponents';
 import { useMetaData } from '@/hooks';
+import { getTagsAndCategories } from '@/utils/mdx';
 
 const CategoriesPage = ({ categories, }: IPostTCKPage) => {
   const wordStyle = css`

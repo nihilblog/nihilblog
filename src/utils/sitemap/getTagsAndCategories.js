@@ -1,4 +1,4 @@
-const getAllYearMdx = require('./getAllYearMdx');
+const getAllTimePost = require('./getAllTimePost');
 
 /**
  * @param {('tags' | 'keywords' | 'categories')} type
@@ -8,20 +8,17 @@ const getTagsAndCategories = (type) => {
   const initialBox = [];
 
   switch (type) {
-    case 'keywords':
-      getAllYearMdx('illust').filter((illust) => {
-        initialBox.push(illust.frontMatter.keywords);
-      });
+    case 'keywords': getAllTimePost()
+      .filter((post) => post.frontMatter.type === 'illust')
+      .filter((post) => { initialBox.push(post.frontMatter.keywords); });
       break;
-    case 'tags':
-      getAllYearMdx('post').filter((post) => {
-        initialBox.push(post.frontMatter.tags);
-      });
+    case 'tags': getAllTimePost()
+      .filter((post) => post.frontMatter.type === 'post')
+      .filter((post) => { initialBox.push(post.frontMatter.tags); });
       break;
-    default:
-      getAllYearMdx('post').filter((post) => {
-        initialBox.push(post.frontMatter.categories);
-      });
+    default: getAllTimePost()
+      .filter((post) => post.frontMatter.type === 'post')
+      .filter((post) => { initialBox.push(post.frontMatter.categories); });
   }
 
   /** @type {string[]} */

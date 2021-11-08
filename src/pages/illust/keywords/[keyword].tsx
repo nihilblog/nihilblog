@@ -1,8 +1,6 @@
 import React, { useCallback, useState } from 'react';
 import { css } from '@emotion/react';
 import { GetStaticPaths, GetStaticProps } from 'next';
-import getAllYearMdx from '@/utils/mdx/getAllYearMdx';
-import getTagsAndCategories from '@/utils/mdx/getTagsAndCategories';
 import BlogLayout from '@/layouts/BlogLayout';
 import { P } from '@/components/PostComponents';
 import getPages from '@/utils/getPages';
@@ -15,6 +13,7 @@ import {
 } from '@/types';
 import getCount from '@/utils/getCount';
 import { useMetaData } from '@/hooks';
+import { getAllTimePost, getTagsAndCategories } from '@/utils/mdx';
 
 const KeywordPostsPage = ({ PostsPages, keyword, }: IPostTCK) => {
   const [ postsIndex, setPostsIndex, ] = useState(0);
@@ -63,12 +62,12 @@ const KeywordPostsPage = ({ PostsPages, keyword, }: IPostTCK) => {
             <P bottom='0'>다른 키워드들을 보려면 상단 서브 메뉴에서 키워드 링크를 클릭하세요.</P>
           </Box>
           <div id='blog-post-list'>
-            {PostsPages[postsIndex].map(({ frontMatter, filePath, }) => (
+            {PostsPages[postsIndex].map(({ frontMatter, slug, }) => (
               <PostItemBox
-                key={filePath.replace('.mdx', '')}
+                key={slug}
                 type='illust'
                 frontMatter={frontMatter}
-                filePath={filePath}
+                slug={slug}
               />
             ))}
           </div>
@@ -106,7 +105,9 @@ type Params = {
 };
 
 export const getStaticProps: GetStaticProps = async ({ params, }: Params) => {
-  const illusts = getAllYearMdx('illust')
+  const allPosts = getAllTimePost();
+
+  const illusts = allPosts.filter((post) => post.frontMatter.type === 'illust')
     .filter(({ frontMatter, }) => frontMatter.keywords.includes(params.keyword));
 
   const PostsPages = getPages(illusts, config.postPerPage);

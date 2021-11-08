@@ -9,10 +9,10 @@ import { IFrontMatter, IPostString } from '@/types';
 interface Props {
   type?: IPostString;
   frontMatter?: IFrontMatter;
-  filePath?: string;
+  slug?: string;
 }
 
-export const PostItemBox = ({ type, frontMatter, filePath, }: Props) => {
+export const PostItemBox = ({ type, frontMatter, slug, }: Props) => {
   const {
     description, title, coverImage, categories, createdAt, keywords,
   } = frontMatter;
@@ -202,7 +202,7 @@ export const PostItemBox = ({ type, frontMatter, filePath, }: Props) => {
         </div>
         <div>
           <h2>
-            <Link href={`/${type}/${filePath.replace('.mdx', '')}`}>
+            <Link href={`/${type}/${slug}`}>
               <a>{title}</a>
             </Link>
           </h2>
@@ -230,7 +230,7 @@ export const PostItemBox = ({ type, frontMatter, filePath, }: Props) => {
               ))
             }
             {' - '}
-            <span className='created-at'>{getUTC9(createdAt)}</span>
+            <span className='created-at'>{getUTC9(createdAt as number)}</span>
           </p>
         </div>
       </div>

@@ -1,24 +1,29 @@
 import { ITCKObj, ITCKString } from '@/types';
-import getAllYearMdx from './getAllYearMdx';
+import { getAllTimePost } from './getAllTimePost';
 
-const getTagsAndCategories = (type: ITCKString) => {
+export const getTagsAndCategories = (type: ITCKString) => {
   const initialBox: string[][] = [];
 
+  const posts = getAllTimePost();
+
   switch (type) {
-    case 'keywords':
-      getAllYearMdx('illust').filter((illust) => {
-        initialBox.push(illust.frontMatter.keywords);
-      });
+    case 'keywords': getAllTimePost()
+      .filter((post) => post.frontMatter.type === 'illust')
+      .filter((post) => { initialBox.push(post.frontMatter.keywords); });
       break;
-    case 'tags':
-      getAllYearMdx('post').filter((post) => {
-        initialBox.push(post.frontMatter.tags);
-      });
+    case 'tags': getAllTimePost()
+      .filter((post) => post.frontMatter.type === 'post')
+      .filter((post) => { initialBox.push(post.frontMatter.tags); });
+      break;
+    case 'categories': getAllTimePost()
+      .filter((post) => post.frontMatter.type === 'post')
+      .filter((post) => { initialBox.push(post.frontMatter.categories); });
+      break;
+    case 'yearMonth': getAllTimePost()
+      .filter((post) => { initialBox.push([ post.date.yearMonth, ]); });
       break;
     default:
-      getAllYearMdx('post').filter((post) => {
-        initialBox.push(post.frontMatter.categories);
-      });
+      break;
   }
 
   interface IObject {
@@ -54,10 +59,15 @@ const getTagsAndCategories = (type: ITCKString) => {
           categoryName: key,
           categoryCount: ArraytoObject[key],
         };
-      } else {
+      } else if (type === 'keywords') {
         obj = {
           keywordName: key,
           keywordCount: ArraytoObject[key],
+        };
+      } else if (type === 'yearMonth') {
+        obj = {
+          yearMonth: key,
+          count: posts.filter((post) => post.slug.startsWith(key)).length,
         };
       }
 
@@ -71,12 +81,14 @@ const getTagsAndCategories = (type: ITCKString) => {
         return b.tagCount - a.tagCount;
       case 'categories':
         return b.categoryCount - a.categoryCount;
-      default:
+      case 'keywords':
         return b.keywordCount - a.keywordCount;
+      case 'yearMonth':
+        return parseInt(b.yearMonth, 10) - parseInt(a.yearMonth, 10);
+      default:
+        return;
     }
   });
 
   return FinallyArray;
 };
-
-export default getTagsAndCategories;

@@ -1,8 +1,6 @@
 import React, { useCallback, useState } from 'react';
 import { css } from '@emotion/react';
 import { GetStaticPaths, GetStaticProps } from 'next';
-import getTagsAndCategories from '@/utils/mdx/getTagsAndCategories';
-import getAllYearMdx from '@/utils/mdx/getAllYearMdx';
 import BlogLayout from '@/layouts/BlogLayout';
 import { P } from '@/components/PostComponents';
 import getPages from '@/utils/getPages';
@@ -15,6 +13,7 @@ import {
 } from '@/types';
 import getCount from '@/utils/getCount';
 import { useMetaData } from '@/hooks';
+import { getAllTimePost, getTagsAndCategories } from '@/utils/mdx';
 
 const TagPostsPage = ({ tag, PostsPages, }: IPostTCK) => {
   const [ postsIndex, setPostsIndex, ] = useState(0);
@@ -63,12 +62,12 @@ const TagPostsPage = ({ tag, PostsPages, }: IPostTCK) => {
             <P bottom='0'>다른 태그들을 보려면 상단 메뉴에서 태그 링크를 클릭하세요.</P>
           </Box>
           <div id='blog-post-list'>
-            {PostsPages[postsIndex].map(({ frontMatter, filePath, }) => (
+            {PostsPages[postsIndex].map(({ frontMatter, slug, }) => (
               <PostItemBox
-                key={filePath.replace('.mdx', '')}
+                key={slug}
                 type='post'
                 frontMatter={frontMatter}
-                filePath={filePath}
+                slug={slug}
               />
             ))}
           </div>
@@ -106,7 +105,9 @@ type Params = {
 };
 
 export const getStaticProps: GetStaticProps = async ({ params, }: Params) => {
-  const posts = getAllYearMdx('post')
+  const allPosts = getAllTimePost();
+
+  const posts = allPosts.filter((post) => post.frontMatter.type === 'post')
     .filter(({ frontMatter, }) => frontMatter.tags.includes(params.tag));
 
   const PostsPages = getPages(posts, config.postPerPage);

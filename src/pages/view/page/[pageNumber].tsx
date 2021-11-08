@@ -9,9 +9,9 @@ import {
 import { P } from '@/components/PostComponents';
 import { IPostsPage } from '@/types';
 import getPages from '@/utils/getPages';
-import getAllTypePosts from '@/utils/mdx/getAllTypePosts';
 import getCount from '@/utils/getCount';
 import { useMetaData } from '@/hooks';
+import { getAllTimePost } from '@/utils/mdx';
 
 const BlogPostManagerPage = ({
   currentPage, prevPage, nextPage, posts, totalPages, PostsPages,
@@ -38,8 +38,8 @@ const BlogPostManagerPage = ({
             <P bottom='0'>간단하게 포스트 제목과 주소를 볼 수 있게 만든 페이지.</P>
           </Box>
           <div id='post-list'>
-            {posts.map(({ frontMatter, filePath, }) => (
-              <PostList frontMatter={frontMatter} filePath={filePath} key={uuid()} />
+            {posts.map(({ frontMatter, slug, }) => (
+              <PostList frontMatter={frontMatter} slug={slug} key={uuid()} />
             ))}
           </div>
           <Pagination prev={prevPage} next={nextPage} total={totalPages} current={currentPage} type='view' />
@@ -50,9 +50,9 @@ const BlogPostManagerPage = ({
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const posts = getAllTypePosts();
+  const allPosts = getAllTimePost();
 
-  const PostsPages = getPages(posts, 50);
+  const PostsPages = getPages(allPosts, 10);
 
   return {
     paths: PostsPages.map((page, index) => ({
@@ -71,9 +71,9 @@ type Params = {
 };
 
 export const getStaticProps: GetStaticProps = async ({ params, }: Params) => {
-  const posts = getAllTypePosts();
+  const allPosts = getAllTimePost();
 
-  const PostsPages = getPages(posts, 50);
+  const PostsPages = getPages(allPosts, 10);
   const number = parseInt(params.pageNumber, 10);
   const prevPage = number === 1 ? null : number - 1;
   const nextPage = number === PostsPages.length ? null : number + 1;

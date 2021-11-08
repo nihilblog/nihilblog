@@ -1,35 +1,41 @@
 import { MDXRemoteSerializeResult } from 'next-mdx-remote';
 
 export interface IFrontMatter {
-  id: number;
-  title: string;
-  description: string;
-  coverImage: string;
+  id?: number;
+  title?: string;
+  description?: string;
+  coverImage?: string;
   tags?: string[];
   categories?: string[];
-  createdAt: number;
-  updatedAt: number;
+  createdAt?: (number | Date);
+  updatedAt?: (number | Date);
   keywords?: string[];
-  drawDate?: number;
-  display: boolean;
-  notice: boolean;
+  drawDate?: (number | Date);
+  display?: boolean;
+  type?: ('post' | 'notice' | 'illust');
+}
+
+interface IPostDate {
+  year: string;
+  month: string,
+  yearMonth: string,
 }
 
 export interface IPosts {
   frontMatter: IFrontMatter;
-  filePath: string;
+  slug: string;
   fullPath: string;
   content: string;
-  yearMonth: string;
+  date: IPostDate;
 }
 
 export type IPostString = ('post' | 'notice' | 'illust' | 'view');
 
-export type ITCKString = ('tags' | 'categories' | 'keywords');
+export type ITCKString = ('tags' | 'categories' | 'keywords' | 'yearMonth');
 
 export interface IPostSlug {
   frontMatter: IFrontMatter;
-  source: MDXRemoteSerializeResult<Record<string, unknown>>
+  source: MDXRemoteSerializeResult
   slug: string;
 }
 
@@ -38,8 +44,10 @@ export interface ITCKObj {
   tagCount?: number;
   categoryName?: string;
   categoryCount?: number;
-  keywordName?: string,
+  keywordName?: string;
   keywordCount?: number;
+  yearMonth?: string;
+  count?: number;
 }
 
 export interface IPostsProps {
@@ -92,7 +100,7 @@ export interface IBlogIndexPage {
 }
 
 export interface IPostArchive {
-  archivePosts: IArchive[];
+  archives: ITCKObj[];
 }
 
 export interface IPrev {
@@ -126,9 +134,4 @@ export interface IPostNav {
   prev?: IPosts;
   next?: IPosts;
   type?: IPostString;
-}
-
-export interface IArchive {
-  yearMonth: string;
-  posts: IPosts[];
 }

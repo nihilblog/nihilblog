@@ -1,20 +1,11 @@
 const fs = require('fs');
 const prettier = require('prettier');
 const getUTCString = require('./getUTCString');
-const getAllYearMdx = require('./getAllYearMdx');
+const getAllTimePost = require('./getAllTimePost');
 const getTagsAndCategories = require('./getTagsAndCategories');
 
 const sitemapGenerator = async () => {
-  const posts = getAllYearMdx('post');
-  const notices = getAllYearMdx('notice');
-  const illusts = getAllYearMdx('illust');
-
-  const AllPosts = posts.concat(notices, illusts).sort((a, b) => {
-    const beforeDate = a.frontMatter.createdAt;
-    const afterDate = b.frontMatter.createdAt;
-
-    return beforeDate - afterDate;
-  });
+  const AllPosts = getAllTimePost();
 
   const prettierConfig = await prettier.resolveConfig('./.prettierrc.js');
 

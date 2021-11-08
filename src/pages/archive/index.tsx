@@ -2,25 +2,51 @@ import React from 'react';
 import { css } from '@emotion/react';
 import { GetStaticProps } from 'next';
 import { v4 as uuid } from 'uuid';
+import Link from 'next/link';
 import BlogLayout from '@/layouts/BlogLayout';
 import { IPostArchive } from '@/types';
-import { ArchiveBlock, Box, BoxHeader } from '@/components/LayoutComponents';
-import getArchive from '@/utils/mdx/getArchive';
+import { Box, BoxHeader } from '@/components/LayoutComponents';
 import { P } from '@/components/PostComponents';
 import { useMetaData } from '@/hooks';
+import { getTagsAndCategories } from '@/utils/mdx';
+import size from '@/data/size.data';
 
-const ArchivePage = ({ archivePosts, }: IPostArchive) => {
-  const style = css`
-    & > div {
-      margin: 30px 0;
+const ArchivePage = ({ archives, }: IPostArchive) => {
+  const wordStyle = css`
+    text-align: center;
 
-      &:nth-of-type(1) {
-        margin-top: 100px;
+    & > a {
+      padding: 5px 10px;
+      display: inline-block;
+      margin: 4px;
+      border-radius: 10px;
+      color: #555555;
+      letter-spacing: -1px;
+      background-color: #33333330;
+
+      &:before {
+        content: '\\f07c';
+        font-weight: 900;
+        font-family: 'Font Awesome 5 Free', sans-serif;
+        margin-right: 5px;
       }
 
-      &:nth-last-of-type(1) {
-        margin-bottom: 100px;
+      &:hover {
+        color: #ffffff;
+        background-color: #333333;
       }
+    }
+
+    @media (min-width: 1px) and (max-width: 600px) {
+      & > a {font-size: ${size[1]};}
+    }
+
+    @media (min-width: 601px) and (max-width: 800px) {
+      & > a {font-size: ${size[2]};}
+    }
+
+    @media (min-width: 801px) {
+      & > a {font-size: ${size[3]};}
     }
   `;
 
@@ -35,27 +61,29 @@ const ArchivePage = ({ archivePosts, }: IPostArchive) => {
         <div id='blog-archive-page'>
           <Box top='100' bottom='100'>
             <BoxHeader w='900' f='Free' i='f187'>포스트 아카이브</BoxHeader>
-            <P bottom='0'>이 페이지는 월 별로 작성된 포스트를 공지, 일러스트 구분하지 않고 전부 모아서 보여주는 포스트 아카이브입니다.</P>
+            <P>이 페이지는 포스트를 공지, 일러스트 같은 구분 없이 작성된 모든 포스트를 월 별로 모아둔 각각의 페이지로 넘어갈 수 있습니다. 아래의 링크들 중에서 원하는 링크를 클릭하면 해당 시간에 작성한 포스트들의 목록을 볼 수 있습니다.</P>
+            <div css={wordStyle}>
+              {archives.map((archive) => (
+                <Link key={uuid()} href={`/archive/${archive.yearMonth}`}>
+                  <a>{archive.yearMonth} ({archive.count}건)</a>
+                </Link>
+              ))}
+            </div>
           </Box>
-          <div id='archive-item-list' css={style}>
-            {archivePosts.map(({ posts, yearMonth, }) => (
-              <ArchiveBlock posts={posts} yearMonth={yearMonth} key={uuid()} />
-            ))}
-          </div>
         </div>
       </BlogLayout>
     </>
   );
 };
 
-export default ArchivePage;
-
 export const getStaticProps: GetStaticProps = () => {
-  const archivePosts = getArchive();
+  const archives = getTagsAndCategories('yearMonth');
 
   return {
     props: {
-      archivePosts,
+      archives,
     },
   };
 };
+
+export default ArchivePage;

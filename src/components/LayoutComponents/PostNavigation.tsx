@@ -5,8 +5,8 @@ import size from '@/data/size.data';
 import { IPostNav } from '@/types';
 
 export const PostNavigation = ({ prev, next, type, }: IPostNav) => {
-  const prevHref = prev ? `/${String(type)}/${String(prev.filePath.replace('.mdx', ''))}` : '';
-  const nextHref = next ? `/${String(type)}/${String(next.filePath.replace('.mdx', ''))}` : '';
+  const prevHref = prev ? `/${String(type)}/${String(prev.slug)}` : '';
+  const nextHref = next ? `/${String(type)}/${String(next.slug)}` : '';
 
   const postNavigationStyle = css`
     margin-bottom: 100px;

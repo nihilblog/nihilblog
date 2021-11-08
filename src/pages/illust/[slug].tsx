@@ -3,8 +3,6 @@ import { MDXRemote } from 'next-mdx-remote';
 import { useRouter } from 'next/router';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import BlogLayout from '@/layouts/BlogLayout';
-import getAllYearMdx from '@/utils/mdx/getAllYearMdx';
-import getPostBySlug from '@/utils/mdx/getPostBySlug';
 import { CommentGuideMessage, Line } from '@/components/PostComponents';
 import getUTCString from '@/utils/getUTCString';
 import { GoogleAd, MDXComponents } from '@/components/ContentComponents';
@@ -13,6 +11,7 @@ import {
 } from '@/components/LayoutComponents';
 import { IPost } from '@/types';
 import { useMetaData } from '@/hooks';
+import { getAllTimePost, getSinglePost } from '@/utils/mdx';
 
 const BlogIllustPage = ({ illust, prev, next, }: IPost) => {
   const { frontMatter, slug, source, } = illust;
@@ -27,8 +26,8 @@ const BlogIllustPage = ({ illust, prev, next, }: IPost) => {
     image: frontMatter.coverImage ? frontMatter.coverImage : '',
     tag: frontMatter.keywords.join(', '),
     section: 'illust',
-    created: getUTCString(frontMatter.createdAt),
-    updated: getUTCString(frontMatter.updatedAt),
+    created: getUTCString(frontMatter.createdAt as number),
+    updated: getUTCString(frontMatter.updatedAt as number),
   });
 
   return (
@@ -52,12 +51,14 @@ const BlogIllustPage = ({ illust, prev, next, }: IPost) => {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const illusts = getAllYearMdx('illust');
+  const allPosts = getAllTimePost();
+
+  const illusts = allPosts.filter((post) => post.frontMatter.type === 'illust');
 
   return {
-    paths: illusts.map((illust) => ({
+    paths: illusts.map(({ slug, }) => ({
       params: {
-        slug: illust.filePath.replace('.mdx', ''),
+        slug,
       },
     })),
     fallback: false,
@@ -71,11 +72,14 @@ type Params = {
 };
 
 export const getStaticProps: GetStaticProps = async ({ params, }: Params) => {
-  const illusts = getAllYearMdx('illust');
-  const illustIndex = illusts.findIndex((illust) => illust.filePath.replace('.mdx', '') === params.slug);
+  const allPosts = getAllTimePost();
+
+  const illusts = allPosts.filter((post) => post.frontMatter.type === 'illust');
+
+  const illustIndex = illusts.findIndex((illust) => illust.slug === params.slug);
   const prev = illusts[illustIndex + 1] || null;
   const next = illusts[illustIndex - 1] || null;
-  const illust = await getPostBySlug('illust', params.slug);
+  const illust = await getSinglePost(params.slug);
 
   return {
     props: {

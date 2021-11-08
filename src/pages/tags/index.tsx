@@ -6,11 +6,11 @@ import { GetStaticProps } from 'next';
 import { P } from '@/components/PostComponents';
 import BlogLayout from '@/layouts/BlogLayout';
 import size from '@/data/size.data';
-import getTagsAndCategories from '@/utils/mdx/getTagsAndCategories';
 import { Box, BoxHeader } from '@/components/LayoutComponents';
 import { IPostTCKPage } from '@/types';
 import { GoogleAd } from '@/components/ContentComponents';
 import { useMetaData } from '@/hooks';
+import { getTagsAndCategories } from '@/utils/mdx';
 
 const TagsPage = ({ tags, }: IPostTCKPage) => {
   const wordStyle = css`

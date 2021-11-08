@@ -1,7 +1,6 @@
 import React from 'react';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import getPages from '@/utils/getPages';
-import getAllYearMdx from '@/utils/mdx/getAllYearMdx';
 import config from '@/data/config.data';
 import BlogLayout from '@/layouts/BlogLayout';
 import { P } from '@/components/PostComponents';
@@ -12,6 +11,7 @@ import { IPostsPage } from '@/types';
 import getCount from '@/utils/getCount';
 import { GoogleAd } from '@/components/ContentComponents';
 import { useMetaData } from '@/hooks';
+import { getAllTimePost } from '@/utils/mdx';
 
 const BlogNoticeListNumberPage = ({
   currentPage, prevPage, nextPage, notices, totalPages, PostsPages,
@@ -32,12 +32,12 @@ const BlogNoticeListNumberPage = ({
             <P bottom='0'>일반 포스트, 일러스트를 제외한 모든 포스트의 목록을 확인할 수 있습니다. 일반 포스트와 일러스트는 각각의 링크를 이용하시기 바랍니다.</P>
           </Box>
           <div id='blog-post-list'>
-            {notices.map(({ frontMatter, filePath, }) => (
+            {notices.map(({ frontMatter, slug, }) => (
               <PostItemBox
-                key={filePath.replace('.mdx', '')}
+                key={slug}
                 type='notice'
                 frontMatter={frontMatter}
-                filePath={filePath}
+                slug={slug}
               />
             ))}
           </div>
@@ -50,9 +50,11 @@ const BlogNoticeListNumberPage = ({
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const posts = getAllYearMdx('notice');
+  const allPosts = getAllTimePost();
 
-  const PostsPages = getPages(posts, config.postPerPage);
+  const notices = allPosts.filter((post) => post.frontMatter.type === 'notice');
+
+  const PostsPages = getPages(notices, config.postPerPage);
 
   return {
     paths: PostsPages.map((page, index) => ({
@@ -71,9 +73,11 @@ type Params = {
 };
 
 export const getStaticProps: GetStaticProps = async ({ params, }: Params) => {
-  const posts = getAllYearMdx('notice');
+  const allPosts = getAllTimePost();
 
-  const PostsPages = getPages(posts, config.postPerPage);
+  const notices = allPosts.filter((post) => post.frontMatter.type === 'notice');
+
+  const PostsPages = getPages(notices, config.postPerPage);
   const number = parseInt(params.pageNumber, 10);
   const prevPage = number === 1 ? null : number - 1;
   const nextPage = number === PostsPages.length ? null : number + 1;

@@ -1,13 +1,13 @@
 import React from 'react';
 import { css } from '@emotion/react';
 import { GetStaticProps } from 'next';
-import getAllYearMdx from '@/utils/mdx/getAllYearMdx';
 import BlogLayout from '@/layouts/BlogLayout';
 import { BlogMessage, BlogSeriesList, GoogleAd } from '@/components/ContentComponents';
 import { A, P } from '@/components/PostComponents';
 import { Box, BoxHeader, PostItemBox } from '@/components/LayoutComponents';
 import { IBlogIndexPage } from '@/types';
 import { useMetaData } from '@/hooks';
+import { getAllTimePost } from '@/utils/mdx';
 
 const BlogIndexPage = ({ posts, notices, }: IBlogIndexPage) => {
   const style = css`
@@ -30,12 +30,12 @@ const BlogIndexPage = ({ posts, notices, }: IBlogIndexPage) => {
             <P bottom='0'>니힐로그와 관련된 공지사항입니다. 전체 공지사항 목록은 <A type='blog' href='/notice/page/1'>이 링크</A>를 이용하시면 됩니다.</P>
           </Box>
           <div id='blog-notice-list'>
-            {notices.map(({ frontMatter, filePath, }) => (
+            {notices.map(({ frontMatter, slug, }) => (
               <PostItemBox
-                key={filePath.replace('.mdx', '')}
+                key={slug}
                 type='notice'
                 frontMatter={frontMatter}
-                filePath={filePath}
+                slug={slug}
               />
             ))}
           </div>
@@ -44,12 +44,12 @@ const BlogIndexPage = ({ posts, notices, }: IBlogIndexPage) => {
             <P bottom='0'>최근에 작성한 포스트 목록입니다. 전체 포스트 목록은 <A type='blog' href='/post/page/1'>이 링크</A>를 이용하시면 됩니다.</P>
           </Box>
           <div id='blog-post-list'>
-            {posts.map(({ frontMatter, filePath, }) => (
+            {posts.map(({ frontMatter, slug, }) => (
               <PostItemBox
-                key={filePath.replace('.mdx', '')}
+                key={slug}
                 type='post'
                 frontMatter={frontMatter}
-                filePath={filePath}
+                slug={slug}
               />
             ))}
           </div>
@@ -61,8 +61,10 @@ const BlogIndexPage = ({ posts, notices, }: IBlogIndexPage) => {
 };
 
 export const getStaticProps: GetStaticProps = async () => {
-  const posts = getAllYearMdx('post');
-  const notices = getAllYearMdx('notice');
+  const allPosts = getAllTimePost();
+
+  const posts = allPosts.filter((post) => post.frontMatter.type === 'post');
+  const notices = allPosts.filter((post) => post.frontMatter.type === 'notice');
 
   return {
     props: {

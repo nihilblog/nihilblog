@@ -1,6 +1,5 @@
 import React from 'react';
 import { GetStaticPaths, GetStaticProps } from 'next';
-import getAllYearMdx from '@/utils/mdx/getAllYearMdx';
 import BlogLayout from '@/layouts/BlogLayout';
 import getPages from '@/utils/getPages';
 import config from '@/data/config.data';
@@ -12,6 +11,7 @@ import { IPostsPage } from '@/types';
 import getCount from '@/utils/getCount';
 import { GoogleAd } from '@/components/ContentComponents';
 import { useMetaData } from '@/hooks';
+import { getAllTimePost } from '@/utils/mdx';
 
 const BlogIllustListPage = ({
   illusts, currentPage, prevPage, nextPage, totalPages, PostsPages,
@@ -32,12 +32,12 @@ const BlogIllustListPage = ({
             <P bottom='0'>일반 포스트, 공지를 제외한 모든 일러스트의 목록을 확인할 수 있습니다. 일반 포스트와 공지는 각각의 링크를 이용하시기 바랍니다.</P>
           </Box>
           <div id='blog-post-list'>
-            {illusts.map(({ frontMatter, filePath, }) => (
+            {illusts.map(({ frontMatter, slug, }) => (
               <PostItemBox
-                key={filePath.replace('.mdx', '')}
+                key={slug}
                 type='illust'
                 frontMatter={frontMatter}
-                filePath={filePath}
+                slug={slug}
               />
             ))}
           </div>
@@ -50,7 +50,9 @@ const BlogIllustListPage = ({
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const illusts = getAllYearMdx('illust');
+  const allPosts = getAllTimePost();
+
+  const illusts = allPosts.filter((post) => post.frontMatter.type === 'illust');
 
   const PostsPages = getPages(illusts, config.postPerPage);
 
@@ -71,7 +73,9 @@ type Params = {
 };
 
 export const getStaticProps: GetStaticProps = async ({ params, }: Params) => {
-  const illusts = getAllYearMdx('illust');
+  const allPosts = getAllTimePost();
+
+  const illusts = allPosts.filter((post) => post.frontMatter.type === 'illust');
 
   const PostsPages = getPages(illusts, config.postPerPage);
   const number = parseInt(params.pageNumber, 10);

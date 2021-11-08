@@ -9,7 +9,9 @@ module.exports = {
     if (isServer) {
       sitemapGenerator();
     }
-    return config;
+    return {
+      ...config,
+    };
   },
   eslint: {
     dirs: [],

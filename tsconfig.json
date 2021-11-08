@@ -1,8 +1,8 @@
 {
   "compilerOptions": {
     "baseUrl": ".",
-    "module": "commonjs",
-    "target": "es2015",
+    "module": "esnext",
+    "target": "es5",
     "esModuleInterop": true,
     "jsx": "preserve",
     "jsxImportSource": "@emotion/react",
@@ -52,7 +52,8 @@
   },
   "include": [
     "next-env.d.ts",
-    "./src/**/*"
+    "**/*.tsx",
+    "**/*.ts"
   ],
   "exclude": [
     "node_modules",
