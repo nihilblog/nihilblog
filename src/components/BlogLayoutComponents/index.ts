@@ -5,3 +5,5 @@ export * from './PageContainer';
 export * from './FooterContainer';
 export * from './SiteHead';
 export * from './ActiveLink';
+export * from './BlogMessage';
+export * from './BlogSeriesList';

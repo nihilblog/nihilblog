@@ -4,13 +4,12 @@ import { GetStaticPaths, GetStaticProps } from 'next';
 import getUTCString from '@/utils/getUTCString';
 import BlogLayout from '@/layouts/BlogLayout';
 import { CommentGuideMessage, Line } from '@/components/PostComponents';
-import { GoogleAd, MDXComponents } from '@/components/ContentComponents';
-import {
-  PostContent, PostInfo, PostNavigation, Utterances
-} from '@/components/LayoutComponents';
 import { IPost } from '@/types';
 import { useMetaData } from '@/hooks';
 import { getAllTimePost, getSinglePost } from '@/utils/mdx';
+import {
+  PostInfo, PostContent, MDXComponents, GoogleAd, Utterances, PostNavigation
+} from '@/components/PostLayoutComponents';
 
 const BlogPostPage = ({ post, prev, next, }: IPost) => {
   const { frontMatter, slug, source, } = post;

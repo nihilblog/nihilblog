@@ -22,11 +22,11 @@ interface IPostDate {
 }
 
 export interface IPosts {
-  frontMatter: IFrontMatter;
-  slug: string;
-  fullPath: string;
-  content: string;
-  date: IPostDate;
+  frontMatter?: IFrontMatter;
+  slug?: string;
+  fullPath?: string;
+  content?: string;
+  date?: IPostDate;
 }
 
 export type IPostString = ('post' | 'notice' | 'illust' | 'view');
@@ -87,10 +87,12 @@ export interface IPostsPage {
   currentPage: number;
   prevPage: number;
   nextPage: number;
+  postList?: IPostList[];
   posts?: IPosts[];
   notices?: IPosts[];
   illusts?: IPosts[];
   totalPages: number;
+  PostListPages: IPostList[][];
   PostsPages: IPosts[][];
 }
 
@@ -134,4 +136,12 @@ export interface IPostNav {
   prev?: IPosts;
   next?: IPosts;
   type?: IPostString;
+}
+
+export interface IPostList {
+  id?: number;
+  title?: string;
+  type?: ('post' | 'notice' | 'illust');
+  link?: string;
+  create?: (number | Date);
 }

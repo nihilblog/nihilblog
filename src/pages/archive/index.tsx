@@ -5,11 +5,12 @@ import { v4 as uuid } from 'uuid';
 import Link from 'next/link';
 import BlogLayout from '@/layouts/BlogLayout';
 import { IPostArchive } from '@/types';
-import { Box, BoxHeader } from '@/components/LayoutComponents';
 import { P } from '@/components/PostComponents';
 import { useMetaData } from '@/hooks';
 import { getTagsAndCategories } from '@/utils/mdx';
 import size from '@/data/size.data';
+import { Box, BoxHeader } from '@/components/BoxComponents';
+import { GoogleAd } from '@/components/PostLayoutComponents';
 
 const ArchivePage = ({ archives, }: IPostArchive) => {
   const wordStyle = css`
@@ -71,6 +72,7 @@ const ArchivePage = ({ archives, }: IPostArchive) => {
             </div>
           </Box>
         </div>
+        <GoogleAd pos='bottom' />
       </BlogLayout>
     </>
   );

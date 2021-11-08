@@ -1,37 +1,35 @@
 import React, { useEffect, useState } from 'react';
 import { css } from '@emotion/react';
-import { IFrontMatter } from '@/types';
+import { IPostList } from '@/types';
 import size from '@/data/size.data';
 
 interface Props {
-  frontMatter: IFrontMatter;
-  slug: string;
+  post: IPostList
 }
 
-export const PostList = ({ frontMatter, slug, }: Props) => {
+export const PostList = ({ post, }: Props) => {
   const [ type, setType, ] = useState<string>('');
   const [ className, setClassName, ] = useState<string[]>([]);
   const [ path, setPath, ] = useState<string>('');
   const [ color, setColor, ] = useState<string[]>([]);
 
-  const postName = slug;
-  const postNumber = frontMatter.id;
+  const postNumber = post.id;
 
   useEffect(() => {
-    if (frontMatter.type === 'notice') {
+    if (post.type === 'notice') {
       setType('공지');
       setClassName([ 'count', 'color red', ]);
-      setPath(`/notice/${postName}`);
+      setPath(post.link);
       setColor([ '#b90c0c', '#800505', ]);
-    } else if (frontMatter.type === 'illust') {
+    } else if (post.type === 'illust') {
       setType('일러스트');
       setClassName([ 'count', 'color green', ]);
-      setPath(`/illust/${postName}`);
+      setPath(post.link);
       setColor([ '#11b32c', '#047918', ]);
-    } else if (frontMatter.type === 'post') {
+    } else if (post.type === 'post') {
       setType('포스트');
       setClassName([ 'count', 'color blue', ]);
-      setPath(`/post/${postName}`);
+      setPath(post.link);
       setColor([ '#3f91ff', '#1f6acc', ]);
     }
   }, []);
@@ -119,7 +117,7 @@ export const PostList = ({ frontMatter, slug, }: Props) => {
         <h2>
           <span className={className.join(' ')}>{postNumber}</span>
           <span className={className[1]}>{type}</span>
-          <span>{frontMatter.title}</span>
+          <span>{post.title}</span>
         </h2>
         <p>
           <a href={path} target='_blank' rel='noopener noreferrer'>{path}</a>

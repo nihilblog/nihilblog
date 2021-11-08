@@ -2,20 +2,19 @@ import React, { useCallback, useState } from 'react';
 import { css } from '@emotion/react';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import BlogLayout from '@/layouts/BlogLayout';
-import {
-  AlterPagination, Box, BoxHeader, PostItemBox
-} from '@/components/LayoutComponents';
 import { P } from '@/components/PostComponents';
 import getPages from '@/utils/getPages';
 import config from '@/data/config.data';
 import {
   IFirst,
   ILast,
-  INext, IPostTCK, IPrev
+  INext, IPosts, IPostTCK, IPrev
 } from '@/types';
 import getCount from '@/utils/getCount';
 import { useMetaData } from '@/hooks';
 import { getAllTimePost, getTagsAndCategories } from '@/utils/mdx';
+import { Box, BoxHeader } from '@/components/BoxComponents';
+import { AlterPagination, PostItemBox } from '@/components/PostLayoutComponents';
 
 const CategoryPostsPage = ({ category, PostsPages, }: IPostTCK) => {
   const [ postsIndex, setPostsIndex, ] = useState(0);
@@ -112,7 +111,7 @@ export const getStaticProps: GetStaticProps = async ({ params, }: Params) => {
   const posts = allPosts.filter((post) => post.frontMatter.type === 'post')
     .filter(({ frontMatter, }) => frontMatter.categories.includes(params.category));
 
-  const PostsPages = getPages(posts, config.postPerPage);
+  const PostsPages = getPages(posts, config.postPerPage) as IPosts[][];
 
   return {
     props: {

@@ -3,7 +3,7 @@ import { css } from '@emotion/react';
 import { useRouter } from 'next/router';
 import { A, P, Strong } from '@/components/PostComponents';
 import BlogLayout from '@/layouts/BlogLayout';
-import { Box, BoxHeader } from '@/components/LayoutComponents';
+import { Box, BoxHeader } from '@/components/BoxComponents';
 import { useMetaData } from '@/hooks';
 
 const BlogNotPoundPage = () => {

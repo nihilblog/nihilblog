@@ -6,9 +6,9 @@ import { useMetaData } from '@/hooks';
 import { getAllTimePost, getTagsAndCategories } from '@/utils/mdx';
 import { IPosts } from '@/types';
 import BlogLayout from '@/layouts/BlogLayout';
-import { ArchiveItem, Box, BoxHeader } from '@/components/LayoutComponents';
 import { P } from '@/components/PostComponents';
-import { GoogleAd } from '@/components/ContentComponents';
+import { ArchiveItem, GoogleAd } from '@/components/PostLayoutComponents';
+import { Box, BoxHeader } from '@/components/BoxComponents';
 
 interface Props {
   yearMonth: string;

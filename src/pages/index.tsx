@@ -2,12 +2,13 @@ import React from 'react';
 import { css } from '@emotion/react';
 import { GetStaticProps } from 'next';
 import BlogLayout from '@/layouts/BlogLayout';
-import { BlogMessage, BlogSeriesList, GoogleAd } from '@/components/ContentComponents';
 import { A, P } from '@/components/PostComponents';
-import { Box, BoxHeader, PostItemBox } from '@/components/LayoutComponents';
 import { IBlogIndexPage } from '@/types';
 import { useMetaData } from '@/hooks';
 import { getAllTimePost } from '@/utils/mdx';
+import { Box, BoxHeader } from '@/components/BoxComponents';
+import { GoogleAd, PostItemBox } from '@/components/PostLayoutComponents';
+import { BlogMessage, BlogSeriesList } from '@/components/BlogLayoutComponents';
 
 const BlogIndexPage = ({ posts, notices, }: IBlogIndexPage) => {
   const style = css`

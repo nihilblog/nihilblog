@@ -3,20 +3,19 @@ import { css } from '@emotion/react';
 import { v4 as uuid } from 'uuid';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import BlogLayout from '@/layouts/BlogLayout';
-import {
-  Box, BoxHeader, Pagination, PostList
-} from '@/components/LayoutComponents';
 import { P } from '@/components/PostComponents';
-import { IPostsPage } from '@/types';
+import { IPostList, IPostsPage } from '@/types';
 import getPages from '@/utils/getPages';
 import getCount from '@/utils/getCount';
 import { useMetaData } from '@/hooks';
-import { getAllTimePost } from '@/utils/mdx';
+import { getPostList } from '@/utils/mdx';
+import { Box, BoxHeader } from '@/components/BoxComponents';
+import { PostList, Pagination } from '@/components/PostLayoutComponents';
 
 const BlogPostManagerPage = ({
-  currentPage, prevPage, nextPage, posts, totalPages, PostsPages,
+  currentPage, prevPage, nextPage, postList, totalPages, PostListPages,
 }: IPostsPage) => {
-  const totalCount = getCount(PostsPages);
+  const totalCount = getCount(PostListPages, 'postList');
 
   const style = css`
     & > #post-list {
@@ -38,8 +37,8 @@ const BlogPostManagerPage = ({
             <P bottom='0'>간단하게 포스트 제목과 주소를 볼 수 있게 만든 페이지.</P>
           </Box>
           <div id='post-list'>
-            {posts.map(({ frontMatter, slug, }) => (
-              <PostList frontMatter={frontMatter} slug={slug} key={uuid()} />
+            {postList.map((post) => (
+              <PostList post={post} key={uuid()} />
             ))}
           </div>
           <Pagination prev={prevPage} next={nextPage} total={totalPages} current={currentPage} type='view' />
@@ -50,9 +49,9 @@ const BlogPostManagerPage = ({
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const allPosts = getAllTimePost();
+  const postList = getPostList();
 
-  const PostsPages = getPages(allPosts, 10);
+  const PostsPages = getPages(postList, 10) as IPostList[][];
 
   return {
     paths: PostsPages.map((page, index) => ({
@@ -71,21 +70,21 @@ type Params = {
 };
 
 export const getStaticProps: GetStaticProps = async ({ params, }: Params) => {
-  const allPosts = getAllTimePost();
+  const postList = getPostList();
 
-  const PostsPages = getPages(allPosts, 10);
+  const PostListPages = getPages(postList, 10) as IPostList[][];
   const number = parseInt(params.pageNumber, 10);
   const prevPage = number === 1 ? null : number - 1;
-  const nextPage = number === PostsPages.length ? null : number + 1;
+  const nextPage = number === PostListPages.length ? null : number + 1;
 
   return {
     props: {
-      PostsPages,
-      posts: PostsPages[number - 1],
+      PostListPages,
+      postList: PostListPages[number - 1],
       prevPage,
       nextPage,
       currentPage: number,
-      totalPages: PostsPages.length,
+      totalPages: PostListPages.length,
     },
   };
 };

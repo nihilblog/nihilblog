@@ -6,14 +6,13 @@ import { P } from '@/components/PostComponents';
 import getPages from '@/utils/getPages';
 import config from '@/data/config.data';
 import {
-  AlterPagination, Box, BoxHeader, PostItemBox
-} from '@/components/LayoutComponents';
-import {
-  IFirst, ILast, INext, IPostTCK, IPrev
+  IFirst, ILast, INext, IPosts, IPostTCK, IPrev
 } from '@/types';
 import getCount from '@/utils/getCount';
 import { useMetaData } from '@/hooks';
 import { getAllTimePost, getTagsAndCategories } from '@/utils/mdx';
+import { Box, BoxHeader } from '@/components/BoxComponents';
+import { PostItemBox, AlterPagination } from '@/components/PostLayoutComponents';
 
 const TagPostsPage = ({ tag, PostsPages, }: IPostTCK) => {
   const [ postsIndex, setPostsIndex, ] = useState(0);
@@ -110,7 +109,7 @@ export const getStaticProps: GetStaticProps = async ({ params, }: Params) => {
   const posts = allPosts.filter((post) => post.frontMatter.type === 'post')
     .filter(({ frontMatter, }) => frontMatter.tags.includes(params.tag));
 
-  const PostsPages = getPages(posts, config.postPerPage);
+  const PostsPages = getPages(posts, config.postPerPage) as IPosts[][];
 
   return {
     props: {

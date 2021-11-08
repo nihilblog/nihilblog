@@ -5,13 +5,12 @@ import { GetStaticPaths, GetStaticProps } from 'next';
 import BlogLayout from '@/layouts/BlogLayout';
 import { CommentGuideMessage, Line } from '@/components/PostComponents';
 import getUTCString from '@/utils/getUTCString';
-import { GoogleAd, MDXComponents } from '@/components/ContentComponents';
-import {
-  PostContent, PostInfo, PostNavigation, Utterances
-} from '@/components/LayoutComponents';
 import { IPost } from '@/types';
 import { useMetaData } from '@/hooks';
 import { getAllTimePost, getSinglePost } from '@/utils/mdx';
+import {
+  GoogleAd, MDXComponents, PostContent, PostInfo, PostNavigation, Utterances
+} from '@/components/PostLayoutComponents';
 
 const BlogIllustPage = ({ illust, prev, next, }: IPost) => {
   const { frontMatter, slug, source, } = illust;

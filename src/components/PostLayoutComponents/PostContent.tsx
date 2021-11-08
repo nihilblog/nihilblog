@@ -5,9 +5,8 @@ import { css } from '@emotion/react';
 import { useRouter } from 'next/router';
 import size from '@/data/size.data';
 import { MainImage } from '@/components/PostComponents';
-import { PostToc } from '@/components/LayoutComponents';
-import { GoogleAd } from '@/components/ContentComponents';
 import { IFrontMatter, IH2 } from '@/types';
+import { GoogleAd, PostToc } from '@/components/PostLayoutComponents';
 
 interface Props {
   children?: ReactNode;

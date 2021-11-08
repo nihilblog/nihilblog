@@ -5,11 +5,11 @@ import { GetStaticProps } from 'next';
 import { P } from '@/components/PostComponents';
 import BlogLayout from '@/layouts/BlogLayout';
 import size from '@/data/size.data';
-import { Box, BoxHeader } from '@/components/LayoutComponents';
 import { IPostTCKPage } from '@/types';
-import { GoogleAd } from '@/components/ContentComponents';
 import { useMetaData } from '@/hooks';
 import { getTagsAndCategories } from '@/utils/mdx';
+import { Box, BoxHeader } from '@/components/BoxComponents';
+import { GoogleAd } from '@/components/PostLayoutComponents';
 
 const CategoriesPage = ({ categories, }: IPostTCKPage) => {
   const wordStyle = css`

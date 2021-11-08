@@ -1,10 +1,18 @@
-import { IPosts } from '@/types';
+import { IPostList, IPosts } from '@/types';
 
-const getCount = (array: IPosts[][]) => {
+type TwoType = (IPosts[][] | IPostList[][]);
+
+const getCount = (array: TwoType, type: ('posts' | 'postList') = 'posts') => {
   let length = 0;
 
-  for (let i = 0; i <= array.length - 1; i++) {
-    length += array[i].length;
+  if (type === 'posts') {
+    for (let i = 0; i <= (array as IPosts[][]).length - 1; i++) {
+      length += (array as IPosts[][])[i].length;
+    }
+  } else {
+    for (let i = 0; i <= (array as IPostList[][]).length - 1; i++) {
+      length += (array as IPostList[][])[i].length;
+    }
   }
 
   return length;

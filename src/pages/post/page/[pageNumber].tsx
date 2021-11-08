@@ -4,14 +4,12 @@ import getPages from '@/utils/getPages';
 import config from '@/data/config.data';
 import BlogLayout from '@/layouts/BlogLayout';
 import { P } from '@/components/PostComponents';
-import {
-  Box, BoxHeader, Pagination, PostItemBox
-} from '@/components/LayoutComponents';
-import { IPostsPage } from '@/types';
+import { IPosts, IPostsPage } from '@/types';
 import getCount from '@/utils/getCount';
-import { GoogleAd } from '@/components/ContentComponents';
 import { useMetaData } from '@/hooks';
 import { getAllTimePost } from '@/utils/mdx';
+import { Box, BoxHeader } from '@/components/BoxComponents';
+import { PostItemBox, GoogleAd, Pagination } from '@/components/PostLayoutComponents';
 
 const BlogPostListNumberPage = ({
   currentPage, prevPage, nextPage, posts, totalPages, PostsPages,
@@ -54,7 +52,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
   const posts = allPosts.filter((post) => post.frontMatter.type === 'post');
 
-  const PostsPages = getPages(posts, config.postPerPage);
+  const PostsPages = getPages(posts, config.postPerPage) as IPosts[][];
 
   return {
     paths: PostsPages.map((page, index) => ({
@@ -77,7 +75,7 @@ export const getStaticProps: GetStaticProps = async ({ params, }: Params) => {
 
   const posts = allPosts.filter((post) => post.frontMatter.type === 'post');
 
-  const PostsPages = getPages(posts, config.postPerPage);
+  const PostsPages = getPages(posts, config.postPerPage) as IPosts[][];
   const number = parseInt(params.pageNumber, 10);
   const prevPage = number === 1 ? null : number - 1;
   const nextPage = number === PostsPages.length ? null : number + 1;
