@@ -9,6 +9,11 @@ const sitemapGenerator = async () => {
 
   const prettierConfig = await prettier.resolveConfig('./.prettierrc.js');
 
+  const yearMonthArray = [
+    '2021-05', '2021-06', '2021-07', '2021-08', '2021-09',
+    '2021-10',
+  ];
+
   const defaultPages = [
     {
       url: '/',
@@ -34,7 +39,10 @@ const sitemapGenerator = async () => {
       url: '/archive',
       priority: 0.7,
     },
-  ];
+  ].concat(yearMonthArray.map((item) => ({
+    url: `/archive/${item}`,
+    priority: 0.7,
+  })));
 
   const basePath = 'https://nihilog.github.io';
 

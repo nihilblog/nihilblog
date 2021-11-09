@@ -26,8 +26,8 @@ const ArchivePage = ({ archives, }: IPostArchive) => {
       background-color: #33333330;
 
       &:before {
-        content: '\\f07c';
-        font-weight: 900;
+        content: '\\f133';
+        font-weight: 500;
         font-family: 'Font Awesome 5 Free', sans-serif;
         margin-right: 5px;
       }
