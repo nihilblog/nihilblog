@@ -51,7 +51,7 @@ const CategoryPostsPage = ({ category, PostsPages, }: IPostTCK) => {
 
   const siteMeta = useMetaData({
     title: `"${category}" 관련 포스트`,
-    url: `/tags/${category}`,
+    url: `/categories/${category}`,
   });
 
   return (

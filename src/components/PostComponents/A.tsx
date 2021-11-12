@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { css } from '@emotion/react';
 import Link from 'next/link';
+import getLinkColor from '@/utils/getLinkColor';
 
 interface Props {
   isOff?: ('true' | 'false');
@@ -12,91 +13,96 @@ interface Props {
 export const A = ({
   children, href, type = 'blog', isOff = 'false',
 }: Props) => {
-  const typeOBJ = {
-    blog: {
-      color: '#3f91ff',
-      backgroundColor: '#3f91ff30',
-      iconCode: 'f0c1',
-      iconType: 'Free',
-    },
-    normal: {
-      color: '#11b32c',
-      backgroundColor: '#11b32c30',
-      iconCode: 'f360',
-      iconType: 'Free',
-    },
-    youtube: {
-      color: '#c30505',
-      backgroundColor: '#c3050530',
-      iconCode: 'f167',
-      iconType: 'Brands',
-    },
-  };
+  const [ icon, setIcon, ] = useState<string[]>([]);
+  const [ offObj, setOffObj, ] = useState({
+    color: '',
+    backgroundColor: '',
+    cursor: '',
+    hover: '',
+  });
+  const [ linkObj, setLinkObj, ] = useState({
+    href,
+    rel: '',
+    target: '',
+  });
 
-  const offOBJ = {
-    false: {
-      color: typeOBJ[type].color,
-      backgroundColor: typeOBJ[type].backgroundColor,
-      cursor: 'pointer',
-      hover: `
-        &:hover {
-          color: #ffffff;
-          background-color: ${typeOBJ[type].color};
-
-          & > strong {
+  useEffect(() => {
+    if (isOff === 'true') {
+      setOffObj((prev) => ({
+        ...prev,
+        color: '#999999',
+        backgroundColor: '#88888830',
+        cursor: 'default',
+        hover: '',
+      }));
+    } else if (isOff === 'false') {
+      setOffObj((prev) => ({
+        ...prev,
+        color: getLinkColor(type)[0],
+        backgroundColor: getLinkColor(type)[1],
+        cursor: 'pointer',
+        hover: `
+          &:hover {
             color: #ffffff;
-          }
-        }
-      `,
-    },
-    true: {
-      color: '#999999',
-      backgroundColor: '#88888830',
-      cursor: 'default',
-      hover: '',
-    },
-  };
+            background-color: ${getLinkColor(type)[0]};
 
-  const linkProps = {
-    blog: {
-      href,
-      rel: 'noreferrer noopener',
-      target: '_self',
-    },
-    normal: {
-      href,
-      rel: 'noreferrer noopener',
-      target: '_blank',
-    },
-    youtube: {
-      href,
-      rel: 'noreferrer noopener',
-      target: '_blank',
-    },
-  };
+            & > strong {
+              color: #ffffff;
+            }
+          }
+        `,
+      }));
+
+      if (type === 'blog') {
+        setIcon([ 'f0c1', 'Free', ]);
+        setLinkObj((prev) => ({
+          ...prev,
+          href,
+          rel: 'noreferrer noopener',
+          target: '_self',
+        }));
+      } else if (type === 'normal') {
+        setIcon([ 'f360', 'Free', ]);
+        setLinkObj((prev) => ({
+          ...prev,
+          href,
+          rel: 'noreferrer noopener',
+          target: '_blank',
+        }));
+      } else if (type === 'youtube') {
+        setIcon([ 'f167', 'Brands', ]);
+        setLinkObj((prev) => ({
+          ...prev,
+          href,
+          rel: 'noreferrer noopener',
+          target: '_blank',
+        }));
+      }
+    }
+  }, [ type, isOff, ]);
 
   const style = css`
-    color: ${offOBJ[isOff].color};
-    background-color: ${offOBJ[isOff].backgroundColor};
+    color: ${offObj.color};
+    background-color: ${offObj.backgroundColor};
     padding: 0 7px;
     border-radius: 5px;
     font-size: 90%;
     margin: 0 2px;
-    cursor: ${offOBJ[isOff].cursor};
+    cursor: ${offObj.cursor};
 
     &:after {
-      content: '\\${typeOBJ[type].iconCode}';
-      font-family: 'Font Awesome 5 ${typeOBJ[type].iconType}', sans-serif;
+      content: '\\${icon[0]}';
+      font-family: 'Font Awesome 5 ${icon[1]}', sans-serif;
       font-weight: 900;
       margin-left: 5px;
     }
 
     & > strong {
-      color: ${offOBJ[isOff].color};
+      color: ${offObj.color};
       font-weight: 900;
     }
 
-    ${offOBJ[isOff].hover}
+    ${offObj.hover}
   `;
 
   return (
@@ -106,11 +112,11 @@ export const A = ({
           ? isOff === 'true'
             ? (<span css={style}>{children}</span>)
             : (
-              <Link {...linkProps[type]} passHref>
+              <Link {...linkObj} passHref>
                 <a css={style}>{children}</a>
               </Link>
             )
-          : (<a css={style} {...linkProps[type]}>{children}</a>)
+          : (<a css={style} {...linkObj}>{children}</a>)
       }
     </>
   );

@@ -90,6 +90,11 @@ module.exports = {
     ],
     'react/require-default-props': 'off',
     'react/jsx-one-expression-per-line': 'off',
+    'react/function-component-definition': 'off',
+    'react/jsx-no-useless-fragment': 'off',
+    'react/no-arrow-function-lifecycle': 'off',
+    'react/no-invalid-html-attribute': 'off',
+    'react/no-unused-class-component-methods': 'off',
 
     // 리액트 훅스 규칙
     'react-hooks/exhaustive-deps': 'off',

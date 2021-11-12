@@ -1,5 +1,5 @@
 import { css } from '@emotion/react';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import size from '@/data/size.data';
 
 interface Props {
@@ -10,66 +10,64 @@ interface Props {
 }
 
 interface HeadingType {
-  topDown?: number;
-  backColor?: string;
-  textColor?: string;
-  spanSize?: number;
-  fontSize?: string[];
+  topDown: number;
+  backColor: string;
+  textColor: string;
+  spanSize: number;
+  fontSize: string[];
 }
 
 export const H = ({
   children, top = '60', bottom = '60', type = '1',
 }: Props) => {
-  const headingType: HeadingType = {};
+  const [ headingType, setHeadingType, ] = useState<HeadingType>({
+    topDown: 0,
+    backColor: '',
+    textColor: '',
+    spanSize: 0,
+    fontSize: [],
+  });
   let heading: React.ReactElement;
 
-  switch (type) {
-    case '1':
-      headingType.topDown = 20;
-      headingType.backColor = '#333333';
-      headingType.textColor = '#ffffff';
-      headingType.spanSize = 120;
-      headingType.fontSize = [
-        size[4],
-        size[5],
-        size[6],
-      ];
-      break;
-    case '2':
-      headingType.topDown = 15;
-      headingType.backColor = '#444444';
-      headingType.textColor = '#ffffff';
-      headingType.spanSize = 100;
-      headingType.fontSize = [
-        size[4],
-        size[5],
-        size[6],
-      ];
-      break;
-    case '3':
-      headingType.topDown = 12;
-      headingType.backColor = '#555555';
-      headingType.textColor = '#ffffff';
-      headingType.spanSize = 80;
-      headingType.fontSize = [
-        size[4],
-        size[5],
-        size[6],
-      ];
-      break;
-    case '4':
-      headingType.topDown = 8;
-      headingType.backColor = '#666666';
-      headingType.textColor = '#ffffff';
-      headingType.spanSize = 60;
-      headingType.fontSize = [
-        size[4],
-        size[5],
-        size[6],
-      ];
-      break;
-    default:
-  }
+  useEffect(() => {
+    if (type === '1') {
+      setHeadingType((prev) => ({
+        ...prev,
+        topDown: 20,
+        backColor: '#333333',
+        textColor: '#ffffff',
+        spanSize: 120,
+        fontSize: [ size[4], size[5], size[6], ],
+      }));
+    } else if (type === '2') {
+      setHeadingType((prev) => ({
+        ...prev,
+        topDown: 15,
+        backColor: '#444444',
+        textColor: '#ffffff',
+        spanSize: 100,
+        fontSize: [ size[4], size[5], size[6], ],
+      }));
+    } else if (type === '3') {
+      setHeadingType((prev) => ({
+        ...prev,
+        topDown: 12,
+        backColor: '#555555',
+        textColor: '#ffffff',
+        spanSize: 80,
+        fontSize: [ size[4], size[5], size[6], ],
+      }));
+    } else if (type === '4') {
+      setHeadingType((prev) => ({
+        ...prev,
+        topDown: 8,
+        backColor: '#666666',
+        textColor: '#ffffff',
+        spanSize: 60,
+        fontSize: [ size[4], size[5], size[6], ],
+      }));
+    }
+  }, [ type, ]);
 
   const style = css`
     margin-top: ${top}px;

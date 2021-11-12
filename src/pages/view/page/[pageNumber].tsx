@@ -25,7 +25,7 @@ const BlogPostManagerPage = ({
 
   const siteMeta = useMetaData({
     title: '포스트 관리',
-    url: '/view',
+    url: `/view/${currentPage}`,
   });
 
   return (

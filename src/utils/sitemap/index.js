@@ -11,7 +11,7 @@ const sitemapGenerator = async () => {
 
   const yearMonthArray = [
     '2021-05', '2021-06', '2021-07', '2021-08', '2021-09',
-    '2021-10',
+    '2021-10', '2021-11',
   ];
 
   const defaultPages = [

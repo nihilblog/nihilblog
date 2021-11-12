@@ -8,10 +8,13 @@ export const HTMLTextPosts = () => {
       href: '/post/2021-10-30-31-text-bold-and-italic-tags',
       text: '굵기와 기울기 태그(b, strong, i, em)',
     },
+    {
+      href: '/post/2021-11-12-32-br-and-hr-tag',
+      text: '개행과 가로줄 태그(br, hr)',
+    },
   ];
 
   const Texts = [
-    '개행 태그와 가로줄 태그(br, hr)',
     '윗첨자와 아랫첨자 태그(sup, sub)',
     '텍스트의 추가, 제외 태그(ins, del)',
     '취소선과 밑줄 태그(s, u)',
