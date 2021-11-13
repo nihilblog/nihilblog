@@ -6,10 +6,10 @@ import { Line } from '@/components/PostComponents';
 interface Props {
   children?: React.ReactNode;
   number?: string;
-  first?: ('true' | 'false');
+  first?: boolean;
 }
 
-export const NoteBottom = ({ children, number, first = 'false', }: Props) => {
+export const NoteBottom = ({ children, number, first = false, }: Props) => {
   const style = css`
     color: #333333;
     letter-spacing: -1px;
@@ -69,11 +69,7 @@ export const NoteBottom = ({ children, number, first = 'false', }: Props) => {
 
   return (
     <>
-      {
-        first === 'true'
-          ? <Line />
-          : ''
-      }
+      {first && <Line />}
       <p className='post-foot-note' css={style}>
         <a id={`note${number}`} href={`#top${number}`}><span>{number}</span></a>
         <span className='note-body'>{children}</span>

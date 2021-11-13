@@ -98,7 +98,6 @@ export const H = ({
       & > a {
         color: #ffffff30;
         margin-left: 10px;
-        scroll-behavior: smooth;
 
         &:before {
           content: '\\f0c1';

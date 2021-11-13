@@ -83,10 +83,17 @@
   </url>
 
   <url>
+    <loc>https://nihilog.github.io/post/2021-11-12-32-br-and-hr-tag</loc>
+    <lastmod>2021-11-12T23:56:00+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1</priority>
+  </url>
+
+  <url>
     <loc
       >https://nihilog.github.io/post/2021-10-30-31-text-bold-and-italic-tags</loc
     >
-    <lastmod>2021-10-30T13:58:00+09:00</lastmod>
+    <lastmod>2021-11-14T00:35:00+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>1</priority>
   </url>
@@ -109,7 +116,7 @@
 
   <url>
     <loc>https://nihilog.github.io/post/2021-09-25-01-link-tag</loc>
-    <lastmod>2021-09-25T02:49:00+09:00</lastmod>
+    <lastmod>2021-11-14T00:35:00+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>1</priority>
   </url>
@@ -137,14 +144,14 @@
 
   <url>
     <loc>https://nihilog.github.io/post/2021-08-24-01-pragraph-tag</loc>
-    <lastmod>2021-09-23T04:40:00+09:00</lastmod>
+    <lastmod>2021-11-14T00:35:00+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>1</priority>
   </url>
 
   <url>
     <loc>https://nihilog.github.io/post/2021-07-19-01-heading-tags</loc>
-    <lastmod>2021-08-22T18:45:00+09:00</lastmod>
+    <lastmod>2021-11-14T00:35:00+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>1</priority>
   </url>
@@ -179,7 +186,7 @@
 
   <url>
     <loc>https://nihilog.github.io/post/2021-06-05-01-html-basic-structure</loc>
-    <lastmod>2021-09-23T04:30:00+09:00</lastmod>
+    <lastmod>2021-11-14T00:35:00+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>1</priority>
   </url>
@@ -365,6 +372,36 @@
 
   <url>
     <loc>https://nihilog.github.io/tags/HTML 초보</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://nihilog.github.io/tags/개행</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://nihilog.github.io/tags/줄바꿈</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://nihilog.github.io/tags/가로줄</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://nihilog.github.io/tags/hr 태그</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://nihilog.github.io/tags/br 태그</loc>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
   </url>

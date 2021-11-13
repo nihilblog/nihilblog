@@ -94,7 +94,7 @@ export const Prism = ({ children, top = '40', bottom = '40', }: Props) => {
       <div className='block-info'>
         {
           fileName
-            ? <span className='lang-name'>{Lang}: <span className='codeblock-name'>{fileName}</span></span>
+            ? <span className='lang-name'>{Lang} - <span className='codeblock-name'>{fileName}</span></span>
             : <span className='lang-name'>{Lang}</span>
         }
       </div>
