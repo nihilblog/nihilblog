@@ -12,10 +12,13 @@ export const HTMLTextPosts = () => {
       href: '/post/2021-11-12-32-br-and-hr-tag',
       text: '개행과 가로줄 태그(br, hr)',
     },
+    {
+      href: '/post/2021-11-15-33-sub-and-sup-tag',
+      text: '윗첨자와 아랫첨자 태그(sup, sub)',
+    },
   ];
 
   const Texts = [
-    '윗첨자와 아랫첨자 태그(sup, sub)',
     '텍스트의 추가, 제외 태그(ins, del)',
     '취소선과 밑줄 태그(s, u)',
     '인용 태그(q, blockquote)',

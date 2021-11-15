@@ -83,6 +83,13 @@
   </url>
 
   <url>
+    <loc>https://nihilog.github.io/post/2021-11-15-33-sub-and-sup-tag</loc>
+    <lastmod>2021-11-15T19:56:00+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1</priority>
+  </url>
+
+  <url>
     <loc>https://nihilog.github.io/post/2021-11-12-32-br-and-hr-tag</loc>
     <lastmod>2021-11-12T23:56:00+09:00</lastmod>
     <changefreq>daily</changefreq>
@@ -310,7 +317,7 @@
 
   <url>
     <loc>https://nihilog.github.io/post/2021-05-02-01-complete-html-guide</loc>
-    <lastmod>2021-11-13T00:07:00+09:00</lastmod>
+    <lastmod>2021-11-15T19:56:00+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>1</priority>
   </url>
@@ -372,6 +379,30 @@
 
   <url>
     <loc>https://nihilog.github.io/tags/HTML 초보</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://nihilog.github.io/tags/윗첨자</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://nihilog.github.io/tags/아랫첨자</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://nihilog.github.io/tags/sup 태그</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://nihilog.github.io/tags/sub 태그</loc>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
   </url>
