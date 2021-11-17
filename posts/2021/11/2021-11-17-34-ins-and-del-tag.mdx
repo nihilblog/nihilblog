@@ -1,0 +1,84 @@
+---
+id: 34
+title: '웹 개발을 위한 HTML 가이드 18편 - 텍스트의 추가, 제외 태그'
+description: '어떤 누군가는 문서가 버전이 올라갈 때마다 어떤 부분이 추가되었고 어떤 부분이 삭제되었는지 표시하고 싶을 수 있습니다. 이럴 때에는 텍스트의 추가와 삭제를 나타내는 태그를 이용하면 됩니다. 웹 개발을 위한 HTML 가이드 18편의 주제는 바로 텍스트의 추가와 삭제입니다. 그럼 바로 본론으로 들어가도록 합시다. 텍스트의 추가를 의미하는 태그는 ins태그입니다. 반대로 삭제를 의미하는 태그는 del태그입니다. 이름에서 볼 수 있듯이 ins태그는 insert의 약자이고 del태그는 delete의 약자입니다. 이 태그들은 텍스트의 변동사항을 표현할 때에 사용합니다.'
+coverImage: 'https://drive.google.com/uc?export=view&id=1WyWhMI1BOv8GCsmnxJWMjb2pWeu2IEmw'
+categories: [가이드, HTML]
+tags: [가이드, HTML, 웹 개발, 프로그래밍, 코딩, 웹 코딩, 웹 프로그래밍, HTML 공부하기, HTML 초보, 삭제 텍스트, 추가 텍스트, ins 태그, del 태그, 텍스트의 변동사항]
+createdAt: 2021-11-17 19:43:00
+updatedAt: 2021-11-17 19:43:00
+keywords: []
+drawDate: 2021-11-17 19:43:00
+display: true
+type: 'post'
+---
+
+import {
+  A, Bold, Char, Details, Dl, H, Message, NoteBottom, NoteTop, P,
+  Quote, Score, Youtube, Ul, Ol, Em, Gray, Code, Kbd, Image,
+  Q, Strong, Spoiler, Strike, Line, Mark, HtmlGuideMessage, Name,
+  HTMLTextPosts
+} from '@/components/PostComponents';
+
+<HtmlGuideMessage />
+
+<HTMLTextPosts />
+
+# 개요
+어떤 누군가는 문서가 버전이 올라갈 때마다 어떤 부분이 추가되었고 어떤 부분이 삭제되었는지 표시하고 싶을 수 있습니다. 이럴 때에는 텍스트의 추가와 삭제를 나타내는 태그를 이용하면 됩니다. **웹 개발을 위한 HTML 가이드** 18편의 주제는 바로 텍스트의 추가와 삭제입니다. 그럼 바로 본론으로 들어가도록 합시다.
+
+# 텍스트의 추가와 삭제
+텍스트의 추가를 의미하는 태그는 `ins`태그입니다. 반대로 삭제를 의미하는 태그는 `del`태그입니다. 이름에서 볼 수 있듯이 `ins`태그는 **insert**의 약자이고 `del`태그는 **delete**의 약자입니다. 이 태그들은 텍스트의 변동사항을 표현할 때에 사용합니다.
+
+## 텍스트 추가(ins)
+```html file=ins.html
+<p><ins>추가된 내용</ins></p>
+```
+
+![ins 태그의 모습이다.](https://drive.google.com/uc?export=view&id=1-14plB-_c5-mMLHuvRQKaIm1FQs4bwh_)
+
+`ins`태그는 어떠한 텍스트에서 추가된 내용을 강조하고 싶을 때에 사용합니다. 브라우저에서의 기본적인 스타일은 위 이미지에 보이는 것처럼 밑줄이 그어진 상태로 나타나게 됩니다.
+
+## 텍스트 삭제(del)
+```html file=del.html
+<p><del>삭제된 내용</del></p>
+```
+
+![del 태그의 모습이다.](https://drive.google.com/uc?export=view&id=1-BcSTq90s2r_vTD6nqVsEjiessyuGEf6)
+
+`del`태그는 그 반대로 삭제된 내용을 강조하고 싶을 때에 사용합니다. 브라우저의 기본적인 스타일은 취소선이 그어진 상태로 나타나게 됩니다.
+
+<Message color='y'>
+  <p>이 태그들은 단순히 밑줄을 그어주거나 취소선을 그려주는 태그가 아닙니다. 용도가 명확하기 때문에 용도에 걸맞게 사용해주어야 한다는 것을 기억하시면 됩니다.</p>
+</Message>
+
+## 두 태그 동시에 사용하기
+이 두 태그는 동시에 사용할 수도 있습니다. 그냥 아래처럼 사용하면 됩니다.
+
+![위의 태그는 두개 다 사용할 수도 있다.](https://drive.google.com/uc?export=view&id=1dXKMvJ--GmyK277pNbVp6iVIRjzeRSJp)
+
+위 이미지를 보면 **추가된 부분**과 **삭제된 부분**이 동시에 나타나 있어서 현재는 **1993년 5월 16일로 수정 되었다**라는 것을 의미하는 것이죠. 직업 사용할 일은 아마도 별로 없거나 아예 없을 수도 있지만 이런식으로 쓰는구나 라는 것만 이해하고 넘어가시면 됩니다.
+
+## 공통으로 사용되는 속성
+이 두 태그는 사용할 수 있는 속성이 있습니다. 속성은 문법을 설명한 이래로 세번째? 설명하는 것 같은데 태그의 기능을 추가하는 것들이라고 생각하면 됩니다.
+
+사용할 수 있는 속성은 아래와 같습니다.
+
+<Dl>
+  <dt>cite</dt>
+  <dd>속성값으로는 <Strong>URL</Strong>이 들어갑니다. 텍스트의 내용이 추가되었거나, 변경된 이유를 알 수 있는 출처를 적습니다.</dd>
+  <dt>datetime</dt>
+  <dd>속성값으로는 <Strong>날짜포맷(YYYY-MM-DDThh:mm:ssTZD)</Strong>이 들어갑니다. 텍스트의 내용이 추가되었거나, 변경되었을 때의 시간을 적습니다.</dd>
+</Dl>
+
+<P><Code>datetime</Code>속성의 경우는 속성의 값이 어려울 수 있는데, <Strong>YYYY-MM-DD</Strong>는 <Bold>2021-04-02</Bold>를 적으면 되고, <Strong>T</Strong>는 시간을 의미합니다. <Strong>hh:mm:ss</Strong>에는 시간을 적으면 됩니다. <Bold>20:30:00</Bold>처럼 말이죠.</P>
+
+<P>마지막의 <Strong>TZD</Strong>는 <Strong>Time Zone Designator</Strong>의 약자입니다. 웹은 전세계 사람들이 다 볼 수 있고, 지역마다 시간이 다르기 때문에 그리니치 표준시로 시간을 확정해야한다는 것입니다. 그리니치 표준시는 <Bold>+09:00</Bold>이나 <Bold>-01:00</Bold>과 같은 시간의 격차를 표현한 것을 말합니다. 한국 같은 경우엔 세계표준시에서 9시간이 더해진 시간을 사용합니다.</P>
+
+<P>위의 설명에서 다 필요 없이 <Bold>2021-04-02</Bold> 부분만 적어도 상관없습니다. 하지만 위의 내용을 알아둬서 나쁠 것은 없기 때문에 기억해두면 좋을지도 모르겠습니다.</P>
+
+<Line />
+
+이번 글에서는 **텍스트의 추가와 삭제**를 다루는 태그에 대해서 알아봤습니다. 이번에 알아본 두가지의 태그는 사실 그렇게 많이 쓰는 것 같지는 않습니다. 저는 잘 안씁니다. 그러나 알아두는 것은 나쁜 게 아니기에 다뤄봤습니다. 이번 글의 내용은 여기까지입니다. 다음 글에서는 **취소선과 밑줄 태그**에 대해서 알아봅시다.
+
+그럼 이번 글은 여기서 마치도록 하겠습니다. 다음 글에서 봅시다.

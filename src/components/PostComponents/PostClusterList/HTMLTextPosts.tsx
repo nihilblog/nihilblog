@@ -16,10 +16,13 @@ export const HTMLTextPosts = () => {
       href: '/post/2021-11-15-33-sub-and-sup-tag',
       text: '윗첨자와 아랫첨자 태그(sup, sub)',
     },
+    {
+      href: '/post/2021-11-17-34-ins-and-del-tag',
+      text: '텍스트의 추가, 제외 태그(ins, del)',
+    },
   ];
 
   const Texts = [
-    '텍스트의 추가, 제외 태그(ins, del)',
     '취소선과 밑줄 태그(s, u)',
     '인용 태그(q, blockquote)',
     '하이라이트 태그(mark)',
