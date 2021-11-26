@@ -116,7 +116,8 @@ const gruvboxDark = css`
   .token.attr-value,
   .token.name,
   .token.regex,
-  .token.variable {
+  .token.variable,
+  .token.class {
     color: #7ec699;
   }
 

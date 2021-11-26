@@ -1,8 +1,12 @@
 import React from 'react';
 import { v4 as uuid } from 'uuid';
+import { useRouter } from 'next/router';
+import { css } from '@emotion/react';
 import { A, H, Ul } from '@/components/PostComponents';
 
 export const HTMLTextPosts = () => {
+  const router = useRouter();
+
   const Links = [
     {
       href: '/post/2021-10-30-31-text-bold-and-italic-tags',
@@ -20,10 +24,13 @@ export const HTMLTextPosts = () => {
       href: '/post/2021-11-17-34-ins-and-del-tag',
       text: '텍스트의 추가, 제외 태그(ins, del)',
     },
+    {
+      href: '/post/2021-11-26-35-u-and-s-tag',
+      text: '취소선(s)과 밑줄 표현',
+    },
   ];
 
   const Texts = [
-    '취소선과 밑줄 태그(s, u)',
     '인용 태그(q, blockquote)',
     '하이라이트 태그(mark)',
     'small 태그',
@@ -32,12 +39,33 @@ export const HTMLTextPosts = () => {
     '그 외의 텍스트 태그들',
   ];
 
+  const nowPostStyle = css`
+    font-size: 90%;
+    margin: 0 4px;
+    background-color: #666666;
+    color: #ffffff;
+    padding: 0 7px;
+    border-radius: 5px;
+
+    &:before {
+      content: '\\f30a';
+      font-weight: 900;
+      margin-right: 5px;
+      font-family: 'Font Awesome 5 Free', sans-serif;
+    }
+  `;
+
   return (
     <>
       <H type='1'>텍스트 관련 태그</H>
       <Ul>
         {Links.map((item) => (
-          <li key={uuid()}><A href={item.href} type='blog'>{item.text}</A></li>
+          <li key={uuid()}>
+            <A href={item.href} type='blog'>{item.text}</A>
+            {router.asPath === item.href && (
+              <span css={nowPostStyle}>현재 글</span>
+            )}
+          </li>
         ))}
         {Texts.map((item) => (
           <li key={uuid()}>{item}</li>
