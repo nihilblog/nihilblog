@@ -19,7 +19,7 @@ const BlogIllustPage = ({ illust, prev, next, }: IPost) => {
   const siteMeta = useMetaData({
     title: frontMatter.title,
     description: frontMatter.description,
-    keywords: `그림, 일러스트, 캐릭터, 컨셉아트, 디자인, 창작, 캐릭터디자인, 캐릭터일러스트, 판타지, illustration, artwork, character, fantasy, characterillustration, characterdesign, fantasycharacter, ${frontMatter.keywords.join(', ')}`,
+    keywords: `그림, 일러스트, 캐릭터, 컨셉아트, 디자인, 창작, 캐릭터디자인, 캐릭터일러스트, 판타지, illustration, artwork, character, fantasy, character illustration, character design, fantasy character, ${frontMatter.keywords.join(', ')}`,
     url: `/illust/${slug}`,
     type: 'article',
     image: frontMatter.coverImage ? frontMatter.coverImage : '',

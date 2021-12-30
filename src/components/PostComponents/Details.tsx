@@ -65,7 +65,7 @@ export const Details = ({
         border-top: none;
         border-radius: 0 0 10px 10px;
         padding: 10px;
-        background-color: #eeeeee;
+        background-color: #eeeeee50;
 
         & > p {
           line-height: 1.8;
