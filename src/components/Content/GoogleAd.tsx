@@ -30,18 +30,18 @@ export const GoogleAd = ({ margin = '100', pos, }: Props) => {
     }
   }, [ asPath, ]);
 
-  const adStyle = css`
-    margin: ${margin}px 0;
+  const GoogleAdStyle = css({
+    margin: `${margin}px 0`,
 
-    & > .sizing {
-      min-height: 100px;
-      max-height: 280px;
-    }
-  `;
+    '& > .sizing': {
+      minHeight: '100px',
+      maxHeight: '280px',
+    },
+  });
 
   return (
     <>
-      <div className={`blog-${pos}-ad`} css={adStyle} key={`${asPath}-${pos}`}>
+      <div className={`blog-${pos}-ad`} css={GoogleAdStyle} key={`${asPath}-${pos}`}>
         <ins
           className='adsbygoogle sizing'
           style={{ display: 'block', }}

@@ -1,9 +1,9 @@
 import React from 'react';
 import BlogLayout from '@/layouts/BlogLayout';
 import { A, P, Strong } from '@/components/PostComponents';
-import { Box, BoxHeader } from '@/components/BoxComponents';
-import { GoogleAd } from '@/components/PostLayoutComponents';
+import { Box, BoxHeader } from '@/components/Content/Box';
 import { useMetaData } from '@/hooks';
+import { GoogleAd } from '@/components/Content';
 
 const BlogAboutPage = () => {
   const siteMeta = useMetaData({

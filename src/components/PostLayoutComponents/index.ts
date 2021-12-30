@@ -9,5 +9,4 @@ export * from './InfoP';
 export * from './PostList';
 export * from './AlterPagination';
 export * from './ArchiveItem';
-export * from './GoogleAd';
 export * from './MDXComponents';

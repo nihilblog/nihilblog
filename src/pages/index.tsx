@@ -6,14 +6,15 @@ import { A, P } from '@/components/PostComponents';
 import { IBlogIndexPage } from '@/types';
 import { useMetaData } from '@/hooks';
 import { getAllTimePost } from '@/utils/mdx';
-import { Box, BoxHeader } from '@/components/BoxComponents';
-import { GoogleAd, PostItemBox } from '@/components/PostLayoutComponents';
-import { BlogMessage, BlogSeriesList } from '@/components/BlogLayoutComponents';
+import { Box, BoxHeader } from '@/components/Content/Box';
+import { PostItemBox } from '@/components/PostLayoutComponents';
+import { BlogMessageBlock, BlogSeriesBlock } from '@/components/Layout';
+import { GoogleAd } from '@/components/Content';
 
 const BlogIndexPage = ({ posts, notices, }: IBlogIndexPage) => {
-  const style = css`
-    margin-bottom: 100px;
-  `;
+  const style = css({
+    marginBottom: '100px',
+  });
 
   const siteMeta = useMetaData({
     title: '홈',
@@ -23,8 +24,8 @@ const BlogIndexPage = ({ posts, notices, }: IBlogIndexPage) => {
   return (
     <>
       <BlogLayout meta={siteMeta}>
-        <BlogMessage />
-        <BlogSeriesList />
+        <BlogMessageBlock />
+        <BlogSeriesBlock />
         <div id='blog-index-page' css={style}>
           <Box>
             <BoxHeader i='f017' w='500' f='Free'>최근 공지사항 3건</BoxHeader>

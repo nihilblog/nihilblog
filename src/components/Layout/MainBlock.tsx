@@ -5,14 +5,14 @@ interface Props {
   children?: ReactNode;
 }
 
-export const PageContainer = ({ children, }: Props) => {
-  const PageContainerStyle = css`
-    padding: 0 20px;
-  `;
+export const MainBlock = ({ children, }: Props) => {
+  const MainBlockStyle = css({
+    padding: '0 20px',
+  });
 
   return (
     <>
-      <main css={PageContainerStyle}>
+      <main css={MainBlockStyle}>
         {children}
       </main>
     </>

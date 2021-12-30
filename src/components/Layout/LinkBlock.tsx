@@ -8,39 +8,44 @@ interface Props {
   type?: string;
 }
 
-export const ActiveLink = ({ href, children, type = 'default', }: Props) => {
+export const LinkBlock = React.memo(({ href, children, type = 'default', }: Props) => {
   const router = useRouter();
 
   let className: string;
 
   switch (type) {
     case 'post':
-      if (router.pathname.indexOf('post') !== -1) {
+      if (router.asPath.indexOf('post') !== -1) {
         className = 'selected';
       }
       break;
     case 'notice':
-      if (router.pathname.indexOf('notice') !== -1) {
+      if (router.asPath.indexOf('notice') !== -1) {
         className = 'selected';
       }
       break;
     case 'illust':
-      if (router.pathname.indexOf('illust') !== -1) {
+      if (router.asPath.indexOf('illust') !== -1) {
         className = 'selected';
       }
       break;
     case 'keywords':
-      if (router.pathname.indexOf('illust/keywords') !== -1) {
+      if (router.asPath.indexOf('illust/keywords') !== -1) {
         className = 'selected';
       }
       break;
     case 'categories':
-      if (router.pathname.indexOf('categories') !== -1) {
+      if (router.asPath.indexOf('categories') !== -1) {
         className = 'selected';
       }
       break;
     case 'tags':
-      if (router.pathname.indexOf('tags') !== -1) {
+      if (router.asPath.indexOf('tags') !== -1) {
+        className = 'selected';
+      }
+      break;
+    case 'view':
+      if (router.asPath.indexOf('view/page') !== -1) {
         className = 'selected';
       }
       break;
@@ -56,4 +61,6 @@ export const ActiveLink = ({ href, children, type = 'default', }: Props) => {
       <Link href={href}><a className={className}>{children}</a></Link>
     </>
   );
-};
+});
+
+LinkBlock.displayName = 'LinkBlock';
