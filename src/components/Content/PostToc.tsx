@@ -1,5 +1,6 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import { css } from '@emotion/react';
+import { FaListUl } from 'react-icons/fa';
 import size from '@/data/size.data';
 import { A } from '@/components/PostComponents';
 import { IH2 } from '@/types';
@@ -9,122 +10,92 @@ interface Props {
 }
 
 export const PostToc = ({ toc, }: Props) => {
-  const ulRef = useRef<HTMLUListElement>(null);
+  const PostTocStyle = css({
+    margin: '80px 0',
+    overflowY: 'hidden',
 
-  const style = css`
-    margin: 80px 0;
-    overflow-y: hidden;
+    '& > div': {
+      padding: '20px 10px',
+      backgroundColor: '#333333',
+      textAlign: 'justify',
+      letterSpacing: '-1px',
+      lineHeight: '1',
+      borderRadius: '10px',
+      marginBottom: '10px',
 
-    & > div {
-      padding: 20px 10px;
-      background-color: #333333;
-      text-align: justify;
-      letter-spacing: -1px;
-      line-height: 1;
-      border-radius: 10px;
-      margin-bottom: 10px;
-      position: relative;
+      '& > span': {
+        fontSize: '120%',
+        color: '#ffffff',
+        fontWeight: 900,
+        display: 'flex',
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'flex-start',
 
-      & > span {
-        font-size: 120%;
-        color: #ffffff;
-        font-weight: 900;
+        '& > svg': {
+          fill: '#ffffff',
+          marginRight: '10px',
+        },
+      },
+    },
 
-        &:before {
-          content: '\\f0ca';
-          font-weight: 900;
-          font-family: 'Font Awesome 5 Free', sans-serif;
-          margin-right: 10px;
-        }
-      }
-    }
+    '& > ul': {
+      '& ul': {
+        marginLeft: '20px',
+      },
 
-    & > ul {
-      @keyframes fade-in {
-        from {
-          opacity: 0;
-        }
-        to {
-          opacity: 1;
-        }
-      }
+      '& li': {
+        margin: '3px 0',
 
-      @keyframes fade-out {
-        from {
-          opacity: 1;
+        '& > span': {
+          marginRight: '5px',
+          fontWeight: 900,
+          color: '#3f91ff70',
+          borderRadius: '5px',
+        },
 
-        }
-        to {
-          opacity: 0;
-        }
-      }
+        '&:hover': {
+          '& > span': {
+            color: '#3f91ff',
+          },
+        },
+      },
+    },
 
-      &.show {
-        animation: fade-in 0.3s;
-        animation-fill-mode: forwards;
-        display: block;
-      }
-
-      &.list-up {
-        transform: translateY(-120%);
-      }
-
-      &.list-down {
-        transform: translateY(0);
-      }
-
-      &.hide {
-        animation: fade-out 0.3s;
-        animation-fill-mode: forwards;
-        transform: translateY(-120%);
-      }
-
-      & ul {
-        margin-left: 20px;
-      }
-
-      & li {
-        margin: 3px 0;
-
-        & > span {
-          margin-right: 5px;
-          font-weight: 900;
-          color: #3f91ff70;
-          border-radius: 5px;
-        }
-
-        &:hover {
-          & > span {
-            color: #3f91ff;
-          }
-        }
-      }
-    }
-
-    @media (min-width: 1px) and (max-width: 600px) {
-      & > div {font-size: ${size[4]};}
-      & li {font-size: ${size[1]};}
-    }
-
-    @media (min-width: 601px) and (max-width: 800px) {
-      & > div {font-size: ${size[5]};}
-      & li {font-size: ${size[2]};}
-    }
-
-    @media (min-width: 801px) {
-      & > div {font-size: ${size[6]};}
-      & li {font-size: ${size[3]};}
-    }
-  `;
+    '@media (min-width: 1px) and (max-width: 600px)': {
+      '& > div': {
+        fontSize: size[4],
+      },
+      '& li': {
+        fontSize: size[1],
+      },
+    },
+    '@media (min-width: 601px) and (max-width: 800px)': {
+      '& > div': {
+        fontSize: size[5],
+      },
+      '& li': {
+        fontSize: size[2],
+      },
+    },
+    '@media (min-width: 801px)': {
+      '& > div': {
+        fontSize: size[6],
+      },
+      '& li': {
+        fontSize: size[3],
+      },
+    },
+  });
 
   return (
     <>
       {toc.length > 0 && (
-        <div id='post-table-of-contents' css={style}>
+        <div id='post-table-of-contents' css={PostTocStyle}>
           <div id='top'>
-            <span>목차</span>
+            <span><FaListUl />목차</span>
           </div>
-          <ul id='table-of-contents-list' ref={ulRef}>
+          <ul id='table-of-contents-list'>
             {toc.map((item, index) => (
               <li key={item.name + item.id}>
                 <span>{index + 1}.</span>

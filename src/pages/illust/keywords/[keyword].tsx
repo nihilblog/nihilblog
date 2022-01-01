@@ -11,8 +11,9 @@ import {
 import getCount from '@/utils/getCount';
 import { useMetaData } from '@/hooks';
 import { getAllTimePost, getTagsAndCategories } from '@/utils/mdx';
-import { Box, BoxHeader } from '@/components/BoxComponents';
-import { AlterPagination, PostItemBox } from '@/components/PostLayoutComponents';
+import { Box, BoxHeader } from '@/components/Content/Box';
+import { AlterPagination } from '@/components/Content/Pagination';
+import { PostItemBox } from '@/components/Content';
 
 const KeywordPostsPage = ({ PostsPages, keyword, }: IPostTCK) => {
   const [ postsIndex, setPostsIndex, ] = useState(0);
@@ -43,9 +44,9 @@ const KeywordPostsPage = ({ PostsPages, keyword, }: IPostTCK) => {
     }
   }, [ postsIndex, ]);
 
-  const style = css`
-    margin-bottom: 100px;
-  `;
+  const KeywordPostsPage = css({
+    marginBottom: '100px',
+  });
 
   const siteMeta = useMetaData({
     title: `"${keyword}" 관련 일러스트`,
@@ -55,7 +56,7 @@ const KeywordPostsPage = ({ PostsPages, keyword, }: IPostTCK) => {
   return (
     <>
       <BlogLayout meta={siteMeta}>
-        <div id='blog-keyword-page' css={style}>
+        <div id='blog-keyword-page' css={KeywordPostsPage}>
           <Box top='100'>
             <BoxHeader i='f002' w='900' f='Free'>&ldquo; {keyword} &rdquo; 키워드 관련 일러스트 {totalCount}장</BoxHeader>
             <P bottom='0'>다른 키워드들을 보려면 상단 서브 메뉴에서 키워드 링크를 클릭하세요.</P>

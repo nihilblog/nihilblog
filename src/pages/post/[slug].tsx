@@ -8,8 +8,8 @@ import { IPost } from '@/types';
 import { useMetaData } from '@/hooks';
 import { getAllTimePost, getSinglePost } from '@/utils/mdx';
 import {
-  PostInfo, PostContent, MDXComponents, GoogleAd, Utterances, PostNavigation
-} from '@/components/PostLayoutComponents';
+  GoogleAd, MDXComponents, PostContent, PostInfo, PostNavigation, Utterances
+} from '@/components/Content';
 
 const BlogPostPage = ({ post, prev, next, }: IPost) => {
   const { frontMatter, slug, source, } = post;

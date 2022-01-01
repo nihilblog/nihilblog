@@ -6,7 +6,7 @@ import { useRouter } from 'next/router';
 import size from '@/data/size.data';
 import { MainImage } from '@/components/PostComponents';
 import { IFrontMatter, IH2 } from '@/types';
-import { GoogleAd, PostToc } from '@/components/PostLayoutComponents';
+import { GoogleAd, PostToc } from '.';
 
 interface Props {
   children?: ReactNode;

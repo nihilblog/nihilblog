@@ -8,8 +8,9 @@ import { IPosts, IPostsPage } from '@/types';
 import getCount from '@/utils/getCount';
 import { useMetaData } from '@/hooks';
 import { getAllTimePost } from '@/utils/mdx';
-import { Box, BoxHeader } from '@/components/BoxComponents';
-import { PostItemBox, GoogleAd, Pagination } from '@/components/PostLayoutComponents';
+import { Box, BoxHeader } from '@/components/Content/Box';
+import { GoogleAd, PostItemBox } from '@/components/Content';
+import { Pagination } from '@/components/Content/Pagination';
 
 const BlogNoticeListNumberPage = ({
   currentPage, prevPage, nextPage, notices, totalPages, PostsPages,

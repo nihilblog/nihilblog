@@ -10,7 +10,7 @@ import { useMetaData } from '@/hooks';
 import { getAllTimePost, getSinglePost } from '@/utils/mdx';
 import {
   GoogleAd, MDXComponents, PostContent, PostInfo, PostNavigation, Utterances
-} from '@/components/PostLayoutComponents';
+} from '@/components/Content';
 
 const BlogIllustPage = ({ illust, prev, next, }: IPost) => {
   const { frontMatter, slug, source, } = illust;

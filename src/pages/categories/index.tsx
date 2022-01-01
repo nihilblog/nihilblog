@@ -8,8 +8,8 @@ import size from '@/data/size.data';
 import { IPostTCKPage } from '@/types';
 import { useMetaData } from '@/hooks';
 import { getTagsAndCategories } from '@/utils/mdx';
-import { Box, BoxHeader } from '@/components/BoxComponents';
-import { GoogleAd } from '@/components/PostLayoutComponents';
+import { Box, BoxHeader } from '@/components/Content/Box';
+import { GoogleAd } from '@/components/Content';
 
 const CategoriesPage = ({ categories, }: IPostTCKPage) => {
   const wordStyle = css`

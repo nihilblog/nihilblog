@@ -9,19 +9,20 @@ import getPages from '@/utils/getPages';
 import getCount from '@/utils/getCount';
 import { useMetaData } from '@/hooks';
 import { getPostList } from '@/utils/mdx';
-import { Box, BoxHeader } from '@/components/BoxComponents';
-import { PostList, Pagination } from '@/components/PostLayoutComponents';
+import { Box, BoxHeader } from '@/components/Content/Box';
+import { Pagination } from '@/components/Content/Pagination';
+import { PostList } from '@/components/Content';
 
 const BlogPostManagerPage = ({
   currentPage, prevPage, nextPage, postList, totalPages, PostListPages,
 }: IPostsPage) => {
   const totalCount = getCount(PostListPages, 'postList');
 
-  const style = css`
-    & > #post-list {
-      margin-bottom: 50px;
-    }
-  `;
+  const BlogPostManagerPageStyle = css({
+    '& > #post-list': {
+      marginBottom: '50px',
+    },
+  });
 
   const siteMeta = useMetaData({
     title: '포스트 관리',
@@ -31,7 +32,7 @@ const BlogPostManagerPage = ({
   return (
     <>
       <BlogLayout meta={siteMeta}>
-        <div css={style}>
+        <div css={BlogPostManagerPageStyle}>
           <Box top='100' bottom='50'>
             <BoxHeader i='f039' w='900' f='Free'>총 포스트 {totalCount}건</BoxHeader>
             <P bottom='0'>간단하게 포스트 제목과 주소를 볼 수 있게 만든 페이지.</P>

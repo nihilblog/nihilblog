@@ -7,9 +7,8 @@ import { IBlogIndexPage } from '@/types';
 import { useMetaData } from '@/hooks';
 import { getAllTimePost } from '@/utils/mdx';
 import { Box, BoxHeader } from '@/components/Content/Box';
-import { PostItemBox } from '@/components/PostLayoutComponents';
 import { BlogMessageBlock, BlogSeriesBlock } from '@/components/Layout';
-import { GoogleAd } from '@/components/Content';
+import { GoogleAd, PostItemBox } from '@/components/Content';
 
 const BlogIndexPage = ({ posts, notices, }: IBlogIndexPage) => {
   const style = css({

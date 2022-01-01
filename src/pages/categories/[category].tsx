@@ -13,8 +13,9 @@ import {
 import getCount from '@/utils/getCount';
 import { useMetaData } from '@/hooks';
 import { getAllTimePost, getTagsAndCategories } from '@/utils/mdx';
-import { Box, BoxHeader } from '@/components/BoxComponents';
-import { AlterPagination, PostItemBox } from '@/components/PostLayoutComponents';
+import { Box, BoxHeader } from '@/components/Content/Box';
+import { PostItemBox } from '@/components/Content';
+import { AlterPagination } from '@/components/Content/Pagination';
 
 const CategoryPostsPage = ({ category, PostsPages, }: IPostTCK) => {
   const [ postsIndex, setPostsIndex, ] = useState(0);
