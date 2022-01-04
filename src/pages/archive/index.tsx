@@ -6,61 +6,63 @@ import Link from 'next/link';
 import { FaRegCalendarAlt } from 'react-icons/fa';
 import BlogLayout from '@/layouts/BlogLayout';
 import { IPostArchive } from '@/types';
-import { P } from '@/components/PostComponents';
+import { P } from '@/components/Post';
 import { useMetaData } from '@/hooks';
 import { getTagsAndCategories } from '@/utils/mdx';
-import size from '@/data/size.data';
+import { size } from '@/data';
 import { Box, BoxHeader } from '@/components/Content/Box';
 import { GoogleAd } from '@/components/Content';
 
 const ArchivePage = ({ archives, }: IPostArchive) => {
-  const ArchivePageStyle = css({
-    textAlign: 'center',
+  const ArchivePageStyle = css`
+    text-align: center;
 
-    '& > a': {
-      padding: '10px',
-      display: 'inline-flex',
-      flexDirection: 'row',
-      alignItems: 'center',
-      justifyContent: 'center',
-      margin: '4px',
-      borderRadius: '10px',
-      color: '#555555',
-      letterSpacing: '-1px',
-      backgroundColor: '#33333330',
-      lineHeight: '1',
+    & > a {
+      padding: 10px;
+      display: inline-flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      margin: 4px;
+      border-radius: 10px;
+      color: #555555;
+      letter-spacing: -1px;
+      background-color: #33333330;
+      line-height: 1;
 
-      '& > svg': {
-        fill: '#555555',
-        marginRight: '5px',
-      },
+      & > svg {
+        fill: #555555;
+        margin-right: 5px;
+      }
 
-      '&:hover': {
-        color: '#ffffff',
-        backgroundColor: '#333333',
+      &:hover {
+        color: #ffffff;
+        background-color: #333333;
 
-        '& > svg': {
-          fill: '#ffffff',
-        },
-      },
-    },
+        & > svg {
+          fill: #ffffff;
+        }
+      }
+    }
 
-    '@media (min-width: 1px) and (max-width: 600px)': {
-      '& > a': {
-        fontSize: size[1],
-      },
-    },
-    '@media (min-width: 601px) and (max-width: 800px)': {
-      '& > a': {
-        fontSize: size[2],
-      },
-    },
-    '@media (min-width: 801px)': {
-      '& > a': {
-        fontSize: size[3],
-      },
-    },
-  });
+    @media (min-width: 1px) and (max-width: 600px) {
+      & > a {
+        font-size: ${size[1]};
+      }
+    }
+
+    @media (min-width: 601px) and (max-width: 800px) {
+      & > a {
+        font-size: ${size[2]};
+      }
+    }
+
+    @media (min-width: 801px) {
+      & > a {
+        font-size: ${size[3]};
+      }
+    }
+  `;
 
   const siteMeta = useMetaData({
     title: '포스트 아카이브',

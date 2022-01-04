@@ -14,10 +14,11 @@ type: 'post'
 ---
 
 import {
-  A, Bold, Char, Details, Dl, H, Message, NoteBottom, NoteTop, P,
+  A, Bold, Details, Dl, H, Message, NoteBottom, NoteTop, P,
   Quote, Score, Youtube, Ul, Ol, Em, Gray, Code, Kbd, Image,
-  Q, Strong, Spoiler, Strike, Line, Mark, HtmlGuideMessage, Name
-} from '@/components/PostComponents';
+  Q, Strong, Spoiler, Strike, Line, Mark, HtmlGuideMessage, Name,
+  Dt, Dd
+} from '@/components/Post';
 
 <HtmlGuideMessage />
 
@@ -34,7 +35,7 @@ import {
 
 가령 파일의 위치는 드라이브나 루트 디렉토리를 시작으로 내부 폴더들을 표기하고 폴더 내로 들어가면 **/**나 **\\(&#8361;)**로 구분을 하고 가장 마지막에 파일을 표기합니다.
 
-```
+```text
 F:\니힐 폴더\아이유 델루나2.png
 /home/nihilncunia/web-coding/Blog/nihilog/code/package.json
 ```
@@ -56,11 +57,11 @@ F:\니힐 폴더\아이유 델루나2.png
 
 웹에 존재하는 웹 사이트들은 호스트 컴퓨터가 공유하고 있는 폴더 내부에 존재하는 파일들로 구성이 되어있습니다. 어떠한 프로젝트를 개발하고 이를 배포하기 위해서는 서버 상에 존재하게끔 만들어야 하기 때문입니다. 다양한 방법으로 서버를 구축하고 실행하고 배포를 하게 되면 그때 여러분의 컴퓨터는 **호스트 컴퓨터**가 되는겁니다.
 
-```
+```text
 F:\nihil\project1
 ```
 
-```
+```text
 http://0.0.0.0:7556/
 ```
 
@@ -69,7 +70,7 @@ http://0.0.0.0:7556/
 # 절대경로와 상대경로
 이번 파트는 로컬 디렉토리와 웹 디렉토리가 둘 다 해당되는 부분입니다. 절대경로와 상대경로를 알게 되면 프로그래밍하는데에 있어서 약간의 편리함이 생길겁니다. 파일 같은 것을 다룰 때에 말이죠. 절대경로와 상대경로는 파일을 다루는데에 사용되는 방법입니다. 간단하게 알아보도록 합시다.
 
-```
+```text
 C:\WINDOWS\system32
 ```
 

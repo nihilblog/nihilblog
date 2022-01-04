@@ -2,7 +2,7 @@ import React from 'react';
 import Document, {
   Html, Head, Main, NextScript, DocumentContext
 } from 'next/document';
-import { gaTracrId } from '@/data/ga.data';
+import { gaTracrId } from '@/data';
 
 class AppDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {

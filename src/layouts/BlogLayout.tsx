@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react';
 import { css, Global } from '@emotion/react';
 import { useRouter } from 'next/router';
-import config from '@/data/config.data';
+import { config } from '@/data';
 import { ISiteData } from '@/types';
 import draculaTheme from '@/styles/prism-draculaTheme';
 import { SiteHead } from '@/components';
@@ -15,7 +15,7 @@ interface Props {
 }
 
 const BlogLayout = ({ meta, children, }: Props) => {
-  const fontImport = css`
+  const globalStyle = css`
     @import url(https://fonts.googleapis.com/earlyaccess/notosanskr.css);
 
     @font-face {
@@ -30,67 +30,70 @@ const BlogLayout = ({ meta, children, }: Props) => {
       font-weight: normal;
       font-style: normal;
     }
+
+    * {
+      padding: 0;
+      margin: 0;
+      font-family: 'Noto Sans KR', sans-serif;
+      color: #333333;
+      font-weight: 500;
+    }
+
+    body {
+      background-color: #cccccc;
+      width: 100%;
+      overflow-x: hidden;
+    }
+
+    html, body, #__next {
+      height: 100%;
+    }
+
+    #__next {
+      display: flex;
+      flex-direction: column;
+
+      & > main {
+        flex: 1;
+        width: 100%;
+        box-sizing: border-box;
+      }
+    }
+
+    a {
+      text-decoration: none;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    ::selection {
+      background-color: #ff5b5b;
+      color: #ffffff;
+    }
+
+    ${draculaTheme};
+
+    @media (min-width: 1px) and (max-width: 600px) {
+      main {
+        max-width: 100%;
+      }
+    }
+
+    @media (min-width: 601px) and (max-width: 800px) {
+      main {
+        max-width: 100%;
+      }
+    }
+
+    @media (min-width: 801px) {
+      main {
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+    }
   `;
-  const globalStyle = css(fontImport, {
-    '*': {
-      padding: '0',
-      margin: '0',
-      fontFamily: `'Noto Sans KR', sans-serif`,
-      color: '#333333',
-      fontWeight: 500,
-    },
-
-    body: {
-      backgroundColor: '#cccccc',
-      width: '100%',
-      overflowX: 'hidden',
-    },
-
-    'html, body, #__next': {
-      height: '100%',
-    },
-
-    '#__next': {
-      display: 'flex',
-      flexDirection: 'column',
-
-      '& > main': {
-        flex: '1',
-        width: '100%',
-        boxSizing: 'border-box',
-      },
-    },
-
-    a: {
-      textDecoration: 'none',
-    },
-
-    ul: {
-      listStyle: 'none',
-    },
-
-    '::selection': {
-      backgroundColor: '#ff5b5b',
-      color: '#ffffff',
-    },
-  }, draculaTheme, {
-    '@media (min-width: 1px) and (max-width: 600px)': {
-      main: {
-        maxWidth: '100%',
-      },
-    },
-    '@media (min-width: 601px) and (max-width: 800px)': {
-      main: {
-        maxWidth: '100%',
-      },
-    },
-    '@media (min-width: 801px)': {
-      main: {
-        maxWidth: '1000px',
-        margin: '0 auto',
-      },
-    },
-  });
 
   const router = useRouter();
 

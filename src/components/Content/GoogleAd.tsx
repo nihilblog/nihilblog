@@ -30,14 +30,14 @@ export const GoogleAd = ({ margin = '100', pos, }: Props) => {
     }
   }, [ asPath, ]);
 
-  const GoogleAdStyle = css({
-    margin: `${margin}px 0`,
+  const GoogleAdStyle = css`
+    margin: ${margin}px 0;
 
-    '& > .sizing': {
-      minHeight: '100px',
-      maxHeight: '280px',
-    },
-  });
+    & > .sizing {
+      min-height: 100px;
+      max-height: 280px;
+    }
+  `;
 
   return (
     <>

@@ -2,9 +2,10 @@ import React from 'react';
 import { css } from '@emotion/react';
 import Link from 'next/link';
 import { GetStaticProps } from 'next';
+import { FaPaintBrush } from 'react-icons/fa';
 import BlogLayout from '@/layouts/BlogLayout';
-import { P } from '@/components/PostComponents';
-import size from '@/data/size.data';
+import { P } from '@/components/Post';
+import { size } from '@/data';
 import { IPostTCKPage } from '@/types';
 import { useMetaData } from '@/hooks';
 import { getTagsAndCategories } from '@/utils/mdx';
@@ -16,24 +17,30 @@ const KeywordsPage = ({ keywords, }: IPostTCKPage) => {
     text-align: center;
 
     & > a {
-      padding: 5px 10px;
-      display: inline-block;
+      padding: 10px;
+      display: inline-flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
       margin: 4px;
       border-radius: 10px;
       color: #555555;
       letter-spacing: -1px;
       background-color: #33333330;
+      line-height: 1;
 
-      &:before {
-        content: '\\f1fc';
-        font-weight: 900;
-        font-family: 'Font Awesome 5 Free', sans-serif;
+      & > svg {
+        fill: #555555;
         margin-right: 5px;
       }
 
       &:hover {
         color: #ffffff;
         background-color: #333333;
+
+        & > svg {
+          fill: #ffffff;
+        }
       }
     }
 
@@ -65,7 +72,7 @@ const KeywordsPage = ({ keywords, }: IPostTCKPage) => {
             <div css={wordStyle}>
               {keywords.map((keyword) => (
                 <Link key={keyword.keywordName} href={`/illust/keywords/${keyword.keywordName}`}>
-                  <a>{keyword.keywordName} ({keyword.keywordCount}건)</a>
+                  <a><FaPaintBrush />{keyword.keywordName} ({keyword.keywordCount}건)</a>
                 </Link>
               ))}
             </div>

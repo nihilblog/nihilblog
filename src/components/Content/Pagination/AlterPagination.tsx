@@ -3,7 +3,7 @@ import { css } from '@emotion/react';
 import {
   FaAngleDoubleLeft, FaAngleDoubleRight, FaAngleLeft, FaAngleRight
 } from 'react-icons/fa';
-import size from '@/data/size.data';
+import { size } from '@/data';
 import { IPagination } from '@/types';
 
 export const AlterPagination = ({

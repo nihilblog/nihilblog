@@ -3,7 +3,7 @@ import { MDXRemote } from 'next-mdx-remote';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import getUTCString from '@/utils/getUTCString';
 import BlogLayout from '@/layouts/BlogLayout';
-import { CommentGuideMessage, Line } from '@/components/PostComponents';
+import { CommentGuideMessage, Line } from '@/components/Post';
 import { IPost } from '@/types';
 import { useMetaData } from '@/hooks';
 import { getAllTimePost, getSinglePost } from '@/utils/mdx';

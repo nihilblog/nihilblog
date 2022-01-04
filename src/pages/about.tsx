@@ -1,6 +1,6 @@
 import React from 'react';
 import BlogLayout from '@/layouts/BlogLayout';
-import { A, P, Strong } from '@/components/PostComponents';
+import { A, P, Strong } from '@/components/Post';
 import { Box, BoxHeader } from '@/components/Content/Box';
 import { useMetaData } from '@/hooks';
 import { GoogleAd } from '@/components/Content';

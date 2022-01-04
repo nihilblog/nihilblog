@@ -6,9 +6,9 @@ interface Props {
 }
 
 export const MainBlock = ({ children, }: Props) => {
-  const MainBlockStyle = css({
-    padding: '0 20px',
-  });
+  const MainBlockStyle = css`
+    padding: 0 20px;
+  `;
 
   return (
     <>

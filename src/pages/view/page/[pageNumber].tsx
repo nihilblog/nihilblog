@@ -3,7 +3,7 @@ import { css } from '@emotion/react';
 import { v4 as uuid } from 'uuid';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import BlogLayout from '@/layouts/BlogLayout';
-import { P } from '@/components/PostComponents';
+import { P } from '@/components/Post';
 import { IPostList, IPostsPage } from '@/types';
 import getPages from '@/utils/getPages';
 import getCount from '@/utils/getCount';
@@ -18,11 +18,11 @@ const BlogPostManagerPage = ({
 }: IPostsPage) => {
   const totalCount = getCount(PostListPages, 'postList');
 
-  const BlogPostManagerPageStyle = css({
-    '& > #post-list': {
-      marginBottom: '50px',
-    },
-  });
+  const BlogPostManagerPageStyle = css`
+    & > #post-list {
+      margin-bottom: 50px;
+    }
+  `;
 
   const siteMeta = useMetaData({
     title: '포스트 관리',

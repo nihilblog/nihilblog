@@ -2,8 +2,7 @@ import React, { useEffect } from 'react';
 import Head from 'next/head';
 import { AppProps } from 'next/app';
 import Router from 'next/router';
-import config from '@/data/config.data';
-import { pageview } from '@/data/ga.data';
+import { config, pageview } from '@/data';
 
 const App = ({ Component, pageProps, }: AppProps) => {
   useEffect(() => {

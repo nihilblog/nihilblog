@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react';
 import { css } from '@emotion/react';
-import size from '@/data/size.data';
+import { size } from '@/data';
 
 interface Props {
   children?: ReactNode;
@@ -14,35 +14,37 @@ interface Props {
 export const BoxHeader = ({
   children, i, w, f, top = '0', bottom = '20',
 }: Props) => {
-  const BoxHeaderStyle = css({
-    marginTop: `${top}px`,
-    marginBottom: `${bottom}px`,
-    backgroundColor: '#333333',
-    padding: '10px',
-    borderRadius: '10px',
-    color: '#ffffff',
-    fontWeight: 900,
-    letterSpacing: '-1px',
-    width: '100%',
-    boxSizing: 'border-box',
+  const BoxHeaderStyle = css`
+    margin-top: ${top}px;
+    margin-bottom: ${bottom}px;
+    background-color: #333333;
+    padding: 10px;
+    border-radius: 10px;
+    color: #ffffff;
+    font-weight: 900;
+    letter-spacing: -1px;
+    width: 100%;
+    box-sizing: border-box;
 
-    '&:before': {
-      content: `'\\${i}'`,
-      fontWeight: parseInt(w, 10),
-      fontFamily: `'Font Awesome 5 ${f}', sans-serif`,
-      marginRight: '10px',
-    },
+    &:before {
+      content: '\\${i}';
+      font-weight: ${w};
+      font-family: 'Font Awesome 5 ${f}', sans-serif;
+      margin-right: 10px;
+    }
 
-    '@media (min-width: 1px) and (max-width: 600px)': {
-      fontSize: size[4],
-    },
-    '@media (min-width: 601px) and (max-width: 800px)': {
-      fontSize: size[5],
-    },
-    '@media (min-width: 801px)': {
-      fontSize: size[6],
-    },
-  });
+    @media (min-width: 1px) and (max-width: 600px) {
+      font-size: ${size[4]};
+    }
+
+    @media (min-width: 601px) and (max-width: 800px) {
+      font-size: ${size[5]};
+    }
+
+    @media (min-width: 801px) {
+      font-size: ${size[6]};
+    }
+  `;
 
   return (
     <>

@@ -1,9 +1,9 @@
 import React from 'react';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import getPages from '@/utils/getPages';
-import config from '@/data/config.data';
+import { config } from '@/data';
 import BlogLayout from '@/layouts/BlogLayout';
-import { P } from '@/components/PostComponents';
+import { P } from '@/components/Post';
 import { IPosts, IPostsPage } from '@/types';
 import getCount from '@/utils/getCount';
 import { useMetaData } from '@/hooks';

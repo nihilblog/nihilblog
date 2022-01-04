@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react';
 import { css } from '@emotion/react';
-import size from '@/data/size.data';
+import { size } from '@/data';
 
 interface Props {
   children?: ReactNode;
@@ -12,30 +12,32 @@ interface Props {
 export const Box = ({
   children, top = '30', bottom = '30', idName,
 }: Props) => {
-  const BoxStyle = css({
-    marginTop: `${top}px`,
-    marginBottom: `${bottom}px`,
-    width: '100%',
-    boxSizing: 'border-box',
-    padding: '10px',
-    textAlign: 'justify',
-    letterSpacing: '-1px',
-    backgroundColor: '#ffffff',
-    boxShadow: '0 0 10px -4px #333333',
-    borderRadius: '10px',
+  const BoxStyle = css`
+    margin-top: ${top}px;
+    margin-bottom: ${bottom}px;
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+    text-align: justify;
+    letter-spacing: -1px;
+    background-color: #ffffff;
+    box-shadow: 0 0 10px -4px #333333;
+    border-radius: 10px;
 
-    '& p': {
-      '@media (min-width: 1px) and (max-width: 600px)': {
-        fontSize: size[1],
-      },
-      '@media (min-width: 601px) and (max-width: 800px)': {
-        fontSize: size[2],
-      },
-      '@media (min-width: 801px)': {
-        fontSize: size[3],
-      },
-    },
-  });
+    & > p {
+      @media (min-width: 1px) and (max-width: 600px) {
+        font-size: ${size[1]};
+      }
+
+      @media (min-width: 601px) and (max-width: 800px) {
+        font-size: ${size[2]};
+      }
+
+      @media (min-width: 801px) {
+        font-size: ${size[3]};
+      }
+    }
+  `;
 
   return (
     <>

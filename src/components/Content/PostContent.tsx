@@ -3,8 +3,8 @@ import React, {
 } from 'react';
 import { css } from '@emotion/react';
 import { useRouter } from 'next/router';
-import size from '@/data/size.data';
-import { MainImage } from '@/components/PostComponents';
+import { size } from '@/data';
+import { MainImage } from '@/components/Post';
 import { IFrontMatter, IH2 } from '@/types';
 import { GoogleAd, PostToc } from '.';
 

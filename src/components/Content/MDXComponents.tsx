@@ -15,7 +15,7 @@ import {
   Strike,
   Strong,
   Ul, Youtube, HtmlGuideMessage, Name, ProgrammingGuideMessage, HTMLTextPosts, Dt, Dd
-} from '@/components/PostComponents';
+} from '@/components/Post';
 
 interface Props {
   [x: string]: string;

@@ -1,5 +1,5 @@
 import React from 'react';
-import { A, P, Strong } from '@/components/PostComponents';
+import { A, P, Strong } from '@/components/Post';
 import { Box, BoxHeader } from '@/components/Content/Box';
 
 export const BlogMessageBlock = () => {

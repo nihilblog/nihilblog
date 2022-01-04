@@ -2,7 +2,7 @@ import React from 'react';
 import { css } from '@emotion/react';
 import { GetStaticProps } from 'next';
 import BlogLayout from '@/layouts/BlogLayout';
-import { A, P } from '@/components/PostComponents';
+import { A, P } from '@/components/Post';
 import { IBlogIndexPage } from '@/types';
 import { useMetaData } from '@/hooks';
 import { getAllTimePost } from '@/utils/mdx';
@@ -11,9 +11,9 @@ import { BlogMessageBlock, BlogSeriesBlock } from '@/components/Layout';
 import { GoogleAd, PostItemBox } from '@/components/Content';
 
 const BlogIndexPage = ({ posts, notices, }: IBlogIndexPage) => {
-  const style = css({
-    marginBottom: '100px',
-  });
+  const BlogIndexPageStyle = css`
+    margin-bottom: 100px;
+  `;
 
   const siteMeta = useMetaData({
     title: '홈',
@@ -25,7 +25,7 @@ const BlogIndexPage = ({ posts, notices, }: IBlogIndexPage) => {
       <BlogLayout meta={siteMeta}>
         <BlogMessageBlock />
         <BlogSeriesBlock />
-        <div id='blog-index-page' css={style}>
+        <div id='blog-index-page' css={BlogIndexPageStyle}>
           <Box>
             <BoxHeader i='f017' w='500' f='Free'>최근 공지사항 3건</BoxHeader>
             <P bottom='0'>니힐로그와 관련된 공지사항입니다. 전체 공지사항 목록은 <A type='blog' href='/notice/page/1'>이 링크</A>를 이용하시면 됩니다.</P>

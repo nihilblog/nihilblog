@@ -3,61 +3,63 @@ import { css } from '@emotion/react';
 import { FaFileAlt } from 'react-icons/fa';
 import {
   Strong, A, Gray, Details, P
-} from '@/components/PostComponents';
-import size from '@/data/size.data';
+} from '@/components/Post';
+import { size } from '@/data';
 import { Box } from '@/components/Content/Box';
 
 export const BlogSeriesBlock = React.memo(() => {
   const [ title, setTitle, ] = useState('열기');
 
-  const BlogSeriesBlockStyle = css({
-    fontWeight: 500,
-    letterSpacing: '-1px',
+  const BlogSeriesBlockStyle = css`
+    font-weight: 500;
+    letter-spacing: -1px;
 
-    '& > summary': {
-      backgroundColor: '#555555',
-      padding: '15px 10px',
-      borderRadius: '10px',
-      color: '#cccccc',
-      fontWeight: 900,
-      letterSpacing: '-1px',
-      width: '100%',
-      boxSizing: 'border-box',
-      userSelect: 'none',
-      outline: 'none',
-      cursor: 'pointer',
-      listStyleType: 'none',
-      lineHeight: '1',
-      display: 'flex',
-      flexDirection: 'row',
-      alignItems: 'center',
-      justifyContent: 'flex-start',
+    & > summary {
+      background-color: #555555;
+      padding: 15px 10px;
+      border-radius: 10px;
+      color: #cccccc;
+      font-weight: 900;
+      letter-spacing: -1px;
+      width: 100%;
+      box-sizing: border-box;
+      user-select: none;
+      outline: none;
+      cursor: pointer;
+      list-style-type: none;
+      line-height: 1;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: flex-start;
 
-      '& > svg': {
-        fill: '#cccccc',
-        marginRight: '10px',
-      },
+      & > svg {
+        fill: #cccccc;
+        margin-right: 10px;
+      }
 
-      '&:hover': {
-        backgroundColor: '#333333',
-        color: '#ffffff',
+      &:hover {
+        background-color: #333333;
+        color: #ffffff;
 
-        '& > svg': {
-          fill: '#ffffff',
-        },
-      },
+        & > svg {
+          fill: #ffffff;
+        }
+      }
 
-      '@media (min-width: 1px) and (max-width: 600px)': {
-        fontSize: size[4],
-      },
-      '@media (min-width: 601px) and (max-width: 800px)': {
-        fontSize: size[5],
-      },
-      '@media (min-width: 801px)': {
-        fontSize: size[6],
-      },
-    },
-  });
+      @media (min-width: 1px) and (max-width: 600px) {
+        font-size: ${size[4]};
+      }
+
+      @media (min-width: 601px) and (max-width: 800px) {
+        font-size: ${size[5]};
+      }
+
+      @media (min-width: 801px) {
+        font-size: ${size[6]};
+      }
+    }
+  `;
 
   const onClickTitle = useCallback(() => {
     if (title === '열기') {

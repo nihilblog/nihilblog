@@ -3,7 +3,7 @@ import { MDXRemote } from 'next-mdx-remote';
 import { useRouter } from 'next/router';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import BlogLayout from '@/layouts/BlogLayout';
-import { CommentGuideMessage, Line } from '@/components/PostComponents';
+import { CommentGuideMessage, Line } from '@/components/Post';
 import getUTCString from '@/utils/getUTCString';
 import { IPost } from '@/types';
 import { useMetaData } from '@/hooks';

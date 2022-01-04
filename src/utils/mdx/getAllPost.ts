@@ -7,7 +7,7 @@ export const getAllPost = (year: string, month: string): IPosts[] => {
   const folderPath = path.join(process.cwd(), 'posts', `${year}/${month}`);
   const postPaths = fs.readdirSync(folderPath).filter((post) => /\.mdx?$/.test(post));
 
-  const allPosts = postPaths.map((postFile) => {
+  const allPosts: IPosts[] = postPaths.map((postFile) => {
     const source = fs.readFileSync(path.join(folderPath, postFile), 'utf8');
     const { data, content, } = matter(source);
     const newData: IFrontMatter = { ...data, };

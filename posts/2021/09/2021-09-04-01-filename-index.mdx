@@ -14,10 +14,11 @@ type: 'post'
 ---
 
 import {
-  A, Bold, Char, Details, Dl, H, Message, NoteBottom, NoteTop, P,
+  A, Bold, Details, Dl, H, Message, NoteBottom, NoteTop, P,
   Quote, Score, Youtube, Ul, Ol, Em, Gray, Code, Kbd, Image,
-  Q, Strong, Spoiler, Strike, Line, Mark, HtmlGuideMessage, Name
-} from '@/components/PostComponents';
+  Q, Strong, Spoiler, Strike, Line, Mark, HtmlGuideMessage, Name,
+  Dt, Dd
+} from '@/components/Post';
 
 <HtmlGuideMessage />
 
@@ -40,7 +41,7 @@ html파일 뿐만 아니라 **모든 파일**을 이렇게 공유할 수가 있�
 
 <P>모든 웹 사이트의 웹 페이지들은 웹 서버에 존재하는 파일이기 때문에 호스트 컴퓨터에 접근해야만 합니다. 그러기 위해 모든 웹 페이지의 주소, 즉 <Strong>URL</Strong>에는 아이피가 포함되어있습니다. 그런데 우리가 보는 것은 <Strong>www.naver.com</Strong>과 같은 형태죠. 이런 주소들은 아이피의 별명이라고 생각하면 됩니다. <Strong>도메인</Strong>이라고 부릅니다. 우선 네이버를 예시로 들어볼까 합니다.</P>
 
-```
+```text
 https://www.naver.com
 https://0.0.0.0:0
 ```
@@ -63,7 +64,7 @@ https://0.0.0.0:0
 
 <P>즉 우리가 항상 들어가는 네이버 홈페이지의 주소는 이렇게도 쓸 수 있습니다. <Strong>https://www.naver.com/index.html</Strong>로 말이죠. 이건 모든 폴더에 해당될 수 있는 것이라서 모든 주소는 아래의 두가지 경우 중 하나입니다.</P>
 
-```
+```text
 https://주소/폴더이름/index.html
 https://주소/폴더이름.html
 ```

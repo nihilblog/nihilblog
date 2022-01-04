@@ -2,9 +2,9 @@ import React, { useCallback, useState } from 'react';
 import { css } from '@emotion/react';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import BlogLayout from '@/layouts/BlogLayout';
-import { P } from '@/components/PostComponents';
+import { P } from '@/components/Post';
 import getPages from '@/utils/getPages';
-import config from '@/data/config.data';
+import { config } from '@/data';
 import {
   IFirst,
   ILast,

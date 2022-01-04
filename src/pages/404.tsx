@@ -1,7 +1,7 @@
 import React from 'react';
 import { css } from '@emotion/react';
 import { useRouter } from 'next/router';
-import { A, P, Strong } from '@/components/PostComponents';
+import { A, P, Strong } from '@/components/Post';
 import BlogLayout from '@/layouts/BlogLayout';
 import { Box, BoxHeader } from '@/components/Content/Box';
 import { useMetaData } from '@/hooks';

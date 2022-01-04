@@ -1,8 +1,8 @@
 import React from 'react';
 import { css } from '@emotion/react';
 import { FaListUl } from 'react-icons/fa';
-import size from '@/data/size.data';
-import { A } from '@/components/PostComponents';
+import { size } from '@/data';
+import { A } from '@/components/Post';
 import { IH2 } from '@/types';
 
 interface Props {
@@ -10,83 +10,88 @@ interface Props {
 }
 
 export const PostToc = ({ toc, }: Props) => {
-  const PostTocStyle = css({
-    margin: '80px 0',
-    overflowY: 'hidden',
+  const PostTocStyle = css`
+    margin: 80px 0;
+    overflow-y: hidden;
 
-    '& > div': {
-      padding: '20px 10px',
-      backgroundColor: '#333333',
-      textAlign: 'justify',
-      letterSpacing: '-1px',
-      lineHeight: '1',
-      borderRadius: '10px',
-      marginBottom: '10px',
+    & > div {
+      padding: 20px 10px;
+      background-color: #333333;
+      text-align: justify;
+      letter-spacing: -1px;
+      line-height: 1;
+      border-radius: 10px;
+      margin-bottom: 10px;
 
-      '& > span': {
-        fontSize: '120%',
-        color: '#ffffff',
-        fontWeight: 900,
-        display: 'flex',
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'flex-start',
+      & > span {
+        font-size: 120%;
+        color: #ffffff;
+        font-weight: 900;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
 
-        '& > svg': {
-          fill: '#ffffff',
-          marginRight: '10px',
-        },
-      },
-    },
+        & > svg {
+          fill: #ffffff;
+          margin-right: 10px;
+        }
+      }
+    }
 
-    '& > ul': {
-      '& ul': {
-        marginLeft: '20px',
-      },
+    & > ul {
+      & ul {
+        margin-left: 20px;
+      }
 
-      '& li': {
-        margin: '3px 0',
+      & li {
+        margin: 3px 0;
 
-        '& > span': {
-          marginRight: '5px',
-          fontWeight: 900,
-          color: '#3f91ff70',
-          borderRadius: '5px',
-        },
+        & > span {
+          margin-right: 5px;
+          font-weight: 900;
+          color: #3f91ff70;
+          border-radius: 5px;
+        }
 
-        '&:hover': {
-          '& > span': {
-            color: '#3f91ff',
-          },
-        },
-      },
-    },
+        &:hover {
+          & > span {
+            color: #3f91ff;
+          }
+        }
+      }
+    }
 
-    '@media (min-width: 1px) and (max-width: 600px)': {
-      '& > div': {
-        fontSize: size[4],
-      },
-      '& li': {
-        fontSize: size[1],
-      },
-    },
-    '@media (min-width: 601px) and (max-width: 800px)': {
-      '& > div': {
-        fontSize: size[5],
-      },
-      '& li': {
-        fontSize: size[2],
-      },
-    },
-    '@media (min-width: 801px)': {
-      '& > div': {
-        fontSize: size[6],
-      },
-      '& li': {
-        fontSize: size[3],
-      },
-    },
-  });
+    @media (min-width: 1px) and (max-width: 600px) {
+      & > div {
+        font-size: ${size[4]};
+      }
+
+      & li {
+        font-size: ${size[1]};
+      }
+    }
+
+    @media (min-width: 601px) and (max-width: 800px) {
+      & > div {
+        font-size: ${size[5]};
+      }
+
+      & li {
+        font-size: ${size[2]};
+      }
+    }
+
+    @media (min-width: 801px) {
+      & > div {
+        font-size: ${size[6]};
+      }
+
+      & li {
+        font-size: ${size[3]};
+      }
+    }
+  `;
 
   return (
     <>

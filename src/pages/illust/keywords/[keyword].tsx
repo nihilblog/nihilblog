@@ -2,9 +2,9 @@ import React, { useCallback, useState } from 'react';
 import { css } from '@emotion/react';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import BlogLayout from '@/layouts/BlogLayout';
-import { P } from '@/components/PostComponents';
+import { P } from '@/components/Post';
 import getPages from '@/utils/getPages';
-import config from '@/data/config.data';
+import { config } from '@/data';
 import {
   IFirst, ILast, INext, IPosts, IPostTCK, IPrev
 } from '@/types';
@@ -44,9 +44,9 @@ const KeywordPostsPage = ({ PostsPages, keyword, }: IPostTCK) => {
     }
   }, [ postsIndex, ]);
 
-  const KeywordPostsPage = css({
-    marginBottom: '100px',
-  });
+  const KeywordPostsPage = css`
+    margin-bottom: 100px;
+  `;
 
   const siteMeta = useMetaData({
     title: `"${keyword}" 관련 일러스트`,
