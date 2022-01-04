@@ -4,73 +4,71 @@ import size from '@/data/size.data';
 import { Line } from '@/components/PostComponents';
 
 interface Props {
-  children?: React.ReactNode;
-  number?: string;
+  children: React.ReactNode;
+  number: string;
   first?: boolean;
 }
 
 export const NoteBottom = ({ children, number, first = false, }: Props) => {
-  const style = css`
-    color: #333333;
-    letter-spacing: -1px;
-    font-weight: 500;
-    line-height: 1.6;
-    margin-top: 5px;
-    margin-bottom: 5px;
+  const NoteBottomStyle = css({
+    color: '#333333',
+    letterSpacing: '-1px',
+    fontWeight: 500,
+    lineHeight: '1.6',
+    marginTop: '5px',
+    marginBottom: '5px',
 
-    &:nth-of-type(1) {
-      margin-top: 0;
-    }
+    '&:nth-of-type(1)': {
+      marginTop: '0',
+    },
 
-    &:nth-last-of-type(1) {
-      margin-bottom: 0;
-    }
+    '&:nth-last-of-type(1)': {
+      marginBottom: '0',
+    },
 
-    & > a {
-      color: #218cd8;
-      margin-right: 10px;
-      font-size: 90%;
+    '& > a': {
+      color: '#218cd8',
+      marginRight: '10px',
+      fontSize: '90%',
 
-      &:hover {
-        font-weight: 900;
-      }
+      '&:hover': {
+        fontWeight: 900,
+      },
 
-      &:before {
-        content: '[';
-        margin-right: 2px;
-      }
+      '&:before': {
+        content: `'['`,
+        marginRight: '2px',
+      },
 
-      &:after {
-        content: ']';
-        margin-left: 2px;
-      }
+      '&:after': {
+        content: `']'`,
+        marginLeft: '2px',
+      },
 
-      & > span {
-        color: #218cd8;
-      }
-    }
+      '& > span': {
+        color: '#218cd8',
+      },
+    },
 
-    & > span {
-      font-size: 90%;
-    }
+    '& > span': {
+      fontSize: '90%',
+    },
 
-    @media (min-width: 1px) and (max-width: 600px) {
-      font-size: ${size[1]};
-    }
-
-    @media (min-width: 601px) and (max-width: 800px) {
-      font-size: ${size[2]};
-    }
-
-    @media (min-width: 801px) {
-      font-size: ${size[3]};
-    }
-  `;
+    '@media (min-width: 1px) and (max-width: 600px)': {
+      fontSize: size[1],
+    },
+    '@media (min-width: 601px) and (max-width: 800px)': {
+      fontSize: size[2],
+    },
+    '@media (min-width: 801px)': {
+      fontSize: size[3],
+    },
+  });
 
   return (
     <>
       {first && <Line />}
-      <p className='post-foot-note' css={style}>
+      <p className='post-foot-note' css={NoteBottomStyle}>
         <a id={`note${number}`} href={`#top${number}`}><span>{number}</span></a>
         <span className='note-body'>{children}</span>
       </p>

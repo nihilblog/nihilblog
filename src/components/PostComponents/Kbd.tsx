@@ -1,31 +1,36 @@
 import React from 'react';
 import { css } from '@emotion/react';
+import { FaKeyboard } from 'react-icons/fa';
 
 interface Props {
   children?: React.ReactNode;
 }
 
 export const Kbd = ({ children, }: Props) => {
-  const style = css`
-    padding: 0 7px;
-    color: #3f91ff;
-    background-color: #3f91ff20;
-    border-radius: 5px;
-    font-weight: 900;
-    font-size: 90%;
-    margin: 0 2px;
+  const KbdStyle = css({
+    padding: '5px 7px',
+    color: '#3f91ff',
+    backgroundColor: '#3f91ff20',
+    borderRadius: '5px',
+    fontWeight: 900,
+    fontSize: '90%',
+    margin: '0 2px',
+    lineHeight: '1',
+    display: 'inline-flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    textIndent: '0',
 
-    &:before {
-      content: '\\f11c';
-      font-weight: 900;
-      font-family: 'Font Awesome 5 Free', sans-serif;
-      margin-right: 5px;
-    }
-  `;
+    '& > svg': {
+      fill: '#3f91ff',
+      marginRight: '5px',
+    },
+  });
 
   return (
     <>
-      <kbd css={style}>{children}</kbd>
+      <kbd css={KbdStyle}><FaKeyboard />{children}</kbd>
     </>
   );
 };

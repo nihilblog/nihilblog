@@ -17,7 +17,7 @@ import {
   A, Bold, Char, Details, Dl, H, Message, NoteBottom, NoteTop, P,
   Quote, Score, Youtube, Ul, Ol, Em, Gray, Code, Kbd, Image,
   Q, Strong, Spoiler, Strike, Line, Mark, HtmlGuideMessage, Name,
-  HTMLTextPosts
+  Dt, Dd, HTMLTextPosts
 } from '@/components/PostComponents';
 
 <HtmlGuideMessage />
@@ -65,10 +65,10 @@ import {
 사용할 수 있는 속성은 아래와 같습니다.
 
 <Dl>
-  <dt>cite</dt>
-  <dd>속성값으로는 <Strong>URL</Strong>이 들어갑니다. 텍스트의 내용이 추가되었거나, 변경된 이유를 알 수 있는 출처를 적습니다.</dd>
-  <dt>datetime</dt>
-  <dd>속성값으로는 <Strong>날짜포맷(YYYY-MM-DDThh:mm:ssTZD)</Strong>이 들어갑니다. 텍스트의 내용이 추가되었거나, 변경되었을 때의 시간을 적습니다.</dd>
+  <Dt>cite</Dt>
+  <Dd>속성값으로는 <Strong>URL</Strong>이 들어갑니다. 텍스트의 내용이 추가되었거나, 변경된 이유를 알 수 있는 출처를 적습니다.</Dd>
+  <Dt>datetime</Dt>
+  <Dd>속성값으로는 <Strong>날짜포맷(YYYY-MM-DDThh:mm:ssTZD)</Strong>이 들어갑니다. 텍스트의 내용이 추가되었거나, 변경되었을 때의 시간을 적습니다.</Dd>
 </Dl>
 
 <P><Code>datetime</Code>속성의 경우는 속성의 값이 어려울 수 있는데, <Strong>YYYY-MM-DD</Strong>는 <Bold>2021-04-02</Bold>를 적으면 되고, <Strong>T</Strong>는 시간을 의미합니다. <Strong>hh:mm:ss</Strong>에는 시간을 적으면 됩니다. <Bold>20:30:00</Bold>처럼 말이죠.</P>

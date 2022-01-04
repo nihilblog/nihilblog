@@ -1,110 +1,74 @@
 import React from 'react';
 import { css } from '@emotion/react';
+import { FaCode } from 'react-icons/fa';
 import getLangColor from '@/utils/getLangColor';
 import size from '@/data/size.data';
 
-interface Props {
+interface IPrism {
   top?: string;
   bottom?: string;
   children?: React.ReactElement;
+  className?: string;
 }
 
-export const Prism = ({ children, top = '40', bottom = '40', }: Props) => {
-  let languageName: string;
-  let fileName: string;
+export const Prism = ({
+  children, className, top = '40', bottom = '40',
+}: IPrism) => {
+  const fileName: string = children.props?.file;
+  const language: string = className.replace('language-', '');
 
-  if (children.props.className) {
-    languageName = children.props.className;
-  } else {
-    languageName = 'plaintext';
-  }
-
-  if (children.props.file) {
-    fileName = children.props.file;
-  } else {
-    fileName = '';
-  }
-
-  const code = children.props.children;
-
-  const language = languageName.replace('language-', '');
   const { Lang, backgroundColor, textColor, } = getLangColor(language);
 
-  const boxStyle = css`
-    margin-top: ${top}px;
-    margin-bottom: ${bottom}px;
+  const PrismTitleStyle = css({
+    backgroundColor,
+    color: textColor,
+    padding: '10px',
+    borderRadius: '10px 10px 0 0',
+    lineHeight: '1',
+    display: 'flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'flex-start',
+    fontWeight: 900,
 
-    & > .block-info {
-      display: flex;
+    '& > svg': {
+      fill: textColor,
+      marginRight: '5px',
+    },
 
-      & > .lang-name {
-        background-color: ${backgroundColor};
-        color: ${textColor};
-        display: inline-block;
-        border-radius: 10px 10px 0 0;
-        line-height: 1;
-        padding: 10px;
-        margin-left: 10px;
-        font-weight: 900;
+    '@media (min-width: 1px) and (max-width: 600px)': {
+      fontSize: size[3],
+    },
+    '@media (min-width: 601px) and (max-width: 800px)': {
+      fontSize: size[4],
+    },
+    '@media (min-width: 801px)': {
+      fontSize: size[5],
+    },
+  });
 
-        & > .codeblock-name {
-          color: inherit;
-          font-weight: inherit;
-        }
-
-        &:before {
-          content: '\\f121';
-          font-weight: 900;
-          font-family: 'Font Awesome 5 Free', sans-serif;
-          margin-right: 5px;
-        }
-      }
-    }
-
-    @media (min-width: 1px) and (max-width: 600px) {
-      & .lang-name,
-      & .codeblock-name {
-        font-size: ${size[1]};
-      }
-    }
-
-    @media (min-width: 601px) and (max-width: 800px) {
-      & .lang-name,
-      & .codeblock-name {
-        font-size: ${size[2]};
-      }
-    }
-
-    @media (min-width: 801px) {
-      & .lang-name,
-      & .codeblock-name {
-        font-size: ${size[3]};
-      }
-    }
-  `;
-
-  const codeBlockStyle = css`
-    background-color: ${backgroundColor};
-    padding: 10px;
-    border-radius: 10px;
-  `;
+  const PrismBodyStyle = css({
+    backgroundColor,
+    padding: '10px',
+    paddingTop: '0',
+    borderRadius: '0 0 10px 10px',
+  });
 
   return (
-    <div className='post-codeblock' css={boxStyle}>
-      <div className='block-info'>
+    <>
+      <div id='post-code-title' css={PrismTitleStyle}>
+        <FaCode />
         {
-          fileName
-            ? <span className='lang-name'>{Lang} - <span className='codeblock-name'>{fileName}</span></span>
-            : <span className='lang-name'>{Lang}</span>
+          fileName !== undefined
+            ? `${Lang} - ${fileName}`
+            : `${Lang}`
         }
       </div>
-      <div css={codeBlockStyle}>
-        <pre className={`${languageName}`}>
-          <code className={`${languageName}`}>
-            {code}
-          </code>
+      <div id='post-code-block' css={PrismBodyStyle}>
+        <pre className={className}>
+          {children}
         </pre>
       </div>
-    </div>
+    </>
   );
 };

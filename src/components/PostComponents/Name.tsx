@@ -1,33 +1,36 @@
 import React from 'react';
 import { css } from '@emotion/react';
+import { FaFileCode } from 'react-icons/fa';
 
 interface Props {
   children?: React.ReactNode;
 }
 
 export const Name = ({ children, }: Props) => {
-  const style = css`
-    padding: 0 7px;
-    border-radius: 5px;
-    font-weight: 500;
-    text-indent: 0;
-    font-size: 90%;
-    margin: 0 2px;
-    vertical-align: bottom;
-    background-color: #888888;
-    color: #ffffff;
+  const NameStyle = css({
+    padding: '5px 7px',
+    borderRadius: '5px',
+    fontWeight: 500,
+    textIndent: '0',
+    fontSize: '90%',
+    margin: '0 2px',
+    lineHeight: '1',
+    display: 'inline-flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    color: '#ffffff',
+    backgroundColor: '#555555',
 
-    &:before {
-      content: '\\f1c9';
-      font-weight: 900;
-      font-family: 'Font Awesome 5 Free', sans-serif;
-      margin-right: 5px;
-    }
-  `;
+    '& > svg': {
+      fill: '#ffffff',
+      marginRight: '5px',
+    },
+  });
 
   return (
     <>
-      <span css={style}>{children}</span>
+      <span css={NameStyle}><FaFileCode />{children}</span>
     </>
   );
 };

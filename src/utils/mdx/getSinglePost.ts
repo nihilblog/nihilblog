@@ -1,8 +1,8 @@
 import { serialize } from 'next-mdx-remote/serialize';
 import remarkUnwrapImages from 'remark-unwrap-images';
-import remarkCodeTitles from 'remark-code-titles';
 import remarkSlug from 'remark-slug';
-import mdxPrism from 'mdx-prism';
+import remarkCodeTitles from 'remark-code-titles';
+import rehypePrism from 'rehype-prism-plus';
 import { getAllTimePost } from './getAllTimePost';
 import { IPostSlug } from '@/types';
 
@@ -14,14 +14,13 @@ export const getSinglePost = async (paramsSlug: string): Promise<IPostSlug> => {
   const mdxSource = await serialize(content, {
     mdxOptions: {
       remarkPlugins: [
-        // @ts-ignore
         remarkUnwrapImages,
-        // @ts-ignore
-        remarkCodeTitles,
-        // @ts-ignore
         remarkSlug,
+        remarkCodeTitles,
       ],
-      rehypePlugins: [ mdxPrism, ],
+      rehypePlugins: [
+        rehypePrism,
+      ],
     },
   });
 

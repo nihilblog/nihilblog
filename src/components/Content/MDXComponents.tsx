@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  A, Bold, Char,
+  A, Bold,
   Code, Details,
   Dl,
   Em,
@@ -14,7 +14,7 @@ import {
   Score, Spoiler,
   Strike,
   Strong,
-  Ul, Youtube, HtmlGuideMessage, Name, ProgrammingGuideMessage, HTMLTextPosts
+  Ul, Youtube, HtmlGuideMessage, Name, ProgrammingGuideMessage, HTMLTextPosts, Dt, Dd
 } from '@/components/PostComponents';
 
 interface Props {
@@ -53,7 +53,6 @@ export const MDXComponents = {
   Details,
   Bold,
   Kbd,
-  Char,
   Message,
   NoteTop,
   NoteBottom,
@@ -67,4 +66,6 @@ export const MDXComponents = {
   Name,
   ProgrammingGuideMessage,
   HTMLTextPosts,
+  Dt,
+  Dd,
 };

@@ -5,7 +5,7 @@ interface GetColor {
 }
 
 const langData = {
-  plaintext: [ '#666666', '#ffffff', ],
+  text: [ '#666666', '#ffffff', ],
   html: [ '#f47933', '#ffffff', ],
   js: [ '#e6a323', '#333333', ],
   javascript: [ '#e6a323', '#333333', ],
@@ -24,13 +24,7 @@ const langData = {
 };
 
 const getLangColor = (text: string): GetColor => {
-  let Lang: string;
-
-  if (text === 'plaintext') {
-    Lang = 'TEXT';
-  } else {
-    Lang = text.toUpperCase();
-  }
+  let Lang: string = text.toUpperCase();
 
   return {
     Lang,

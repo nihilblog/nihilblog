@@ -12,7 +12,7 @@ const config: IBlogConfig = {
   siteImage: '/images/blog-image.png',
   siteType: 'website',
   siteVersion: '4.0.3',
-  copyrightYear: new Date().getFullYear(),
+  copyrightYear: 2021,
   postPerPage: 5,
 };
 

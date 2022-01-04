@@ -6,14 +6,15 @@ interface Props {
 }
 
 export const Em = ({ children, }: Props) => {
-  const style = css`
-    margin-right: 4px;
-    color: inherit;
-    font-weight: inherit;
-  `;
+  const EmStyle = css({
+    marginRight: '4px',
+    color: 'inherit',
+    fontWeight: 'inherit',
+  });
+
   return (
     <>
-      <em css={style}>{children}</em>
+      <em css={EmStyle}>{children}</em>
     </>
   );
 };

@@ -28,10 +28,13 @@ export const HTMLTextPosts = () => {
       href: '/post/2021-11-26-35-u-and-s-tag',
       text: '취소선(s)과 밑줄 표현',
     },
+    {
+      href: '/post/2021-12-30-36-q-and-blockquote-tag',
+      text: '인용 태그(q, blockquote)',
+    },
   ];
 
   const Texts = [
-    '인용 태그(q, blockquote)',
     '하이라이트 태그(mark)',
     'small 태그',
     'code, pre 태그',

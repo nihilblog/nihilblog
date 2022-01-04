@@ -7,22 +7,22 @@ interface Props {
 }
 
 export const MainImage = ({ src, alt, }: Props) => {
-  const style = css`
-    max-width: 940px;
-    margin-bottom: 80px;
+  const MainImageStyle = css({
+    maxWidth: '940px',
+    marginBottom: '80px',
 
-    & > img {
-      width: 100%;
-      display: block;
-      border-radius: 10px;
-      box-sizing: border-box;
-      border: 5px solid #333333;
-    }
-  `;
+    '& > img': {
+      width: '100%',
+      display: 'block',
+      borderRadius: '10px',
+      boxSizing: 'border-box',
+      border: '5px solid #333333',
+    },
+  });
 
   return (
     <>
-      <div id='content-main-image' css={style}>
+      <div id='content-main-image' css={MainImageStyle}>
         <img src={src} alt={alt} />
       </div>
     </>

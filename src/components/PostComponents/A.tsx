@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { css } from '@emotion/react';
 import Link from 'next/link';
+import {
+  FaExternalLinkSquareAlt, FaLink, FaLock, FaYoutube
+} from 'react-icons/fa';
 import getLinkColor from '@/utils/getLinkColor';
 
 interface Props {
@@ -13,12 +16,11 @@ interface Props {
 export const A = ({
   children, href, type = 'blog', isOff = 'false',
 }: Props) => {
-  const [ icon, setIcon, ] = useState<string[]>([]);
+  const [ icon, setIcon, ] = useState<React.ReactElement>(null);
   const [ offObj, setOffObj, ] = useState({
     color: '',
     backgroundColor: '',
     cursor: '',
-    hover: '',
   });
   const [ linkObj, setLinkObj, ] = useState({
     href,
@@ -28,12 +30,12 @@ export const A = ({
 
   useEffect(() => {
     if (isOff === 'true') {
+      setIcon(<FaLock />);
       setOffObj((prev) => ({
         ...prev,
         color: '#999999',
         backgroundColor: '#88888830',
         cursor: 'default',
-        hover: '',
       }));
     } else if (isOff === 'false') {
       setOffObj((prev) => ({
@@ -41,20 +43,10 @@ export const A = ({
         color: getLinkColor(type)[0],
         backgroundColor: getLinkColor(type)[1],
         cursor: 'pointer',
-        hover: `
-          &:hover {
-            color: #ffffff;
-            background-color: ${getLinkColor(type)[0]};
-
-            & > strong {
-              color: #ffffff;
-            }
-          }
-        `,
       }));
 
       if (type === 'blog') {
-        setIcon([ 'f0c1', 'Free', ]);
+        setIcon(<FaLink />);
         setLinkObj((prev) => ({
           ...prev,
           href,
@@ -62,7 +54,7 @@ export const A = ({
           target: '_self',
         }));
       } else if (type === 'normal') {
-        setIcon([ 'f360', 'Free', ]);
+        setIcon(<FaExternalLinkSquareAlt />);
         setLinkObj((prev) => ({
           ...prev,
           href,
@@ -70,7 +62,7 @@ export const A = ({
           target: '_blank',
         }));
       } else if (type === 'youtube') {
-        setIcon([ 'f167', 'Brands', ]);
+        setIcon(<FaYoutube />);
         setLinkObj((prev) => ({
           ...prev,
           href,
@@ -81,42 +73,63 @@ export const A = ({
     }
   }, [ type, isOff, ]);
 
-  const style = css`
-    color: ${offObj.color};
-    background-color: ${offObj.backgroundColor};
-    padding: 0 7px;
-    border-radius: 5px;
-    font-size: 90%;
-    margin: 0 2px;
-    cursor: ${offObj.cursor};
+  const AStyle = css(
+    {
+      color: offObj.color,
+      backgroundColor: offObj.backgroundColor,
+      padding: '5px 7px',
+      borderRadius: '5px',
+      fontSize: '90%',
+      margin: '0 2px',
+      cursor: offObj.cursor,
+      display: 'inline-flex',
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'center',
+      lineHeight: '1',
+      textIndent: '0',
 
-    &:after {
-      content: '\\${icon[0]}';
-      font-family: 'Font Awesome 5 ${icon[1]}', sans-serif;
-      font-weight: 900;
-      margin-left: 5px;
-    }
+      '& > svg': {
+        fill: offObj.color,
+        marginLeft: '5px',
+      },
 
-    & > strong {
-      color: ${offObj.color};
-      font-weight: 900;
-    }
+      '& > strong': {
+        color: offObj.color,
+        fontWeight: 900,
+      },
+    }, (
+      isOff === 'false'
+        ? {
+          '&:hover': {
+            color: '#ffffff',
+            backgroundColor: getLinkColor(type)[0],
 
-    ${offObj.hover}
-  `;
+            '& > svg': {
+              fill: '#ffffff',
+            },
+
+            '& > strong': {
+              color: '#ffffff',
+            },
+          },
+        }
+        : {}
+    )
+  );
 
   return (
     <>
       {
         type === 'blog'
           ? isOff === 'true'
-            ? (<span css={style}>{children}</span>)
+            ? (<span css={AStyle}>{children}{icon}</span>)
             : (
               <Link {...linkObj} passHref>
-                <a css={style}>{children}</a>
+                <a css={AStyle}>{children}{icon}</a>
               </Link>
             )
-          : (<a css={style} {...linkObj}>{children}</a>)
+          : (<a css={AStyle} {...linkObj}>{children}{icon}</a>)
       }
     </>
   );

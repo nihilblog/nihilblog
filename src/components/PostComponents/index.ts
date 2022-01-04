@@ -20,13 +20,14 @@ export * from './Youtube';
 export * from './Spoiler';
 export * from './Dl';
 export * from './Kbd';
-export * from './Char';
 export * from './NoteTop';
 export * from './NoteBottom';
 export * from './Prism';
 export * from './Line';
 export * from './Mark';
 export * from './Name';
+export * from './Dt';
+export * from './Dd';
 
 export * from './CustomMessage/HtmlGuideMessage';
 export * from './CustomMessage/CommentGuideMessage';

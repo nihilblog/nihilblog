@@ -6,15 +6,15 @@ interface Props {
 }
 
 export const Gray = ({ children, }: Props) => {
-  const style = css`
-    font-style: italic;
-    color: #888888;
-    margin-right: 4px;
-  `;
+  const GrayStyle = css({
+    fontStyle: 'italic',
+    color: '#888888',
+    marginRight: '4px',
+  });
 
   return (
     <>
-      <span css={style}>{children}</span>
+      <span css={GrayStyle}>{children}</span>
     </>
   );
 };

@@ -2,37 +2,39 @@ import React from 'react';
 import { css } from '@emotion/react';
 
 interface Props {
-  number?: string;
+  number: string;
 }
 
 export const NoteTop = ({ number, }: Props) => {
-  const style = css`
-    font-weight: 500;
-    margin-right: 2px;
+  const NoteTopStyle = css({
+    fontWeight: 500,
+    marginRight: '2px',
 
-    & > a {
-      color: #218cd8;
-      font-size: 80%;
+    '& > a': {
+      color: '#218cd8',
+      fontSize: '80%',
 
-      &:before {
-        content: '[';
-        margin-right: 2px;
-      }
+      '&:before': {
+        content: `'['`,
+        marginRight: '2px',
+      },
 
-      &:after {
-        content: ']';
-        margin-left: 2px;
-      }
+      '&:after': {
+        content: `']'`,
+        marginLeft: '2px',
+      },
 
-      &:hover {
-        font-weight: 900;
-      }
-    }
-  `;
+      '&:hover': {
+        fontWeight: 900,
+      },
+    },
+  });
 
   return (
     <>
-      <sup id={`top${number}`} css={style}><a href={`#note${number}`}>{number}</a></sup>
+      <sup id={`top${number}`} css={NoteTopStyle}>
+        <a href={`#note${number}`}>{number}</a>
+      </sup>
     </>
   );
 };

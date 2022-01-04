@@ -6,13 +6,13 @@ interface Props {
 }
 
 export const Bold = ({ children, }: Props) => {
-  const style = css`
-    font-weight: 900;
-  `;
+  const BoldStyle = css({
+    fontWeight: 900,
+  });
 
   return (
     <>
-      <span css={style}>{children}</span>
+      <span css={BoldStyle}>{children}</span>
     </>
   );
 };

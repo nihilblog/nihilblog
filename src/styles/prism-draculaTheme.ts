@@ -3,9 +3,7 @@ import size from '@/data/size.data';
 
 const gruvboxDark = css`
   code[class*="language-"],
-  pre[class*="language-"],
-  code[class*="plaintext"],
-  pre[class*="plaintext"] {
+  pre[class*="language-"] {
     color: #cccccc; /* fg1 / fg */
     font-family: CascadiaCode, 'Noto Sans KR', sans-serif !important;
     direction: ltr;
@@ -17,6 +15,7 @@ const gruvboxDark = css`
     border-radius: 10px;
     box-sizing: border-box;
     position: relative;
+    letter-spacing: 0;
 
     -moz-tab-size: 4;
     -o-tab-size: 4;
@@ -41,28 +40,28 @@ const gruvboxDark = css`
   }
 
   /* Code blocks */
-  pre[class*="language-"],
-  pre[class*="plaintext"] {
+  pre[class*="language-"] {
     padding: 1em;
     overflow: auto;
   }
 
   :not(pre) > code[class*="language-"],
-  pre[class*="language-"],
-  :not(pre) > code[class*="plaintext"],
-  pre[class*="plaintext"] {
+  pre[class*="language-"] {
     background: #2d2d2d; /* bg0_h */
   }
 
   /* Inline code */
-  :not(pre) > code[class*="language-"],
-  :not(pre) > code[class*="plaintext"] {
+  :not(pre) > code[class*="language-"] {
     padding: 0.1em;
     border-radius: 0.3em;
   }
 
   .token {
     font-family: CascadiaCode, 'Noto Sans KR', sans-serif !important;
+  }
+
+  .code-line {
+    color: #cccccc;
   }
 
   .token.comment,

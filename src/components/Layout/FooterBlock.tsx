@@ -7,6 +7,9 @@ import config from '@/data/config.data';
 import size from '@/data/size.data';
 
 export const FooterBlock = React.memo(() => {
+  const year = new Date().getFullYear();
+  const copyYear = config.copyrightYear < year ? `${config.copyrightYear}-${year}` : config.copyrightYear;
+
   const FooterBlockStyle = css({
     backgroundColor: '#333333',
     padding: '10px',
@@ -122,7 +125,7 @@ export const FooterBlock = React.memo(() => {
           </a>
         </p>
         <p id='footer-blog-version'>니힐로그 <strong>v{config.siteVersion}</strong></p>
-        <p id='footer-copyright'><FaRegCopyright className='icon' />{config.copyrightYear}. {config.siteAuthor}.</p>
+        <p id='footer-copyright'><FaRegCopyright className='icon' />{copyYear}. {config.siteAuthor}.</p>
       </footer>
     </>
   );

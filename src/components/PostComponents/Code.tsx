@@ -1,34 +1,36 @@
 import React from 'react';
 import { css } from '@emotion/react';
+import { FaCode } from 'react-icons/fa';
 
 interface Props {
   children?: React.ReactNode;
 }
 
 export const Code = ({ children, }: Props) => {
-  const style = css`
-    padding: 0 7px;
-    border-radius: 5px;
-    font-weight: 500;
-    text-indent: 0;
-    color: #eeeeee;
-    font-size: 90%;
-    background-color: #555555;
-    margin: 0 2px;
-    vertical-align: bottom;
+  const CodeStyle = css({
+    padding: '5px 7px',
+    borderRadius: '5px',
+    fontWeight: 500,
+    textIndent: '0',
+    color: '#ffffff',
+    fontSize: '90%',
+    backgroundColor: '#555555',
+    margin: '0 2px',
+    lineHeight: '1',
+    display: 'inline-flex',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
 
-    &:before {
-      content: '\\f121';
-      font-weight: 900;
-      font-family: 'Font Awesome 5 Free', sans-serif;
-      margin-right: 5px;
-      color: #999999;
-    }
-  `;
+    '& > svg': {
+      fill: '#ffffff',
+      marginRight: '5px',
+    },
+  });
 
   return (
     <>
-      <code css={style}>{children}</code>
+      <code css={CodeStyle}><FaCode />{children}</code>
     </>
   );
 };

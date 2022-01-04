@@ -6,16 +6,16 @@ interface Props {
 }
 
 export const Line = ({ margin = '80', }: Props) => {
-  const lineStyle = css`
-    margin: ${margin}px auto ${margin}px auto;
-    width: 80%;
-    border: none;
-    border-bottom: 10px dotted #888888;
-  `;
+  const LineStyle = css({
+    margin: `${margin}px auto ${margin}px auto`,
+    width: '80%',
+    border: 'none',
+    borderBottom: '10px dotted #888888',
+  });
 
   return (
     <>
-      <hr css={lineStyle} />
+      <hr css={LineStyle} />
     </>
   );
 };

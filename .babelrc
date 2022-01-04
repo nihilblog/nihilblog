@@ -7,7 +7,13 @@
         "class-properties": {}
       }
     ],
-    "@emotion/babel-preset-css-prop"
+    [
+      "@emotion/babel-preset-css-prop",
+      {
+        "autoLabel": "dev-only",
+        "labelFormat": "[filename]-[local]"
+      }
+    ]
   ],
   "plugins": [
     "@emotion"

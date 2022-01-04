@@ -83,6 +83,13 @@
   </url>
 
   <url>
+    <loc>https://nihilog.github.io/post/2021-12-30-36-q-and-blockquote-tag</loc>
+    <lastmod>2021-12-30T09:58:29+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1</priority>
+  </url>
+
+  <url>
     <loc>https://nihilog.github.io/post/2021-11-26-35-u-and-s-tag</loc>
     <lastmod>2021-11-26T08:43:00+09:00</lastmod>
     <changefreq>daily</changefreq>
@@ -393,6 +400,24 @@
 
   <url>
     <loc>https://nihilog.github.io/tags/HTML 초보</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://nihilog.github.io/tags/인용 태그</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://nihilog.github.io/tags/q 태그</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://nihilog.github.io/tags/blockquote 태그</loc>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
   </url>
