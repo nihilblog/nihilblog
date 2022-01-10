@@ -32,10 +32,13 @@ export const HTMLTextPosts = () => {
       href: '/post/2021-12-30-36-q-and-blockquote-tag',
       text: '인용 태그(q, blockquote)',
     },
+    {
+      href: '/post/2022-01-10-37-mark-tag',
+      text: '하이라이트 태그(mark)',
+    },
   ];
 
   const Texts = [
-    '하이라이트 태그(mark)',
     'small 태그',
     'code, pre 태그',
     'abbr 태그',
