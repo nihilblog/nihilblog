@@ -83,6 +83,13 @@
   </url>
 
   <url>
+    <loc>https://nihilog.github.io/post/2022-01-11-38-small-tag</loc>
+    <lastmod>2022-01-11T05:11:30+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1</priority>
+  </url>
+
+  <url>
     <loc>https://nihilog.github.io/post/2022-01-10-37-mark-tag</loc>
     <lastmod>2022-01-10T06:10:07+09:00</lastmod>
     <changefreq>daily</changefreq>
@@ -345,7 +352,7 @@
 
   <url>
     <loc>https://nihilog.github.io/post/2021-05-02-01-complete-html-guide</loc>
-    <lastmod>2022-01-10T07:10:31+09:00</lastmod>
+    <lastmod>2022-01-11T09:11:53+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>1</priority>
   </url>
@@ -407,6 +414,18 @@
 
   <url>
     <loc>https://nihilog.github.io/tags/HTML 초보</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://nihilog.github.io/tags/small 태그</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://nihilog.github.io/tags/덧붙임 글 태그</loc>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
   </url>

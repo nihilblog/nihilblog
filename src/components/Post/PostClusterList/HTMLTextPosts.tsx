@@ -36,10 +36,13 @@ export const HTMLTextPosts = () => {
       href: '/post/2022-01-10-37-mark-tag',
       text: '하이라이트 태그(mark)',
     },
+    {
+      href: '/post/2022-01-11-38-small-tag',
+      text: 'small 태그',
+    },
   ];
 
   const Texts = [
-    'small 태그',
     'code, pre 태그',
     'abbr 태그',
     '그 외의 텍스트 태그들',

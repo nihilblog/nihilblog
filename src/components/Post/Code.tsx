@@ -1,6 +1,5 @@
 import React from 'react';
 import { css } from '@emotion/react';
-import { FaCode } from 'react-icons/fa';
 
 interface Props {
   children?: React.ReactNode;
@@ -8,7 +7,7 @@ interface Props {
 
 export const Code = ({ children, }: Props) => {
   const CodeStyle = css`
-    padding: 5px 7px;
+    padding: 2px 7px;
     border-radius: 5px;
     font-weight: 500;
     text-indent: 0;
@@ -17,20 +16,18 @@ export const Code = ({ children, }: Props) => {
     background-color: #555555;
     margin: 0 2px;
     line-height: 1;
-    display: inline-flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
 
-    & > svg {
-      fill: #ffffff;
+    &:before {
+      content: '\\f121';
+      font-family: 'Font Awesome 5 Free', sans-serif;
+      font-weight: 900;
       margin-right: 5px;
     }
   `;
 
   return (
     <>
-      <code css={CodeStyle}><FaCode />{children}</code>
+      <code css={CodeStyle}>{children}</code>
     </>
   );
 };

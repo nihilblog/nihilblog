@@ -1,9 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { css } from '@emotion/react';
 import Link from 'next/link';
-import {
-  FaExternalLinkSquareAlt, FaLink, FaLock, FaYoutube
-} from 'react-icons/fa';
 import getLinkColor from '@/utils/getLinkColor';
 
 interface Props {
@@ -16,7 +13,9 @@ interface Props {
 export const A = ({
   children, href, type = 'blog', isOff = 'false',
 }: Props) => {
-  const [ icon, setIcon, ] = useState<React.ReactElement>(null);
+  const [ iconCode, setIconCode, ] = useState('');
+  const [ iconWeight, setIconWeight, ] = useState('');
+  const [ iconType, setIconType, ] = useState('');
   const [ offObj, setOffObj, ] = useState({
     color: '',
     backgroundColor: '',
@@ -30,7 +29,9 @@ export const A = ({
 
   useEffect(() => {
     if (isOff === 'true') {
-      setIcon(<FaLock />);
+      setIconCode('f023');
+      setIconType('Free');
+      setIconWeight('900');
       setOffObj((prev) => ({
         ...prev,
         color: '#999999',
@@ -46,7 +47,9 @@ export const A = ({
       }));
 
       if (type === 'blog') {
-        setIcon(<FaLink />);
+        setIconCode('f0c1');
+        setIconType('Free');
+        setIconWeight('900');
         setLinkObj((prev) => ({
           ...prev,
           href,
@@ -54,7 +57,9 @@ export const A = ({
           target: '_self',
         }));
       } else if (type === 'normal') {
-        setIcon(<FaExternalLinkSquareAlt />);
+        setIconCode('f360');
+        setIconType('Free');
+        setIconWeight('900');
         setLinkObj((prev) => ({
           ...prev,
           href,
@@ -62,7 +67,9 @@ export const A = ({
           target: '_blank',
         }));
       } else if (type === 'youtube') {
-        setIcon(<FaYoutube />);
+        setIconCode('f167');
+        setIconType('Brands');
+        setIconWeight('900');
         setLinkObj((prev) => ({
           ...prev,
           href,
@@ -79,10 +86,6 @@ export const A = ({
         color: #ffffff;
         background-color: ${getLinkColor(type)[0]};
 
-        & > svg {
-          fill: #ffffff;
-        }
-
         & > strong {
           color: #ffffff;
         }
@@ -93,21 +96,19 @@ export const A = ({
   const AStyle = css`
     color: ${offObj.color};
     background-color: ${offObj.backgroundColor};
-    padding: 5px 7px;
+    padding: 2px 7px;
     border-radius: 5px;
     font-size: 90%;
     margin: 0 2px;
     cursor: ${offObj.cursor};
-    display: inline-flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
     line-height: 1;
     text-indent: 0;
 
-    & > svg {
-      fill: ${offObj.color};
+    &:after {
+      content: '\\${iconCode}';
       margin-left: 5px;
+      font-family: 'Font Awesome 5 ${iconType}', sans-serif;
+      font-weight: ${iconWeight};
     }
 
     & > strong {
@@ -123,13 +124,13 @@ export const A = ({
       {
         type === 'blog'
           ? isOff === 'true'
-            ? (<span css={AStyle}>{children}{icon}</span>)
+            ? (<span css={AStyle}>{children}</span>)
             : (
               <Link {...linkObj} passHref>
-                <a css={AStyle}>{children}{icon}</a>
+                <a css={AStyle}>{children}</a>
               </Link>
             )
-          : (<a css={AStyle} {...linkObj}>{children}{icon}</a>)
+          : (<a css={AStyle} {...linkObj}>{children}</a>)
       }
     </>
   );

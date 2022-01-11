@@ -70,10 +70,6 @@ export const useMessageStyle = (top: string, bottom: string, colorType: IMessage
           &:hover {
             color: #ffffff;
             background-color: ${colorType.color[1]};
-
-            & > svg {
-              fill: #ffffff;
-            }
           }
         }
       }
