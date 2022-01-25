@@ -68,6 +68,7 @@
   "resolutions": {
     "trim": "^0.0.3",
     "prismjs": "^1.24.0",
-    "ansi-regex": "^5.0.1"
+    "ansi-regex": "^5.0.1",
+    "node-fetch": "^2.6.7"
   }
 }
