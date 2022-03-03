@@ -28,6 +28,11 @@ class AppDocument extends Document {
     return (
       <Html lang='ko'>
         <Head>
+          <link
+            rel='stylesheet'
+            href='https://use.fontawesome.com/releases/v5.15.4/css/all.css'
+          />
+
           <script
             data-ad-client='ca-pub-9256396675875954'
             async

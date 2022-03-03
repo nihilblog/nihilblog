@@ -27,11 +27,6 @@ const App = ({ Component, pageProps, }: AppProps) => {
         <link rel='shortcut icon' type='image/x-icon' href={`${config.siteURL}/favicon.ico`} />
         <link rel='icon' type='image/x-icon' href={`${config.siteURL}/favicon.ico`} />
 
-        <link
-          rel='stylesheet'
-          href='https://use.fontawesome.com/releases/v5.15.4/css/all.css'
-        />
-
         <meta name='robots' content='All' />
         <meta name='robots' content='index, follow' />
         <meta name='NaverBot' content='All' />

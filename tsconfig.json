@@ -1,8 +1,8 @@
 {
   "compilerOptions": {
     "baseUrl": ".",
-    "module": "esnext",
-    "target": "es5",
+    "module": "CommonJS",
+    "target": "ESNext",
     "esModuleInterop": true,
     "jsx": "preserve",
     "jsxImportSource": "@emotion/react",
@@ -38,7 +38,7 @@
     "lib": [
       "dom",
       "dom.iterable",
-      "esnext"
+      "ESNext"
     ],
     "allowJs": true,
     "skipLibCheck": true,
