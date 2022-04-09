@@ -26,7 +26,7 @@ export const MDXComponents = {
   h2: (props: Props) => <H type='2' {...props} />,
   h3: (props: Props) => <H type='3' {...props} />,
   h4: (props: Props) => <H type='4' {...props} />,
-  inlineCode: (props: Props) => <Code {...props} />,
+  code: (props: Props) => <Code {...props} />,
   p: (props: Props) => <P {...props} />,
   img: (props: Props) => <Image {...props} />,
   a: (props: Props) => <A {...props} />,

@@ -83,6 +83,13 @@
   </url>
 
   <url>
+    <loc>https://nihilog.github.io/post/2022-03-29-39-code-and-pre-tag</loc>
+    <lastmod>2022-03-29T08:44:01+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1</priority>
+  </url>
+
+  <url>
     <loc>https://nihilog.github.io/post/2022-01-11-38-small-tag</loc>
     <lastmod>2022-01-11T05:11:30+09:00</lastmod>
     <changefreq>daily</changefreq>
@@ -414,6 +421,24 @@
 
   <url>
     <loc>https://nihilog.github.io/tags/HTML 초보</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://nihilog.github.io/tags/코드 태그</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://nihilog.github.io/tags/code 태그</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://nihilog.github.io/tags/pre 태그</loc>
     <changefreq>daily</changefreq>
     <priority>0.7</priority>
   </url>

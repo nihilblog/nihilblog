@@ -55,6 +55,16 @@ export const Prism = ({
     background-color: ${backgroundColor};
     padding: 0 10px 10px 10px;
     border-radius: 0 0 10px 10px;
+
+    & code {
+      &:before {
+        display: none;
+      }
+
+      padding: 0;
+      background-color: transparent;
+      font-size: 100%;
+    }
   `;
 
   return (
