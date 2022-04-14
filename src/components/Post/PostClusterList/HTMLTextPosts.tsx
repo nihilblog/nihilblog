@@ -44,10 +44,13 @@ export const HTMLTextPosts = () => {
       href: '/post/2022-03-29-39-code-and-pre-tag',
       text: 'code, pre 태그',
     },
+    {
+      href: '/post/2022-04-14-40-string-escape',
+      text: '번외 - 탈출문자 사용하기',
+    },
   ];
 
   const Texts = [
-    '번외 - 탈출문자 사용하기',
     'abbr 태그',
     '그 외의 텍스트 태그들',
   ];
