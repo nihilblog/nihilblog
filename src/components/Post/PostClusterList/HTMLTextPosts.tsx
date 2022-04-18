@@ -51,7 +51,6 @@ export const HTMLTextPosts = () => {
   ];
 
   const Texts = [
-    'abbr 태그',
     '그 외의 텍스트 태그들',
   ];
 
