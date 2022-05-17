@@ -6,7 +6,7 @@ coverImage: 'https://drive.google.com/uc?export=view&id=1uC2qw2Iye3QkSTNcydjtlW6
 categories: [가이드, HTML]
 tags: [가이드, HTML, 웹 개발, 프로그래밍, 코딩, 웹 코딩, 웹 프로그래밍, HTML 공부하기, HTML 초보, 탈출 문자]
 createdAt: 2022-04-14 19:38:30
-updatedAt: 2022-04-18 16:19:23
+updatedAt: 2022-05-18 01:59:56
 keywords: []
 drawDate: 2022-04-14 19:38:30
 display: true
@@ -32,6 +32,10 @@ HTML은 웹 페이지의 골격을 만들기 위해 존재합니다. 여기까�
 # 탈출 문자
 탈출 문자는 프로그래밍을 하면서 특수문자를 사용할 때 혹은 프로그램적인 제한에서 탈출하기 위해 사용하는 문자들입니다. 이러한 행위들을 **Escape**라고 합니다. 다른 프로그래밍 언어들에도 탈출 문자는 존재합니다. 아무튼 이 글에서는 HTML에 한정된 것들을 다루려고 합니다. 전부를 다루는 것은 어려우니까 자주 다루는 것만 추려서 보여드리도록 하겠습니다.
 
+<Message color='g'>
+  <p>HTML에서 사용하는 탈출문자의 올바른 표현은 <Strong>엔티티 코드(Entity Code)</Strong>입니다.</p>
+</Message>
+
 ## 자주 사용하는 특수문자
 이 아래는 자주 사용하는 특수문자들을 HTML 문법과 충돌하지 않게 사용하는 방법들입니다.
 
@@ -47,6 +51,14 @@ HTML은 웹 페이지의 골격을 만들기 위해 존재합니다. 여기까�
   <Dt>\&quot;</Dt>
   <Dd>&quot;(큰따옴표)를 나타냅니다.</Dd>
 </Dl>
+
+```html
+<p>태그는 보통 &lt;이름&gt;과 &lt;/이름&gt;으로 감쌉니다.</p>
+```
+
+![엔티티 코드를 사용한 모습이다.](https://drive.google.com/uc?export=view&id=1RfF1tkQVpIANn_1Zjb6KYa-RHTpOwj-3)
+
+이런 느낌으로 사용하시면 되겠습니다.
 
 ## 그 외의 문자들
 <P>위의 내용들은 알아두면 좋은 내용들이지만 사실 반드시 알아야 하지는 않습니다. 어차피 필요하면 찾아보면 되니까요. 그럴 때 <A type='normal' href='https://dev.w3.org/html5/html-author/charref'>이 사이트</A>에서 찾아보시면 되겠습니다. 되게 상당한 개수의 특수문자들이 존재합니다.</P>
